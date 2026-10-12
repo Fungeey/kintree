@@ -98,13 +98,13 @@ function Shell({ start }: { start: Start }) {
         <h1>家庭稱呼</h1>
         {s.married && (
           <div className="seg" role="group" aria-label="Whose family to show">
-            <button type="button" aria-pressed={view === 'mine'} onClick={() => setView('mine')}>My family</button>
-            <button type="button" aria-pressed={view === 'spouse'} onClick={() => setView('spouse')}>Spouse's family</button>
+            <button type="button" aria-pressed={view === 'mine'} onClick={() => setView('mine')}>My <span className="long">family</span></button>
+            <button type="button" aria-pressed={view === 'spouse'} onClick={() => setView('spouse')}>Spouse<span className="long">'s family</span></button>
           </div>
         )}
         <span className="spacer" />
-        <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Link copied' : copied === 'fail' ? 'Copy failed' : 'Copy link'}</button>
-        <button type="button" className="primary" onClick={() => setAdding(a => !a)}>{adding ? 'Close' : '+ Add relative'}</button>
+        <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link</span></>}</button>
+        <button type="button" className="primary" onClick={() => setAdding(a => !a)}>{adding ? 'Close' : <>+ Add<span className="long"> relative</span></>}</button>
         <button type="button" onClick={remove} aria-label="Remove me from the tree">Remove</button>
       </header>
       {error && (
