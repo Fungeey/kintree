@@ -1,0 +1,97 @@
+key,example_path,gloss_en,yue_chars,yue_jyutping,cmn_chars,cmn_pinyin,verified
+2Df1-0--,"daughter > daughter",,,,,,false
+2Dm1-0--,"daughter > son",,,,,,false
+2Sf1-0--,"son > daughter",,,,,,false
+2Sm1-0--,"son > son",,,,,,false
+3Bf0-0--,"brother:older > daughter",,,,,,false
+3Bm0-0--,"brother:older > son",,,,,,false
+3Df1-0--,"daughter",,,,,,false
+3Dm0-1--,"daughter > husband",,,,,,false
+3Sf0-1--,"son > wife",,,,,,false
+3Sm1-0--,"son",,,,,,false
+3Zf0-0--,"sister:older > daughter",,,,,,false
+3Zm0-0--,"sister:older > son",,,,,,false
+4Bf0o1--,"brother:older > wife",,,,,,false
+4Bf0y1--,"brother:younger > wife",,,,,,false
+4Bm0o0--,"brother:older",,,,,,false
+4Bm0y0--,"brother:younger",,,,,,false
+4Hf0o1--,"husband > sister:older",,,,,,false
+4Hf0o2--,"husband > brother:older > wife",,,,,,false
+4Hf0y1--,"husband > sister:younger",,,,,,false
+4Hf0y2--,"husband > brother:younger > wife",,,,,,false
+4Hm0-1--,"husband",,,,,,false
+4Hm0o1--,"husband > brother:older",,,,,,false
+4Hm0o2--,"husband > sister:older > husband",,,,,,false
+4Hm0y1--,"husband > brother:younger",,,,,,false
+4Hm0y2--,"husband > sister:younger > husband",,,,,,false
+4Mf2o0--,"maternal_cousin_f:older",,,,,,false
+4Mf2o1--,"maternal_cousin_m:older > wife",,,,,,false
+4Mf2y0--,"maternal_cousin_f:younger",,,,,,false
+4Mf2y1--,"maternal_cousin_m:younger > wife",,,,,,false
+4Mm2o0--,"maternal_cousin_m:older",,,,,,false
+4Mm2o1--,"maternal_cousin_f:older > husband",,,,,,false
+4Mm2y0--,"maternal_cousin_m:younger",,,,,,false
+4Mm2y1--,"maternal_cousin_f:younger > husband",,,,,,false
+4Pf2o0--,"paternal_cousin_f:older",,,,,,false
+4Pf2o1--,"paternal_cousin_m:older > wife",,,,,,false
+4Pf2y0--,"paternal_cousin_f:younger",,,,,,false
+4Pf2y1--,"paternal_cousin_m:younger > wife",,,,,,false
+4Pm2o0--,"paternal_cousin_m:older",,,,,,false
+4Pm2o1--,"paternal_cousin_f:older > husband",,,,,,false
+4Pm2y0--,"paternal_cousin_m:younger",,,,,,false
+4Pm2y1--,"paternal_cousin_f:younger > husband",,,,,,false
+4Wf0-1--,"wife",,,,,,false
+4Wf0o1--,"wife > sister:older",,,,,,false
+4Wf0o2--,"wife > brother:older > wife",,,,,,false
+4Wf0y1--,"wife > sister:younger",,,,,,false
+4Wf0y2--,"wife > brother:younger > wife",,,,,,false
+4Wm0o1--,"wife > brother:older",,,,,,false
+4Wm0o2--,"wife > sister:older > husband",,,,,,false
+4Wm0y1--,"wife > brother:younger",,,,,,false
+4Wm0y2--,"wife > sister:younger > husband",,,,,,false
+4Zf0o0--,"sister:older",,,,,,false
+4Zf0y0--,"sister:younger",,,,,,false
+4Zm0o1--,"sister:older > husband",,,,,,false
+4Zm0y1--,"sister:younger > husband",,,,,,false
+5Hf0-1--,"husband > mother",,,,,,false
+5Hm0-1--,"husband > father",,,,,,false
+5Mf0o0--,"mother > sister:older",,,,,,false
+5Mf0o1--,"mother > brother:older > wife",,,,,,false
+5Mf0y0--,"mother > sister:younger",,,,,,false
+5Mf0y1--,"mother > brother:younger > wife",,,,,,false
+5Mf1-0--,"mother",,,,,,false
+5Mm0o0--,"mother > brother:older",,,,,,false
+5Mm0o1--,"mother > sister:older > husband",,,,,,false
+5Mm0y0--,"mother > brother:younger",,,,,,false
+5Mm0y1--,"mother > sister:younger > husband",,,,,,false
+5Pf0o0--,"father > sister:older",,,,,,false
+5Pf0o1--,"father > brother:older > wife",,,,,,false
+5Pf0y0--,"father > sister:younger",,,,,,false
+5Pf0y1--,"father > brother:younger > wife",,,,,,false
+5Pm0o0--,"father > brother:older",,,,,,false
+5Pm0o1--,"father > sister:older > husband",,,,,,false
+5Pm0y0--,"father > brother:younger",,,,,,false
+5Pm0y1--,"father > sister:younger > husband",,,,,,false
+5Pm1-0--,"father",,,,,,false
+5Wf0-1--,"wife > mother",,,,,,false
+5Wm0-1--,"wife > father",,,,,,false
+6Mf0o0f-,"mother > mother > sister:older",,,,,,false
+6Mf0o0m-,"mother > father > sister:older",,,,,,false
+6Mf0y0f-,"mother > mother > sister:younger",,,,,,false
+6Mf0y0m-,"mother > father > sister:younger",,,,,,false
+6Mf1-0--,"mother > mother",,,,,,false
+6Mm0o0f-,"mother > mother > brother:older",,,,,,false
+6Mm0o0m-,"mother > father > brother:older",,,,,,false
+6Mm0y0f-,"mother > mother > brother:younger",,,,,,false
+6Mm0y0m-,"mother > father > brother:younger",,,,,,false
+6Mm1-0--,"mother > father",,,,,,false
+6Pf0o0f-,"father > mother > sister:older",,,,,,false
+6Pf0o0m-,"father > father > sister:older",,,,,,false
+6Pf0y0f-,"father > mother > sister:younger",,,,,,false
+6Pf0y0m-,"father > father > sister:younger",,,,,,false
+6Pf1-0--,"father > mother",,,,,,false
+6Pm0o0f-,"father > mother > brother:older",,,,,,false
+6Pm0o0m-,"father > father > brother:older",,,,,,false
+6Pm0y0f-,"father > mother > brother:younger",,,,,,false
+6Pm0y0m-,"father > father > brother:younger",,,,,,false
+6Pm1-0--,"father > father",,,,,,false

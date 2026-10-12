@@ -1,0 +1,1315 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "爸爸",
+   "jyutping": "baa4 baa1"
+  },
+  "spoken": {
+   "chars": "爸爸",
+   "jyutping": "baa4 baa1"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "媽媽",
+   "jyutping": "maa4 maa1"
+  },
+  "spoken": {
+   "chars": "媽媽",
+   "jyutping": "maa4 maa1"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "仔",
+   "jyutping": "zai2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "女",
+   "jyutping": "neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "先生",
+   "jyutping": "sin1 saang1"
+  },
+  "spoken": {
+   "chars": "老公",
+   "jyutping": "lou5 gung1"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "太太",
+   "jyutping": "taai3 taai2"
+  },
+  "spoken": {
+   "chars": "老婆",
+   "jyutping": "lou5 po4"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "哥哥",
+   "jyutping": "go4 go1"
+  },
+  "spoken": {
+   "chars": "阿哥",
+   "jyutping": "aa3 go1"
+  },
+  "status": "checked",
+  "note": "spoken 阿哥 aa3 go1 not checked"
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "弟弟",
+   "jyutping": "dai4 dai2"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "words.hk: 弟弟 dai4 dai2 (tone change of dai6 dai6)"
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "姐姐",
+   "jyutping": "ze4 ze1"
+  },
+  "spoken": {
+   "chars": "家姐",
+   "jyutping": "gaa1 ze1"
+  },
+  "status": "checked",
+  "note": "spoken 家姐 gaa1 ze1 not checked"
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "妹妹",
+   "jyutping": "mui4 mui2"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "words.hk: 妹妹 mui4 mui2 (variant mui4 mui1)"
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "spoken": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "spoken": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "外公",
+   "jyutping": "ngoi6 gung1"
+  },
+  "spoken": {
+   "chars": "公公",
+   "jyutping": "gung4 gung1"
+  },
+  "status": "checked",
+  "note": "words.hk: 公公 gung4 gung1, variant gung1 gung1; also used for any old man"
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "外婆",
+   "jyutping": "ngoi6 po4"
+  },
+  "spoken": {
+   "chars": "婆婆",
+   "jyutping": "po4 po1"
+  },
+  "status": "checked",
+  "note": "words.hk: 外婆 ngoi6 po4; 婆婆 po4 po1 not checked as a kinship term"
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "jyutping": "baak3 fu6"
+  },
+  "spoken": {
+   "chars": "伯伯",
+   "jyutping": "baak3 baak3"
+  },
+  "status": "unverified",
+  "note": "words.hk lists 伯 only (大伯 = father's eldest brother); 伯父 not checked directly"
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "jyutping": "suk1 fu6"
+  },
+  "spoken": {
+   "chars": "阿叔",
+   "jyutping": "aa3 suk1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Ze",
+  "en": "father's elder sister",
+  "formal": {
+   "chars": "姑媽",
+   "jyutping": "gu1 maa1"
+  },
+  "spoken": {
+   "chars": "姑媽",
+   "jyutping": "gu1 maa1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Zy",
+  "en": "father's younger sister",
+  "formal": {
+   "chars": "姑姐",
+   "jyutping": "gu1 ze1"
+  },
+  "spoken": {
+   "chars": "姑姐",
+   "jyutping": "gu1 ze1"
+  },
+  "status": "unverified",
+  "note": "姑姐 unchecked on words.hk (page failed to load); spoken form may be 阿姑 or 姑姐 by family"
+ },
+ {
+  "pattern": "M B*",
+  "en": "mother's brother",
+  "formal": {
+   "chars": "舅父",
+   "jyutping": "kau5 fu2"
+  },
+  "spoken": {
+   "chars": "舅父",
+   "jyutping": "kau5 fu2"
+  },
+  "status": "checked",
+  "note": "words.hk reads 舅父 kau3 fu2, variant kau5 fu2"
+ },
+ {
+  "pattern": "M Ze",
+  "en": "mother's elder sister",
+  "formal": {
+   "chars": "姨媽",
+   "jyutping": "ji4 maa1"
+  },
+  "spoken": {
+   "chars": "姨媽",
+   "jyutping": "ji4 maa1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Zy",
+  "en": "mother's younger sister",
+  "formal": {
+   "chars": "阿姨",
+   "jyutping": "aa3 ji1"
+  },
+  "spoken": {
+   "chars": "阿姨",
+   "jyutping": "aa3 ji1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "伯娘",
+   "jyutping": "baak3 noeng4"
+  },
+  "spoken": {
+   "chars": "伯娘",
+   "jyutping": "baak3 noeng4"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "阿嬸",
+   "jyutping": "aa3 sam2"
+  },
+  "spoken": {
+   "chars": "阿嬸",
+   "jyutping": "aa3 sam2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Z* H",
+  "en": "father's sister's husband",
+  "formal": {
+   "chars": "姑丈",
+   "jyutping": "gu1 zoeng2"
+  },
+  "spoken": {
+   "chars": "姑丈",
+   "jyutping": "gu1 zoeng2"
+  },
+  "status": "checked",
+  "note": "words.hk: gu1 zoeng2, also read gu1 zoeng6"
+ },
+ {
+  "pattern": "M B* W",
+  "en": "mother's brother's wife",
+  "formal": {
+   "chars": "舅母",
+   "jyutping": "kau5 mou2"
+  },
+  "spoken": {
+   "chars": "舅母",
+   "jyutping": "kau5 mou2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Z* H",
+  "en": "mother's sister's husband",
+  "formal": {
+   "chars": "姨丈",
+   "jyutping": "ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "姨丈",
+   "jyutping": "ji4 zoeng2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "伯公",
+   "jyutping": "baak3 gung1"
+  },
+  "spoken": {
+   "chars": "伯公",
+   "jyutping": "baak3 gung1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "叔公",
+   "jyutping": "suk1 gung1"
+  },
+  "spoken": {
+   "chars": "叔公",
+   "jyutping": "suk1 gung1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F Z*",
+  "en": "paternal grandfather's sister",
+  "formal": {
+   "chars": "姑婆",
+   "jyutping": "gu1 po4"
+  },
+  "spoken": {
+   "chars": "姑婆",
+   "jyutping": "gu1 po4"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F B* S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "堂兄弟",
+   "jyutping": "tong4 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂哥",
+    "jyutping": "tong4 go1"
+   },
+   "spoken": {
+    "chars": "堂哥",
+    "jyutping": "tong4 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂弟",
+    "jyutping": "tong4 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "堂姊妹",
+   "jyutping": "tong4 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂姐",
+    "jyutping": "tong4 ze2"
+   },
+   "spoken": {
+    "chars": "堂姐",
+    "jyutping": "tong4 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂妹",
+    "jyutping": "tong4 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "阿嫂",
+   "jyutping": "aa3 sou2"
+  },
+  "spoken": {
+   "chars": "阿嫂",
+   "jyutping": "aa3 sou2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "弟婦",
+   "jyutping": "dai6 fu5"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "弟婦 vs 弟妹 varies by family; spoken form is by name"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "姐夫",
+   "jyutping": "ze2 fu1"
+  },
+  "spoken": {
+   "chars": "姐夫",
+   "jyutping": "ze2 fu1"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "妹夫",
+   "jyutping": "mui6 fu1"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "侄",
+   "jyutping": "zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "侄女",
+   "jyutping": "zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "外甥",
+   "jyutping": "ngoi6 saang1"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "外甥女",
+   "jyutping": "ngoi6 saang1 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "新抱",
+   "jyutping": "san1 pou5"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "女婿",
+   "jyutping": "neoi5 sai3"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "孫",
+   "jyutping": "syun1"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "孫女",
+   "jyutping": "syun1 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "外孫",
+   "jyutping": "ngoi6 syun1"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "外孫女",
+   "jyutping": "ngoi6 syun1 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "老爺",
+   "jyutping": "lou5 je4"
+  },
+  "spoken": {
+   "chars": "老爺",
+   "jyutping": "lou5 je4"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "奶奶",
+   "jyutping": "naai4 naai2"
+  },
+  "spoken": {
+   "chars": "奶奶",
+   "jyutping": "naai4 naai2"
+  },
+  "status": "unverified",
+  "note": "奶奶 naai4 naai2 unchecked; 家婆 gaa1 po4 is an alternative"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "外父",
+   "jyutping": "ngoi6 fu2"
+  },
+  "spoken": {
+   "chars": "外父",
+   "jyutping": "ngoi6 fu2"
+  },
+  "status": "unverified",
+  "note": "外父 unchecked on words.hk"
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "外母",
+   "jyutping": "ngoi6 mou2"
+  },
+  "spoken": {
+   "chars": "外母",
+   "jyutping": "ngoi6 mou2"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "大伯",
+   "jyutping": "daai6 baak3"
+  },
+  "spoken": {
+   "chars": "大伯",
+   "jyutping": "daai6 baak3"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "叔仔",
+   "jyutping": "suk1 zai2"
+  },
+  "spoken": {
+   "chars": "叔仔",
+   "jyutping": "suk1 zai2"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "姑奶",
+   "jyutping": "gu1 naai1"
+  },
+  "spoken": {
+   "chars": "姑奶",
+   "jyutping": "gu1 naai1"
+  },
+  "status": "unverified",
+  "note": "姑奶 unchecked; 大姑 is a common alternative"
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "姑仔",
+   "jyutping": "gu1 zai2"
+  },
+  "spoken": {
+   "chars": "姑仔",
+   "jyutping": "gu1 zai2"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "大舅",
+   "jyutping": "daai6 kau5"
+  },
+  "spoken": {
+   "chars": "大舅",
+   "jyutping": "daai6 kau5"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "舅仔",
+   "jyutping": "kau5 zai2"
+  },
+  "spoken": {
+   "chars": "舅仔",
+   "jyutping": "kau5 zai2"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "大姨",
+   "jyutping": "daai6 ji1"
+  },
+  "spoken": {
+   "chars": "大姨",
+   "jyutping": "daai6 ji1"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "姨仔",
+   "jyutping": "ji1 zai2"
+  },
+  "spoken": {
+   "chars": "姨仔",
+   "jyutping": "ji1 zai2"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "伯公",
+   "jyutping": "baak3 gung1"
+  },
+  "spoken": {
+   "chars": "伯公",
+   "jyutping": "baak3 gung1"
+  },
+  "status": "unverified",
+  "note": "外伯公 is also used; gap filled"
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "叔公",
+   "jyutping": "suk1 gung1"
+  },
+  "spoken": {
+   "chars": "叔公",
+   "jyutping": "suk1 gung1"
+  },
+  "status": "unverified",
+  "note": "外叔公 is also used; gap filled"
+ },
+ {
+  "pattern": "F M B*",
+  "en": "paternal grandmother's brother",
+  "formal": {
+   "chars": "舅公",
+   "jyutping": "kau5 gung1"
+  },
+  "spoken": {
+   "chars": "舅公",
+   "jyutping": "kau5 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; tone unchecked"
+ },
+ {
+  "pattern": "M M B*",
+  "en": "maternal grandmother's brother",
+  "formal": {
+   "chars": "舅公",
+   "jyutping": "kau5 gung1"
+  },
+  "spoken": {
+   "chars": "舅公",
+   "jyutping": "kau5 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; tone unchecked"
+ },
+ {
+  "pattern": "M F Z*",
+  "en": "maternal grandfather's sister",
+  "formal": {
+   "chars": "姑婆",
+   "jyutping": "gu1 po4"
+  },
+  "spoken": {
+   "chars": "姑婆",
+   "jyutping": "gu1 po4"
+  },
+  "status": "unverified",
+  "note": "by analogy with the paternal line"
+ },
+ {
+  "pattern": "F M Z*",
+  "en": "paternal grandmother's sister",
+  "formal": {
+   "chars": "姨婆",
+   "jyutping": "ji4 po4"
+  },
+  "spoken": {
+   "chars": "姨婆",
+   "jyutping": "ji4 po4"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z*",
+  "en": "maternal grandmother's sister",
+  "formal": {
+   "chars": "姨婆",
+   "jyutping": "ji4 po4"
+  },
+  "spoken": {
+   "chars": "姨婆",
+   "jyutping": "ji4 po4"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "spoken": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "spoken": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "外公",
+   "jyutping": "ngoi6 gung1"
+  },
+  "spoken": {
+   "chars": "公公",
+   "jyutping": "gung4 gung1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "外婆",
+   "jyutping": "ngoi6 po4"
+  },
+  "spoken": {
+   "chars": "婆婆",
+   "jyutping": "po4 po1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "spoken": {
+   "chars": "爺爺",
+   "jyutping": "je4 je2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "spoken": {
+   "chars": "嫲嫲",
+   "jyutping": "maa4 maa4"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "外公",
+   "jyutping": "ngoi6 gung1"
+  },
+  "spoken": {
+   "chars": "公公",
+   "jyutping": "gung4 gung1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "外婆",
+   "jyutping": "ngoi6 po4"
+  },
+  "spoken": {
+   "chars": "婆婆",
+   "jyutping": "po4 po1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "F B* S W",
+  "en": "paternal male cousin's wife",
+  "formal": {
+   "chars": "堂嫂",
+   "jyutping": "tong4 sou2"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂嫂",
+    "jyutping": "tong4 sou2"
+   },
+   "spoken": {
+    "chars": "堂嫂",
+    "jyutping": "tong4 sou2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂弟婦",
+    "jyutping": "tong4 dai6 fu5"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "old table had 堂弟妹 for the younger; unsourced"
+ },
+ {
+  "pattern": "F B* D H",
+  "en": "paternal female cousin's husband",
+  "formal": {
+   "chars": "堂姐夫",
+   "jyutping": "tong4 ze2 fu1"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂姐夫",
+    "jyutping": "tong4 ze2 fu1"
+   },
+   "spoken": {
+    "chars": "堂姐夫",
+    "jyutping": "tong4 ze2 fu1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂妹夫",
+    "jyutping": "tong4 mui6 fu1"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ },
+ {
+  "pattern": "F Z* S W",
+  "en": "father's sister's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "jyutping": "biu2 sou2"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟婦",
+    "jyutping": "biu2 dai6 fu5"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; one dictionary gives 表嫂 for either age"
+ },
+ {
+  "pattern": "M B* S W",
+  "en": "mother's brother's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "jyutping": "biu2 sou2"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟婦",
+    "jyutping": "biu2 dai6 fu5"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ },
+ {
+  "pattern": "M Z* S W",
+  "en": "mother's sister's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "jyutping": "biu2 sou2"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "jyutping": "biu2 sou2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟婦",
+    "jyutping": "biu2 dai6 fu5"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ },
+ {
+  "pattern": "F Z* D H",
+  "en": "father's sister's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "jyutping": "biu2 ze2 fu1"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "jyutping": "biu2 mui6 fu1"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ },
+ {
+  "pattern": "M B* D H",
+  "en": "mother's brother's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "jyutping": "biu2 ze2 fu1"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "jyutping": "biu2 mui6 fu1"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ },
+ {
+  "pattern": "M Z* D H",
+  "en": "mother's sister's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "jyutping": "biu2 ze2 fu1"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "jyutping": "biu2 ze2 fu1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "jyutping": "biu2 mui6 fu1"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced"
+ }
+]

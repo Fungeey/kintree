@@ -1,0 +1,40 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "公公",
+   "jyutping": "gung4 gung1"
+  },
+  "f": {
+   "chars": "婆婆",
+   "jyutping": "po4 po1"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "叔叔",
+   "jyutping": "suk1 suk1"
+  },
+  "f": {
+   "chars": "阿姨",
+   "jyutping": "aa3 ji1"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "哥哥",
+    "jyutping": "go4 go1"
+   },
+   "younger": "by-name"
+  },
+  "f": {
+   "older": {
+    "chars": "姐姐",
+    "jyutping": "ze4 ze1"
+   },
+   "younger": "by-name"
+  }
+ },
+ "below": "by-name"
+}

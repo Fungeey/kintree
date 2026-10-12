@@ -1,0 +1,662 @@
+{
+  "_sources": {
+    "omniglot": "https://omniglot.com/language/kinship/cantonese.htm",
+    "jyutdictionary_gu1po4": "https://jyutdictionary.com/dictionary/entry/%E5%A7%91%E5%A9%86",
+    "jyutdictionary_ji4po4": "https://jyutdictionary.com/dictionary/entry/%E5%A7%A8%E5%A9%86",
+    "jyutdictionary_biu2sou2": "https://jyutdictionary.com/dictionary/entry/%E8%A1%A8%E5%AB%82",
+    "jyutdictionary_tong4sou2": "https://jyutdictionary.com/dictionary/entry/%E5%A0%82%E5%AB%82",
+    "jyutdictionary_biu2ze2fu1": "https://jyutdictionary.com/dictionary/entry/%E8%A1%A8%E5%A7%90%E5%A4%AB"
+  },
+  "_status_meaning": {
+    "supported": "a source matches this term for this relation",
+    "variant": "a source gives a different but acceptable term; the seed term is kept as a variant",
+    "conflict": "a source gives a different term for this relation; the source term is used",
+    "unsourced": "no source checked yet; term comes from memory and needs review"
+  },
+  "_collapse_sen": [
+    "5Mm0*0-",
+    "5Pm0*1-",
+    "5Mf0*1-",
+    "5Mm0*1-",
+    "6Pf0*0m",
+    "6Pf0*0f",
+    "6Mf0*0f",
+    "6Mf0*0m"
+  ],
+  "5Pm1-0-": {
+    "gloss": "father",
+    "yue": {
+      "chars": "爸爸",
+      "jyutping": "baa4 baa1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "5Mf1-0-": {
+    "gloss": "mother",
+    "yue": {
+      "chars": "媽媽",
+      "jyutping": "maa4 maa1"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "source romanization màhmà; tone of first syllable to confirm with a native speaker"
+  },
+  "5Pm0o0-": {
+    "gloss": "father's elder brother",
+    "yue": {
+      "chars": "伯父",
+      "jyutping": "baak3 fu6"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 大伯, which the source gives as husband's elder brother"
+  },
+  "5Pm0y0-": {
+    "gloss": "father's younger brother",
+    "yue": {
+      "chars": "叔父",
+      "jyutping": "suk1 fu6"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "general term 叔叔 suk1 suk1 also listed"
+  },
+  "5Pf0o0-": {
+    "gloss": "father's elder sister",
+    "yue": {
+      "chars": "姑媽",
+      "jyutping": "gu1 maa1"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 大姑"
+  },
+  "5Pf0y0-": {
+    "gloss": "father's younger sister",
+    "yue": {
+      "chars": "姑姐",
+      "jyutping": "gu1 ze2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "5Mf0o0-": {
+    "gloss": "mother's elder sister",
+    "yue": {
+      "chars": "姨媽",
+      "jyutping": "ji4 maa1"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 大姨. The 大/二/三/小 birth-order system from earlier was not supported by the source"
+  },
+  "5Mf0y0-": {
+    "gloss": "mother's younger sister",
+    "yue": {
+      "chars": "阿姨",
+      "jyutping": "aa3 ji4"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 小姨"
+  },
+  "5Mm0-0-": {
+    "gloss": "mother's brother",
+    "yue": {
+      "chars": "舅父",
+      "jyutping": "kau5 fu6"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "no elder/younger split on source; seed 大舅/細舅 not supported as mother's-brother terms. Key collapses sen"
+  },
+  "5Pf0o1-": {
+    "gloss": "wife of father's elder brother",
+    "yue": {
+      "chars": "伯娘",
+      "jyutping": "baak3 loeng4"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 大伯母"
+  },
+  "5Pf0y1-": {
+    "gloss": "wife of father's younger brother",
+    "yue": {
+      "chars": "阿嬸",
+      "jyutping": "aa3 sam2"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 嬸嬸 sam2 sam2 kept as variant"
+  },
+  "5Pm0-1-": {
+    "gloss": "husband of father's sister",
+    "yue": {
+      "chars": "姑丈",
+      "jyutping": "gu1 zoeng6"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "key collapses sen"
+  },
+  "5Mf0-1-": {
+    "gloss": "wife of mother's brother",
+    "yue": {
+      "chars": "舅姆",
+      "jyutping": "kau5 mou5"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "key collapses sen"
+  },
+  "5Mm0-1-": {
+    "gloss": "husband of mother's sister",
+    "yue": {
+      "chars": "姨丈",
+      "jyutping": "ji4 zoeng6"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "key collapses sen"
+  },
+  "6Pm1-0-": {
+    "gloss": "paternal grandfather",
+    "yue": {
+      "chars": "爺爺",
+      "jyutping": "je4 je4"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "6Pf1-0-": {
+    "gloss": "paternal grandmother",
+    "yue": {
+      "chars": "嫲嫲",
+      "jyutping": "maa4 maa4"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "source lists 婆婆 as maternal, not paternal; seed note corrected"
+  },
+  "6Mm1-0-": {
+    "gloss": "maternal grandfather",
+    "yue": {
+      "chars": "外公",
+      "jyutping": "ngoi6 gung1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "6Mf1-0-": {
+    "gloss": "maternal grandmother",
+    "yue": {
+      "chars": "外婆",
+      "jyutping": "ngoi6 po4"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Wf0-1-": {
+    "gloss": "wife",
+    "yue": {
+      "chars": "太太",
+      "jyutping": "taai3 taai2"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "formal; 老婆 lou5 po4 is informal"
+  },
+  "4Hm0-1-": {
+    "gloss": "husband",
+    "yue": {
+      "chars": "先生",
+      "jyutping": "sin1 saang1"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "formal; 老公 lou5 gung1 is informal"
+  },
+  "4Bm0o0-": {
+    "gloss": "elder brother",
+    "yue": {
+      "chars": "哥哥",
+      "jyutping": "go1 go1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Bm0y0-": {
+    "gloss": "younger brother",
+    "yue": {
+      "chars": "弟弟",
+      "jyutping": "dai6 dai6"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Zf0o0-": {
+    "gloss": "elder sister",
+    "yue": {
+      "chars": "姐姐",
+      "jyutping": "ze2 ze2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Zf0y0-": {
+    "gloss": "younger sister",
+    "yue": {
+      "chars": "妹妹",
+      "jyutping": "mui6 mui6"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Bf0o1-": {
+    "gloss": "elder brother's wife",
+    "yue": {
+      "chars": "阿嫂",
+      "jyutping": "aa3 sou2"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 嫂 sou2 kept as variant"
+  },
+  "4Bf0y1-": {
+    "gloss": "younger brother's wife",
+    "yue": {
+      "chars": "弟婦",
+      "jyutping": "dai6 fu5"
+    },
+    "status": "conflict",
+    "source": "omniglot",
+    "note": "seed had 弟妹"
+  },
+  "4Zm0o1-": {
+    "gloss": "elder sister's husband",
+    "yue": {
+      "chars": "姐夫",
+      "jyutping": "ze2 fu1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Zm0y1-": {
+    "gloss": "younger sister's husband",
+    "yue": {
+      "chars": "妹夫",
+      "jyutping": "mui6 fu1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Sm1-0-": {
+    "gloss": "son",
+    "yue": {
+      "chars": "仔",
+      "jyutping": "zai2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Sf1-0-": {
+    "gloss": "daughter",
+    "yue": {
+      "chars": "女",
+      "jyutping": "neoi5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Sf0-1-": {
+    "gloss": "daughter-in-law",
+    "yue": {
+      "chars": "新抱",
+      "jyutping": "san1 pou5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Sm0-1-": {
+    "gloss": "son-in-law",
+    "yue": {
+      "chars": "女婿",
+      "jyutping": "neoi5 sai3"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Bm0-0-": {
+    "gloss": "brother's son (nephew)",
+    "yue": {
+      "chars": "侄",
+      "jyutping": "jat6"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "seed 侄仔 kept as variant"
+  },
+  "3Bf0-0-": {
+    "gloss": "brother's daughter (niece)",
+    "yue": {
+      "chars": "侄女",
+      "jyutping": "jat6 neoi5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Zm0-0-": {
+    "gloss": "sister's son",
+    "yue": {
+      "chars": "外甥",
+      "jyutping": "ngoi6 saang1"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "3Zf0-0-": {
+    "gloss": "sister's daughter",
+    "yue": {
+      "chars": "外甥女",
+      "jyutping": "ngoi6 saang1 neoi5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Mm0o0-": {
+    "gloss": "maternal cousin, male, older",
+    "yue": {
+      "chars": "表哥",
+      "jyutping": "biu2 go1"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "source gives 表阿 bíugò"
+  },
+  "4Mm0y0-": {
+    "gloss": "maternal cousin, male, younger",
+    "yue": {
+      "chars": "表弟",
+      "jyutping": "biu2 dai6"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Mf0o0-": {
+    "gloss": "maternal cousin, female, older",
+    "yue": {
+      "chars": "表姐",
+      "jyutping": "biu2 ze2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Mf0y0-": {
+    "gloss": "maternal cousin, female, younger",
+    "yue": {
+      "chars": "表妹",
+      "jyutping": "biu2 mui6"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Pm0o0-": {
+    "gloss": "paternal cousin, male, older",
+    "yue": {
+      "chars": "堂阿哥",
+      "jyutping": "tong4 aa3 go1"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 堂哥 kept as variant"
+  },
+  "4Pm0y0-": {
+    "gloss": "paternal cousin, male, younger",
+    "yue": {
+      "chars": "堂細佬",
+      "jyutping": "tong4 sai3 lou2"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 堂弟 kept as variant"
+  },
+  "4Pf0o0-": {
+    "gloss": "paternal cousin, female, older",
+    "yue": {
+      "chars": "堂家姐",
+      "jyutping": "tong4 gaa1 ze2"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 堂姐 kept as variant"
+  },
+  "4Pf0y0-": {
+    "gloss": "paternal cousin, female, younger",
+    "yue": {
+      "chars": "堂細妹",
+      "jyutping": "tong4 sai3 mui6"
+    },
+    "status": "variant",
+    "source": "omniglot",
+    "note": "seed 堂妹 kept as variant"
+  },
+  "4Mf0o1-": {
+    "gloss": "maternal male cousin's wife, cousin older",
+    "yue": {
+      "chars": "表嫂",
+      "jyutping": "biu2 sou2"
+    },
+    "status": "supported",
+    "source": "jyutdictionary_biu2sou2"
+  },
+  "4Mf0y1-": {
+    "gloss": "maternal male cousin's wife, cousin younger",
+    "yue": {
+      "chars": "表嫂",
+      "jyutping": "biu2 sou2"
+    },
+    "status": "variant",
+    "source": "jyutdictionary_biu2sou2",
+    "note": "one dictionary gives 表嫂 for either older or younger cousin; 表弟妹 unsourced"
+  },
+  "4Mm0o1-": {
+    "gloss": "maternal female cousin's husband, cousin older",
+    "yue": {
+      "chars": "表姐夫",
+      "jyutping": "biu2 ze2 fu1"
+    },
+    "status": "supported",
+    "source": "jyutdictionary_biu2ze2fu1"
+  },
+  "4Mm0y1-": {
+    "gloss": "maternal female cousin's husband, cousin younger",
+    "yue": {
+      "chars": "表妹夫",
+      "jyutping": "biu2 mui6 fu1"
+    },
+    "status": "unsourced"
+  },
+  "4Pf0o1-": {
+    "gloss": "paternal male cousin's wife, cousin older",
+    "yue": {
+      "chars": "堂嫂",
+      "jyutping": "tong4 sou2"
+    },
+    "status": "supported",
+    "source": "jyutdictionary_tong4sou2"
+  },
+  "4Pf0y1-": {
+    "gloss": "paternal male cousin's wife, cousin younger",
+    "yue": {
+      "chars": "堂弟妹",
+      "jyutping": "tong4 dai6 mui6"
+    },
+    "status": "unsourced"
+  },
+  "4Pm0o1-": {
+    "gloss": "paternal female cousin's husband, cousin older",
+    "yue": {
+      "chars": "堂姐夫",
+      "jyutping": "tong4 ze2 fu1"
+    },
+    "status": "unsourced"
+  },
+  "4Pm0y1-": {
+    "gloss": "paternal female cousin's husband, cousin younger",
+    "yue": {
+      "chars": "堂妹夫",
+      "jyutping": "tong4 mui6 fu1"
+    },
+    "status": "unsourced"
+  },
+  "6Pf0-0m": {
+    "gloss": "paternal grandfather's sister",
+    "yue": {
+      "chars": "姑婆",
+      "jyutping": "gu1 po4"
+    },
+    "status": "supported",
+    "source": "jyutdictionary_gu1po4"
+  },
+  "6Pf0-0f": {
+    "gloss": "paternal grandmother's sister",
+    "yue": {
+      "chars": "姨婆",
+      "jyutping": "ji4 po4"
+    },
+    "status": "variant",
+    "source": "jyutdictionary_ji4po4",
+    "note": "source gives 姨婆 as a sibling of one grandmother without naming the line"
+  },
+  "6Mf0-0f": {
+    "gloss": "maternal grandmother's sister",
+    "yue": {
+      "chars": "姨婆",
+      "jyutping": "ji4 po4"
+    },
+    "status": "supported",
+    "source": "jyutdictionary_ji4po4",
+    "note": "source gives a maternal grand-aunt example"
+  },
+  "6Mf0-0m": {
+    "gloss": "maternal grandfather's sister",
+    "yue": {
+      "chars": "姑婆",
+      "jyutping": "gu1 po4"
+    },
+    "status": "variant",
+    "source": "jyutdictionary_gu1po4",
+    "note": "applied by analogy; source gives 姑婆 for grandfather's sister without naming the line"
+  },
+  "5Hm0-1-": {
+    "gloss": "husband's father",
+    "yue": {
+      "chars": "老爺",
+      "jyutping": "lou5 je4"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "5Hf0-1-": {
+    "gloss": "husband's mother",
+    "yue": {
+      "chars": "奶奶",
+      "jyutping": "naai5 naai4"
+    },
+    "status": "supported",
+    "source": "omniglot",
+    "note": "also 家婆 gaa1 po4"
+  },
+  "5Wm0-1-": {
+    "gloss": "wife's father",
+    "yue": {
+      "chars": "外父",
+      "jyutping": "ngoi6 fu6"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "5Wf0-1-": {
+    "gloss": "wife's mother",
+    "yue": {
+      "chars": "外母",
+      "jyutping": "ngoi6 mou5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Hm0o1-": {
+    "gloss": "husband's elder brother",
+    "yue": {
+      "chars": "大伯",
+      "jyutping": "daai6 baak3"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Hm0y1-": {
+    "gloss": "husband's younger brother",
+    "yue": {
+      "chars": "叔仔",
+      "jyutping": "suk1 zai2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Hf0o1-": {
+    "gloss": "husband's elder sister",
+    "yue": {
+      "chars": "姑奶",
+      "jyutping": "gu1 naai5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Hf0y1-": {
+    "gloss": "husband's younger sister",
+    "yue": {
+      "chars": "姑仔",
+      "jyutping": "gu1 zai2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Wm0o1-": {
+    "gloss": "wife's elder brother",
+    "yue": {
+      "chars": "大舅",
+      "jyutping": "daai6 kau5"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Wm0y1-": {
+    "gloss": "wife's younger brother",
+    "yue": {
+      "chars": "舅仔",
+      "jyutping": "kau5 zai2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Wf0o1-": {
+    "gloss": "wife's elder sister",
+    "yue": {
+      "chars": "大姨",
+      "jyutping": "daai6 ji4"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  },
+  "4Wf0y1-": {
+    "gloss": "wife's younger sister",
+    "yue": {
+      "chars": "姨仔",
+      "jyutping": "ji4 zai2"
+    },
+    "status": "supported",
+    "source": "omniglot"
+  }
+}

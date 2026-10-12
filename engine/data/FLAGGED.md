@@ -1,0 +1,100 @@
+# Titles to check with a native speaker (decision 14)
+
+words.hk was checked on 2026-10-12 for entries marked checked. Everything else is unverified. Tones follow words.hk spoken forms where it gave one.
+
+| Pattern | Relation | Formal | Spoken | Status | Doubt |
+|---|---|---|---|---|---|
+| F | father | 爸爸 baa4 baa1 | 爸爸 baa4 baa1 | unverified |  |
+| M | mother | 媽媽 maa4 maa1 | 媽媽 maa4 maa1 | unverified |  |
+| S | son | 仔 zai2 | by name | unverified |  |
+| D | daughter | 女 neoi2 | by name | unverified |  |
+| H | husband | 先生 sin1 saang1 | 老公 lou5 gung1 | unverified |  |
+| W | wife | 太太 taai3 taai2 | 老婆 lou5 po4 | unverified |  |
+| Be | elder brother | 哥哥 go4 go1 | 阿哥 aa3 go1 | checked | spoken 阿哥 aa3 go1 not checked |
+| By | younger brother | 弟弟 dai4 dai2 | by name | checked | words.hk: 弟弟 dai4 dai2 (tone change of dai6 dai6) |
+| Ze | elder sister | 姐姐 ze4 ze1 | 家姐 gaa1 ze1 | checked | spoken 家姐 gaa1 ze1 not checked |
+| Zy | younger sister | 妹妹 mui4 mui2 | by name | checked | words.hk: 妹妹 mui4 mui2 (variant mui4 mui1) |
+| F F | paternal grandfather | 爺爺 je4 je2 | 爺爺 je4 je2 | checked |  |
+| F M | paternal grandmother | 嫲嫲 maa4 maa4 | 嫲嫲 maa4 maa4 | checked |  |
+| M F | maternal grandfather | 外公 ngoi6 gung1 | 公公 gung4 gung1 | checked | words.hk: 公公 gung4 gung1, variant gung1 gung1; also used for any old man |
+| M M | maternal grandmother | 外婆 ngoi6 po4 | 婆婆 po4 po1 | checked | words.hk: 外婆 ngoi6 po4; 婆婆 po4 po1 not checked as a kinship term |
+| F Be | father's elder brother | 伯父 baak3 fu6 | 伯伯 baak3 baak3 | unverified | words.hk lists 伯 only (大伯 = father's eldest brother); 伯父 not checked directly |
+| F By | father's younger brother | 叔父 suk1 fu6 | 阿叔 aa3 suk1 | checked |  |
+| F Ze | father's elder sister | 姑媽 gu1 maa1 | 姑媽 gu1 maa1 | checked |  |
+| F Zy | father's younger sister | 姑姐 gu1 ze1 | 姑姐 gu1 ze1 | unverified | 姑姐 unchecked on words.hk (page failed to load); spoken form may be 阿姑 or 姑姐 by family |
+| M B* | mother's brother | 舅父 kau5 fu2 | 舅父 kau5 fu2 | checked | words.hk reads 舅父 kau3 fu2, variant kau5 fu2 |
+| M Ze | mother's elder sister | 姨媽 ji4 maa1 | 姨媽 ji4 maa1 | checked |  |
+| M Zy | mother's younger sister | 阿姨 aa3 ji1 | 阿姨 aa3 ji1 | checked |  |
+| F Be W | father's elder brother's wife | 伯娘 baak3 noeng4 | 伯娘 baak3 noeng4 | checked |  |
+| F By W | father's younger brother's wife | 阿嬸 aa3 sam2 | 阿嬸 aa3 sam2 | checked |  |
+| F Z* H | father's sister's husband | 姑丈 gu1 zoeng2 | 姑丈 gu1 zoeng2 | checked | words.hk: gu1 zoeng2, also read gu1 zoeng6 |
+| M B* W | mother's brother's wife | 舅母 kau5 mou2 | 舅母 kau5 mou2 | checked |  |
+| M Z* H | mother's sister's husband | 姨丈 ji4 zoeng2 | 姨丈 ji4 zoeng2 | checked |  |
+| F F Be | paternal grandfather's elder brother | 伯公 baak3 gung1 | 伯公 baak3 gung1 | checked |  |
+| F F By | paternal grandfather's younger brother | 叔公 suk1 gung1 | 叔公 suk1 gung1 | checked |  |
+| F F Z* | paternal grandfather's sister | 姑婆 gu1 po4 | 姑婆 gu1 po4 | checked |  |
+| F B* S | paternal cousin | 堂哥 tong4 go1 / 堂弟 tong4 dai2 | older: 堂哥 tong4 go1; younger: by name | unverified |  |
+| F B* D | paternal cousin | 堂姐 tong4 ze2 / 堂妹 tong4 mui2 | older: 堂姐 tong4 ze2; younger: by name | unverified |  |
+| F Z* S | cousin | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified |  |
+| F Z* D | cousin | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified |  |
+| M B* S | cousin | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified |  |
+| M B* D | cousin | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified |  |
+| M Z* S | cousin | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified |  |
+| M Z* D | cousin | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified |  |
+| Be W | elder brother's wife | 阿嫂 aa3 sou2 | 阿嫂 aa3 sou2 | checked |  |
+| By W | younger brother's wife | 弟婦 dai6 fu5 | by name | unverified | 弟婦 vs 弟妹 varies by family; spoken form is by name |
+| Ze H | elder sister's husband | 姐夫 ze2 fu1 | 姐夫 ze2 fu1 | checked |  |
+| Zy H | younger sister's husband | 妹夫 mui6 fu1 | by name | unverified |  |
+| B* S | brother's son | 侄 zat6 | by name | unverified |  |
+| B* D | brother's daughter | 侄女 zat6 neoi2 | by name | unverified |  |
+| Z* S | sister's son | 外甥 ngoi6 saang1 | by name | unverified |  |
+| Z* D | sister's daughter | 外甥女 ngoi6 saang1 neoi2 | by name | unverified |  |
+| S W | son's wife | 新抱 san1 pou5 | by name | checked |  |
+| D H | daughter's husband | 女婿 neoi5 sai3 | by name | checked |  |
+| S S | son's son | 孫 syun1 | by name | unverified |  |
+| S D | son's daughter | 孫女 syun1 neoi2 | by name | unverified |  |
+| D S | daughter's son | 外孫 ngoi6 syun1 | by name | unverified |  |
+| D D | daughter's daughter | 外孫女 ngoi6 syun1 neoi2 | by name | unverified |  |
+| H F | husband's father | 老爺 lou5 je4 | 老爺 lou5 je4 | checked |  |
+| H M | husband's mother | 奶奶 naai4 naai2 | 奶奶 naai4 naai2 | unverified | 奶奶 naai4 naai2 unchecked; 家婆 gaa1 po4 is an alternative |
+| W F | wife's father | 外父 ngoi6 fu2 | 外父 ngoi6 fu2 | unverified | 外父 unchecked on words.hk |
+| W M | wife's mother | 外母 ngoi6 mou2 | 外母 ngoi6 mou2 | checked |  |
+| H Be | husband's elder brother | 大伯 daai6 baak3 | 大伯 daai6 baak3 | unverified |  |
+| H By | husband's younger brother | 叔仔 suk1 zai2 | 叔仔 suk1 zai2 | unverified |  |
+| H Ze | husband's elder sister | 姑奶 gu1 naai1 | 姑奶 gu1 naai1 | unverified | 姑奶 unchecked; 大姑 is a common alternative |
+| H Zy | husband's younger sister | 姑仔 gu1 zai2 | 姑仔 gu1 zai2 | unverified |  |
+| W Be | wife's elder brother | 大舅 daai6 kau5 | 大舅 daai6 kau5 | unverified |  |
+| W By | wife's younger brother | 舅仔 kau5 zai2 | 舅仔 kau5 zai2 | unverified |  |
+| W Ze | wife's elder sister | 大姨 daai6 ji1 | 大姨 daai6 ji1 | unverified |  |
+| W Zy | wife's younger sister | 姨仔 ji1 zai2 | 姨仔 ji1 zai2 | unverified |  |
+| M F Be | maternal grandfather's elder brother | 伯公 baak3 gung1 | 伯公 baak3 gung1 | unverified | 外伯公 is also used; gap filled |
+| M F By | maternal grandfather's younger brother | 叔公 suk1 gung1 | 叔公 suk1 gung1 | unverified | 外叔公 is also used; gap filled |
+| F M B* | paternal grandmother's brother | 舅公 kau5 gung1 | 舅公 kau5 gung1 | unverified | gap filled; tone unchecked |
+| M M B* | maternal grandmother's brother | 舅公 kau5 gung1 | 舅公 kau5 gung1 | unverified | gap filled; tone unchecked |
+| M F Z* | maternal grandfather's sister | 姑婆 gu1 po4 | 姑婆 gu1 po4 | unverified | by analogy with the paternal line |
+| F M Z* | paternal grandmother's sister | 姨婆 ji4 po4 | 姨婆 ji4 po4 | unverified |  |
+| M M Z* | maternal grandmother's sister | 姨婆 ji4 po4 | 姨婆 ji4 po4 | unverified |  |
+| H F F | husband's paternal grandfather | 爺爺 je4 je2 | 爺爺 je4 je2 | unverified | uses the husband's own title; family usage varies |
+| H F M | husband's paternal grandmother | 嫲嫲 maa4 maa4 | 嫲嫲 maa4 maa4 | unverified | uses the husband's own title; family usage varies |
+| H M F | husband's maternal grandfather | 外公 ngoi6 gung1 | 公公 gung4 gung1 | unverified | uses the husband's own title; family usage varies |
+| H M M | husband's maternal grandmother | 外婆 ngoi6 po4 | 婆婆 po4 po1 | unverified | uses the husband's own title; family usage varies |
+| W F F | wife's paternal grandfather | 爺爺 je4 je2 | 爺爺 je4 je2 | unverified | uses the wife's own title; family usage varies |
+| W F M | wife's paternal grandmother | 嫲嫲 maa4 maa4 | 嫲嫲 maa4 maa4 | unverified | uses the wife's own title; family usage varies |
+| W M F | wife's maternal grandfather | 外公 ngoi6 gung1 | 公公 gung4 gung1 | unverified | uses the wife's own title; family usage varies |
+| W M M | wife's maternal grandmother | 外婆 ngoi6 po4 | 婆婆 po4 po1 | unverified | uses the wife's own title; family usage varies |
+| F B* S W | paternal male cousin's wife | 堂嫂 tong4 sou2 / 堂弟婦 tong4 dai6 fu5 | older: 堂嫂 tong4 sou2; younger: by name | unverified | old table had 堂弟妹 for the younger; unsourced |
+| F B* D H | paternal female cousin's husband | 堂姐夫 tong4 ze2 fu1 / 堂妹夫 tong4 mui6 fu1 | older: 堂姐夫 tong4 ze2 fu1; younger: by name | unverified | unsourced |
+| F Z* S W | father's sister's son's wife | 表嫂 biu2 sou2 / 表弟婦 biu2 dai6 fu5 | older: 表嫂 biu2 sou2; younger: by name | unverified | unsourced; one dictionary gives 表嫂 for either age |
+| M B* S W | mother's brother's son's wife | 表嫂 biu2 sou2 / 表弟婦 biu2 dai6 fu5 | older: 表嫂 biu2 sou2; younger: by name | unverified | unsourced |
+| M Z* S W | mother's sister's son's wife | 表嫂 biu2 sou2 / 表弟婦 biu2 dai6 fu5 | older: 表嫂 biu2 sou2; younger: by name | unverified | unsourced |
+| F Z* D H | father's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
+| M B* D H | mother's brother's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
+| M Z* D H | mother's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
+
+## Standing doubts
+
+- Spoken forms for elder siblings and aunts (阿哥, 家姐, 姑姐, 姨媽) vary by family.
+- 奶奶 vs 家婆 for husband's mother; 大姨/大舅 for wife's siblings may be family rank titles instead.
+- Spouse's grandparents reuse the spouse's own titles; real usage is unknown.
+- Cousins' spouses are mostly unsourced.
+- 公公/婆婆 as the generic far-relative title is a guess.

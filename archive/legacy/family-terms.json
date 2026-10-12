@@ -1,0 +1,12 @@
+{
+  "_about": "Family-usage rank terms (大姨, 二姨, ...). Keyed by 8-char key with a rank in the last slot; '*' in the sen slot matches older and younger. Kept apart from terms.json so they never replace a sourced term: the app shows them alongside it.",
+  "_families": {
+    "sample": {
+      "_label": "Illustrative only, used by tests. Not a real family's usage and not sourced.",
+      "5Mf0*0-1": { "gloss": "mother's eldest sister", "yue": { "chars": "大姨", "jyutping": "daai6 ji4" }, "status": "family" },
+      "5Mf0*0-2": { "gloss": "mother's second sister", "yue": { "chars": "二姨", "jyutping": "ji6 ji4" }, "status": "family" },
+      "5Mf0*0-3": { "gloss": "mother's third sister", "yue": { "chars": "三姨", "jyutping": "saam1 ji4" }, "status": "family" },
+      "5Mf0*0-L": { "gloss": "mother's youngest sister", "yue": { "chars": "細姨", "jyutping": "sai3 ji4" }, "status": "family" }
+    }
+  }
+}

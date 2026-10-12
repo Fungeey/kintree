@@ -1,0 +1,9 @@
+{
+  "name": "kinship-storage",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.ts",
+    "typecheck": "node ../engine/node_modules/typescript/bin/tsc"
+  }
+}
