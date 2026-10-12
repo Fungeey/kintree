@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson,
+  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, reorderChild,
   validateTree, kinPath, loadTable, resolve, sides, visible,
 } from '../src/index.ts';
 import type { Tree, TitleEntry, Generic } from '../src/index.ts';
@@ -198,4 +198,25 @@ test('the first person is the root; rename and remove keep it consistent', () =>
   assert.equal(renamePerson(renamed, b.id, '').people.find(p => p.id === b.id)!.name, undefined);
   assert.equal(removePerson(b.tree, a.id).root, undefined);
   assert.throws(() => validateTree({ ...b.tree, root: 'nobody' }));
+});
+
+test('reorderChild moves a child within the birth order and leaves the input alone', () => {
+  let { tree: t, id: a } = addPerson(emptyTree(), 'm', 'A');
+  const b = addSibling(t, a, 'f', 'B'); t = b.tree;
+  const c = addSibling(t, a, 'm', 'C'); t = c.tree;
+  const order = (x: Tree) => x.families.find(f => f.children.includes(a))!.children;
+  assert.deepEqual(order(t), [a, b.id, c.id]);
+  const before = structuredClone(t);
+  assert.deepEqual(order(reorderChild(t, c.id, 0)), [c.id, a, b.id]);
+  assert.deepEqual(order(reorderChild(t, a, 2)), [b.id, c.id, a]);
+  assert.equal(reorderChild(t, b.id, 1), t);
+  assert.deepEqual(t, before);
+});
+
+test('reorderChild rejects bad slots and unknown people; an only child accepts slot 0', () => {
+  const { tree: t, id } = addPerson(emptyTree(), 'm', 'A');
+  assert.equal(reorderChild(t, id, 0), t);
+  assert.throws(() => reorderChild(t, id, 1));
+  assert.throws(() => reorderChild(t, id, -1));
+  assert.throws(() => reorderChild(t, 'nobody', 0));
 });

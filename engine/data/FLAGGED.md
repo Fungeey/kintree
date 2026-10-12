@@ -101,6 +101,8 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 
 ## Standing doubts
 
+- Rank titles (大姨媽, 二姑, 三叔 ...) are generated in `src/rank.ts`, not stored in the table. Rule used, unverified: a parent's siblings of the same sex are ranked together from the eldest, not counting the parent; elder ones take the full stem (姑媽, 姨媽, 伯) and younger ones the short one (姑, 姨, 叔); mother's brothers are all 舅; spouses take their partner's rank (二姑丈, 大舅母). Nothing is shown when there is only one such sibling or past 十. Whether families count the parent's own place (e.g. 二叔 for the second brother overall) needs the native-speaker check.
+
 - Spoken forms for elder siblings and aunts (阿哥, 家姐, 姑姐, 姨媽) vary by family.
 - 奶奶 vs 家婆 for husband's mother; 大姨/大舅 for wife's siblings may be family rank titles instead.
 - Spouse's grandparents reuse the spouse's own titles; real usage is unknown.

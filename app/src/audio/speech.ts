@@ -15,5 +15,5 @@ export function pickVoice<T extends VoiceLike>(voices: readonly T[]): T | undefi
 
 // The spoken form of a card: titles you'd say aloud. By-name lines have nothing to say.
 export function spokenText(shown: Shown): string {
-  return shown.lines.filter(l => !l.byName && l.chars).map(l => l.chars).join('，');
+  return shown.lines.filter(l => !l.byName && !l.rank && l.chars).map(l => l.chars).join('，');
 }

@@ -8,7 +8,7 @@ import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
 import { switchTarget } from './switchPov.ts';
-import { applyRename, nameRequired } from './rename.ts';
+import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
 import { rootLabel } from './display.ts';
 
 const demo = typeof location !== 'undefined' && new URLSearchParams(location.search).has('demo');
@@ -79,8 +79,8 @@ function Shell({ start }: { start: Start }) {
     else if (switchTarget(tree, me, id)) setAsking(id);
   };
   const toggleEdit = () => { setEditMode(e => !e); setAdding(false); setRenaming(null); };
-  const rename = (id: string, name: string) => {
-    const t = applyRename(tree, id, name);
+  const rename = (id: string, name: string, slot: number) => {
+    const t = applyEdit(tree, id, name, slot);
     if (t && t !== tree) setTree(t);
     setRenaming(null);
   };
@@ -135,7 +135,7 @@ function Shell({ start }: { start: Start }) {
           <button type="button" onClick={() => setError(undefined)}>Dismiss</button>
         </p>
       )}
-      {editMode && <p className="edit-banner" role="status">Editing names. Tap a person to rename them.</p>}
+      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename them or change their birth order.</p>}
       <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} />
       {adding && (
         <aside className="sheet">
@@ -149,11 +149,13 @@ function Shell({ start }: { start: Start }) {
           who={rootLabel(tree, renaming)?.replace(/^Your /, 'your ') ?? switchTarget(tree, me, renaming) ?? 'this person'}
           name={renamingWho.name ?? ''}
           required={nameRequired(tree, renaming)}
-          onSave={name => rename(renaming, name)}
+          self={renaming}
+          siblings={siblingsOf(tree, renaming).map(id => tree.people.find(p => p.id === id)!)}
+          onSave={(name, slot) => rename(renaming, name, slot)}
           onCancel={() => setRenaming(null)}
         />
       )}
-      <p className="hint">{editMode ? 'Tap Done when you have finished renaming.' : "Tap a person to see everyone's titles from their point of view."}</p>
+      <p className="hint">{editMode ? 'Tap Done when you have finished editing.' : "Tap a person to see everyone's titles from their point of view."}</p>
     </div>
   );
 }

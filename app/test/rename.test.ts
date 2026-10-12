@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addParent, addPerson, emptyTree } from '../../engine/src/index.ts';
+import { addParent, addPerson, addSibling, emptyTree } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
-import { applyRename, cleanName, MAX_NAME, nameRequired } from '../src/rename.ts';
+import { applyEdit, applyRename, siblingsOf, cleanName, MAX_NAME, nameRequired } from '../src/rename.ts';
 import { rootLabel } from '../src/display.ts';
 import { decodeFragment, encodeFragment } from '../../storage/src/index.ts';
 
@@ -61,4 +61,41 @@ test('rename: the new name survives the share-link encoding', async () => {
   const next = applyRename(t, mum, 'Lai')!;
   const back = await decodeFragment(await encodeFragment({ tree: next, me }));
   assert.equal(back.tree.people.find(p => p.id === mum)!.name, 'Lai');
+});
+
+test('edit: name and birth order change together; captions and share link follow', async () => {
+  let { t, me } = sample();
+  const s1 = addSibling(t, me, 'm', 'Kai'); t = s1.tree;
+  const s2 = addSibling(t, me, 'f'); t = s2.tree;
+  assert.deepEqual(siblingsOf(t, me), [me, s1.id, s2.id]);
+  const next = applyEdit(t, s2.id, ' Ling ', 0)!;
+  assert.deepEqual(siblingsOf(next, me), [s2.id, me, s1.id]);
+  assert.equal(next.people.find(p => p.id === s2.id)!.name, 'Ling');
+  const back = await decodeFragment(await encodeFragment({ tree: next, me }));
+  assert.deepEqual(siblingsOf(back.tree, me), [s2.id, me, s1.id]);
+});
+
+test('edit: an empty root name is refused even when the order changes', () => {
+  const { t, me } = sample();
+  assert.equal(applyEdit(t, me, '', 0), null);
+});
+
+test('edit: someone with no siblings only has their own slot', () => {
+  const { t, mum } = sample();
+  assert.deepEqual(siblingsOf(t, mum), [mum]);
+  assert.throws(() => applyEdit(t, mum, 'Lai', 1));
+});
+
+test('display: an aunt shows her usual title and her rank title; audio says only the usual one', async () => {
+  const { showFor } = await import('../src/display.ts');
+  const { spokenText } = await import('../src/audio/speech.ts');
+  let t: Tree = emptyTree();
+  const me = addPerson(t, 'f', 'Mei'); t = me.tree;
+  const mum = addParent(t, me.id, 'f'); t = mum.tree;
+  const a = addSibling(t, mum.id, 'f', undefined, 0); t = a.tree;
+  const b = addSibling(t, mum.id, 'f', undefined, 1); t = b.tree;
+  const shown = showFor(t, me.id, a.id);
+  assert.deepEqual(shown.lines.map(l => l.chars), ['姨媽', '大姨媽']);
+  assert.equal(spokenText(shown), '姨媽');
+  assert.deepEqual(showFor(t, me.id, mum.id).lines.length, 1);
 });
