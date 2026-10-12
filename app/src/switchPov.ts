@@ -1,4 +1,4 @@
-// Switching "me" (point of view) asks first: "New family tree as {who}?".
+// Switching "me" (point of view) asks first: "View family tree as {who}?".
 import type { Tree } from '../../engine/src/index.ts';
 import { rootLabel, showFor } from './display.ts';
 

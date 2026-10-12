@@ -100,7 +100,7 @@ button { font: inherit; color: inherit; }
 .titles.two .jp { font-size: .6rem; }
 .titles.two .zh { font-size: .6rem; margin-top: 0; }
 
-/* "New family tree as …?" confirmation. */
+/* "View family tree as …?" confirmation. */
 .confirm { width: min(22rem, calc(100vw - 32px)); padding: 0; border: 1.5px solid var(--line); border-radius: 18px; background: var(--panel); color: var(--ink); box-shadow: 0 10px 30px #4a3f3340; }
 .confirm::backdrop { background: #2b241c66; }
 .confirm-body { padding: 20px 20px 16px; }

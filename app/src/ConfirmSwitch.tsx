@@ -30,7 +30,7 @@ export function ConfirmSwitch({ who, onConfirm, onCancel }: Props) {
       onClick={e => { if (e.target === e.currentTarget) onCancel(); }}
     >
       <div className="confirm-body">
-        <h2 id="confirm-title">New family tree as {who}?</h2>
+        <h2 id="confirm-title">View family tree as {who}?</h2>
         <p id="confirm-desc">Everyone's titles will be shown from their point of view.</p>
         <div className="confirm-actions">
           <button type="button" onClick={onCancel}>Cancel</button>
