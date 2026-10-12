@@ -2,11 +2,13 @@
 // by a line with its children under it. Positions are card top-left corners in tree pixels.
 import type { Tree, Family } from '../../engine/src/index.ts';
 
-export const CARD_W = 150;
-export const CARD_H = 124;
-export const GAP_X = 18;
+export const CARD_W = 132;
+export const CARD_H = 190;
+// Centre of the face circle, from the node's top: couple lines run through it.
+export const FACE_CY = 62;
+export const GAP_X = 20;
 export const COUPLE_GAP = 28;
-export const ROW_GAP = 72;
+export const ROW_GAP = 64;
 const PAD = 24;
 
 export interface Pos { x: number; y: number }
@@ -196,7 +198,7 @@ export function linkSegments(layout: Layout): Segment[] {
     let dropX: number, dropY: number;
     const adjacent = sorted.length === 2 && sorted[0].y === sorted[1].y && sorted[1].x - sorted[0].x <= CARD_W + COUPLE_GAP + 1;
     if (adjacent) {
-      const y = sorted[0].y + CARD_H / 2;
+      const y = sorted[0].y + FACE_CY;
       segs.push({ x1: sorted[0].x + CARD_W, y1: y, x2: sorted[1].x, y2: y });
       dropX = (sorted[0].x + CARD_W + sorted[1].x) / 2; dropY = y;
     } else if (sorted.length) {

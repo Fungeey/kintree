@@ -27,7 +27,7 @@ function SexAndName(props: { initialSex: Sex | null; submitText: string; onSubmi
   const [name, setName] = useState('');
   return (
     <form onSubmit={e => { e.preventDefault(); if (sex) props.onSubmit(sex, name); }}>
-      <div role="radiogroup" aria-label="Sex">
+      <div className="choices" role="radiogroup" aria-label="Sex">
         {(['m', 'f'] as Sex[]).map(s => (
           <button type="button" key={s} role="radio" aria-checked={sex === s} onClick={() => setSex(s)}>
             {s === 'm' ? 'Male' : 'Female'}
@@ -47,7 +47,7 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
 
   if (tree.people.length === 0) {
     return (
-      <section>
+      <section className="add-person">
         <h3>Start with yourself</h3>
         <SexAndName initialSex={null} submitText="Start"
           onSubmit={(sex, name) => { const r = startTree(sex, name); onChange(r.tree, r.id); }} />
@@ -57,7 +57,7 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
 
   const target = from ?? me;
   const person = tree.people.find(p => p.id === target);
-  if (!person) return <section>Pick someone in the tree first.</section>;
+  if (!person) return <section className="add-person">Pick someone in the tree first.</section>;
   const who = person.name || 'this person';
 
   const finish = (sex: Sex, name: string, slot?: number) => {
@@ -68,25 +68,27 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
 
   if (!relation) {
     return (
-      <section>
+      <section className="add-person">
         <h3>Add a relative of {who}</h3>
-        {availableRelations(tree, person.id).map(r => (
-          <button key={r} onClick={() => setRelation(r)}>{RELATION_LABEL[r]}</button>
-        ))}
+        <div className="choices">
+          {availableRelations(tree, person.id).map(r => (
+            <button type="button" key={r} onClick={() => setRelation(r)}>{RELATION_LABEL[r]}</button>
+          ))}
+        </div>
       </section>
     );
   }
 
   if (!pending) {
     return (
-      <section>
+      <section className="add-person">
         <h3>{RELATION_LABEL[relation]} of {who}</h3>
         <SexAndName initialSex={suggestSex(tree, person.id, relation)} submitText="Next"
           onSubmit={(sex, name) => {
             if (slotQuestion(tree, person.id, relation)) setPending({ sex, name });
             else finish(sex, name);
           }} />
-        <button onClick={reset}>Back</button>
+        <button type="button" className="back" onClick={reset}>Back</button>
       </section>
     );
   }
@@ -94,18 +96,18 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
   const q = slotQuestion(tree, person.id, relation)!;
   const labels = slotLabels(q.members, label);
   return (
-    <section>
+    <section className="add-person">
       <h3>Where in the birth order?</h3>
       <p>Existing children, eldest first. Tap the slot for the new one.</p>
-      <ol>
+      <ol className="slots">
         {labels.map((text, i) => (
           <li key={i} style={{ listStyle: 'none' }}>
-            <button onClick={() => finish(pending.sex, pending.name, i)}>{text}</button>
+            <button type="button" onClick={() => finish(pending.sex, pending.name, i)}>{text}</button>
             {i < q.members.length && <div>{label(q.members[i])}</div>}
           </li>
         ))}
       </ol>
-      <button onClick={() => setPending(null)}>Back</button>
+      <button type="button" className="back" onClick={() => setPending(null)}>Back</button>
     </section>
   );
 }
