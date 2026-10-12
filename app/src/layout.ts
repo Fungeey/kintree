@@ -21,11 +21,11 @@ export interface Layout {
   height: number;
 }
 
-// The layout depends only on the tree, never on who "me" is or which side is shown: anchors and
-// ordering come from the order of tree.people, so every point of view draws the same picture.
-// The side filter hides cards and links afterwards (see linkSegments), it does not move anyone.
-export function layoutTree(tree: Tree): Layout {
-  const shown = new Set(tree.people.map(p => p.id));
+// The layout depends only on the tree and on which people are shown, never on who "me" is: anchors
+// and ordering come from the order of tree.people. People who are hidden (the other side of a
+// married view) are left out before anything is placed, so they take up no room and join nothing.
+export function layoutTree(tree: Tree, show: (id: string) => boolean = () => true): Layout {
+  const shown = new Set(tree.people.filter(p => show(p.id)).map(p => p.id));
   const fams = new Map<string, { f: Family; parents: string[]; children: string[] }>();
   const birth = new Map<string, string>();
   const own = new Map<string, string>();

@@ -16,9 +16,9 @@ interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
 export function TreeView({ tree, me, show, onPick }: Props) {
-  const layout = useMemo(() => layoutTree(tree), [tree]);
-  const segs = useMemo(() => linkSegments(layout, show), [layout, show]);
-  const hearts = useMemo(() => coupleHearts(layout, show), [layout, show]);
+  const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
+  const segs = useMemo(() => linkSegments(layout), [layout]);
+  const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
     const m = new Map<string, ReturnType<typeof showFor>>();
     for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id));
