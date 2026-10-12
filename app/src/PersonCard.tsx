@@ -9,6 +9,7 @@ import { ageFor, HairBack, HairFront } from './Hair.tsx';
 interface Props {
   person: Person;
   shown: Shown;
+  rootLabel?: string | null;
   isMe: boolean;
   gen: number;
   x: number;
@@ -17,19 +18,20 @@ interface Props {
   speech?: { state: SpeechState; speak: (text: string) => void };
 }
 
-export function PersonCard({ person, shown, isMe, gen, x, y, onPick, speech }: Props) {
+export function PersonCard({ person, shown, rootLabel, isMe, gen, x, y, onPick, speech }: Props) {
   const [broken, setBroken] = useState(false);
   const text = spokenText(shown);
   const canPlay = speech?.state === 'ready' && text !== '';
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
   return (
-    <div className={`node sex-${person.sex}${isMe ? ' me' : ''}`} style={{ left: x, top: y }}>
+    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}`} style={{ left: x, top: y }}>
+      <div className="root-label" title={rootLabel ?? undefined}>{rootLabel && <span>{rootLabel}</span>}</div>
       <button
         type="button"
         className="face-btn"
         onClick={() => onPick(person.id)}
-        aria-label={`${person.name ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}`}
+        aria-label={`${rootLabel ?? person.name ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}`}
         aria-current={isMe ? 'true' : undefined}
       >
         <HairBack sex={person.sex} age={age} />

@@ -1311,5 +1311,117 @@
   },
   "status": "unverified",
   "note": "unsourced"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "曾祖父",
+   "jyutping": "zang1 zou2 fu6"
+  },
+  "spoken": {
+   "chars": "太公",
+   "jyutping": "taai3 gung1"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "曾祖母",
+   "jyutping": "zang1 zou2 mou5"
+  },
+  "spoken": {
+   "chars": "太婆",
+   "jyutping": "taai3 po4"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "jyutping": "ngoi6 zang1 zou2 fu6"
+  },
+  "spoken": {
+   "chars": "外太公",
+   "jyutping": "ngoi6 taai3 gung1"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "jyutping": "ngoi6 zang1 zou2 mou5"
+  },
+  "spoken": {
+   "chars": "外太婆",
+   "jyutping": "ngoi6 taai3 po4"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "jyutping": "ngoi6 zang1 zou2 fu6"
+  },
+  "spoken": {
+   "chars": "外太公",
+   "jyutping": "ngoi6 taai3 gung1"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "jyutping": "ngoi6 zang1 zou2 mou5"
+  },
+  "spoken": {
+   "chars": "外太婆",
+   "jyutping": "ngoi6 taai3 po4"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "jyutping": "ngoi6 zang1 zou2 fu6"
+  },
+  "spoken": {
+   "chars": "外太公",
+   "jyutping": "ngoi6 taai3 gung1"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "jyutping": "ngoi6 zang1 zou2 mou5"
+  },
+  "spoken": {
+   "chars": "外太婆",
+   "jyutping": "ngoi6 taai3 po4"
+  },
+  "status": "unverified",
+  "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
  }
 ]

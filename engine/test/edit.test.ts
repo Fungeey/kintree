@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson,
+  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson,
   validateTree, kinPath, loadTable, resolve, sides, visible,
 } from '../src/index.ts';
 import type { Tree, TitleEntry, Generic } from '../src/index.ts';
@@ -186,4 +186,16 @@ test('sides: married with unknown parents and a relative marriage', () => {
   assert.deepEqual(s.labels.get(aunt.id)!.slice().sort(), ['mine', 'spouse']);
   assert.deepEqual(s.labels.get(mum.id)!.slice().sort(), ['mine', 'spouse']);
   assert.deepEqual(s.labels.get(cousin.id), ['shared']);
+});
+
+test('the first person is the root; rename and remove keep it consistent', () => {
+  const a = addPerson(emptyTree(), 'm', 'Aaron');
+  assert.equal(a.tree.root, a.id);
+  const b = addParent(a.tree, a.id, 'm');
+  assert.equal(b.tree.root, a.id, 'later people do not take over the root');
+  const renamed = renamePerson(b.tree, b.id, '  Dad ');
+  assert.equal(renamed.people.find(p => p.id === b.id)!.name, 'Dad');
+  assert.equal(renamePerson(renamed, b.id, '').people.find(p => p.id === b.id)!.name, undefined);
+  assert.equal(removePerson(b.tree, a.id).root, undefined);
+  assert.throws(() => validateTree({ ...b.tree, root: 'nobody' }));
 });

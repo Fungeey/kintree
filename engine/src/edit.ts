@@ -48,9 +48,22 @@ function finish(t: Tree, id: string): Edited {
 export function emptyTree(): Tree { return { version: 1, people: [], families: [] }; }
 
 // A person with no relatives yet.
+// The first person added to an empty tree is its root (the creator).
 export function addPerson(tree: Tree, sex: Sex, name?: string): Edited {
   const t = structuredClone(tree);
-  return finish(t, newPerson(t, sex, name));
+  const id = newPerson(t, sex, name);
+  if (t.root === undefined && t.people.length === 1) t.root = id;
+  return finish(t, id);
+}
+
+// Sets (or, with an empty name, clears) a person's name.
+export function renamePerson(tree: Tree, id: string, name: string): Tree {
+  mustHave(tree, id);
+  const t = structuredClone(tree);
+  const p = t.people.find(x => x.id === id)!;
+  const n = name.trim();
+  if (n) p.name = n; else delete p.name;
+  return t;
 }
 
 // Adds a parent of `child`. If the child has no birth family one is created. If the birth
@@ -108,6 +121,7 @@ export function removePerson(tree: Tree, id: string): Tree {
   mustHave(tree, id);
   const t = structuredClone(tree);
   t.people = t.people.filter(p => p.id !== id);
+  if (t.root === id) delete t.root;
   for (const f of t.families) {
     f.parents = f.parents.filter(x => x !== id);
     f.children = f.children.filter(x => x !== id);

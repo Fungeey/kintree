@@ -22,11 +22,11 @@ const RELATION_LABEL: Record<Relation, string> = {
 };
 const label = (p: Person) => p.name || (p.sex === 'm' ? 'brother/son' : 'sister/daughter');
 
-function SexAndName(props: { initialSex: Sex | null; submitText: string; onSubmit: (sex: Sex, name: string) => void }) {
+function SexAndName(props: { initialSex: Sex | null; submitText: string; nameLabel?: string; required?: boolean; onSubmit: (sex: Sex, name: string) => void }) {
   const [sex, setSex] = useState<Sex | null>(props.initialSex);
   const [name, setName] = useState('');
   return (
-    <form onSubmit={e => { e.preventDefault(); if (sex) props.onSubmit(sex, name); }}>
+    <form onSubmit={e => { e.preventDefault(); if (sex && (!props.required || name.trim())) props.onSubmit(sex, name); }}>
       <div className="choices" role="radiogroup" aria-label="Sex">
         {(['m', 'f'] as Sex[]).map(s => (
           <button type="button" key={s} role="radio" aria-checked={sex === s} onClick={() => setSex(s)}>
@@ -34,8 +34,8 @@ function SexAndName(props: { initialSex: Sex | null; submitText: string; onSubmi
           </button>
         ))}
       </div>
-      <label>Name (optional) <input value={name} onChange={e => setName(e.target.value)} placeholder="nickname or initials" /></label>
-      <button type="submit" disabled={!sex}>{props.submitText}</button>
+      <label>{props.nameLabel ?? 'Name (optional)'} <input value={name} onChange={e => setName(e.target.value)} placeholder="nickname or initials" required={props.required} autoFocus={props.required} /></label>
+      <button type="submit" disabled={!sex || (props.required && !name.trim())}>{props.submitText}</button>
     </form>
   );
 }
@@ -49,7 +49,8 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
     return (
       <section className="add-person">
         <h3>Start with yourself</h3>
-        <SexAndName initialSex={null} submitText="Start"
+        <p>Your name goes on the tree, so cards can say “{'<'}your name{'>'}'s father”.</p>
+        <SexAndName initialSex={null} submitText="Start" nameLabel="Your name" required
           onSubmit={(sex, name) => { const r = startTree(sex, name); onChange(r.tree, r.id); }} />
       </section>
     );

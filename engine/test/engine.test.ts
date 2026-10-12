@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { validateTree, kinPath, loadTable, matchPattern, resolve } from '../src/index.ts';
+import { validateTree, kinPath, loadTable, matchPattern, resolve, emptyTree, addPerson, addParent } from '../src/index.ts';
 import type { TitleEntry, Generic, Resolution, Tree } from '../src/index.ts';
 import { tree } from './fixture.ts';
 
@@ -126,9 +126,9 @@ test('fallback: generic title by generation and a description', () => {
   assert.deepEqual(x.generic, { chars: '叔叔', jyutping: 'suk1 suk1' });
   assert.deepEqual(x.describe, { yue: '爸爸嘅堂兄弟', en: "father's paternal cousin" });
 
-  x = fb('son', 'wifeGrandma');                                // M M M
-  assert.deepEqual(x.generic, { chars: '婆婆', jyutping: 'po4 po1' });
-  assert.deepEqual(x.describe, { yue: '媽媽嘅外婆', en: "mother's maternal grandmother" });
+  const gg = r('son', 'wifeGrandma');                          // M M M: now has its own title
+  assert.equal(gg.kind, 'title');
+  assert.equal(gg.kind === 'title' && gg.forms.formal.chars, '外曾祖母');
 
   x = fb('me', 'webWife');                                     // W Be W
   assert.deepEqual(x.generic, { older: { chars: '姐姐', jyutping: 'ze4 ze1' }, younger: 'by-name' });
@@ -164,4 +164,32 @@ test('loadTable rejects bad tables', () => {
   assert.throws(() => loadTable(entries.filter(x => x.pattern !== 'Zy')));        // missing base token
   const { spoken, ...noSpoken } = e('F F F');
   assert.throws(() => loadTable([...entries, noSpoken as TitleEntry]));           // neither spoken nor older/younger
+});
+
+test('great-grandparents have their own titles, not the generic fallback', () => {
+  let t = addPerson(emptyTree(), 'm', 'Me');
+  const me = t.id;
+  const up = (from: string, sex: 'm' | 'f') => { const e = addParent(t.tree, from, sex); t = e; return e.id; };
+  const dad = up(me, 'm'), mum = up(me, 'f');
+  const names = new Map<string, string>();
+  for (const [path, from, sex] of [['F F', dad, 'm'], ['F M', dad, 'f'], ['M F', mum, 'm'], ['M M', mum, 'f']] as const) {
+    const g = up(from, sex);
+    for (const [s, label] of [['m', 'F'], ['f', 'M']] as const) {
+      const id = up(g, s);
+      names.set(`${path} ${label}`, id);
+    }
+  }
+  assert.equal(names.size, 8);
+  const seen = new Set<string>();
+  for (const [path, id] of names) {
+    const x = resolve(t.tree, table, generic, me, id);
+    assert.equal(x.kind, 'title', path);
+    if (x.kind === 'title') { assert.equal(x.path, path); assert.match(x.forms.formal.chars, /^(外)?曾祖[父母]$/); seen.add(x.forms.formal.chars); }
+  }
+  assert.equal(seen.size, 4);
+  // Four generations up is beyond the table: still the generic fallback.
+  const top = up(names.get('F F F')!, 'm');
+  const far = resolve(t.tree, table, generic, me, top);
+  assert.equal(far.kind, 'fallback');
+  assert.deepEqual(far.kind === 'fallback' && far.generic, { chars: '公公', jyutping: 'gung4 gung1' });
 });

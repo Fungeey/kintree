@@ -1,11 +1,11 @@
-// Drawn-tree layout. Generations are rows (from "me"); a family group is a couple joined
+// Drawn-tree layout. Generations are rows; a family group is a couple joined
 // by a line with its children under it. Positions are card top-left corners in tree pixels.
 import type { Tree, Family } from '../../engine/src/index.ts';
 
 export const CARD_W = 76;
-export const CARD_H = 108;
+export const CARD_H = 128;
 // Centre of the face circle, from the node's top: couple lines run through it.
-export const FACE_CY = 33;
+export const FACE_CY = 53;
 export const GAP_X = 8;
 export const COUPLE_GAP = 24;
 export const ROW_GAP = 34;
@@ -21,8 +21,11 @@ export interface Layout {
   height: number;
 }
 
-export function layoutTree(tree: Tree, me: string, show: (id: string) => boolean = () => true): Layout {
-  const shown = new Set(tree.people.filter(p => show(p.id)).map(p => p.id));
+// The layout depends only on the tree, never on who "me" is or which side is shown: anchors and
+// ordering come from the order of tree.people, so every point of view draws the same picture.
+// The side filter hides cards and links afterwards (see linkSegments), it does not move anyone.
+export function layoutTree(tree: Tree): Layout {
+  const shown = new Set(tree.people.map(p => p.id));
   const fams = new Map<string, { f: Family; parents: string[]; children: string[] }>();
   const birth = new Map<string, string>();
   const own = new Map<string, string>();
@@ -35,11 +38,16 @@ export function layoutTree(tree: Tree, me: string, show: (id: string) => boolean
     for (const p of parents) own.set(p, f.id);
   }
 
-  // Generation of each person relative to me (BFS over visible links).
+  // Generation of each person, relative to the first person of their connected group (BFS over
+  // visible links, started from the earliest person in tree order).
   const gens = new Map<string, number>();
-  if (shown.has(me)) {
-    gens.set(me, 0);
-    const queue = [me];
+  const order = tree.people.filter(p => shown.has(p.id)).map(p => p.id);
+  const anchors: string[] = [];
+  for (const start of order) {
+    if (gens.has(start)) continue;
+    anchors.push(start);
+    gens.set(start, 0);
+    const queue = [start];
     while (queue.length) {
       const id = queue.shift()!;
       const g = gens.get(id)!;
@@ -150,29 +158,27 @@ export function layoutTree(tree: Tree, me: string, show: (id: string) => boolean
     return { width: Math.max(end - x0, 0), placed };
   }
 
-  if (shown.has(me)) {
-    let top: string | undefined = birth.get(me) ?? own.get(me);
-    if (top) {
-      const seen = new Set<string>([top]);
-      for (;;) {
-        const next: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b)).map(p => birth.get(p)).find(b => b !== undefined && !seen.has(b));
-        if (next === undefined) break;
-        seen.add(next); top = next;
-      }
-      let x = 0;
-      queue.unshift(top);
-      while (queue.length) {
-        const fid = queue.shift()!;
-        if (done.has(fid)) continue;
-        const r = placeFamily(fid, x);
-        x = Math.max(x, right) + (r.width >= 0 ? GAP_X * 2 : 0);
-      }
+  let x = 0;
+  for (const anchor of anchors) {
+    let top: string | undefined = birth.get(anchor) ?? own.get(anchor);
+    if (!top) continue;
+    const seen = new Set<string>([top]);
+    for (;;) {
+      const next: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b)).map(p => birth.get(p)).find(b => b !== undefined && !seen.has(b));
+      if (next === undefined) break;
+      seen.add(next); top = next;
+    }
+    queue.unshift(top);
+    while (queue.length) {
+      const fid = queue.shift()!;
+      if (done.has(fid)) continue;
+      const r = placeFamily(fid, x);
+      x = Math.max(x, right) + (r.width >= 0 ? GAP_X * 2 : 0);
     }
   }
-  // Anyone left (no family, or not reached): a card of their own.
-  let x = right ? right + GAP_X * 2 : 0;
-  const ordered = shown.has(me) ? [me, ...[...shown].filter(i => i !== me)] : [...shown];
-  for (const id of ordered) if (!pos.has(id)) { putCard(id, x); x += CARD_W + GAP_X; }
+  // Anyone left (no family, or not reached): a card of their own, in tree order.
+  x = right ? right + GAP_X * 2 : 0;
+  for (const id of order) if (!pos.has(id)) { putCard(id, x); x += CARD_W + GAP_X; }
 
   // Normalise so the leftmost card sits at PAD.
   let minX = Infinity, maxX = 0, maxY = 0;
@@ -187,11 +193,12 @@ const sexRank = (t: Tree, id: string) => (t.people.find(p => p.id === id)?.sex =
 export interface Segment { x1: number; y1: number; x2: number; y2: number; dashed?: boolean }
 
 // Line segments for the family links: couple line, drop, rail and one stem per child.
-export function linkSegments(layout: Layout): Segment[] {
+export function linkSegments(layout: Layout, show: (id: string) => boolean = () => true): Segment[] {
   const segs: Segment[] = [];
+  const at = (ids: string[]) => ids.filter(show).map(i => layout.pos.get(i)).filter((p): p is Pos => !!p);
   for (const l of layout.links) {
-    const parents = l.parents.map(p => layout.pos.get(p)).filter((p): p is Pos => !!p);
-    const kids = l.children.map(c => layout.pos.get(c)).filter((p): p is Pos => !!p);
+    const parents = at(l.parents);
+    const kids = at(l.children);
     if (!parents.length && !kids.length) continue;
     if (!parents.length && kids.length < 2) continue; // nothing to join
     const sorted = [...parents].sort((a, b) => a.x - b.x);
@@ -224,10 +231,10 @@ export function linkSegments(layout: Layout): Segment[] {
 }
 
 // Where to draw a heart: the middle of each couple line between two side-by-side parents.
-export function coupleHearts(layout: Layout): { x: number; y: number }[] {
+export function coupleHearts(layout: Layout, show: (id: string) => boolean = () => true): { x: number; y: number }[] {
   const out: { x: number; y: number }[] = [];
   for (const l of layout.links) {
-    const ps = l.parents.map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
+    const ps = l.parents.filter(show).map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
     if (ps.length === 2 && ps[0].y === ps[1].y && ps[1].x - ps[0].x <= CARD_W + COUPLE_GAP + 1) {
       out.push({ x: (ps[0].x + CARD_W + ps[1].x) / 2, y: ps[0].y + FACE_CY });
     }

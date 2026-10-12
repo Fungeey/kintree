@@ -26,6 +26,21 @@ function forms(f: Forms, label: string): Line {
   return f.spoken === 'by-name' ? { label, chars: f.formal.chars, jyutping: f.formal.jyutping, byName: true } : line(f.spoken, label);
 }
 
+// The relation to the tree's root (its creator), e.g. "Aaron's father". Independent of who "me" is.
+// Null when the tree has no named root or the person is not related to the root.
+export function rootLabel(tree: Tree, target: string): string | null {
+  const root = tree.root && tree.people.find(p => p.id === tree.root);
+  const name = root && root.name?.trim();
+  if (!root || !name) return null;
+  const r = resolve(tree, table, generic as unknown as Generic, root.id, target);
+  switch (r.kind) {
+    case 'self': return name;
+    case 'unrelated': return null;
+    case 'title': case 'byAge': return `${name}'s ${r.en}`;
+    case 'fallback': return `${name}'s ${r.describe.en}`;
+  }
+}
+
 export function showFor(tree: Tree, me: string, target: string): Shown {
   const r = resolve(tree, table, generic as unknown as Generic, me, target);
   switch (r.kind) {

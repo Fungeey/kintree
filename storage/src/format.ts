@@ -12,6 +12,7 @@ export interface Snapshot { tree: Tree; me: string | null }
 interface Wire {
   v: number;
   me: string | null;
+  r?: string;   // root person (the tree's creator); absent in older links
   p: [string, Sex, string?][];
   f: [string, string[], string[]][];
 }
@@ -40,6 +41,7 @@ export function toWire(snap: Snapshot): Wire {
   return {
     v: FORMAT_VERSION,
     me,
+    ...(tree.root ? { r: tree.root } : {}),
     p: tree.people.map((p) => (p.name ? [p.id, p.sex, p.name] : [p.id, p.sex])),
     f: tree.families.map((f) => [f.id, f.parents, f.children]),
   };
@@ -51,9 +53,12 @@ export function fromWire(w: Wire): Snapshot {
     people: w.p.map(([id, sex, name]) => (name ? { id, sex, name } : { id, sex })),
     families: w.f.map(([id, parents, children]) => ({ id, parents, children })),
   };
-  validateTree(tree);
   const me = w.me ?? null;
   if (me !== null && !tree.people.some((p) => p.id === me)) throw new Error(`me "${me}" is not in the tree`);
+  // Links and saved trees from before the root existed: whoever was "me" when it was saved made the tree.
+  const root = [w.r, me].find((id) => id != null && tree.people.some((p) => p.id === id));
+  if (root) tree.root = root;
+  validateTree(tree);
   return { tree, me };
 }
 
