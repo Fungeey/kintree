@@ -10,7 +10,7 @@ test('empty tree starts with me', () => {
 });
 
 test('parent and spouse are offered only while there is room', () => {
-  let { tree, id: me } = startTree('m');
+  let { tree, id: me } = startTree('m', 'Me');
   assert.deepEqual(availableRelations(tree, me), ['parent', 'child', 'spouse', 'sibling']);
   tree = applyAdd(tree, { from: me, relation: 'parent', sex: 'm' }).tree;
   tree = applyAdd(tree, { from: me, relation: 'parent', sex: 'f' }).tree;
@@ -19,7 +19,7 @@ test('parent and spouse are offered only while there is room', () => {
 });
 
 test('unknown parents: a sibling or aunt can be added with no parents', () => {
-  let { tree, id: me } = startTree('m');
+  let { tree, id: me } = startTree('m', 'Me');
   const q = slotQuestion(tree, me, 'sibling');
   assert.deepEqual(q?.members.map(p => p.id), [me]);
   assert.deepEqual(slotLabels(q!.members, p => p.id), [`older than ${me}`, `younger than ${me}`]);
@@ -29,7 +29,7 @@ test('unknown parents: a sibling or aunt can be added with no parents', () => {
 });
 
 test('slot asked once per sibling group; none for first child, parent, spouse', () => {
-  let { tree, id: me } = startTree('m');
+  let { tree, id: me } = startTree('m', 'Me');
   assert.equal(slotQuestion(tree, me, 'child'), null);
   assert.equal(slotQuestion(tree, me, 'parent'), null);
   assert.equal(slotQuestion(tree, me, 'spouse'), null);
@@ -46,7 +46,7 @@ test('slot asked once per sibling group; none for first child, parent, spouse', 
 });
 
 test('blank name is dropped; suggestSex proposes the opposite', () => {
-  const { tree, id: me } = startTree('m');
+  const { tree, id: me } = startTree('m', 'Me');
   const w = applyAdd(tree, { from: me, relation: 'spouse', sex: 'f', name: '  ' });
   assert.equal(w.tree.people.find(p => p.id === w.id)!.name, undefined);
   assert.equal(suggestSex(tree, me, 'spouse'), 'f');
@@ -56,8 +56,14 @@ test('blank name is dropped; suggestSex proposes the opposite', () => {
 });
 
 test('input tree is untouched', () => {
-  const { tree, id } = startTree('m');
+  const { tree, id } = startTree('m', 'Me');
   const before = structuredClone(tree);
   applyAdd(tree, { from: id, relation: 'child', sex: 'm' });
   assert.deepEqual(tree, before);
+});
+
+test('the first person must have a name and becomes the root', () => {
+  assert.throws(() => startTree('m', '   '));
+  const { tree, id } = startTree('f', 'Mei');
+  assert.equal(tree.root, id);
 });

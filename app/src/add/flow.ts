@@ -54,8 +54,11 @@ export function applyAdd(tree: Tree, r: AddRequest): Edited {
 }
 
 // Start of the flow on an empty tree (decision 17): the first person is "me".
-export function startTree(sex: Sex, name?: string): Edited {
-  return addPerson(emptyTree(), sex, name?.trim() || undefined);
+// The first person is the tree's root and must have a name: cards read "<name>'s father".
+export function startTree(sex: Sex, name: string): Edited {
+  const n = name.trim();
+  if (!n) throw new Error('the first person needs a name');
+  return addPerson(emptyTree(), sex, n);
 }
 
 // Suggested sex for the new person: the opposite of the existing spouse/parent, otherwise none.

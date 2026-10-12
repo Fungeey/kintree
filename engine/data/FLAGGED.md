@@ -90,6 +90,14 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 | F Z* D H | father's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
 | M B* D H | mother's brother's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
 | M Z* D H | mother's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
+| F F F | paternal great-grandfather | 曾祖父 zang1 zou2 fu6 | 太公 taai3 gung1 | unverified | great-grandparent terms from common usage; not checked on words.hk |
+| F F M | paternal great-grandmother | 曾祖母 zang1 zou2 mou5 | 太婆 taai3 po4 | unverified | as above |
+| F M F | father's mother's father | 外曾祖父 ngoi6 zang1 zou2 fu6 | 外太公 ngoi6 taai3 gung1 | unverified | as above |
+| F M M | father's mother's mother | 外曾祖母 ngoi6 zang1 zou2 mou5 | 外太婆 ngoi6 taai3 po4 | unverified | as above |
+| M F F | mother's father's father | 外曾祖父 ngoi6 zang1 zou2 fu6 | 外太公 ngoi6 taai3 gung1 | unverified | as above |
+| M F M | mother's father's mother | 外曾祖母 ngoi6 zang1 zou2 mou5 | 外太婆 ngoi6 taai3 po4 | unverified | as above |
+| M M F | mother's mother's father | 外曾祖父 ngoi6 zang1 zou2 fu6 | 外太公 ngoi6 taai3 gung1 | unverified | as above |
+| M M M | mother's mother's mother | 外曾祖母 ngoi6 zang1 zou2 mou5 | 外太婆 ngoi6 taai3 po4 | unverified | as above |
 
 ## Standing doubts
 

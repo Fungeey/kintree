@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Tree } from '../../engine/src/index.ts';
 import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
-import { showFor } from './display.ts';
+import { rootLabel, showFor } from './display.ts';
 import { PersonCard } from './PersonCard.tsx';
 import { useSpeech } from './audio/useSpeech.ts';
 
@@ -16,14 +16,14 @@ interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
 export function TreeView({ tree, me, show, onPick }: Props) {
-  const layout = useMemo(() => layoutTree(tree, me, show), [tree, me, show]);
-  const segs = useMemo(() => linkSegments(layout), [layout]);
+  const layout = useMemo(() => layoutTree(tree), [tree]);
+  const segs = useMemo(() => linkSegments(layout, show), [layout, show]);
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
     const m = new Map<string, ReturnType<typeof showFor>>();
-    for (const id of layout.pos.keys()) m.set(id, showFor(tree, me, id));
+    for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id));
     return m;
-  }, [tree, me, layout]);
+  }, [tree, me, layout, show]);
 
   const speech = useSpeech();
   const box = useRef<HTMLDivElement>(null);
@@ -38,7 +38,7 @@ export function TreeView({ tree, me, show, onPick }: Props) {
   };
 
   // Recentre on "me" when who "me" is, or the people shown, change.
-  const key = `${me}|${layout.pos.size}`;
+  const key = `${me}|${shown.size}`;
   useLayoutEffect(() => {
     const el = box.current;
     if (!el) return;
@@ -121,9 +121,9 @@ export function TreeView({ tree, me, show, onPick }: Props) {
             <path d="M12 20 C-4 9 5 -1 12 6 C19 -1 28 9 12 20Z" />
           </svg>
         ))}
-        {tree.people.filter(p => layout.pos.has(p.id)).map(p => {
+        {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} isMe={p.id === me} gen={layout.gens.get(p.id) ?? 0} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} rootLabel={rootLabel(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
         })}
       </div>
       {speech.state !== 'ready' && (

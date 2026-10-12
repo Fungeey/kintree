@@ -10,6 +10,8 @@ export function validateTree(tree: Tree): void {
     people.add(p.id);
   }
 
+  if (tree.root !== undefined && !people.has(tree.root)) throw new Error(`unknown root person id: ${tree.root}`);
+
   const familyIds = new Set<string>();
   const isChild = new Set<string>();   // each person is a child in at most one family
   const isParent = new Set<string>();  // each person is a parent in at most one family

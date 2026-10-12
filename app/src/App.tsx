@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { emptyTree, removePerson, sides, visible } from '../../engine/src/index.ts';
+import { emptyTree, removePerson, renamePerson, sides, visible } from '../../engine/src/index.ts';
 import type { Tree, View } from '../../engine/src/index.ts';
 import { AddPerson } from './add/AddPerson.tsx';
 import { TreeView } from './TreeView.tsx';
@@ -113,6 +113,9 @@ function Shell({ start }: { start: Start }) {
           <button type="button" onClick={() => setError(undefined)}>Dismiss</button>
         </p>
       )}
+      {tree.root && !tree.people.find(p => p.id === tree.root)?.name && (
+        <RootName onSave={name => setTree(t => renamePerson(t, t.root!, name))} />
+      )}
       <TreeView tree={tree} me={me} show={show} onPick={pick} />
       {adding && (
         <aside className="sheet">
@@ -121,5 +124,18 @@ function Shell({ start }: { start: Start }) {
       )}
       <p className="hint">Tap a person to see everyone's titles from their point of view.</p>
     </div>
+  );
+}
+
+// Trees made before names were required: ask once for the creator's name so cards can read "Aaron's father".
+function RootName({ onSave }: { onSave: (name: string) => void }) {
+  const [name, setName] = useState('');
+  return (
+    <form className="notice rootname" onSubmit={e => { e.preventDefault(); if (name.trim()) onSave(name); }}>
+      <label>Who made this tree? Their name goes on every card, like “Aaron's father”.{' '}
+        <input value={name} onChange={e => setName(e.target.value)} placeholder="Name" required />
+      </label>
+      <button type="submit" disabled={!name.trim()}>Save</button>
+    </form>
   );
 }

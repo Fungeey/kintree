@@ -7,6 +7,7 @@ const tree = (extra = false): Snapshot => ({
   me: 'a',
   tree: {
     version: 1,
+    root: 'a',
     people: [
       { id: 'a', sex: 'm', name: '阿明' }, { id: 'b', sex: 'f' },
       { id: 'c', sex: 'm' }, { id: 'd', sex: 'f' },
@@ -89,4 +90,19 @@ test('corrupt saved data is ignored', async () => {
   const r = await open(s, '#' + await encodeFragment(tree()));
   assert.equal(r.source, 'link');
   assert.deepEqual(r.recent, []);
+});
+
+test('root is kept when it is not "me"', async () => {
+  const s = tree();
+  s.me = 'b';
+  assert.deepEqual(await decodeFragment(await encodeFragment(s)), s);
+});
+
+test('a tree without a root (older link or save) takes "me" as its root', async () => {
+  const s = tree();
+  delete s.tree.root;
+  const back = await decodeFragment(await encodeFragment(s));
+  assert.equal(back.tree.root, 'a');
+  const empty = await decodeFragment(await encodeFragment({ me: null, tree: { version: 1, people: [], families: [] } }));
+  assert.equal(empty.tree.root, undefined);
 });

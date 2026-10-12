@@ -7,7 +7,8 @@ export interface Person { id: string; sex: Sex; name?: string }
 // parents: 0-2 ids; children: birth order, eldest first.
 export interface Family { id: string; parents: string[]; children: string[] }
 
-export interface Tree { version: 1; people: Person[]; families: Family[] }
+// root: the person who created the tree; their name labels everyone's relation on the cards. Optional so older trees still load.
+export interface Tree { version: 1; people: Person[]; families: Family[]; root?: string }
 
 export interface Title { chars: string; jyutping: string }
 

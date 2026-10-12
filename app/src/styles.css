@@ -36,7 +36,7 @@ button { font: inherit; color: inherit; }
 .links { position: absolute; left: 0; top: 0; pointer-events: none; }
 .links line { stroke: var(--line); stroke-width: 2; stroke-linecap: round; }
 
-.node { position: absolute; width: 76px; height: 108px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.node { position: absolute; width: 76px; height: 128px; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .face-btn { position: relative; width: 70px; height: 70px; padding: 0; border: 0; background: none; cursor: pointer; flex: none; }
 .hair { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
 .face { position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; overflow: hidden; background: var(--paper); border: 2px solid var(--line); display: grid; place-items: center; }
@@ -58,7 +58,7 @@ button { font: inherit; color: inherit; }
 .titles.two .jp { font-size: .62rem; }
 .titles.two .zh { font-size: .62rem; }
 .line .age { font-size: .45rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
-.play { position: absolute; left: 50px; top: 44px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
+.play { position: absolute; left: 50px; top: 64px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
 .play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
 .zoom button { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--panel); font-size: 1.2rem; cursor: pointer; }
@@ -90,3 +90,5 @@ button { font: inherit; color: inherit; }
 .start .add-person { max-width: none; }
 
 .heart { position: absolute; width: 13px; height: 12px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
+.root-label { flex: none; box-sizing: border-box; width: 100%; height: 20px; padding: 0 1px; display: flex; align-items: flex-end; justify-content: center; font-size: .5rem; line-height: 1.1; color: var(--muted); overflow: hidden; }
+.root-label span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
