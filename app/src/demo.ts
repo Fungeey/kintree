@@ -6,7 +6,7 @@ export function demoTree(): { tree: Tree; me: string } {
   let t: Tree = emptyTree();
   const id: Record<string, string> = {};
   const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
-  add('me', addPerson(t, 'm', 'Aaron'));
+  add('me', addPerson(t, 'm', 'You'));
   add('dad', addParent(t, id.me, 'm'));
   add('mum', addParent(t, id.me, 'f'));
   add('sis', addSibling(t, id.me, 'f'));
