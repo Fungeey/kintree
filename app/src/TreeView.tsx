@@ -42,7 +42,7 @@ export function TreeView({ tree, me, show, onPick }: Props) {
   useLayoutEffect(() => {
     const el = box.current;
     if (!el) return;
-    const k = Math.min(1, Math.max(0.6, el.clientWidth / 420));
+    const k = Math.min(1, Math.max(0.6, el.clientWidth / 640));
     centreOn(me, k);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
