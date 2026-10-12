@@ -88,3 +88,5 @@ button { font: inherit; color: inherit; }
 .slots li { display: flex; align-items: center; gap: 10px; }
 .slots li div { color: var(--muted); font-size: .85rem; }
 .start .add-person { max-width: none; }
+
+.heart { position: absolute; width: 22px; height: 20px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
