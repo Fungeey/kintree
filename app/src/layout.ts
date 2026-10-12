@@ -76,14 +76,28 @@ export function layoutTree(tree: Tree): Layout {
   const links: Link[] = [];
   let right = 0;
 
-  const putCard = (id: string, x: number) => { pos.set(id, { x, y: rowY(id) }); right = Math.max(right, x + CARD_W); };
-  const shift = (ids: string[], dx: number) => {
-    for (const id of ids) { const p = pos.get(id)!; pos.set(id, { x: p.x + dx, y: p.y }); right = Math.max(right, p.x + dx + CARD_W); }
+  // Each row fills left to right: `frontier` is where the next card in a row may go, so a family
+  // placed later can still sit above its child when the row above is free there.
+  const rowOf = (id: string) => (gens.get(id) ?? 0) - minGen;
+  const frontier = new Map<number, number>();
+  let floor = 0; // left edge for the connected group being drawn
+  const free = (row: number) => Math.max(frontier.get(row) ?? floor, floor);
+  const mark = (id: string) => {
+    const p = pos.get(id)!, row = rowOf(id);
+    frontier.set(row, Math.max(free(row), p.x + CARD_W + GAP_X));
+    right = Math.max(right, p.x + CARD_W);
   };
+  const putCard = (id: string, x: number) => { pos.set(id, { x, y: rowY(id) }); mark(id); };
+  const shift = (ids: string[], dx: number) => {
+    for (const id of ids) { const p = pos.get(id)!; pos.set(id, { x: p.x + dx, y: p.y }); mark(id); }
+  };
+  // A married child's in-law family met inside another family's block waits until that block is
+  // done, so it never pushes in between a parent and that parent's own brothers and sisters.
+  let deferred: string[] = [];
 
-  // Places a family group with its children starting at x0. Returns its width and the
-  // placed people (for shifting). Parents or children placed earlier are left where they are.
-  function placeFamily(fid: string, x0: number): { width: number; placed: string[] } {
+  // Places a family group: its children (with their own families) left to right, then the parents
+  // centred over them. Returns the people placed, for shifting. People placed earlier stay put.
+  function placeFamily(fid: string, nested: boolean): string[] {
     done.add(fid);
     const fam = fams.get(fid)!;
     const parents = fam.parents.filter(p => !pos.has(p));
@@ -107,59 +121,47 @@ export function layoutTree(tree: Tree): Layout {
     const kids = [...fresh.filter(k => !wifeFamily.has(k)), ...fresh.filter(k => wifeFamily.has(k))];
 
     const placed: string[] = [];
-    let x = x0;
     const centers: number[] = [];
-    for (const k of placedKids) centers.push(pos.get(k)!.x + CARD_W / 2); // already drawn, to the left
+    for (const k of placedKids) centers.push(pos.get(k)!.x + CARD_W / 2);
     for (const k of kids) {
       if (pos.has(k)) continue; // placed as part of an earlier sibling's block
       const ofid = own.get(k);
       if (ofid && !done.has(ofid)) {
-        const r = placeFamily(ofid, x);
-        placed.push(...r.placed);
+        placed.push(...placeFamily(ofid, true));
         centers.push(pos.get(k)!.x + CARD_W / 2);
-        x += r.width + GAP_X;
-        const bf = wifeFamily.get(k);
-        if (bf && !done.has(bf)) {
-          const r2 = placeFamily(bf, x);
-          placed.push(...r2.placed);
-          x += r2.width + GAP_X;
-        }
       } else {
-        putCard(k, x);
+        putCard(k, free(rowOf(k)));
         placed.push(k);
-        centers.push(x + CARD_W / 2);
-        x += CARD_W + GAP_X;
+        centers.push(pos.get(k)!.x + CARD_W / 2);
+      }
+      const bf = wifeFamily.get(k);
+      if (bf && !done.has(bf)) {
+        if (nested) deferred.push(bf);
+        else placed.push(...placeFamily(bf, true));
       }
     }
-    let childrenEnd = kids.length ? x - GAP_X : x0;
 
-    const n = parents.length;
-    const pairW = n ? n * CARD_W + (n - 1) * COUPLE_GAP : 0;
-    let pairLeft = x0;
-    if (centers.length && n) {
-      const mid = (centers[0] + centers[centers.length - 1]) / 2;
-      pairLeft = mid - pairW / 2;
-      if (pairLeft < x0 && placedKids.length) {
-        pairLeft = x0; // a child is already drawn to the left: keep clear of the block before
-      } else if (pairLeft < x0) {
-        const dx = x0 - pairLeft;
-        // Shift only what this call placed: the children blocks.
-        shift(placed, dx);
-        childrenEnd += dx;
-        pairLeft = x0;
-      }
-    }
     // Male parent on the left, as is the convention.
     const ordered = [...parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b));
-    ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
-    const end = Math.max(childrenEnd, pairLeft + pairW);
+    if (ordered.length) {
+      const pairW = ordered.length * CARD_W + (ordered.length - 1) * COUPLE_GAP;
+      const lim = Math.max(...ordered.map(p => free(rowOf(p))));
+      let pairLeft = lim;
+      if (centers.length) {
+        const want = (Math.min(...centers) + Math.max(...centers)) / 2 - pairW / 2;
+        if (want >= lim) pairLeft = want;
+        else if (!placedKids.length && placed.length) shift(placed, lim - want); // move the new children along
+        // else a child is already drawn to the left: keep clear of the row and reach back with the rail
+      }
+      ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
+    }
     // A parent's own birth family is drawn on its own, further along.
     for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) queue.push(b); }
-    return { width: Math.max(end - x0, 0), placed };
+    return placed;
   }
 
-  let x = 0;
   for (const anchor of anchors) {
+    if (pos.has(anchor)) continue;
     let top: string | undefined = birth.get(anchor) ?? own.get(anchor);
     if (!top) continue;
     const seen = new Set<string>([top]);
@@ -168,16 +170,18 @@ export function layoutTree(tree: Tree): Layout {
       if (next === undefined) break;
       seen.add(next); top = next;
     }
+    floor = right ? right + GAP_X * 2 : 0; // each connected group starts clear of the last
     queue.unshift(top);
     while (queue.length) {
       const fid = queue.shift()!;
       if (done.has(fid)) continue;
-      const r = placeFamily(fid, x);
-      x = Math.max(x, right) + (r.width >= 0 ? GAP_X * 2 : 0);
+      placeFamily(fid, false);
+      queue.unshift(...deferred);
+      deferred = [];
     }
   }
   // Anyone left (no family, or not reached): a card of their own, in tree order.
-  x = right ? right + GAP_X * 2 : 0;
+  let x = right ? right + GAP_X * 2 : 0;
   for (const id of order) if (!pos.has(id)) { putCard(id, x); x += CARD_W + GAP_X; }
 
   // Normalise so the leftmost card sits at PAD.
@@ -190,12 +194,20 @@ export function layoutTree(tree: Tree): Layout {
 
 const sexRank = (t: Tree, id: string) => (t.people.find(p => p.id === id)?.sex === 'm' ? 0 : 1);
 
-export interface Segment { x1: number; y1: number; x2: number; y2: number; dashed?: boolean }
+// `bridge`: a rail moved off the usual line (and its drop and stems) is drawn on top, with a gap
+// cut into any line it crosses, so a crossing never reads as a join.
+export interface Segment { x1: number; y1: number; x2: number; y2: number; dashed?: boolean; bridge?: boolean }
+
+// Rails that would run along the same line between two rows are moved up or down a little,
+// so two families' children are never joined by one line that reads as a single family.
+const LANES = [0, -8, 8];
 
 // Line segments for the family links: couple line, drop, rail and one stem per child.
 export function linkSegments(layout: Layout, show: (id: string) => boolean = () => true): Segment[] {
   const segs: Segment[] = [];
   const at = (ids: string[]) => ids.filter(show).map(i => layout.pos.get(i)).filter((p): p is Pos => !!p);
+  interface Rail { sorted: Pos[]; adjacent: boolean; dropX: number; dropY: number; kids: Pos[]; cx: number[]; y: number; x1: number; x2: number }
+  const rails: Rail[] = [];
   for (const l of layout.links) {
     const parents = at(l.parents);
     const kids = at(l.children);
@@ -212,21 +224,39 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
       dropX = sorted[0].x + CARD_W / 2; dropY = sorted[0].y + CARD_H;
     } else { dropX = 0; dropY = 0; }
     if (!kids.length) continue;
-    const topKid = Math.min(...kids.map(k => k.y));
-    const railY = topKid - ROW_GAP / 2;
+    const y = Math.min(...kids.map(k => k.y)) - ROW_GAP / 2;
     const cx = kids.map(k => k.x + CARD_W / 2);
-    if (!sorted.length) {
-      dropX = (Math.min(...cx) + Math.max(...cx)) / 2;
-      segs.push({ x1: dropX, y1: railY - 22, x2: dropX, y2: railY, dashed: true });
-    } else {
-      segs.push({ x1: dropX, y1: dropY, x2: dropX, y2: railY });
-      // A parent that is not beside the couple line (placed elsewhere) joins the rail too.
-      if (!adjacent) for (const p of sorted.slice(1)) segs.push({ x1: p.x + CARD_W / 2, y1: p.y + CARD_H, x2: p.x + CARD_W / 2, y2: railY });
-    }
+    if (!sorted.length) dropX = (Math.min(...cx) + Math.max(...cx)) / 2;
     const xs = [...cx, dropX, ...(adjacent ? [] : sorted.map(p => p.x + CARD_W / 2))];
-    segs.push({ x1: Math.min(...xs), y1: railY, x2: Math.max(...xs), y2: railY });
-    kids.forEach((k, i) => segs.push({ x1: cx[i], y1: railY, x2: cx[i], y2: k.y }));
+    rails.push({ sorted, adjacent, dropX, dropY, kids, cx, y, x1: Math.min(...xs), x2: Math.max(...xs) });
   }
+
+  // Lanes: rails between the same two rows that overlap take different heights. Shorter rails
+  // keep the usual line; a long one reaching across other families moves off it.
+  const lanes = new Map<number, [number, number][][]>(); // rail height -> spans in each lane
+  const out: Segment[] = [];
+  for (const r of [...rails].sort((a, b) => (a.x2 - a.x1) - (b.x2 - b.x1) || a.x1 - b.x1)) {
+    const used = lanes.get(r.y) ?? LANES.map(() => []);
+    lanes.set(r.y, used);
+    let lane = used.findIndex(spans => spans.every(([a, b]) => r.x2 < a - 1 || r.x1 > b + 1));
+    if (lane < 0) lane = 0;
+    used[lane].push([r.x1, r.x2]);
+    const railY = r.y + LANES[lane];
+    const mine: Segment[] = [];
+    if (!r.sorted.length) {
+      mine.push({ x1: r.dropX, y1: railY - 22, x2: r.dropX, y2: railY, dashed: true });
+    } else {
+      mine.push({ x1: r.dropX, y1: r.dropY, x2: r.dropX, y2: railY });
+      // A parent that is not beside the couple line (placed elsewhere) joins the rail too.
+      if (!r.adjacent) for (const p of r.sorted.slice(1)) mine.push({ x1: p.x + CARD_W / 2, y1: p.y + CARD_H, x2: p.x + CARD_W / 2, y2: railY });
+    }
+    mine.push({ x1: r.x1, y1: railY, x2: r.x2, y2: railY });
+    r.kids.forEach((k, i) => mine.push({ x1: r.cx[i], y1: railY, x2: r.cx[i], y2: k.y }));
+    if (lane) for (const m of mine) m.bridge = true;
+    out.push(...mine);
+  }
+  // Bridged rails last, so they are drawn over the others.
+  segs.push(...out.filter(m => !m.bridge), ...out.filter(m => m.bridge));
   return segs;
 }
 

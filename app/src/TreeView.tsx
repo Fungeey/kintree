@@ -113,7 +113,10 @@ export function TreeView({ tree, me, show, onPick }: Props) {
       <div className="world" style={{ transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.k})`, width: layout.width, height: layout.height }}>
         <svg className="links" width={layout.width} height={layout.height} aria-hidden="true">
           {segs.map((s, i) => (
-            <line key={i} x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} strokeDasharray={s.dashed ? '4 4' : undefined} />
+            <g key={i}>
+              {s.bridge && s.y1 === s.y2 && <line className="gap" x1={s.x1 + 4} y1={s.y1} x2={s.x2 - 4} y2={s.y2} />}
+              <line x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} strokeDasharray={s.dashed ? '4 4' : undefined} />
+            </g>
           ))}
         </svg>
         {hearts.map((h, i) => (

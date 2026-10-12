@@ -127,3 +127,57 @@ test('rootLabel: relation to the root, whoever "me" is', () => {
   delete unnamed.people.find(p => p.id === id.me)!.name;
   assert.equal(rootLabel(unnamed, id.dad), null);
 });
+
+// The demo family seen as anyone: an unmarried person (the wife's cousin, say) sees the whole tree
+// with no side hidden, so it has to read right in full, and in each side view of every married person.
+test('layout: the demo family reads right in full and from every point of view', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  const { tree } = demoTree();
+  const L = layoutTree(tree);
+  const fam = (id: string) => tree.families.filter(f => f.parents.includes(id) || f.children.includes(id));
+  const partners = (id: string) => new Set(tree.families.filter(f => f.parents.includes(id)).flatMap(f => f.parents));
+
+  for (const f of tree.families) {
+    // Brothers and sisters stay together: between the outermost two, only their own husbands and wives.
+    if (f.children.length > 1) {
+      const xs = f.children.map(c => L.pos.get(c)!.x);
+      const y = L.pos.get(f.children[0])!.y;
+      const allowed = new Set(f.children.flatMap(c => [...partners(c), c]));
+      for (const [id, p] of L.pos) {
+        if (p.y === y && p.x > Math.min(...xs) && p.x < Math.max(...xs)) assert.ok(allowed.has(id), `someone outside the family sits among the children of ${f.id}`);
+      }
+    }
+    // A couple sits side by side.
+    if (f.parents.length === 2) {
+      const [a, b] = f.parents.map(p => L.pos.get(p)!);
+      assert.equal(a.y, b.y);
+      assert.ok(Math.abs(a.x - b.x) <= CARD_W + 24 + 1, `couple of ${f.id} is apart`);
+    }
+  }
+  // Grandparents sit over one of their children (their rail does not run off past other families).
+  for (const f of tree.families) {
+    if (!f.parents.length || !f.children.length) continue;
+    const ps = f.parents.map(p => L.pos.get(p)!.x);
+    const ks = f.children.map(c => L.pos.get(c)!.x);
+    const onlyInLaw = f.children.every(c => fam(c).some(g => g.parents.includes(c) && g.parents.length === 2));
+    if (onlyInLaw && f.children.length === 1) continue; // a married only child may be pulled next to a spouse
+    assert.ok(Math.max(...ps) + CARD_W > Math.min(...ks) && Math.min(...ps) < Math.max(...ks) + CARD_W, `parents of ${f.id} are not over their children`);
+  }
+  // No two families' rails run along the same line, whichever people are shown.
+  const railsOverlap = (show: (id: string) => boolean) => {
+    const rails = linkSegments(L, show).filter(s => s.y1 === s.y2 && s.x1 !== s.x2 && !tree.people.some(p => L.pos.get(p.id)!.y + 53 === s.y1));
+    for (let i = 0; i < rails.length; i++) for (let j = i + 1; j < rails.length; j++) {
+      const a = rails[i], b = rails[j];
+      if (a.y1 === b.y1 && a.x1 < b.x2 && b.x1 < a.x2) return true;
+    }
+    return false;
+  };
+  assert.ok(!railsOverlap(() => true), 'two rails overlap in the full tree');
+  for (const p of tree.people) {
+    const s = sides(tree, p.id);
+    for (const view of ['mine', 'spouse'] as const) {
+      if (view === 'spouse' && !s.married) continue;
+      assert.ok(!railsOverlap(id => visible(s, id, view)), `two rails overlap for me = ${p.id}, ${view}`);
+    }
+  }
+});
