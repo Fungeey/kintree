@@ -150,7 +150,7 @@ export function resolve(tree: Tree, table: Table, generic: Generic, me: string, 
 
 - The side filter (decision 16).
 - URL and localStorage storage.
-- Family rank titles (大姨, 二姨).
+- Family rank titles (大姨, 二姨): now in `src/rank.ts`.
 - Half-siblings and step-parents.
 - The UI.
 

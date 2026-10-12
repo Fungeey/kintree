@@ -3,10 +3,13 @@ import { emptyTree, removePerson, sides, visible } from '../../engine/src/index.
 import type { Tree, View } from '../../engine/src/index.ts';
 import { AddPerson } from './add/AddPerson.tsx';
 import { ConfirmSwitch } from './ConfirmSwitch.tsx';
+import { EditName } from './EditName.tsx';
 import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
 import { switchTarget } from './switchPov.ts';
+import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
+import { rootLabel } from './display.ts';
 
 const demo = typeof location !== 'undefined' && new URLSearchParams(location.search).has('demo');
 
@@ -47,6 +50,8 @@ function Shell({ start }: { start: Start }) {
   const [view, setView] = useState<View>('mine');
   const [adding, setAdding] = useState(false);
   const [asking, setAsking] = useState<string | null>(null);
+  const [editMode, setEditMode] = useState(false);
+  const [renaming, setRenaming] = useState<string | null>(null);
 
   // Autosave on every change, and keep the address bar in step so a reload reopens this tree.
   useEffect(() => {
@@ -68,8 +73,18 @@ function Shell({ start }: { start: Start }) {
   const s = useMemo(() => (me && tree.people.some(p => p.id === me) ? sides(tree, me) : null), [tree, me]);
   const show = useCallback((id: string) => (s ? visible(s, id, view) : true), [s, view]);
 
-  // Tapping someone asks before switching "me"; tapping "me" again does nothing.
-  const pick = (id: string) => { if (switchTarget(tree, me, id)) setAsking(id); };
+  // Tapping someone asks before switching "me"; tapping "me" again does nothing. In edit mode it renames them.
+  const pick = (id: string) => {
+    if (editMode) setRenaming(id);
+    else if (switchTarget(tree, me, id)) setAsking(id);
+  };
+  const toggleEdit = () => { setEditMode(e => !e); setAdding(false); setRenaming(null); };
+  const rename = (id: string, name: string, slot: number) => {
+    const t = applyEdit(tree, id, name, slot);
+    if (t && t !== tree) setTree(t);
+    setRenaming(null);
+  };
+  const renamingWho = renaming ? tree.people.find(p => p.id === renaming) : undefined;
   const switchTo = (id: string) => { setMe(id); setView('mine'); setAdding(false); setAsking(null); };
   const askingWho = asking ? switchTarget(tree, me, asking) : null;
   const changed = (t: Tree, id: string) => {
@@ -109,8 +124,9 @@ function Shell({ start }: { start: Start }) {
           </div>
         )}
         <span className="spacer" />
+        <button type="button" className={editMode ? 'editing' : undefined} aria-pressed={editMode} onClick={toggleEdit}>{editMode ? 'Done' : 'Edit'}</button>
         <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link</span></>}</button>
-        <button type="button" className="primary" onClick={() => setAdding(a => !a)}>{adding ? 'Close' : <>+ Add<span className="long"> relative</span></>}</button>
+        <button type="button" className="primary" onClick={() => { setAdding(a => !a); setEditMode(false); }}>{adding ? 'Close' : <>+ Add<span className="long"> relative</span></>}</button>
         <button type="button" onClick={remove} aria-label="Remove me from the tree">Remove</button>
       </header>
       {error && (
@@ -119,14 +135,27 @@ function Shell({ start }: { start: Start }) {
           <button type="button" onClick={() => setError(undefined)}>Dismiss</button>
         </p>
       )}
-      <TreeView tree={tree} me={me} show={show} onPick={pick} />
+      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename them or change their birth order.</p>}
+      <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} />
       {adding && (
         <aside className="sheet">
           <AddPerson tree={tree} me={me} onChange={changed} />
         </aside>
       )}
       {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
-      <p className="hint">Tap a person to see everyone's titles from their point of view.</p>
+      {renaming && renamingWho && (
+        <EditName
+          key={renaming}
+          who={rootLabel(tree, renaming)?.replace(/^Your /, 'your ') ?? switchTarget(tree, me, renaming) ?? 'this person'}
+          name={renamingWho.name ?? ''}
+          required={nameRequired(tree, renaming)}
+          self={renaming}
+          siblings={siblingsOf(tree, renaming).map(id => tree.people.find(p => p.id === id)!)}
+          onSave={(name, slot) => rename(renaming, name, slot)}
+          onCancel={() => setRenaming(null)}
+        />
+      )}
+      <p className="hint">{editMode ? 'Tap Done when you have finished editing.' : "Tap a person to see everyone's titles from their point of view."}</p>
     </div>
   );
 }

@@ -111,3 +111,29 @@ button { font: inherit; color: inherit; }
 .confirm-actions button { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
 .confirm-actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
 .confirm-actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Edit mode: the header button shows it is on, a banner says what a tap does, and faces get a dashed ring. */
+.bar .editing { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.edit-banner { margin: 0; padding: 6px 16px; font-size: .85rem; text-align: center; background: var(--paper-2); border-bottom: 1px solid var(--rule); color: var(--ink); }
+.viewport.editing .face { border-style: dashed; }
+.rename label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); margin-bottom: 8px; }
+.rename input { font: inherit; font-size: 1rem; color: var(--ink); padding: 8px 12px; border: 1.5px solid var(--line); border-radius: 10px; background: #fffdf7; }
+.rename input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.rename p { margin: 0 0 16px; font-size: .8rem; }
+.confirm-actions button:disabled { opacity: .45; cursor: default; }
+
+.rename .order { margin: 0 0 14px; padding: 8px 10px 10px; border: 1.5px solid var(--rule); border-radius: 10px; }
+.rename .order legend { padding: 0 6px; font-size: .8rem; color: var(--muted); }
+.rename .order-help { margin: 0 0 8px; }
+.rename .order ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.rename .order li { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 12px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
+.rename .order .pos { flex: none; width: 1.2em; text-align: right; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.rename .order .who { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rename .order li.self { background: var(--paper-2); color: var(--ink); font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--line); }
+.rename .order li.self.dragging { box-shadow: inset 0 0 0 1.5px var(--line), 0 4px 12px #4a3f3340; }
+.rename .grip { flex: none; width: 32px; height: 32px; border: 0; background: none; padding: 0; display: grid; place-items: center; color: var(--muted); cursor: grab; touch-action: none; user-select: none; border-radius: 8px; }
+.rename .grip svg { fill: currentColor; display: block; }
+.rename .dragging .grip { cursor: grabbing; }
+.rename .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+/* A rank title is a second row on the card, in the accent colour so it reads as an alternative to the usual title. */
+.titles.two .line.rank .jp, .titles.two .line.rank .zh { color: var(--accent); }

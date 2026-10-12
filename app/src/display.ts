@@ -1,12 +1,12 @@
 // What a person card shows: the title from "me" to that person.
-import { loadTable, resolve } from '../../engine/src/index.ts';
+import { loadTable, rankTitle, resolve } from '../../engine/src/index.ts';
 import type { Tree, TitleEntry, Generic, Spoken, Forms, Title } from '../../engine/src/index.ts';
 import titles from '../../engine/data/titles.json' with { type: 'json' };
 import generic from '../../engine/data/generic.json' with { type: 'json' };
 
 const table = loadTable(titles as unknown as TitleEntry[]);
 
-export interface Line { label?: string; chars: string; jyutping?: string; byName?: boolean }
+export interface Line { label?: string; chars: string; jyutping?: string; byName?: boolean; rank?: boolean }
 export interface Shown {
   kind: 'self' | 'title' | 'byAge' | 'fallback' | 'unrelated';
   lines: Line[];          // spoken titles, large; one line, or two for older/younger
@@ -51,10 +51,13 @@ export function showFor(tree: Tree, me: string, target: string): Shown {
     case 'unrelated': return { kind: 'unrelated', lines: [] };
     case 'title': {
       const { spoken, formal } = r.forms;
+      const first = spoken === 'by-name' ? { chars: formal.chars, jyutping: formal.jyutping, byName: true } : line(spoken);
+      // Aunts and uncles can also be called by rank (大姨媽, 二姨媽): shown beside the usual title, not instead of it.
+      const rank = rankTitle(tree, me, target);
       return {
         kind: 'title', gloss: r.en,
-        lines: [spoken === 'by-name' ? { chars: formal.chars, jyutping: formal.jyutping, byName: true } : line(spoken)],
-        formal: spoken === 'by-name' || spoken.chars === formal.chars ? undefined : formal,
+        lines: rank ? [first, { chars: rank.chars, jyutping: rank.jyutping, rank: true }] : [first],
+        formal: rank || spoken === 'by-name' || spoken.chars === formal.chars ? undefined : formal,
       };
     }
     case 'byAge':

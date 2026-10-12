@@ -44,7 +44,7 @@ export function PersonCard({ person, shown, rootLabel, isMe, gen, x, y, onPick, 
       </button>
       <div className={`titles${two ? ' two' : ''}`}>
         {shown.lines.map((l, i) => (
-          <span key={i} className={`line${l.byName ? ' byname' : ''}`}>
+          <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
             {l.jyutping && <b className="jp">{l.jyutping}</b>}
             <span className="zh">{l.chars}</span>

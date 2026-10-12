@@ -10,12 +10,13 @@ interface Props {
   me: string;
   show: (id: string) => boolean;
   onPick: (id: string) => void;
+  editing?: boolean;
 }
 
 interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
-export function TreeView({ tree, me, show, onPick }: Props) {
+export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
   const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
   const segs = useMemo(() => linkSegments(layout), [layout]);
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
@@ -109,7 +110,7 @@ export function TreeView({ tree, me, show, onPick }: Props) {
   };
 
   return (
-    <div className="viewport" ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}>
+    <div className={`viewport${editing ? ' editing' : ''}`} ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}>
       <div className="world" style={{ transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.k})`, width: layout.width, height: layout.height }}>
         <svg className="links" width={layout.width} height={layout.height} aria-hidden="true">
           {segs.map((s, i) => (

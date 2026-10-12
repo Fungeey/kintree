@@ -66,6 +66,21 @@ export function renamePerson(tree: Tree, id: string, name: string): Tree {
   return t;
 }
 
+// Moves a child to birth-order position `slot` among their siblings (0 = eldest, children.length - 1 = youngest).
+// A person with no birth family, or no siblings, only accepts slot 0.
+export function reorderChild(tree: Tree, id: string, slot: number): Tree {
+  mustHave(tree, id);
+  const t = structuredClone(tree);
+  const fam = birthOf(t, id);
+  const list = fam ? fam.children : [id];
+  if (!Number.isInteger(slot) || slot < 0 || slot >= list.length) throw new Error(`bad slot: ${slot}`);
+  if (!fam || list[slot] === id) return tree;
+  fam.children.splice(fam.children.indexOf(id), 1);
+  fam.children.splice(slot, 0, id);
+  validateTree(t);
+  return t;
+}
+
 // Adds a parent of `child`. If the child has no birth family one is created. If the birth
 // family exists with unknown parents or one parent, the parent is filled in (decision 19).
 export function addParent(tree: Tree, child: string, sex: Sex, name?: string): Edited {
