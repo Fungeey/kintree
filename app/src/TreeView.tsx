@@ -117,7 +117,7 @@ export function TreeView({ tree, me, show, onPick }: Props) {
           ))}
         </svg>
         {hearts.map((h, i) => (
-          <svg key={i} className="heart" style={{ left: h.x - 11, top: h.y - 10 }} viewBox="0 0 24 22" aria-label="married">
+          <svg key={i} className="heart" style={{ left: h.x - 8, top: h.y - 7.5 }} viewBox="0 0 24 22" aria-label="married">
             <path d="M12 20 C-4 9 5 -1 12 6 C19 -1 28 9 12 20Z" />
           </svg>
         ))}

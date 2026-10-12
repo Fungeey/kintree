@@ -2,13 +2,13 @@
 // by a line with its children under it. Positions are card top-left corners in tree pixels.
 import type { Tree, Family } from '../../engine/src/index.ts';
 
-export const CARD_W = 132;
-export const CARD_H = 190;
+export const CARD_W = 96;
+export const CARD_H = 142;
 // Centre of the face circle, from the node's top: couple lines run through it.
-export const FACE_CY = 62;
-export const GAP_X = 20;
-export const COUPLE_GAP = 40;
-export const ROW_GAP = 64;
+export const FACE_CY = 44;
+export const GAP_X = 12;
+export const COUPLE_GAP = 30;
+export const ROW_GAP = 44;
 const PAD = 24;
 
 export interface Pos { x: number; y: number }
