@@ -36,30 +36,30 @@ button { font: inherit; color: inherit; }
 .links { position: absolute; left: 0; top: 0; pointer-events: none; }
 .links line { stroke: var(--line); stroke-width: 2; stroke-linecap: round; }
 
-.node { position: absolute; width: 132px; height: 190px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-.face-btn { position: relative; width: 128px; height: 128px; padding: 0; border: 0; background: none; cursor: pointer; flex: none; }
+.node { position: absolute; width: 76px; height: 108px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+.face-btn { position: relative; width: 70px; height: 70px; padding: 0; border: 0; background: none; cursor: pointer; flex: none; }
 .hair { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
-.face { position: absolute; left: 24px; top: 22px; width: 80px; height: 80px; border-radius: 50%; overflow: hidden; background: var(--paper); border: 3px solid var(--line); display: grid; place-items: center; }
+.face { position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; overflow: hidden; background: var(--paper); border: 2px solid var(--line); display: grid; place-items: center; }
 .sex-m .face { border-color: var(--m); }
 .sex-f .face { border-color: var(--f); }
-.me .face-btn::before { content: ''; position: absolute; left: 24px; top: 22px; width: 80px; height: 80px; border-radius: 50%; box-shadow: 0 0 0 3px var(--paper), 0 0 0 6px var(--accent); }
+.me .face-btn::before { content: ''; position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--paper), 0 0 0 3.5px var(--accent); }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.initials { font-size: 1.4rem; color: var(--muted); }
+.initials { font-size: .9rem; color: var(--muted); }
 .face-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 50%; }
-.titles { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: -2px; }
+.titles { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: -1px; }
 .titles.two { flex-direction: row; justify-content: center; gap: 8px; }
 .line { display: flex; flex-direction: column; align-items: center; line-height: 1.15; }
-.line .jp { font-size: 1.2rem; font-weight: 700; letter-spacing: .01em; }
-.line .zh { font-size: 1rem; color: var(--muted); margin-top: 1px; }
-.line.byname .zh { font-size: .95rem; }
+.line .jp { font-size: .78rem; font-weight: 700; letter-spacing: .01em; }
+.line .zh { font-size: .68rem; color: var(--muted); margin-top: 1px; }
+.line.byname .zh { font-size: .68rem; }
 .line.byname .jp { color: var(--muted); font-weight: 600; }
 .line .jp { white-space: nowrap; }
 .titles.two { gap: 4px; }
-.titles.two .jp { font-size: .85rem; }
-.titles.two .zh { font-size: .9rem; }
-.line .age { font-size: .62rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
-.play { position: absolute; left: 90px; top: 86px; width: 28px; height: 28px; padding: 0; display: grid; place-items: center; border: 1.5px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
-.play svg { width: 16px; height: 16px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.titles.two .jp { font-size: .62rem; }
+.titles.two .zh { font-size: .62rem; }
+.line .age { font-size: .45rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
+.play { position: absolute; left: 50px; top: 44px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
+.play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
 .zoom button { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--panel); font-size: 1.2rem; cursor: pointer; }
 .hint { margin: 0; padding: 4px 16px max(6px, env(safe-area-inset-bottom)); font-size: .75rem; color: var(--muted); text-align: center; }
@@ -89,4 +89,4 @@ button { font: inherit; color: inherit; }
 .slots li div { color: var(--muted); font-size: .85rem; }
 .start .add-person { max-width: none; }
 
-.heart { position: absolute; width: 22px; height: 20px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
+.heart { position: absolute; width: 13px; height: 12px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
