@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { addChild, addParent, addPerson, addSibling, addSpouse, emptyTree, sides, visible } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
-import { CARD_H, CARD_W, layoutTree, linkSegments } from '../src/layout.ts';
+import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from '../src/layout.ts';
 import { rootLabel, showFor } from '../src/display.ts';
 
 function sample() {
@@ -58,7 +58,9 @@ test('layout: a single person and the empty tree', () => {
 });
 
 test('layout: side filter hides links to the other side without moving anyone', () => {
-  const { t, id } = sample();
+  const base = sample();
+  const id = base.id;
+  const t = addParent(base.t, id.wife, 'f', 'WMum').tree;   // a couple on the spouse's side
   const s = sides(t, id.me);
   assert.ok(s.married);
   const L = layoutTree(t);
@@ -69,6 +71,8 @@ test('layout: side filter hides links to the other side without moving anyone', 
   assert.ok(mine(id.kid) && spouse(id.kid));
   const all = linkSegments(L).length;
   assert.ok(linkSegments(L, mine).length < all && linkSegments(L, spouse).length < all);
+  // No heart is drawn for a couple when one of them is hidden.
+  assert.ok(coupleHearts(L, mine).length < coupleHearts(L).length);
 });
 
 test('layout: links reach every child, unknown parents get a dashed stub', () => {

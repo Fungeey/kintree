@@ -231,10 +231,10 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
 }
 
 // Where to draw a heart: the middle of each couple line between two side-by-side parents.
-export function coupleHearts(layout: Layout): { x: number; y: number }[] {
+export function coupleHearts(layout: Layout, show: (id: string) => boolean = () => true): { x: number; y: number }[] {
   const out: { x: number; y: number }[] = [];
   for (const l of layout.links) {
-    const ps = l.parents.map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
+    const ps = l.parents.filter(show).map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
     if (ps.length === 2 && ps[0].y === ps[1].y && ps[1].x - ps[0].x <= CARD_W + COUPLE_GAP + 1) {
       out.push({ x: (ps[0].x + CARD_W + ps[1].x) / 2, y: ps[0].y + FACE_CY });
     }
