@@ -3,7 +3,7 @@
 const INK = 'var(--ink)';
 
 export function HairBack({ sex }: { sex: string }) {
-  const common = { fill: 'var(--paper)', stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  const common = { fill: INK, stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
   return (
     <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
       {sex === 'm' ? (
@@ -19,16 +19,16 @@ export function HairBack({ sex }: { sex: string }) {
 }
 
 export function HairFront({ sex }: { sex: string }) {
-  const line = { fill: 'none', stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
+  const solid = { fill: INK, stroke: INK, strokeWidth: 2, strokeLinejoin: 'round' as const };
   return (
     <svg className="hair front" viewBox="0 0 128 128" aria-hidden="true">
       <defs><clipPath id={`face-${sex}`}><circle cx="64" cy="62" r="40" /></clipPath></defs>
       <g clipPath={`url(#face-${sex})`}>
         {sex === 'm'
-          ? <path {...line} d="M22 52 C38 44 52 48 60 34 C66 46 84 46 106 52" />
-          : <path {...line} d="M64 20 C50 28 34 40 24 60 M64 20 C78 28 94 40 104 60" />}
+          ? <path {...solid} d="M16 10 H112 V54 C96 50 84 44 76 32 C66 46 44 50 20 56 Z" />
+          : <path {...solid} d="M16 10 H112 V68 C106 48 86 32 64 26 C42 32 22 48 16 68 Z" />}
       </g>
-      {sex === 'f' && <path {...line} d="M24 72 C24 88 26 100 31 108 M104 72 C104 88 102 100 97 108" />}
+
     </svg>
   );
 }

@@ -49,10 +49,14 @@ button { font: inherit; color: inherit; }
 .titles { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: -2px; }
 .titles.two { flex-direction: row; justify-content: center; gap: 8px; }
 .line { display: flex; flex-direction: column; align-items: center; line-height: 1.15; }
-.line .zh { font-size: 1.6rem; font-weight: 600; }
-.line.byname .zh { font-size: 1.15rem; font-weight: 500; color: var(--muted); }
-.line .jp { font-size: .78rem; color: var(--muted); font-style: italic; }
-.titles.two .zh { font-size: 1.25rem; }
+.line .jp { font-size: 1.2rem; font-weight: 700; letter-spacing: .01em; }
+.line .zh { font-size: 1rem; color: var(--muted); margin-top: 1px; }
+.line.byname .zh { font-size: .95rem; }
+.line.byname .jp { color: var(--muted); font-weight: 600; }
+.line .jp { white-space: nowrap; }
+.titles.two { gap: 4px; }
+.titles.two .jp { font-size: .85rem; }
+.titles.two .zh { font-size: .9rem; }
 .line .age { font-size: .62rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
 .play { position: absolute; left: 90px; top: 86px; width: 28px; height: 28px; padding: 0; display: grid; place-items: center; border: 1.5px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
 .play svg { width: 16px; height: 16px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
