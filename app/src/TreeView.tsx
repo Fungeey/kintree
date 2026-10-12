@@ -17,9 +17,9 @@ interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
 export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
-  const layout = useMemo(() => layoutTree(tree), [tree]);
-  const segs = useMemo(() => linkSegments(layout, show), [layout, show]);
-  const hearts = useMemo(() => coupleHearts(layout, show), [layout, show]);
+  const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
+  const segs = useMemo(() => linkSegments(layout), [layout]);
+  const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
     const m = new Map<string, ReturnType<typeof showFor>>();
     for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id));
@@ -114,7 +114,10 @@ export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
       <div className="world" style={{ transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.k})`, width: layout.width, height: layout.height }}>
         <svg className="links" width={layout.width} height={layout.height} aria-hidden="true">
           {segs.map((s, i) => (
-            <line key={i} x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} strokeDasharray={s.dashed ? '4 4' : undefined} />
+            <g key={i}>
+              {s.bridge && s.y1 === s.y2 && <line className="gap" x1={s.x1 + 4} y1={s.y1} x2={s.x2 - 4} y2={s.y2} />}
+              <line x1={s.x1} y1={s.y1} x2={s.x2} y2={s.y2} strokeDasharray={s.dashed ? '4 4' : undefined} />
+            </g>
           ))}
         </svg>
         {hearts.map((h, i) => (
