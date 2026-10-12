@@ -7,7 +7,7 @@ export const CARD_H = 190;
 // Centre of the face circle, from the node's top: couple lines run through it.
 export const FACE_CY = 62;
 export const GAP_X = 20;
-export const COUPLE_GAP = 28;
+export const COUPLE_GAP = 40;
 export const ROW_GAP = 64;
 const PAD = 24;
 
@@ -221,4 +221,16 @@ export function linkSegments(layout: Layout): Segment[] {
     kids.forEach((k, i) => segs.push({ x1: cx[i], y1: railY, x2: cx[i], y2: k.y }));
   }
   return segs;
+}
+
+// Where to draw a heart: the middle of each couple line between two side-by-side parents.
+export function coupleHearts(layout: Layout): { x: number; y: number }[] {
+  const out: { x: number; y: number }[] = [];
+  for (const l of layout.links) {
+    const ps = l.parents.map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
+    if (ps.length === 2 && ps[0].y === ps[1].y && ps[1].x - ps[0].x <= CARD_W + COUPLE_GAP + 1) {
+      out.push({ x: (ps[0].x + CARD_W + ps[1].x) / 2, y: ps[0].y + FACE_CY });
+    }
+  }
+  return out;
 }
