@@ -99,3 +99,14 @@ button { font: inherit; color: inherit; }
 .titles.two .age { flex-basis: 100%; font-size: .42rem; line-height: 1; }
 .titles.two .jp { font-size: .6rem; }
 .titles.two .zh { font-size: .6rem; margin-top: 0; }
+
+/* "New family tree as …?" confirmation. */
+.confirm { width: min(22rem, calc(100vw - 32px)); padding: 0; border: 1.5px solid var(--line); border-radius: 18px; background: var(--panel); color: var(--ink); box-shadow: 0 10px 30px #4a3f3340; }
+.confirm::backdrop { background: #2b241c66; }
+.confirm-body { padding: 20px 20px 16px; }
+.confirm h2 { margin: 0 0 8px; font-size: 1.15rem; line-height: 1.3; overflow-wrap: anywhere; }
+.confirm p { margin: 0 0 18px; color: var(--muted); font-size: .9rem; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.confirm-actions button { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 18px; cursor: pointer; }
+.confirm-actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.confirm-actions button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }

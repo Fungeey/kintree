@@ -2,9 +2,11 @@ import { useCallback, useEffect, useMemo, useState } from 'react';
 import { emptyTree, removePerson, sides, visible } from '../../engine/src/index.ts';
 import type { Tree, View } from '../../engine/src/index.ts';
 import { AddPerson } from './add/AddPerson.tsx';
+import { ConfirmSwitch } from './ConfirmSwitch.tsx';
 import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
+import { switchTarget } from './switchPov.ts';
 
 const demo = typeof location !== 'undefined' && new URLSearchParams(location.search).has('demo');
 
@@ -44,6 +46,7 @@ function Shell({ start }: { start: Start }) {
   const [copied, setCopied] = useState<'ok' | 'fail' | null>(null);
   const [view, setView] = useState<View>('mine');
   const [adding, setAdding] = useState(false);
+  const [asking, setAsking] = useState<string | null>(null);
 
   // Autosave on every change, and keep the address bar in step so a reload reopens this tree.
   useEffect(() => {
@@ -65,7 +68,10 @@ function Shell({ start }: { start: Start }) {
   const s = useMemo(() => (me && tree.people.some(p => p.id === me) ? sides(tree, me) : null), [tree, me]);
   const show = useCallback((id: string) => (s ? visible(s, id, view) : true), [s, view]);
 
-  const pick = (id: string) => { setMe(id); setView('mine'); setAdding(false); };
+  // Tapping someone asks before switching "me"; tapping "me" again does nothing.
+  const pick = (id: string) => { if (switchTarget(tree, me, id)) setAsking(id); };
+  const switchTo = (id: string) => { setMe(id); setView('mine'); setAdding(false); setAsking(null); };
+  const askingWho = asking ? switchTarget(tree, me, asking) : null;
   const changed = (t: Tree, id: string) => {
     setTree(t);
     if (!me) setMe(id);
@@ -119,6 +125,7 @@ function Shell({ start }: { start: Start }) {
           <AddPerson tree={tree} me={me} onChange={changed} />
         </aside>
       )}
+      {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
       <p className="hint">Tap a person to see everyone's titles from their point of view.</p>
     </div>
   );
