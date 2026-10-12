@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { addChild, addParent, addPerson, addSibling, addSpouse, emptyTree, sides, visible } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
-import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from '../src/layout.ts';
+import { CARD_H, CARD_W, COUPLE_GAP, FACE_CY, coupleHearts, layoutTree, linkSegments } from '../src/layout.ts';
 import { rootLabel, showFor } from '../src/display.ts';
 
 function sample() {
@@ -57,22 +57,23 @@ test('layout: a single person and the empty tree', () => {
   assert.equal(layoutTree(emptyTree()).pos.size, 0);
 });
 
-test('layout: side filter hides links to the other side without moving anyone', () => {
+test('layout: hidden people take no room and join nothing', () => {
   const base = sample();
   const id = base.id;
   const t = addParent(base.t, id.wife, 'f', 'WMum').tree;   // a couple on the spouse's side
   const s = sides(t, id.me);
   assert.ok(s.married);
-  const L = layoutTree(t);
-  const mine = (p: string) => visible(s, p, 'mine');
-  const spouse = (p: string) => visible(s, p, 'spouse');
-  assert.ok(mine(id.gpa) && !mine(id.wdad));
-  assert.ok(spouse(id.wdad) && !spouse(id.gpa));
-  assert.ok(mine(id.kid) && spouse(id.kid));
-  const all = linkSegments(L).length;
-  assert.ok(linkSegments(L, mine).length < all && linkSegments(L, spouse).length < all);
-  // No heart is drawn for a couple when one of them is hidden.
-  assert.ok(coupleHearts(L, mine).length < coupleHearts(L).length);
+  const full = layoutTree(t);
+  for (const view of ['mine', 'spouse'] as const) {
+    const show = (p: string) => visible(s, p, view);
+    const L = layoutTree(t, show);
+    assert.deepEqual([...L.pos.keys()].sort(), t.people.filter(p => show(p.id)).map(p => p.id).sort());
+    assert.ok(L.width < full.width, `the ${view} view still leaves room for the hidden side`);
+    // Nothing drawn reaches a hidden person: every line end sits on a shown card or between them.
+    assert.ok(linkSegments(L).length < linkSegments(full).length);
+  }
+  const mine = layoutTree(t, p => visible(s, p, 'mine'));
+  assert.ok(coupleHearts(mine).length < coupleHearts(full).length);
 });
 
 test('layout: links reach every child, unknown parents get a dashed stub', () => {
@@ -126,4 +127,53 @@ test('rootLabel: relation to the root, whoever "me" is', () => {
   const unnamed = structuredClone(named);
   delete unnamed.people.find(p => p.id === id.me)!.name;
   assert.equal(rootLabel(unnamed, id.dad), null);
+});
+
+// The demo family drawn in full (an unmarried "me" sees everyone) and in both side views of every
+// married "me": whoever is hidden is left out of the layout, and what is left must read right.
+test('layout: the demo family reads right in full and in every side view', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  const { tree } = demoTree();
+  const partners = (id: string) => new Set(tree.families.filter(f => f.parents.includes(id)).flatMap(f => f.parents));
+
+  const check = (show: (id: string) => boolean, label: string) => {
+    const L = layoutTree(tree, show);
+    assert.equal(L.pos.size, tree.people.filter(p => show(p.id)).length, `${label}: hidden people are drawn`);
+    for (const f of tree.families) {
+      const parents = f.parents.filter(show), kids = f.children.filter(show);
+      // Brothers and sisters stay together: between the outermost two, only their own husbands and wives.
+      if (kids.length > 1) {
+        const xs = kids.map(c => L.pos.get(c)!.x);
+        const y = L.pos.get(kids[0])!.y;
+        const allowed = new Set(kids.flatMap(c => [...partners(c), c]));
+        for (const [id, p] of L.pos) {
+          if (p.y === y && p.x > Math.min(...xs) && p.x < Math.max(...xs)) assert.ok(allowed.has(id), `${label}: someone outside the family sits among the children of ${f.id}`);
+        }
+      }
+      // A couple sits side by side.
+      if (parents.length === 2) {
+        const [a, b] = parents.map(p => L.pos.get(p)!);
+        assert.equal(a.y, b.y);
+        assert.ok(Math.abs(a.x - b.x) <= CARD_W + COUPLE_GAP + 1, `${label}: couple of ${f.id} is apart`);
+      }
+      // Parents sit over their children, so the rail does not run off past other families. A married
+      // only child may be pulled next to a spouse instead.
+      if (parents.length && kids.length && !(kids.length === 1 && partners(kids[0]).size > 1)) {
+        const ps = parents.map(p => L.pos.get(p)!.x), ks = kids.map(c => L.pos.get(c)!.x);
+        assert.ok(Math.max(...ps) + CARD_W > Math.min(...ks) && Math.min(...ps) < Math.max(...ks) + CARD_W, `${label}: parents of ${f.id} are not over their children`);
+      }
+    }
+    // No two families' rails run along the same line.
+    const rails = linkSegments(L).filter(s => s.y1 === s.y2 && s.x1 !== s.x2 && ![...L.pos.values()].some(p => p.y + FACE_CY === s.y1));
+    for (let i = 0; i < rails.length; i++) for (let j = i + 1; j < rails.length; j++) {
+      assert.ok(!(rails[i].y1 === rails[j].y1 && rails[i].x1 < rails[j].x2 && rails[j].x1 < rails[i].x2), `${label}: two rails overlap`);
+    }
+  };
+
+  check(() => true, 'full tree');
+  for (const p of tree.people) {
+    const s = sides(tree, p.id);
+    if (!s.married) { check(id => visible(s, id, 'mine'), `me = ${p.id}`); continue; }
+    for (const view of ['mine', 'spouse'] as const) check(id => visible(s, id, view), `me = ${p.id}, ${view}`);
+  }
 });
