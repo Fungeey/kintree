@@ -56,7 +56,7 @@ export function showFor(tree: Tree, me: string, target: string): Shown {
       const rank = rankTitle(tree, me, target);
       return {
         kind: 'title', gloss: r.en,
-        lines: rank ? [{ ...first, label: 'usual' }, { label: 'by rank', chars: rank.chars, jyutping: rank.jyutping, rank: true }] : [first],
+        lines: rank ? [first, { chars: rank.chars, jyutping: rank.jyutping, rank: true }] : [first],
         formal: rank || spoken === 'by-name' || spoken.chars === formal.chars ? undefined : formal,
       };
     }

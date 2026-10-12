@@ -69,10 +69,12 @@ export function EditName({ who, name, required, siblings, self, onSave, onCancel
         {siblings.length > 1 && (
           <fieldset className="order">
             <legend>Birth order</legend>
-            <p className="order-help">Drag {here} up or down. Eldest is first.</p>
+            <p className="order-help">Drag the handle to move {here}. Eldest is first.</p>
             <ol ref={list} aria-label="Siblings, eldest first">
               {line.map((t, i) => t === '' ? (
                 <li key="self" className={`self${dragging ? ' dragging' : ''}`}>
+                  <span className="pos">{i + 1}</span>
+                  <span className="who">{here}</span>
                   <button
                     type="button"
                     className="grip"
@@ -85,10 +87,13 @@ export function EditName({ who, name, required, siblings, self, onSave, onCancel
                       if (e.key === 'ArrowUp' && slot > 0) { e.preventDefault(); setSlot(slot - 1); }
                       if (e.key === 'ArrowDown' && slot < siblings.length - 1) { e.preventDefault(); setSlot(slot + 1); }
                     }}
-                  >⋮⋮</button>
-                  <span>{here}</span>
+                  >
+                    <svg viewBox="0 0 12 18" width="12" height="18" aria-hidden="true">
+                      {[3, 9, 15].map(y => [3, 9].map(x => <circle key={`${x}${y}`} cx={x} cy={y} r="1.6" />))}
+                    </svg>
+                  </button>
                 </li>
-              ) : <li key={i}><span className="grip-space" aria-hidden="true" /><span>{t}</span></li>)}
+              ) : <li key={i}><span className="pos">{i + 1}</span><span className="who">{t}</span></li>)}
             </ol>
           </fieldset>
         )}
