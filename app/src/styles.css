@@ -123,10 +123,14 @@ button { font: inherit; color: inherit; }
 
 .rename .order { margin: 0 0 16px; padding: 10px 12px; border: 1.5px solid var(--rule); border-radius: 10px; }
 .rename .order legend { padding: 0 6px; font-size: .8rem; color: var(--muted); }
-.rename .order ol { margin: 0 0 10px; padding-left: 1.4rem; font-size: .9rem; color: var(--muted); }
-.rename .order li.self { color: var(--ink); font-weight: 700; }
-.rename .order-btns { display: flex; gap: 8px; }
-.rename .order-btns button { flex: 1; border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 6px 10px; cursor: pointer; }
-.rename .order-btns button:disabled { opacity: .4; cursor: default; }
+.rename .order ol { margin: 0; padding: 0; list-style: none; }
+.rename .order li { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 8px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
+.rename .order li.self { background: var(--paper-2); color: var(--ink); font-weight: 700; outline: 1.5px solid var(--line); }
+.rename .order li.self.dragging { box-shadow: 0 4px 12px #4a3f3340; }
+.rename .order-help { margin: 0 0 8px; }
+.rename .grip, .rename .grip-space { flex: none; width: 28px; height: 32px; }
+.rename .grip { border: 0; background: none; padding: 0; font-size: 1.1rem; letter-spacing: -.15em; line-height: 1; color: var(--muted); cursor: grab; touch-action: none; user-select: none; border-radius: 8px; }
+.rename .dragging .grip { cursor: grabbing; }
+.rename .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A rank title adds a line that can reach the link below the card: keep the text readable over it. */
 .titles .line { text-shadow: 0 0 3px var(--paper), 0 0 3px var(--paper), 0 0 2px var(--paper); }
