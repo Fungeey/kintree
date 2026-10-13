@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { kinPath } from '../../../engine/src/index.ts';
-import { availableRelations, slotQuestion, slotLabels, applyAdd, startTree, suggestSex } from './flow.ts';
+import { availableRelations, slotQuestion, applyAdd, startTree, suggestSex } from './flow.ts';
 
 test('empty tree starts with me', () => {
   const { tree, id } = startTree('f', ' Mei ');
@@ -22,7 +22,6 @@ test('unknown parents: a sibling or aunt can be added with no parents', () => {
   let { tree, id: me } = startTree('m', 'Me');
   const q = slotQuestion(tree, me, 'sibling');
   assert.deepEqual(q?.members.map(p => p.id), [me]);
-  assert.deepEqual(slotLabels(q!.members, p => p.id), [`older than ${me}`, `younger than ${me}`]);
   const sis = applyAdd(tree, { from: me, relation: 'sibling', sex: 'f', slot: 0 });
   assert.equal(kinPath(sis.tree, me, sis.id), 'Ze');
   assert.equal(sis.tree.families[0].parents.length, 0);
@@ -39,8 +38,7 @@ test('slot asked once per sibling group; none for first child, parent, spouse', 
   const c2 = applyAdd(c1.tree, { from: me, relation: 'child', sex: 'f', slot: 0 });
   assert.equal(kinPath(c2.tree, c1.id, c2.id), 'Ze');
   const q2 = slotQuestion(c2.tree, me, 'child')!;
-  assert.deepEqual(slotLabels(q2.members, p => p.id).length, 3);
-  assert.match(slotLabels(q2.members, p => p.id)[1], /^between /);
+  assert.equal(q2.members.length, 2);
   // The same group is found from a child's side.
   assert.equal(slotQuestion(c2.tree, c1.id, 'sibling')!.members.length, 2);
 });

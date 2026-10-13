@@ -30,17 +30,6 @@ export function slotQuestion(tree: Tree, personId: string, relation: Relation): 
   return { members: ids.map(id => tree.people.find(p => p.id === id)!) };
 }
 
-// Wording for each slot: "older than X" at the ends, "between X and Y" in the middle.
-export function slotLabels(members: Person[], label: (p: Person) => string): string[] {
-  const n = members.length;
-  return Array.from({ length: n + 1 }, (_, i) => {
-    if (n === 1) return i === 0 ? `older than ${label(members[0])}` : `younger than ${label(members[0])}`;
-    if (i === 0) return `eldest, before ${label(members[0])}`;
-    if (i === n) return `youngest, after ${label(members[n - 1])}`;
-    return `between ${label(members[i - 1])} and ${label(members[i])}`;
-  });
-}
-
 export interface AddRequest { from: string; relation: Relation; sex: Sex; name?: string; slot?: number }
 
 export function applyAdd(tree: Tree, r: AddRequest): Edited {
