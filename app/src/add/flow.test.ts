@@ -65,3 +65,19 @@ test('the first person must have a name and becomes the root', () => {
   const { tree, id } = startTree('f', 'Mei');
   assert.equal(tree.root, id);
 });
+
+test('adding with an order places the new person and moves the others too', () => {
+  const { tree, id: me } = startTree('m', 'Me');
+  const a = applyAdd(tree, { from: me, relation: 'sibling', sex: 'f', name: 'A' });
+  const b = applyAdd(a.tree, { from: me, relation: 'sibling', sex: 'm', name: 'B' });
+  const group = (t: typeof tree) => t.families.find(f => f.children.includes(me))!.children;
+  assert.deepEqual(group(b.tree), [me, a.id, b.id]);
+  // New person goes in the middle and A and Me swap.
+  const c = applyAdd(b.tree, { from: me, relation: 'sibling', sex: 'f', name: 'C', order: [a.id, null, me, b.id] });
+  assert.deepEqual(group(c.tree), [a.id, c.id, me, b.id]);
+  assert.equal(c.tree.people.find(p => p.id === c.id)!.name, 'C');
+  // The same for children, from the parent's side.
+  const k1 = applyAdd(c.tree, { from: me, relation: 'child', sex: 'm', name: 'K1' });
+  const k2 = applyAdd(k1.tree, { from: me, relation: 'child', sex: 'f', name: 'K2', order: [null, k1.id] });
+  assert.deepEqual(k2.tree.families.find(f => f.parents.includes(me))!.children, [k2.id, k1.id]);
+});

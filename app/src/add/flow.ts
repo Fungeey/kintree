@@ -1,5 +1,5 @@
 // Add-person flow logic (slice 4b). Pure functions over the engine's edit functions; no UI.
-import { addPerson, addParent, addChild, addSpouse, addSibling, emptyTree } from '../../../engine/src/index.ts';
+import { addPerson, addParent, addChild, addSpouse, addSibling, emptyTree, setBirthOrder } from '../../../engine/src/index.ts';
 import type { Edited, Person, Sex, Tree } from '../../../engine/src/index.ts';
 
 export type Relation = 'parent' | 'child' | 'spouse' | 'sibling';
@@ -30,16 +30,22 @@ export function slotQuestion(tree: Tree, personId: string, relation: Relation): 
   return { members: ids.map(id => tree.people.find(p => p.id === id)!) };
 }
 
-export interface AddRequest { from: string; relation: Relation; sex: Sex; name?: string; slot?: number }
+// `order`, when given, is the whole sibling group after the add, eldest first, with null standing for the new person.
+export interface AddRequest { from: string; relation: Relation; sex: Sex; name?: string; slot?: number; order?: (string | null)[] }
 
 export function applyAdd(tree: Tree, r: AddRequest): Edited {
   const name = r.name?.trim() || undefined;
+  const slot = r.order ? r.order.indexOf(null) : r.slot;
+  let added: Edited;
   switch (r.relation) {
     case 'parent': return addParent(tree, r.from, r.sex, name);
     case 'spouse': return addSpouse(tree, r.from, r.sex, name);
-    case 'child': return addChild(tree, r.from, r.sex, name, r.slot);
-    case 'sibling': return addSibling(tree, r.from, r.sex, name, r.slot);
+    case 'child': added = addChild(tree, r.from, r.sex, name, slot); break;
+    case 'sibling': added = addSibling(tree, r.from, r.sex, name, slot); break;
   }
+  if (!r.order) return added;
+  // The rest of the group may have been moved too.
+  return { tree: setBirthOrder(added.tree, added.id, r.order.map(k => k ?? added.id)), id: added.id };
 }
 
 // Start of the flow on an empty tree (decision 17): the first person is "me".

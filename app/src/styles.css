@@ -70,7 +70,6 @@ button { font: inherit; color: inherit; }
 .notice { margin: 0; padding: 6px 16px; background: #f6dfd2; color: #7a2a14; font-size: .85rem; }
 .notice button { border: 1px solid currentColor; background: none; color: inherit; border-radius: 6px; padding: 2px 8px; cursor: pointer; }
 
-.sheet { position: absolute; left: 0; right: 0; bottom: 0; max-height: 70%; overflow: auto; background: var(--panel); border-top: 1.5px solid var(--line); border-radius: 18px 18px 0 0; padding: 16px 16px max(18px, env(safe-area-inset-bottom)); box-shadow: 0 -6px 20px #4a3f3326; }
 .add-person { max-width: 26rem; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
 .add-person h3 { margin: 0; font-size: 1.1rem; }
 .add-person p { margin: 0; color: var(--muted); font-size: .9rem; }
@@ -123,14 +122,22 @@ button { font: inherit; color: inherit; }
 .order legend { padding: 0 6px; font-size: .8rem; color: var(--muted); }
 .order .order-help { margin: 0 0 8px; font-size: .85rem; }
 .order ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.order li { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 12px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
+.order li { background: var(--panel); display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 12px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
 .order .pos { flex: none; width: 1.2em; text-align: right; font-size: .8rem; font-variant-numeric: tabular-nums; }
 .order .who { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.order li.self { background: var(--paper-2); color: var(--ink); font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--line); }
-.order li.self.dragging { box-shadow: inset 0 0 0 1.5px var(--line), 0 4px 12px #4a3f3340; }
+.order li.self { color: var(--ink); font-weight: 700; }
+.order li.self { background: var(--paper-2); box-shadow: inset 0 0 0 1.5px var(--line); }
+.order li.dragging { position: relative; box-shadow: inset 0 0 0 1.5px var(--line), 0 4px 12px #4a3f3340; background: var(--paper-2); }
 .order .grip { flex: none; width: 32px; height: 32px; border: 0; background: none; padding: 0; display: grid; place-items: center; color: var(--muted); cursor: grab; touch-action: none; user-select: none; border-radius: 8px; }
 .order .grip svg { fill: currentColor; display: block; }
 .order .dragging .grip { cursor: grabbing; }
 .order .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A rank title is a second row on the card, in the accent colour so it reads as an alternative to the usual title. */
 .titles.two .line.rank .jp, .titles.two .line.rank .zh { color: var(--accent); }
+
+/* Remove lives in the edit sheet. */
+.confirm-actions .spacer { flex: 1; }
+.confirm-actions .danger { background: var(--accent); border-color: var(--accent); color: #fff; }
+.remove-confirm p { margin: 0 0 12px; color: var(--ink); font-size: .95rem; }
+.sheet-links { display: flex; justify-content: space-between; align-items: center; margin: 0 0 12px; }
+.sheet-links button { border: 0; background: none; padding: 4px; color: var(--accent); text-decoration: underline; cursor: pointer; font-size: .9rem; }

@@ -48,7 +48,6 @@ function Shell({ start }: { start: Start }) {
   const [error, setError] = useState<string | undefined>(start.error);
   const [copied, setCopied] = useState<'ok' | 'fail' | null>(null);
   const [view, setView] = useState<View>('mine');
-  const [adding, setAdding] = useState(false);
   const [asking, setAsking] = useState<string | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [renaming, setRenaming] = useState<string | null>(null);
@@ -78,27 +77,25 @@ function Shell({ start }: { start: Start }) {
     if (editMode) setRenaming(id);
     else if (switchTarget(tree, me, id)) setAsking(id);
   };
-  const toggleEdit = () => { setEditMode(e => !e); setAdding(false); setRenaming(null); };
-  const rename = (id: string, name: string, slot: number) => {
-    const t = applyEdit(tree, id, name, slot);
+  const toggleEdit = () => { setEditMode(e => !e); setRenaming(null); };
+  const rename = (id: string, name: string, order: string[]) => {
+    const t = applyEdit(tree, id, name, order);
     if (t && t !== tree) setTree(t);
     setRenaming(null);
   };
   const renamingWho = renaming ? tree.people.find(p => p.id === renaming) : undefined;
-  const switchTo = (id: string) => { setMe(id); setView('mine'); setAdding(false); setAsking(null); };
+  const switchTo = (id: string) => { setMe(id); setView('mine'); setAsking(null); };
   const askingWho = asking ? switchTarget(tree, me, asking) : null;
   const changed = (t: Tree, id: string) => {
     setTree(t);
     if (!me) setMe(id);
-    setAdding(false);
   };
-  const remove = () => {
-    if (!me) return;
-    const name = tree.people.find(p => p.id === me)?.name ?? 'this person';
-    if (!confirm(`Remove ${name} from the tree?`)) return;
-    const t = removePerson(tree, me);
-    const next = t.people.find(p => p.id !== me)?.id ?? null;
-    setTree(t); setMe(next); setAdding(false);
+  // Edit mode's Remove: take someone off the tree. If it was "me", the view moves to someone who is left.
+  const removeAt = (id: string) => {
+    const t = removePerson(tree, id);
+    setTree(t);
+    setRenaming(null);
+    if (id === me) { setMe(t.people[0]?.id ?? null); setView('mine'); }
   };
 
   // An empty tree starts with "me" (decision 17).
@@ -126,8 +123,6 @@ function Shell({ start }: { start: Start }) {
         <span className="spacer" />
         <button type="button" className={editMode ? 'editing' : undefined} aria-pressed={editMode} onClick={toggleEdit}>{editMode ? 'Done' : 'Edit'}</button>
         <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link</span></>}</button>
-        <button type="button" className="primary" onClick={() => { setAdding(a => !a); setEditMode(false); }}>{adding ? 'Close' : <>+ Add<span className="long"> relative</span></>}</button>
-        <button type="button" onClick={remove} aria-label="Remove me from the tree">Remove</button>
       </header>
       {error && (
         <p className="notice" role="alert">
@@ -135,23 +130,21 @@ function Shell({ start }: { start: Start }) {
           <button type="button" onClick={() => setError(undefined)}>Dismiss</button>
         </p>
       )}
-      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename them or change their birth order.</p>}
+      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename, reorder, add relatives or remove them.</p>}
       <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} />
-      {adding && (
-        <aside className="sheet">
-          <AddPerson tree={tree} me={me} onChange={changed} />
-        </aside>
-      )}
       {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
       {renaming && renamingWho && (
         <EditName
           key={renaming}
+          tree={tree}
           who={rootLabel(tree, renaming)?.replace(/^Your /, 'your ') ?? switchTarget(tree, me, renaming) ?? 'this person'}
           name={renamingWho.name ?? ''}
           required={nameRequired(tree, renaming)}
           self={renaming}
           siblings={siblingsOf(tree, renaming).map(id => tree.people.find(p => p.id === id)!)}
-          onSave={(name, slot) => rename(renaming, name, slot)}
+          onSave={(name, order) => rename(renaming, name, order)}
+          onAdded={(t, id) => { changed(t, id); setRenaming(null); }}
+          onRemove={() => removeAt(renaming)}
           onCancel={() => setRenaming(null)}
         />
       )}
