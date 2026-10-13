@@ -152,3 +152,9 @@ button { font: inherit; color: inherit; }
 
 /* Simplified Chinese gets a Simplified font: the HK stack above would draw Traditional glyph shapes. */
 :lang(zh-CN) { font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", Georgia, serif; }
+
+/* Vietnamese is already Latin script, so the title itself is the main line (no reading above it). */
+.titles.plain .line .zh { font-size: .8rem; font-weight: 700; color: var(--ink); margin-top: 0; }
+.titles.plain.two .line .zh { font-size: .66rem; }
+.titles.plain .line.rank .zh { color: var(--accent); }
+:lang(vi) { font-family: "Noto Serif", Georgia, "Iowan Old Style", "Times New Roman", serif; }

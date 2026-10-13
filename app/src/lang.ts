@@ -5,18 +5,23 @@ import yueTitles from '../../engine/data/yue/titles.json' with { type: 'json' };
 import yueGeneric from '../../engine/data/yue/generic.json' with { type: 'json' };
 import cmnTitles from '../../engine/data/cmn/titles.json' with { type: 'json' };
 import cmnGeneric from '../../engine/data/cmn/generic.json' with { type: 'json' };
+import vieTitles from '../../engine/data/vie/titles.json' with { type: 'json' };
+import vieGeneric from '../../engine/data/vie/generic.json' with { type: 'json' };
 
-export type LangId = 'yue' | 'cmn';
+export type LangId = 'yue' | 'cmn' | 'vie';
 
 export interface Lang {
   id: LangId;
   label: string;          // in its own script, for the picker
+  english: string;        // the language's name in English, shown beside it
   heading: string;        // the app title
   html: string;           // BCP 47 tag for the lang attribute, which picks the right glyph shapes
   table: Table;
   generic: Generic;
-  rank: RankData;
-  joiner: string;         // links the pieces of a fallback description: 嘅 / 的
+  rank: RankData | null;  // null where the language has no rank titles
+  joiner: string;         // links the pieces of a fallback description: 嘅 / 的 / " của "
+  reverse: boolean;       // description puts the nearest relative last
+  romanized: boolean;     // titles come with a reading (jyutping, pinyin); false for Vietnamese, which is already Latin script
   me: Title;
   voice: (v: { lang: string; name: string }) => boolean;
   voicePrefer: string[];  // normalised tags (see tag) tried first, exactly
@@ -38,16 +43,22 @@ function isMainlandMandarin(v: { lang: string }): boolean {
 
 const LANGS: Record<LangId, Omit<Lang, 'table' | 'generic'> & { titles: unknown; generic: unknown }> = {
   yue: {
-    id: 'yue', label: '粵語', heading: '家庭稱呼', html: 'zh-HK',
-    titles: yueTitles, generic: yueGeneric, rank: RANK_YUE, joiner: '嘅', me: { chars: '我', rom: 'ngo5' },
+    id: 'yue', label: '粵語', english: 'Cantonese', heading: '家庭稱呼', html: 'zh-HK',
+    titles: yueTitles, generic: yueGeneric, rank: RANK_YUE, joiner: '嘅', reverse: false, romanized: true, me: { chars: '我', rom: 'ngo5' },
     voice: v => tag(v) === 'zh-hk' || tag(v).startsWith('yue') || /cantonese|粵|粤|sin-?ji/i.test(v.name),
     voicePrefer: ['zh-hk'], sep: '，',
   },
   cmn: {
-    id: 'cmn', label: '普通话', heading: '家庭称呼', html: 'zh-CN',
-    titles: cmnTitles, generic: cmnGeneric, rank: RANK_CMN, joiner: '的', me: { chars: '我', rom: 'wǒ' },
+    id: 'cmn', label: '普通话', english: 'Mandarin', heading: '家庭称呼', html: 'zh-CN',
+    titles: cmnTitles, generic: cmnGeneric, rank: RANK_CMN, joiner: '的', reverse: false, romanized: true, me: { chars: '我', rom: 'wǒ' },
     voice: isMainlandMandarin,
     voicePrefer: ['zh-cn', 'zh-cn-hans', 'cmn-cn', 'cmn-hans-cn'], sep: '，',
+  },
+  vie: {
+    id: 'vie', label: 'Tiếng Việt', english: 'Vietnamese', heading: 'Xưng hô gia đình', html: 'vi-VN',
+    titles: vieTitles, generic: vieGeneric, rank: null, joiner: ' của ', reverse: true, romanized: false, me: { chars: 'tôi' },
+    voice: v => tag(v).split('-')[0] === 'vi',
+    voicePrefer: ['vi-vn'], sep: ', ',
   },
 };
 

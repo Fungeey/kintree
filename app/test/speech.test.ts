@@ -24,8 +24,8 @@ test('spokenText joins older/younger and reads the formal term of by-name relati
 });
 
 test('spokenText skips the bare "by name" placeholder', () => {
-  assert.equal(spokenText({ kind: 'title', lines: [{ chars: 'by name', byName: true }] }), '');
-  const mixed: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: 'by name', byName: true }] };
+  assert.equal(spokenText({ kind: 'title', lines: [{ chars: 'by name', byName: true, bare: true }] }), '');
+  const mixed: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: 'by name', byName: true, bare: true }] };
   assert.equal(spokenText(mixed), '哥哥');
 });
 

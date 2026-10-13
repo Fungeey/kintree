@@ -110,7 +110,7 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: 
 
   const picker = (
     <select className="lang" value={lang} aria-label="Language" onChange={e => setLang(e.target.value as LangId)}>
-      {LANG_IDS.map(id => <option key={id} value={id}>{langFor(id).label}</option>)}
+      {LANG_IDS.map(id => <option key={id} value={id}>{langFor(id).label} · {langFor(id).english}</option>)}
     </select>
   );
 

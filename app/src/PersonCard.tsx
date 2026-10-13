@@ -47,12 +47,12 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
         <HairFront sex={person.sex} age={age} />
       </button>
       {/* Tapping the name plays it too; the play button stays as the keyboard and screen-reader control. */}
-      <div className={`titles${two ? ' two' : ''}${canPlay ? ' playable' : ''}`} onClick={canPlay ? () => speech.speak(text) : undefined}>
+      <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={canPlay ? () => speech.speak(text) : undefined}>
         {shown.lines.map((l, i) => (
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
             {l.rom && <b className="rom">{l.rom}</b>}
-            <span className="zh" lang={l.byName && !l.rom ? undefined : html}>{l.chars}</span>
+            <span className="zh" lang={l.bare ? undefined : html}>{l.chars}</span>
           </span>
         ))}
       </div>

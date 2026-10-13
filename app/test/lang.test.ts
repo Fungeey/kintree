@@ -44,3 +44,16 @@ test('copy link carries ?lang= for any chosen language', async () => {
   assert.match(await shareUrl(s, base, 'yue'), /^https:\/\/x\.test\/app\/\?lang=yue#v/);
   assert.match(await shareUrl(s, base, 'cmn'), /^https:\/\/x\.test\/app\/\?lang=cmn#v/);
 });
+
+test('Vietnamese: no reading, title alone, vi-VN voice, own heading', async () => {
+  const { pickVoice } = await import('../src/audio/speech.ts');
+  const a = addPerson(emptyTree(), 'm', 'Me');
+  const dad = addChild(a.tree, a.id, 'm');
+  const up = showFor(dad.tree, dad.id, a.id, 'vie');
+  assert.equal(up.lines[0].chars, 'bố');
+  assert.equal(up.lines[0].rom, undefined);
+  assert.equal(showFor(dad.tree, a.id, a.id, 'vie').lines[0].chars, 'tôi');
+  assert.equal(langFor('vie').romanized, false);
+  assert.equal(pickVoice([{ lang: 'zh_CN_#Hans', name: 'c' }, { lang: 'vi_VN', name: 'Vietnamese Vietnam' }], 'vie')?.name, 'Vietnamese Vietnam');
+  assert.equal(pickVoice([{ lang: 'zh_CN_#Hans', name: 'c' }], 'vie'), undefined);
+});
