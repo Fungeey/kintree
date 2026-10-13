@@ -22,7 +22,6 @@ const called = (p: Person) => p.name || (p.sex === 'm' ? 'brother' : 'sister');
 // Edit mode's sheet: rename someone and move them in the birth order. A native modal <dialog>, like the switch confirmation.
 export function EditName({ tree, who, name, required, siblings, self, onSave, onAdded, onRemove, onCancel }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
-  const input = useRef<HTMLInputElement>(null);
   const [value, setValue] = useState(name);
   const [order, setOrder] = useState(() => siblings.map(p => p.id));
   const [removing, setRemoving] = useState(false);
@@ -33,7 +32,8 @@ export function EditName({ tree, who, name, required, siblings, self, onSave, on
     const d = ref.current!;
     const back = document.activeElement as HTMLElement | null;
     d.showModal();
-    input.current?.select();
+    // showModal() focuses the name field, which pops the phone keyboard open. Hold focus on the sheet itself instead.
+    d.focus({ preventScroll: true });
     return () => { if (d.open) d.close(); back?.focus({ preventScroll: true }); };
   }, []);
 
@@ -45,6 +45,7 @@ export function EditName({ tree, who, name, required, siblings, self, onSave, on
   return (
     <dialog
       ref={ref}
+      tabIndex={-1}
       className="confirm"
       aria-labelledby="rename-title"
       onCancel={e => { e.preventDefault(); onCancel(); }}
@@ -59,7 +60,7 @@ export function EditName({ tree, who, name, required, siblings, self, onSave, on
         <h2 id="rename-title">Edit {name || who}</h2>
         <label>
           {required ? 'Name' : 'Name (optional)'}
-          <input ref={input} value={value} onChange={e => setValue(e.target.value)} maxLength={MAX_NAME * 2}
+          <input value={value} onChange={e => setValue(e.target.value)} maxLength={MAX_NAME * 2}
             placeholder="nickname or initials" required={required} autoComplete="off" enterKeyHint="done" />
         </label>
         <p>{required ? 'Everyone’s card is labelled with this name.' : 'Leave it empty to show them by relation.'}</p>
