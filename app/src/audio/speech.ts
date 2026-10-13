@@ -13,7 +13,8 @@ export function pickVoice<T extends VoiceLike>(voices: readonly T[]): T | undefi
   return voices.find(v => v.lang.replace('_', '-').toLowerCase() === 'zh-hk') ?? voices.find(isCantonese);
 }
 
-// The spoken form of a card: titles you'd say aloud. By-name lines have nothing to say.
+// The spoken form of a card: titles you'd say aloud, including the formal term shown for relatives who are
+// called by name. Only the bare "by name" placeholder (no jyutping) has nothing to say.
 export function spokenText(shown: Shown): string {
-  return shown.lines.filter(l => !l.byName && !l.rank && l.chars).map(l => l.chars).join('，');
+  return shown.lines.filter(l => !(l.byName && !l.jyutping) && !l.rank && l.chars).map(l => l.chars).join('，');
 }

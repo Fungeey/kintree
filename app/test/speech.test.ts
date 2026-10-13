@@ -16,10 +16,15 @@ test('spokenText reads the spoken form, not the formal one', () => {
   assert.equal(spokenText(s), '阿爸');
 });
 
-test('spokenText joins older/younger and skips by-name lines', () => {
+test('spokenText joins older/younger and reads the formal term of by-name relatives', () => {
   const two: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '表哥' }, { label: 'younger', chars: '表弟' }] };
   assert.equal(spokenText(two), '表哥，表弟');
-  const half: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: '弟弟', byName: true }] };
-  assert.equal(spokenText(half), '哥哥');
-  assert.equal(spokenText({ kind: 'title', lines: [{ chars: '弟弟', byName: true }] }), '');
+  const half: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: '弟弟', jyutping: 'dai6 dai2', byName: true }] };
+  assert.equal(spokenText(half), '哥哥，弟弟');
+});
+
+test('spokenText skips the bare "by name" placeholder', () => {
+  assert.equal(spokenText({ kind: 'title', lines: [{ chars: 'by name', byName: true }] }), '');
+  const mixed: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: 'by name', byName: true }] };
+  assert.equal(spokenText(mixed), '哥哥');
 });
