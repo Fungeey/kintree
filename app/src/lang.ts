@@ -19,11 +19,22 @@ export interface Lang {
   joiner: string;         // links the pieces of a fallback description: 嘅 / 的
   me: Title;
   voice: (v: { lang: string; name: string }) => boolean;
-  voicePrefer: string[];  // exact tags tried first, lowercase with '-'
+  voicePrefer: string[];  // normalised tags (see tag) tried first, exactly
   sep: string;            // joins several spoken titles
 }
 
-const tag = (v: { lang: string }) => v.lang.replace('_', '-').toLowerCase();
+// Browsers write tags differently: Chrome on Android gives "zh_CN_#Hans" and "yue_HK_#Hant", desktop gives "zh-CN".
+// Normalised to lowercase with '-' between parts, so those read "zh-cn-hans" and "yue-hk-hant".
+export const tag = (v: { lang: string }) => v.lang.toLowerCase().split(/[_#-]+/).filter(Boolean).join('-');
+
+// Mainland Mandarin: Chinese or Mandarin, simplified or unmarked script, and a region of mainland China, Singapore or Malaysia
+// (or none). Hong Kong, Macao and Taiwan voices, traditional-script voices and Cantonese are not.
+function isMainlandMandarin(v: { lang: string }): boolean {
+  const parts = tag(v).split('-');
+  if (parts[0] !== 'zh' && parts[0] !== 'cmn') return false;
+  const region = parts.find((p, i) => i > 0 && p.length === 2);
+  return !parts.includes('hant') && (region === undefined || ['cn', 'sg', 'my'].includes(region));
+}
 
 const LANGS: Record<LangId, Omit<Lang, 'table' | 'generic'> & { titles: unknown; generic: unknown }> = {
   yue: {
@@ -35,13 +46,8 @@ const LANGS: Record<LangId, Omit<Lang, 'table' | 'generic'> & { titles: unknown;
   cmn: {
     id: 'cmn', label: '普通话', heading: '家庭称呼', html: 'zh-CN',
     titles: cmnTitles, generic: cmnGeneric, rank: RANK_CMN, joiner: '的', me: { chars: '我', rom: 'wǒ' },
-    // Mainland Mandarin: zh-CN, zh-Hans, cmn. Not Hong Kong, Taiwan or Cantonese voices.
-    voice: v => {
-      const t = tag(v);
-      if (t === 'zh-hk' || t === 'zh-tw' || t.startsWith('yue') || t.includes('hant')) return false;
-      return t === 'zh-cn' || t === 'zh-sg' || t === 'zh' || t.startsWith('cmn') || t.startsWith('zh-hans');
-    },
-    voicePrefer: ['zh-cn', 'cmn-cn', 'zh-hans-cn'], sep: '，',
+    voice: isMainlandMandarin,
+    voicePrefer: ['zh-cn', 'zh-cn-hans', 'cmn-cn', 'cmn-hans-cn'], sep: '，',
   },
 };
 
