@@ -13,6 +13,7 @@ interface Props {
   shown: Shown;
   caption?: string | null;
   isMe: boolean;
+  more?: number;
   gen: number;
   x: number;
   y: number;
@@ -21,7 +22,7 @@ interface Props {
   speech?: { state: SpeechState; speak: (text: string) => void };
 }
 
-export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, speech, lang = DEFAULT_LANG }: Props) {
+export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG }: Props) {
   const [broken, setBroken] = useState(false);
   const text = spokenText(shown, lang);
   const html = langFor(lang).html;
@@ -29,13 +30,13 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
   return (
-    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}`} style={{ left: x, top: y }}>
+    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
       <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>
       <button
         type="button"
         className="face-btn"
         onClick={() => onPick(person.id)}
-        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}`}
+        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}${more ? `. ${more} more relatives are hidden; switch to them to see` : ''}`}
         aria-current={isMe ? 'true' : undefined}
       >
         <HairBack sex={person.sex} age={age} />

@@ -50,5 +50,14 @@ export function demoTree(): { tree: Tree; me: string } {
   add('wUnc2w', addSpouse(t, id.wUnc2, 'f'));
   add('wUnc2d', addChild(t, id.wUnc2, 'f'));
   add('wUnc2s', addChild(t, id.wUnc2, 'm'));
+
+  // Dad's mother's own family: an older sister and a younger brother, both married with children.
+  add('gmaSis', addSibling(t, id.gma, 'f', undefined, 0));
+  add('gmaSisH', addSpouse(t, id.gmaSis, 'm'));
+  add('gmaSisS', addChild(t, id.gmaSis, 'm'));
+  add('gmaSisD', addChild(t, id.gmaSis, 'f'));
+  add('gmaBro', addSibling(t, id.gma, 'm'));
+  add('gmaBroW', addSpouse(t, id.gmaBro, 'f'));
+  add('gmaBroS', addChild(t, id.gmaBro, 'm'));
   return { tree: t, me: id.me };
 }

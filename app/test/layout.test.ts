@@ -129,51 +129,131 @@ test('rootLabel: relation to the root, whoever "me" is', () => {
   assert.equal(rootLabel(unnamed, id.dad), null);
 });
 
-// The demo family drawn in full (an unmarried "me" sees everyone) and in both side views of every
-// married "me": whoever is hidden is left out of the layout, and what is left must read right.
-test('layout: the demo family reads right in full and in every side view', async () => {
-  const { demoTree } = await import('../src/demo.ts');
-  const { tree } = demoTree();
+// Everyone a person's own family leads to: the person, their spouse, and those children's families
+// in turn. Not the spouse's own parents or siblings.
+function branch(tree: Tree, id: string, show: (id: string) => boolean): string[] {
+  const out = [id];
+  const fam = tree.families.find(f => f.parents.includes(id));
+  for (const p of fam?.parents ?? []) if (p !== id && show(p)) out.push(p);
+  for (const c of fam?.children ?? []) if (show(c)) out.push(...branch(tree, c, show));
+  return out;
+}
+
+// The demo family drawn in every view of every "me": whoever is hidden is left out of the layout,
+// and what is left must read right.
+function checkViews(tree: Tree, name: string, rows: boolean) {
   const partners = (id: string) => new Set(tree.families.filter(f => f.parents.includes(id)).flatMap(f => f.parents));
 
   const check = (show: (id: string) => boolean, label: string) => {
     const L = layoutTree(tree, show);
-    assert.equal(L.pos.size, tree.people.filter(p => show(p.id)).length, `${label}: hidden people are drawn`);
+    assert.equal(L.pos.size, tree.people.filter(p => show(p.id)).length, `${name} ${label}: hidden people are drawn`);
     for (const f of tree.families) {
       const parents = f.parents.filter(show), kids = f.children.filter(show);
       // Brothers and sisters stay together: between the outermost two, only their own husbands and wives.
-      if (kids.length > 1) {
+      if (rows && kids.length > 1) {
         const xs = kids.map(c => L.pos.get(c)!.x);
         const y = L.pos.get(kids[0])!.y;
         const allowed = new Set(kids.flatMap(c => [...partners(c), c]));
         for (const [id, p] of L.pos) {
-          if (p.y === y && p.x > Math.min(...xs) && p.x < Math.max(...xs)) assert.ok(allowed.has(id), `${label}: someone outside the family sits among the children of ${f.id}`);
+          if (p.y === y && p.x > Math.min(...xs) && p.x < Math.max(...xs)) assert.ok(allowed.has(id), `${name} ${label}: someone outside the family sits among the children of ${f.id}`);
+        }
+      }
+      // Vertical slices: each child's branch (them, their spouse, their descendants) takes its own
+      // stretch from side to side, so no other branch is drawn between two of its cards.
+      if (kids.length > 1) {
+        // Row by row: in any one row, a branch's cards form a stretch no other branch's card is inside.
+        const cards = kids.map(c => branch(tree, c, show).map(i => L.pos.get(i)!));
+        const rowsOf = new Set(cards.flat().map(p => p.y));
+        for (const y of rowsOf) {
+          const spans = cards.map(ps => { const xs = ps.filter(p => p.y === y).map(p => p.x); return xs.length ? [Math.min(...xs), Math.max(...xs)] : null; });
+          for (let i = 0; i < spans.length; i++) for (let j = i + 1; j < spans.length; j++) {
+            const a = spans[i], b = spans[j];
+            if (!a || !b) continue;
+            assert.ok(a[1] < b[0] || b[1] < a[0], `${name} ${label}: the branches of ${kids[i]} and ${kids[j]} overlap`);
+          }
         }
       }
       // A couple sits side by side.
       if (parents.length === 2) {
         const [a, b] = parents.map(p => L.pos.get(p)!);
         assert.equal(a.y, b.y);
-        assert.ok(Math.abs(a.x - b.x) <= CARD_W + COUPLE_GAP + 1, `${label}: couple of ${f.id} is apart`);
+        assert.ok(Math.abs(a.x - b.x) <= CARD_W + COUPLE_GAP + 1, `${name} ${label}: couple of ${f.id} is apart`);
       }
       // Parents sit over their children, so the rail does not run off past other families. A married
       // only child may be pulled next to a spouse instead.
       if (parents.length && kids.length && !(kids.length === 1 && partners(kids[0]).size > 1)) {
         const ps = parents.map(p => L.pos.get(p)!.x), ks = kids.map(c => L.pos.get(c)!.x);
-        assert.ok(Math.max(...ps) + CARD_W > Math.min(...ks) && Math.min(...ps) < Math.max(...ks) + CARD_W, `${label}: parents of ${f.id} are not over their children`);
+        assert.ok(Math.max(...ps) + CARD_W > Math.min(...ks) && Math.min(...ps) < Math.max(...ks) + CARD_W, `${name} ${label}: parents of ${f.id} are not over their children`);
       }
     }
     // No two families' rails run along the same line.
     const rails = linkSegments(L).filter(s => s.y1 === s.y2 && s.x1 !== s.x2 && ![...L.pos.values()].some(p => p.y + FACE_CY === s.y1));
     for (let i = 0; i < rails.length; i++) for (let j = i + 1; j < rails.length; j++) {
-      assert.ok(!(rails[i].y1 === rails[j].y1 && rails[i].x1 < rails[j].x2 && rails[j].x1 < rails[i].x2), `${label}: two rails overlap`);
+      assert.ok(!(rails[i].y1 === rails[j].y1 && rails[i].x1 < rails[j].x2 && rails[j].x1 < rails[i].x2), `${name} ${label}: two rails overlap`);
     }
   };
 
-  check(() => true, 'full tree');
+  // Not drawn all at once: the app only ever shows one hop from "me" (decision 20), and when both a son's
+  // and his wife's families are drawn no order can keep each of them in one piece.
   for (const p of tree.people) {
     const s = sides(tree, p.id);
     if (!s.married) { check(id => visible(s, id, 'mine'), `me = ${p.id}`); continue; }
     for (const view of ['mine', 'spouse'] as const) check(id => visible(s, id, view), `me = ${p.id}, ${view}`);
   }
+}
+
+test('layout: the demo family reads right in every view', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  checkViews(demoTree().tree, 'demo', true);
+});
+
+// The demo already has the paternal grandmother's brother and sister. Add the other grandparents'
+// siblings, with their husbands, wives and children.
+test('layout: grandparents\' siblings each get a branch of their own', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  let { tree } = demoTree();
+  const add = (e: { tree: Tree; id: string }) => { tree = e.tree; return e.id; };
+  const gpaSis = add(addSibling(tree, 'p5', 'f'));   // paternal grandfather's sister
+  add(addSpouse(tree, gpaSis, 'm'));
+  add(addChild(tree, gpaSis, 'f'));
+  add(addChild(tree, gpaSis, 'm'));
+  const mgmaBro = add(addSibling(tree, 'p16', 'm')); // maternal grandmother's brother
+  add(addSpouse(tree, mgmaBro, 'f'));
+  add(addChild(tree, mgmaBro, 'f'));
+  const mgpaSis = add(addSibling(tree, 'p15', 'f')); // maternal grandfather's sister
+  add(addSpouse(tree, mgpaSis, 'm'));
+  add(addChild(tree, mgpaSis, 'm'));
+  // A grandparent's brothers and sisters can sit on the far side of the other side of the family, so
+  // only the branches (not the row of siblings) are held to stay together here.
+  checkViews(tree, 'extended', false);
+
+  // A husband's brothers and sisters are drawn left of his couple and a wife's right of it, so the
+  // paternal grandmother's brother and sister are right of the paternal grandparents, and the
+  // mother's parents are right of the father.
+  const s = sides(tree, 'p1');
+  const L = layoutTree(tree, id => visible(s, id, 'mine'));
+  const x = (id: string) => L.pos.get(id)!.x;
+  assert.ok(x('p39') > x('p6') && x('p43') > x('p6'), "grandma's brother and sister are right of the paternal grandparents");
+  assert.ok(x('p15') > x('p2') && x('p53') > x('p2'), "mother's parents and their siblings are right of the father");
+});
+
+test('layout: a couple whose siblings have grandchildren has its own children start lower', () => {
+  let t: Tree = emptyTree();
+  const id: Record<string, string> = {};
+  const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
+  add('me', addPerson(t, 'm', 'Me'));
+  add('dad', addParent(t, id.me, 'm', 'Dad'));
+  add('gma', addParent(t, id.dad, 'f', 'Gma'));
+  add('gpa', addParent(t, id.dad, 'm', 'Gpa'));
+  add('sis', addSibling(t, id.gma, 'f', 'GreatAunt'));
+  add('cous', addChild(t, id.sis, 'f', 'Cousin'));
+  add('cousKid', addChild(t, id.cous, 'm', 'CousinKid'));
+  const L = layoutTree(t);
+  const y = (k: string) => L.pos.get(id[k])!.y;
+  assert.equal(y('sis'), y('gma'));
+  assert.ok(y('dad') > y('cousKid'), "dad's row is below the cousin's child");
+  // With no brothers or sisters there is no lift.
+  const u = sample();
+  const U = layoutTree(u.t);
+  assert.equal(U.pos.get(u.id.dad)!.y - U.pos.get(u.id.gpa)!.y, CARD_H + 28);
 });

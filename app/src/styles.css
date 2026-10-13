@@ -44,7 +44,16 @@ button { font: inherit; color: inherit; }
 .sex-m .face { border-color: var(--m); }
 .sex-f .face { border-color: var(--f); }
 .me .face-btn::before { content: ''; position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--paper), 0 0 0 3.5px var(--accent); }
-.node.me { background: var(--paper-2); border-radius: 12px; box-shadow: 0 0 0 1.5px var(--rule); }
+.node.me { background: #fffdf5; border-radius: 12px; box-shadow: 0 0 0 1.5px var(--rule), 0 4px 12px rgba(60, 40, 10, .2); }
+/* Relatives hidden behind this card: a plain card, with a second one tucked in behind it at an angle. The
+   selected card (.me) is brighter and lifted, so these stay quieter than it. Both cards are pseudo-elements
+   under the content, the straight one (::after) in front of the angled one (::before). */
+.node.more { isolation: isolate; }
+.node.more::before, .node.more::after { content: ''; position: absolute; inset: -1px; border-radius: 12px; border: 1px solid rgba(205, 191, 165, .7); }
+.node.more::before { z-index: -2; background: #f1e9d9; border-color: rgba(205, 191, 165, .4); transform: translate(0, 2px) rotate(3.5deg); transform-origin: 50% 50%; }
+.node.more::after { z-index: -1; background: var(--paper-2); }
+.node.me.more { background: none; box-shadow: none; }
+.node.me.more::after { background: #fffdf5; border-color: var(--rule); box-shadow: 0 0 0 1.5px var(--rule), 0 4px 12px rgba(60, 40, 10, .2); }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .initials { font-size: .9rem; color: var(--muted); }
 .face-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 50%; }

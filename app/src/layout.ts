@@ -41,34 +41,72 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // Generation of each person, relative to the first person of their connected group (BFS over
   // visible links, started from the earliest person in tree order).
   const gens = new Map<string, number>();
+  // Rows are generations with one change: a couple whose brothers and sisters have families of their own
+  // has its own children start lower, below the deepest of those branches, so the cousins' rows sit
+  // between the couple and their children instead of needing room beside them.
+  const rowsV = new Map<string, number>();
+  const branchDepth = (id: string, seen = new Set<string>()): number => {
+    const o = own.get(id);
+    if (!o || seen.has(o)) return 0;
+    seen.add(o);
+    const kids = fams.get(o)!.children;
+    return kids.length ? 1 + Math.max(...kids.map(k => branchDepth(k, seen))) : 0;
+  };
+  // Only the couples above the first person (the tree's root) are lifted: those are the ones whose own
+  // line the eye follows down the page, while their brothers and sisters hang to the sides.
+  const spine = new Set<string>();
+  const ancestors = new Set<string>();
+  for (let cur = [tree.people[0]?.id]; cur.length;) {
+    const nextUp: string[] = [];
+    for (const c of cur) {
+      const b = c && birth.get(c);
+      if (!b || spine.has(b)) continue;
+      spine.add(b);
+      for (const p of fams.get(b)!.parents) ancestors.add(p);
+      nextUp.push(...fams.get(b)!.parents);
+    }
+    cur = nextUp;
+  }
+  const liftOf = (fid: string): number => {
+    if (!spine.has(fid)) return 0;
+    let k = 0;
+    for (const p of fams.get(fid)!.parents) {
+      const b = birth.get(p);
+      if (!b) continue;
+      for (const s of fams.get(b)!.children) if (s !== p) k = Math.max(k, branchDepth(s));
+    }
+    // Branches two generations deep get one row more, for the parents of the children's spouses.
+    return k >= 2 ? k + 1 : k;
+  };
   const order = tree.people.filter(p => shown.has(p.id)).map(p => p.id);
   const anchors: string[] = [];
   for (const start of order) {
     if (gens.has(start)) continue;
     anchors.push(start);
     gens.set(start, 0);
+    rowsV.set(start, 0);
     const queue = [start];
     while (queue.length) {
       const id = queue.shift()!;
       const g = gens.get(id)!;
-      const visit = (other: string, dg: number) => {
-        if (!gens.has(other)) { gens.set(other, g + dg); queue.push(other); }
+      const visit = (other: string, dg: number, lift = 0) => {
+        if (!gens.has(other)) { gens.set(other, g + dg); rowsV.set(other, rowsV.get(id)! + dg + lift); queue.push(other); }
       };
       const b = birth.get(id);
       if (b) {
-        for (const p of fams.get(b)!.parents) visit(p, -1);
+        for (const p of fams.get(b)!.parents) visit(p, -1, -liftOf(b));
         for (const c of fams.get(b)!.children) if (c !== id) visit(c, 0);
       }
       const o = own.get(id);
       if (o) {
         for (const p of fams.get(o)!.parents) if (p !== id) visit(p, 0);
-        for (const c of fams.get(o)!.children) visit(c, 1);
+        for (const c of fams.get(o)!.children) visit(c, 1, liftOf(o));
       }
     }
   }
   let minGen = 0;
-  for (const g of gens.values()) minGen = Math.min(minGen, g);
-  const rowY = (id: string) => ((gens.get(id) ?? 0) - minGen) * (CARD_H + ROW_GAP) + PAD;
+  for (const g of rowsV.values()) minGen = Math.min(minGen, g);
+  const rowY = (id: string) => ((rowsV.get(id) ?? 0) - minGen) * (CARD_H + ROW_GAP) + PAD;
 
   const pos = new Map<string, Pos>();
   const done = new Set<string>();
@@ -78,7 +116,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
 
   // Each row fills left to right: `frontier` is where the next card in a row may go, so a family
   // placed later can still sit above its child when the row above is free there.
-  const rowOf = (id: string) => (gens.get(id) ?? 0) - minGen;
+  const rowOf = (id: string) => (rowsV.get(id) ?? 0) - minGen;
   const frontier = new Map<number, number>();
   let floor = 0; // left edge for the connected group being drawn
   const free = (row: number) => Math.max(frontier.get(row) ?? floor, floor);
@@ -94,15 +132,57 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // A married child's in-law family met inside another family's block waits until that block is
   // done, so it never pushes in between a parent and that parent's own brothers and sisters.
   let deferred: string[] = [];
+  const rightGroups: string[][] = []; // wives' brothers and sisters drawn to the right of a couple, likewise
+  const leftGroups: string[][] = []; // husbands' brothers and sisters drawn to the left of a couple, for the final tightening
+
+  // Whether someone, or anyone descended from them, is a son whose wife's own family is still to be drawn.
+  const inLawMemo = new Map<string, boolean>();
+  function leadsToInLaw(k: string): boolean {
+    const hit = inLawMemo.get(k);
+    if (hit !== undefined) return hit;
+    inLawMemo.set(k, false); // a cycle (relatives who married) must not recurse forever
+    const ofid = own.get(k);
+    let found = false;
+    if (ofid && !done.has(ofid)) {
+      const sp = fams.get(ofid)!.parents.find(p => p !== k && !pos.has(p));
+      const bf = sp && birth.get(sp);
+      const bfam = bf && fams.get(bf);
+      found = (!!sp && sexRank(tree, k) < sexRank(tree, sp) && !!bf && !!bfam && !done.has(bf) && bfam.parents.length + bfam.children.length > 1)
+        || fams.get(ofid)!.children.some(leadsToInLaw);
+    }
+    inLawMemo.set(k, found);
+    return found;
+  }
+
+  // How far right a person's branch reaches: them, their spouse and everyone drawn below them.
+  function branchRight(id: string, seen = new Set<string>()): number {
+    let r = pos.get(id)!.x + CARD_W;
+    const o = own.get(id);
+    if (!o || seen.has(o)) return r;
+    seen.add(o);
+    const fam = fams.get(o)!;
+    for (const p of fam.parents) if (pos.has(p)) r = Math.max(r, pos.get(p)!.x + CARD_W);
+    for (const c of fam.children) if (pos.has(c)) r = Math.max(r, branchRight(c, seen));
+    return r;
+  }
 
   // Places a family group: its children (with their own families) left to right, then the parents
   // centred over them. Returns the people placed, for shifting. People placed earlier stay put.
-  function placeFamily(fid: string, nested: boolean): string[] {
+  function placeFamily(fid: string, skip: Set<string> = new Set()): string[] {
     done.add(fid);
     const fam = fams.get(fid)!;
     const parents = fam.parents.filter(p => !pos.has(p));
+    // On the line above the root, a husband's own brothers and sisters (with their families) are drawn
+    // to the left of his couple, and a wife's to the right, as the rest of the tree keeps the father's side left.
+    let leftGroup: string[] = [];
+    if (spine.has(fid)) {
+      for (const m of parents.filter(p => sexRank(tree, p) === 0)) {
+        const bf = birth.get(m);
+        if (bf && !done.has(bf) && fams.get(bf)!.children.length > 1) { leftGroup = placeFamily(bf, new Set([m])); leftGroups.push(leftGroup); }
+      }
+    }
     const placedKids = fam.children.filter(c => pos.has(c));
-    const fresh = fam.children.filter(c => !pos.has(c));
+    const fresh = fam.children.filter(c => !pos.has(c) && !skip.has(c));
     links.push({ family: fid, parents: fam.parents, children: fam.children });
 
     // A married son's wife's own family is drawn right after him, so each side of a couple
@@ -118,27 +198,58 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       const bfam = bf && fams.get(bf);
       if (bf && bfam && !done.has(bf) && bfam.parents.length + bfam.children.length > 1) wifeFamily.set(k, bf);
     }
-    const kids = [...fresh.filter(k => !wifeFamily.has(k)), ...fresh.filter(k => wifeFamily.has(k))];
+    // A branch that has such a link anywhere below it also goes last, so the in-law family always
+    // lands right beside the branch it joins, and the other branches sit clear of both.
+    // On the line above the root, a child whose own couple is lifted by two rows or more goes first, so the rest of the
+    // brothers and sisters sit on its far side, with room for their families under them.
+    const lead = spine.has(fid) ? fresh.filter(k => ancestors.has(k) && liftOf(own.get(k) ?? '') >= 2) : [];
+    const rest = fresh.filter(k => !lead.includes(k));
+    // A husband goes last, so his brothers and sisters are on his left; a wife first, so hers are on her right.
+    const kids = [...lead.filter(k => sexRank(tree, k) !== 0), ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k)), ...lead.filter(k => sexRank(tree, k) === 0)];
 
     const placed: string[] = [];
+    const branches: string[][] = [];
     const centers: number[] = [];
     for (const k of placedKids) centers.push(pos.get(k)!.x + CARD_W / 2);
+    // Each brother's or sister's branch (them, their spouse, their descendants) gets its own stretch
+    // from side to side: the next one starts to the right of everything drawn so far, in every row,
+    // so a family's grandchildren never sit under another branch.
+    const floorBefore = floor;
+    let first = placedKids.length === 0;
     for (const k of kids) {
       if (pos.has(k)) continue; // placed as part of an earlier sibling's block
+      if (!first) floor = Math.max(floor, Math.max(...placed.map(id => pos.get(id)!.x + CARD_W), ...placedKids.map(k => branchRight(k))) + GAP_X);
+      first = false
       const ofid = own.get(k);
       if (ofid && !done.has(ofid)) {
-        placed.push(...placeFamily(ofid, true));
+        const got = placeFamily(ofid);
+        placed.push(...got); branches.push(got);
         centers.push(pos.get(k)!.x + CARD_W / 2);
       } else {
         putCard(k, free(rowOf(k)));
-        placed.push(k);
+        placed.push(k); branches.push([k]);
         centers.push(pos.get(k)!.x + CARD_W / 2);
       }
       const bf = wifeFamily.get(k);
-      if (bf && !done.has(bf)) {
-        if (nested) deferred.push(bf);
-        else placed.push(...placeFamily(bf, true));
+      if (bf && !done.has(bf)) deferred.push(bf);
+    }
+
+    floor = floorBefore;
+
+    // Slide each brother's or sister's branch right, from the last to the first, until it is as close
+    // to the next one as the cards in every row allow: the family stays tight without overlapping.
+    for (let i = branches.length - 2; i >= 0; i--) {
+      const mine = new Set(branches[i]);
+      let dx = Infinity;
+      for (const id of branches[i]) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
       }
+      if (dx > 0 && dx < Infinity) shift(branches[i], dx);
+    }
+    if (branches.length > 1) {
+      centers.length = 0;
+      for (const k of fam.children) if (pos.has(k)) centers.push(pos.get(k)!.x + CARD_W / 2);
     }
 
     // Male parent on the left, as is the convention.
@@ -155,9 +266,45 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       }
       ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
     }
+    // The husband's brothers and sisters were drawn first, at the far left; slide them right until they
+    // are as close to his couple as the cards drawn since allow.
+    if (leftGroup.length) {
+      const mine = new Set(leftGroup);
+      let dx = Infinity;
+      for (const id of leftGroup) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) shift(leftGroup, dx);
+    }
     // A parent's own birth family is drawn on its own, further along.
     for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) queue.push(b); }
     return placed;
+  }
+
+  // The families of a branch's married-in wives that sit above a deeper join of the same branch
+  // (a grandfather's wife's brothers and sisters, say, above a son whose wife has a family too).
+  // The deeper join takes the side next to its branch, so these go to the left instead of being
+  // squeezed in between. Each comes with the wife that links it back, who is drawn later.
+  function leftWing(top: string): { fid: string; joiner: string }[] {
+    const out: { fid: string; joiner: string }[] = [];
+    const seenFam = new Set<string>();
+    const walk = (fid: string) => {
+      if (seenFam.has(fid)) return;
+      seenFam.add(fid);
+      for (const k of fams.get(fid)!.children) {
+        const ofid = own.get(k);
+        if (!ofid) continue;
+        const sp = fams.get(ofid)!.parents.find(p => p !== k);
+        const bf = sp && birth.get(sp);
+        const bfam = bf && fams.get(bf);
+        if (sp && bf && bfam && sexRank(tree, k) < sexRank(tree, sp) && bfam.parents.length + bfam.children.length > 1
+          && !spine.has(bf) && fams.get(ofid)!.children.some(leadsToInLaw)) out.push({ fid: bf, joiner: sp });
+        walk(ofid);
+      }
+    };
+    walk(top);
+    return out;
   }
 
   for (const anchor of anchors) {
@@ -171,14 +318,47 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       seen.add(next); top = next;
     }
     floor = right ? right + GAP_X * 2 : 0; // each connected group starts clear of the last
+    const wing = leftWing(top);
+    for (const w of wing) if (!done.has(w.fid)) placeFamily(w.fid, new Set([w.joiner]));
+    if (wing.length) floor = Math.max(floor, right + GAP_X * 2);
     queue.unshift(top);
+    // Higher families first (by generation), so a wife's family above the couple is drawn before an
+    // in-law family lower down, and the two never end up in the wrong order along the row.
+    const famGen = (f: string) => { const x = fams.get(f)!; return gens.get(x.parents[0] ?? x.children[0]) ?? 0; };
     while (queue.length) {
+      queue.sort((a, b) => famGen(a) - famGen(b));
       const fid = queue.shift()!;
       if (done.has(fid)) continue;
-      placeFamily(fid, false);
-      queue.unshift(...deferred);
+      const got = placeFamily(fid);
+      if (spine.has(fid) && fid !== top) rightGroups.push(got);
+      queue.push(...deferred);
       deferred = [];
     }
+  }
+  // Cards drawn after a husband's brothers and sisters can move the couple further right: slide each
+  // group right again until it touches whatever is next to it in some row.
+  for (let pass = 0; pass < 6; pass++) {
+    let moved = false;
+    for (const group of leftGroups) {
+      const mine = new Set(group);
+      let dx = Infinity;
+      for (const id of group) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) { shift(group, dx); moved = true; }
+    }
+    // A wife's brothers and sisters slide left against her couple the same way.
+    for (const group of rightGroups) {
+      const mine = new Set(group);
+      let dx = Infinity;
+      for (const id of group) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x < c.x) dx = Math.min(dx, c.x - o.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) { shift(group, -dx); moved = true; }
+    }
+    if (!moved) break;
   }
   // Anyone left (no family, or not reached): a card of their own, in tree order.
   let x = right ? right + GAP_X * 2 : 0;
