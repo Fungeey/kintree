@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Tree } from '../../engine/src/index.ts';
 import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
-import { rootLabel, showFor } from './display.ts';
+import { captionFor, showFor } from './display.ts';
 import { PersonCard } from './PersonCard.tsx';
 import { useSpeech } from './audio/useSpeech.ts';
 
@@ -127,7 +127,7 @@ export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} rootLabel={rootLabel(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
         })}
       </div>
       {speech.state !== 'ready' && (

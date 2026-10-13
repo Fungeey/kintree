@@ -7,7 +7,8 @@
 // The component never mutates `tree`; it only calls onChange with the edited copy.
 import { useState } from 'react';
 import type { Sex, Tree, Person } from '../../../engine/src/index.ts';
-import { availableRelations, slotQuestion, slotLabels, applyAdd, startTree, suggestSex } from './flow.ts';
+import { BirthOrder } from '../BirthOrder.tsx';
+import { availableRelations, slotQuestion, applyAdd, startTree, suggestSex } from './flow.ts';
 import type { Relation } from './flow.ts';
 
 export interface AddPersonProps {
@@ -20,7 +21,8 @@ export interface AddPersonProps {
 const RELATION_LABEL: Record<Relation, string> = {
   parent: 'Parent', child: 'Child', spouse: 'Spouse', sibling: 'Brother or sister',
 };
-const label = (p: Person) => p.name || (p.sex === 'm' ? 'brother/son' : 'sister/daughter');
+const label = (p: Person, relation: Relation) =>
+  p.name || (relation === 'child' ? (p.sex === 'm' ? 'son' : 'daughter') : (p.sex === 'm' ? 'brother' : 'sister'));
 
 function SexAndName(props: { initialSex: Sex | null; submitText: string; nameLabel?: string; required?: boolean; onSubmit: (sex: Sex, name: string) => void }) {
   const [sex, setSex] = useState<Sex | null>(props.initialSex);
@@ -43,6 +45,7 @@ function SexAndName(props: { initialSex: Sex | null; submitText: string; nameLab
 export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
   const [relation, setRelation] = useState<Relation | null>(null);
   const [pending, setPending] = useState<{ sex: Sex; name: string } | null>(null);
+  const [slot, setSlot] = useState(0);
   const reset = () => { setRelation(null); setPending(null); };
 
   if (tree.people.length === 0) {
@@ -86,7 +89,8 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
         <h3>{RELATION_LABEL[relation]} of {who}</h3>
         <SexAndName initialSex={suggestSex(tree, person.id, relation)} submitText="Next"
           onSubmit={(sex, name) => {
-            if (slotQuestion(tree, person.id, relation)) setPending({ sex, name });
+            const q = slotQuestion(tree, person.id, relation);
+            if (q) { setSlot(q.members.length); setPending({ sex, name }); } // youngest unless moved
             else finish(sex, name);
           }} />
         <button type="button" className="back" onClick={reset}>Back</button>
@@ -95,19 +99,11 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
   }
 
   const q = slotQuestion(tree, person.id, relation)!;
-  const labels = slotLabels(q.members, label);
   return (
     <section className="add-person">
       <h3>Where in the birth order?</h3>
-      <p>Existing children, eldest first. Tap the slot for the new one.</p>
-      <ol className="slots">
-        {labels.map((text, i) => (
-          <li key={i} style={{ listStyle: 'none' }}>
-            <button type="button" onClick={() => finish(pending.sex, pending.name, i)}>{text}</button>
-            {i < q.members.length && <div>{label(q.members[i])}</div>}
-          </li>
-        ))}
-      </ol>
+      <BirthOrder others={q.members.map(p => label(p, relation))} self={pending.name.trim() || 'New person'} slot={slot} onSlot={setSlot} />
+      <button type="button" className="add-here" onClick={() => finish(pending.sex, pending.name, slot)}>Add</button>
       <button type="button" className="back" onClick={() => setPending(null)}>Back</button>
     </section>
   );

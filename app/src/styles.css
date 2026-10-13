@@ -79,15 +79,12 @@ button { font: inherit; color: inherit; }
 .add-person button { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
 .add-person .choices button { flex: 1 1 auto; }
 .add-person button[aria-checked="true"] { background: var(--ink); color: var(--paper); }
-.add-person button[type="submit"] { background: var(--accent); border-color: var(--accent); color: #fff; align-self: flex-start; }
+.add-person button[type="submit"], .add-person .add-here { background: var(--accent); border-color: var(--accent); color: #fff; align-self: flex-start; }
 .add-person button:disabled { opacity: .45; cursor: default; }
 .add-person .back { align-self: flex-start; border-color: var(--rule); color: var(--muted); }
 .add-person label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); }
 .add-person input { font: inherit; font-size: 1rem; color: var(--ink); padding: 8px 12px; border: 1.5px solid var(--line); border-radius: 10px; background: #fffdf7; }
 .add-person input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
-.slots { margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-.slots li { display: flex; align-items: center; gap: 10px; }
-.slots li div { color: var(--muted); font-size: .85rem; }
 .start .add-person { max-width: none; }
 
 .heart { position: absolute; width: 13px; height: 12px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
@@ -122,18 +119,18 @@ button { font: inherit; color: inherit; }
 .rename p { margin: 0 0 16px; font-size: .8rem; }
 .confirm-actions button:disabled { opacity: .45; cursor: default; }
 
-.rename .order { margin: 0 0 14px; padding: 8px 10px 10px; border: 1.5px solid var(--rule); border-radius: 10px; }
-.rename .order legend { padding: 0 6px; font-size: .8rem; color: var(--muted); }
-.rename .order-help { margin: 0 0 8px; }
-.rename .order ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
-.rename .order li { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 12px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
-.rename .order .pos { flex: none; width: 1.2em; text-align: right; font-size: .8rem; font-variant-numeric: tabular-nums; }
-.rename .order .who { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.rename .order li.self { background: var(--paper-2); color: var(--ink); font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--line); }
-.rename .order li.self.dragging { box-shadow: inset 0 0 0 1.5px var(--line), 0 4px 12px #4a3f3340; }
-.rename .grip { flex: none; width: 32px; height: 32px; border: 0; background: none; padding: 0; display: grid; place-items: center; color: var(--muted); cursor: grab; touch-action: none; user-select: none; border-radius: 8px; }
-.rename .grip svg { fill: currentColor; display: block; }
-.rename .dragging .grip { cursor: grabbing; }
-.rename .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.order { margin: 0 0 14px; padding: 8px 10px 10px; border: 1.5px solid var(--rule); border-radius: 10px; }
+.order legend { padding: 0 6px; font-size: .8rem; color: var(--muted); }
+.order .order-help { margin: 0 0 8px; font-size: .85rem; }
+.order ol { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 4px; }
+.order li { display: flex; align-items: center; gap: 10px; height: 40px; padding: 0 6px 0 12px; border-radius: 10px; font-size: .95rem; color: var(--muted); }
+.order .pos { flex: none; width: 1.2em; text-align: right; font-size: .8rem; font-variant-numeric: tabular-nums; }
+.order .who { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.order li.self { background: var(--paper-2); color: var(--ink); font-weight: 700; box-shadow: inset 0 0 0 1.5px var(--line); }
+.order li.self.dragging { box-shadow: inset 0 0 0 1.5px var(--line), 0 4px 12px #4a3f3340; }
+.order .grip { flex: none; width: 32px; height: 32px; border: 0; background: none; padding: 0; display: grid; place-items: center; color: var(--muted); cursor: grab; touch-action: none; user-select: none; border-radius: 8px; }
+.order .grip svg { fill: currentColor; display: block; }
+.order .dragging .grip { cursor: grabbing; }
+.order .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A rank title is a second row on the card, in the accent colour so it reads as an alternative to the usual title. */
 .titles.two .line.rank .jp, .titles.two .line.rank .zh { color: var(--accent); }

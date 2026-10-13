@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { Person } from '../../engine/src/index.ts';
+import { BirthOrder } from './BirthOrder.tsx';
 import { cleanName, MAX_NAME } from './rename.ts';
 
 interface Props {
@@ -21,8 +22,6 @@ export function EditName({ who, name, required, siblings, self, onSave, onCancel
   const [value, setValue] = useState(name);
   const [slot, setSlot] = useState(Math.max(0, siblings.findIndex(p => p.id === self)));
   const empty = !cleanName(value);
-  const list = useRef<HTMLOListElement>(null);
-  const [dragging, setDragging] = useState(false);
 
   useEffect(() => {
     const d = ref.current!;
@@ -32,23 +31,9 @@ export function EditName({ who, name, required, siblings, self, onSave, onCancel
     return () => { if (d.open) d.close(); back?.focus({ preventScroll: true }); };
   }, []);
 
-  // The siblings as they would read after the move, with this person shown by the name being typed.
   const others = siblings.filter(p => p.id !== self);
   const me = siblings.find(p => p.id === self);
-  const line = me ? [...others.slice(0, slot).map(called), '', ...others.slice(slot).map(called)] : [];
   const here = cleanName(value) || (me ? called(me) : '');
-
-  // Dragging the grip: the row follows the pointer, and the slot is the row under it.
-  const slotAt = (y: number) => {
-    const r = list.current!.getBoundingClientRect();
-    return Math.min(siblings.length - 1, Math.max(0, Math.floor(((y - r.top) / r.height) * siblings.length)));
-  };
-  const startDrag = (e: React.PointerEvent<HTMLButtonElement>) => {
-    e.currentTarget.setPointerCapture(e.pointerId);
-    setDragging(true);
-  };
-  const moveDrag = (e: React.PointerEvent<HTMLButtonElement>) => { if (dragging) setSlot(slotAt(e.clientY)); };
-  const endDrag = () => setDragging(false);
 
   return (
     <dialog
@@ -66,37 +51,7 @@ export function EditName({ who, name, required, siblings, self, onSave, onCancel
             placeholder="nickname or initials" required={required} autoComplete="off" enterKeyHint="done" />
         </label>
         <p>{required ? 'Everyone’s card is labelled with this name.' : 'Leave it empty to show them by relation.'}</p>
-        {siblings.length > 1 && (
-          <fieldset className="order">
-            <legend>Birth order</legend>
-            <p className="order-help">Drag the handle to move {here}. Eldest is first.</p>
-            <ol ref={list} aria-label="Siblings, eldest first">
-              {line.map((t, i) => t === '' ? (
-                <li key="self" className={`self${dragging ? ' dragging' : ''}`}>
-                  <span className="pos">{i + 1}</span>
-                  <span className="who">{here}</span>
-                  <button
-                    type="button"
-                    className="grip"
-                    aria-label={`Move ${here}. Position ${slot + 1} of ${siblings.length}. Use the up and down arrow keys.`}
-                    onPointerDown={startDrag}
-                    onPointerMove={moveDrag}
-                    onPointerUp={endDrag}
-                    onPointerCancel={endDrag}
-                    onKeyDown={e => {
-                      if (e.key === 'ArrowUp' && slot > 0) { e.preventDefault(); setSlot(slot - 1); }
-                      if (e.key === 'ArrowDown' && slot < siblings.length - 1) { e.preventDefault(); setSlot(slot + 1); }
-                    }}
-                  >
-                    <svg viewBox="0 0 12 18" width="12" height="18" aria-hidden="true">
-                      {[3, 9, 15].map(y => [3, 9].map(x => <circle key={`${x}${y}`} cx={x} cy={y} r="1.6" />))}
-                    </svg>
-                  </button>
-                </li>
-              ) : <li key={i}><span className="pos">{i + 1}</span><span className="who">{t}</span></li>)}
-            </ol>
-          </fieldset>
-        )}
+        {siblings.length > 1 && <BirthOrder others={others.map(called)} self={here} slot={slot} onSlot={setSlot} />}
         <div className="confirm-actions">
           <button type="button" onClick={onCancel}>Cancel</button>
           <button type="submit" className="primary" disabled={required && empty}>Save</button>
