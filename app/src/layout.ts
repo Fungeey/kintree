@@ -170,6 +170,14 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     done.add(fid);
     const fam = fams.get(fid)!;
     const parents = fam.parents.filter(p => !pos.has(p));
+    // On the line above the root, a husband's own brothers and sisters (with their families) are drawn
+    // to the left of his couple, and a wife's to the right, as the rest of the tree keeps the father's side left.
+    if (spine.has(fid)) {
+      for (const m of parents.filter(p => sexRank(tree, p) === 0)) {
+        const bf = birth.get(m);
+        if (bf && !done.has(bf) && fams.get(bf)!.children.length > 1) placeFamily(bf, new Set([m]));
+      }
+    }
     const placedKids = fam.children.filter(c => pos.has(c));
     const fresh = fam.children.filter(c => !pos.has(c) && !skip.has(c));
     links.push({ family: fid, parents: fam.parents, children: fam.children });

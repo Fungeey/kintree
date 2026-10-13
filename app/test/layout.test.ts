@@ -161,12 +161,16 @@ function checkViews(tree: Tree, name: string, rows: boolean) {
       // Vertical slices: each child's branch (them, their spouse, their descendants) takes its own
       // stretch from side to side, so no other branch is drawn between two of its cards.
       if (kids.length > 1) {
-        const spans = kids.map(c => {
-          const xs = branch(tree, c, show).map(i => L.pos.get(i)!.x);
-          return [Math.min(...xs), Math.max(...xs)];
-        });
-        for (let i = 0; i < spans.length; i++) for (let j = i + 1; j < spans.length; j++) {
-          assert.ok(spans[i][1] < spans[j][0] || spans[j][1] < spans[i][0], `${name} ${label}: the branches of ${kids[i]} and ${kids[j]} overlap`);
+        // Row by row: in any one row, a branch's cards form a stretch no other branch's card is inside.
+        const cards = kids.map(c => branch(tree, c, show).map(i => L.pos.get(i)!));
+        const rowsOf = new Set(cards.flat().map(p => p.y));
+        for (const y of rowsOf) {
+          const spans = cards.map(ps => { const xs = ps.filter(p => p.y === y).map(p => p.x); return xs.length ? [Math.min(...xs), Math.max(...xs)] : null; });
+          for (let i = 0; i < spans.length; i++) for (let j = i + 1; j < spans.length; j++) {
+            const a = spans[i], b = spans[j];
+            if (!a || !b) continue;
+            assert.ok(a[1] < b[0] || b[1] < a[0], `${name} ${label}: the branches of ${kids[i]} and ${kids[j]} overlap`);
+          }
         }
       }
       // A couple sits side by side.
