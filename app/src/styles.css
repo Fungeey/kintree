@@ -100,6 +100,7 @@ button { font: inherit; color: inherit; }
 
 /* "View family tree as …?" confirmation. */
 .confirm { width: min(22rem, calc(100vw - 32px)); padding: 0; border: 1.5px solid var(--line); border-radius: 18px; background: var(--panel); color: var(--ink); box-shadow: 0 10px 30px #4a3f3340; }
+.confirm:focus { outline: none; } /* the edit sheet holds focus itself so the keyboard stays down */
 .confirm::backdrop { background: #2b241c66; }
 .confirm-body { padding: 20px 20px 16px; }
 .confirm h2 { margin: 0 0 8px; font-size: 1.15rem; line-height: 1.3; overflow-wrap: anywhere; }
