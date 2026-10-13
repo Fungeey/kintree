@@ -26,7 +26,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
   return (
-    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}`} style={{ left: x, top: y }}>
+    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
       <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>
       <button
         type="button"
@@ -42,7 +42,6 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
             : <img src={faceUrl(person.id)} alt="" loading="lazy" draggable={false} onError={() => setBroken(true)} />}
         </span>
         <HairFront sex={person.sex} age={age} />
-        {more > 0 && <span className="more" aria-hidden="true">+{more}</span>}
       </button>
       <div className={`titles${two ? ' two' : ''}`}>
         {shown.lines.map((l, i) => (

@@ -44,7 +44,12 @@ button { font: inherit; color: inherit; }
 .sex-m .face { border-color: var(--m); }
 .sex-f .face { border-color: var(--f); }
 .me .face-btn::before { content: ''; position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--paper), 0 0 0 3.5px var(--accent); }
-.node.me { background: var(--paper-2); border-radius: 12px; box-shadow: 0 0 0 1.5px var(--rule); }
+.node.me { background: #fffdf5; border-radius: 12px; box-shadow: 0 0 0 1.5px var(--rule), 0 4px 12px rgba(60, 40, 10, .2); }
+/* Relatives hidden behind this card: a plain card, with a second one tucked in behind at an angle. The
+   selected card (.me) is brighter and lifted, so these stay quieter than it. */
+.node.more { isolation: isolate; border-radius: 12px; border: 1px solid rgba(205, 191, 165, .7); background: rgba(255, 253, 245, .3); }
+.node.more::before { content: ''; position: absolute; inset: -1px; z-index: -1; border-radius: 12px; border: 1px solid rgba(205, 191, 165, .7); background: var(--paper-2); transform: translate(3px, 1px) rotate(3.5deg); transform-origin: 50% 100%; }
+.node.me.more { border-color: transparent; }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .initials { font-size: .9rem; color: var(--muted); }
 .face-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 50%; }
@@ -60,7 +65,6 @@ button { font: inherit; color: inherit; }
 .titles.two .jp { font-size: .62rem; }
 .titles.two .zh { font-size: .62rem; }
 .line .age { font-size: .45rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
-.more { position: absolute; right: -6px; top: 14px; min-width: 18px; height: 18px; padding: 0 4px; box-sizing: border-box; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 9px; font-size: .62rem; line-height: 1; color: var(--muted); pointer-events: none; }
 .play { position: absolute; left: 50px; top: 64px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
 .play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
