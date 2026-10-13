@@ -28,7 +28,7 @@ export function HairBack({ sex, age }: { sex: string; age: Age }) {
         )
       ) : age === 'elder' ? (
         <>
-          <circle cx="64" cy="12" r="13" {...white} />
+          <circle cx="64" cy="14" r="8" {...white} />
           <path {...white} d="M18 68 C10 30 36 16 64 16 C92 16 118 30 110 68 C112 84 106 92 98 94 C96 84 92 78 88 74 L40 74 C36 78 32 84 30 94 C22 92 16 84 18 68Z" />
         </>
       ) : age === 'parent' ? (
