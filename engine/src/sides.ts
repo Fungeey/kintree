@@ -8,6 +8,7 @@ export type View = 'mine' | 'spouse';
 export interface Sides {
   married: boolean;                // the side toggle appears only when true
   labels: Map<string, Side[]>;     // people reached from me; anyone missing is not in the connected tree
+  near: Record<View, Set<string>>; // one hop: who each view may show (decision 20)
 }
 
 export function sides(tree: Tree, me: string): Sides {
@@ -40,7 +41,8 @@ export function sides(tree: Tree, me: string): Sides {
   if (spouse === undefined) {
     // Unmarried: one side, everyone connected to me, no toggle.
     for (const id of reach([me], new Set(), members)) add(id, 'mine');
-    return { married: false, labels };
+    const n = nearOf(me, own, birth);
+    return { married: false, labels, near: { mine: n, spouse: n } };
   }
 
   // Shared: me, the spouse, their descendants and those descendants' spouses.
@@ -68,7 +70,29 @@ export function sides(tree: Tree, me: string): Sides {
   side(me, spouse, 'mine');
   side(spouse, me, 'spouse');
 
-  return { married: true, labels };
+  return { married: true, labels, near: { mine: nearOf(me, own, birth), spouse: nearOf(spouse, own, birth) } };
+}
+
+// One hop (decision 20): a person's blood relatives (everyone descended from them or from one of
+// their ancestors, siblings of unknown parents included) and the spouses of those relatives. A
+// spouse's own parents, siblings and cousins are left out; the spouse's children with the
+// relative are descendants, so they stay.
+function nearOf(start: string, own: Map<string, Family>, birth: Map<string, Family>): Set<string> {
+  const up = new Set<string>([start]);
+  const climb = [start];
+  while (climb.length) {
+    for (const p of birth.get(climb.pop()!)?.parents ?? []) if (!up.has(p)) { up.add(p); climb.push(p); }
+  }
+  const blood = new Set<string>(up);
+  const down = [...up];
+  const reachKids = (f: Family | undefined) => {
+    for (const c of f?.children ?? []) if (!blood.has(c)) { blood.add(c); down.push(c); }
+  };
+  for (const a of up) reachKids(birth.get(a)); // brothers and sisters, even with unknown parents
+  while (down.length) reachKids(own.get(down.pop()!));
+  const near = new Set(blood);
+  for (const b of blood) for (const p of own.get(b)?.parents ?? []) near.add(p);
+  return near;
 }
 
 // Breadth-first search over shared-family links. `blocked` people are not entered.
@@ -88,9 +112,11 @@ function reach(seeds: string[], blocked: Set<string>, members: Map<string, Set<s
 }
 
 // Display filter: under a side toggle, hide the other side's people. Shared people always show.
+// In either view, only people one hop from that view's person show (decision 20).
 export function visible(s: Sides, id: string, view: View): boolean {
   const l = s.labels.get(id);
   if (!l) return false;
-  if (!s.married) return true;
+  if (!s.married) return s.near.mine.has(id);
+  if (!s.near[view].has(id)) return false;
   return l.includes('shared') || l.includes(view);
 }

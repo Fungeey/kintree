@@ -156,3 +156,4 @@ Not a decision, just a correction: 堂 is used only for the children of the fath
 17. **Blank mode is tree mode with an empty tree.** It is not a separate mode or screen.
 18. **Autosave.** The tree is autosaved to the browser's localStorage as well as being stored in the link.
 19. **Unknown parents.** Adding a relative whose parents aren't in the tree (e.g. an aunt) creates a family group with unknown parents. The parents can be filled in later.
+20. **One hop (refines 15 and 16).** A view shows the blood relatives of its person ("me" under My family, the spouse under Spouse's family): everyone descended from them or one of their ancestors, plus those relatives' spouses. A relative's spouse appears with their children by that relative, but the spouse's own parents, siblings and cousins are hidden. Tapping the spouse and switching "me" to them shows their family as usual. This keeps the tree's width bounded; there is no limit on generations.
