@@ -55,12 +55,14 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // Only the couples above the first person (the tree's root) are lifted: those are the ones whose own
   // line the eye follows down the page, while their brothers and sisters hang to the sides.
   const spine = new Set<string>();
+  const ancestors = new Set<string>();
   for (let cur = [tree.people[0]?.id]; cur.length;) {
     const nextUp: string[] = [];
     for (const c of cur) {
       const b = c && birth.get(c);
       if (!b || spine.has(b)) continue;
       spine.add(b);
+      for (const p of fams.get(b)!.parents) ancestors.add(p);
       nextUp.push(...fams.get(b)!.parents);
     }
     cur = nextUp;
@@ -174,7 +176,11 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     }
     // A branch that has such a link anywhere below it also goes last, so the in-law family always
     // lands right beside the branch it joins, and the other branches sit clear of both.
-    const kids = [...fresh.filter(k => !leadsToInLaw(k)), ...fresh.filter(k => leadsToInLaw(k))];
+    // On the line above the root, the child that line runs through goes first, so the rest of the
+    // brothers and sisters sit on its far side, with room for their families under them.
+    const lead = spine.has(fid) ? fresh.filter(k => ancestors.has(k)) : [];
+    const rest = fresh.filter(k => !lead.includes(k));
+    const kids = [...lead, ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k))];
 
     const placed: string[] = [];
     const centers: number[] = [];
