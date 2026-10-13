@@ -218,3 +218,26 @@ test("mother's cousins, their spouses and children have titles", () => {
   assert.deepEqual(spoken(female), ['表姨', '表姨']);
   assert.deepEqual(spoken(add(addSpouse(t, female, 'm'))), ['表姨丈', '表姨丈']);
 });
+
+test("wife's uncles and aunts use the wife's own titles", () => {
+  let t = emptyTree();
+  const add = (e: { tree: Tree; id: string }) => { t = e.tree; return e.id; };
+  const me = add(addPerson(t, 'm'));
+  const wife = add(addSpouse(t, me, 'f'));
+  const dad = add(addParent(t, wife, 'm'));
+  const mum = add(addParent(t, wife, 'f'));
+  const title = (id: string) => {
+    const x = resolve(t, table, generic, me, id);
+    assert.equal(x.kind, 'title', `${id} gave ${x.kind}`);
+    return x.kind === 'title' ? x.forms.formal.chars : '';
+  };
+  const dadBro = add(addSibling(t, dad, 'm', undefined, 0));
+  assert.equal(title(dadBro), '伯父');
+  assert.equal(title(add(addSpouse(t, dadBro, 'f'))), '伯娘');
+  const mumBro = add(addSibling(t, mum, 'm'));
+  assert.equal(title(mumBro), '舅父');
+  assert.equal(title(add(addSpouse(t, mumBro, 'f'))), '舅母');
+  const mumSis = add(addSibling(t, mum, 'f'));
+  assert.equal(title(mumSis), '阿姨');
+  assert.equal(title(add(addSpouse(t, mumSis, 'm'))), '姨丈');
+});

@@ -1097,6 +1097,174 @@
   "note": "uses the wife's own title; family usage varies"
  },
  {
+  "pattern": "W F Be",
+  "en": "wife's father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "jyutping": "baak3 fu6"
+  },
+  "spoken": {
+   "chars": "伯伯",
+   "jyutping": "baak3 baak3"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By",
+  "en": "wife's father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "jyutping": "suk1 fu6"
+  },
+  "spoken": {
+   "chars": "阿叔",
+   "jyutping": "aa3 suk1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Ze",
+  "en": "wife's father's elder sister",
+  "formal": {
+   "chars": "姑媽",
+   "jyutping": "gu1 maa1"
+  },
+  "spoken": {
+   "chars": "姑媽",
+   "jyutping": "gu1 maa1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Zy",
+  "en": "wife's father's younger sister",
+  "formal": {
+   "chars": "姑姐",
+   "jyutping": "gu1 ze1"
+  },
+  "spoken": {
+   "chars": "姑姐",
+   "jyutping": "gu1 ze1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Be W",
+  "en": "wife's father's elder brother's wife",
+  "formal": {
+   "chars": "伯娘",
+   "jyutping": "baak3 noeng4"
+  },
+  "spoken": {
+   "chars": "伯娘",
+   "jyutping": "baak3 noeng4"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By W",
+  "en": "wife's father's younger brother's wife",
+  "formal": {
+   "chars": "阿嬸",
+   "jyutping": "aa3 sam2"
+  },
+  "spoken": {
+   "chars": "阿嬸",
+   "jyutping": "aa3 sam2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Z* H",
+  "en": "wife's father's sister's husband",
+  "formal": {
+   "chars": "姑丈",
+   "jyutping": "gu1 zoeng2"
+  },
+  "spoken": {
+   "chars": "姑丈",
+   "jyutping": "gu1 zoeng2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M B*",
+  "en": "wife's mother's brother",
+  "formal": {
+   "chars": "舅父",
+   "jyutping": "kau5 fu2"
+  },
+  "spoken": {
+   "chars": "舅父",
+   "jyutping": "kau5 fu2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Ze",
+  "en": "wife's mother's elder sister",
+  "formal": {
+   "chars": "姨媽",
+   "jyutping": "ji4 maa1"
+  },
+  "spoken": {
+   "chars": "姨媽",
+   "jyutping": "ji4 maa1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Zy",
+  "en": "wife's mother's younger sister",
+  "formal": {
+   "chars": "阿姨",
+   "jyutping": "aa3 ji1"
+  },
+  "spoken": {
+   "chars": "阿姨",
+   "jyutping": "aa3 ji1"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M B* W",
+  "en": "wife's mother's brother's wife",
+  "formal": {
+   "chars": "舅母",
+   "jyutping": "kau5 mou2"
+  },
+  "spoken": {
+   "chars": "舅母",
+   "jyutping": "kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Z* H",
+  "en": "wife's mother's sister's husband",
+  "formal": {
+   "chars": "姨丈",
+   "jyutping": "ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "姨丈",
+   "jyutping": "ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "uses the wife's own title; family usage varies"
+ },
+ {
   "pattern": "F B* S W",
   "en": "paternal male cousin's wife",
   "formal": {
