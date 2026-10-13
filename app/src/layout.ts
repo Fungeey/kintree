@@ -290,11 +290,15 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     for (const w of wing) if (!done.has(w.fid)) placeFamily(w.fid, new Set([w.joiner]));
     if (wing.length) floor = Math.max(floor, right + GAP_X * 2);
     queue.unshift(top);
+    // Higher families first (by generation), so a wife's family above the couple is drawn before an
+    // in-law family lower down, and the two never end up in the wrong order along the row.
+    const famGen = (f: string) => { const x = fams.get(f)!; return gens.get(x.parents[0] ?? x.children[0]) ?? 0; };
     while (queue.length) {
+      queue.sort((a, b) => famGen(a) - famGen(b));
       const fid = queue.shift()!;
       if (done.has(fid)) continue;
       placeFamily(fid);
-      queue.unshift(...deferred);
+      queue.push(...deferred);
       deferred = [];
     }
   }
