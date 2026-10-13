@@ -148,10 +148,7 @@ function Shell({ start }: { start: Start }) {
           onCancel={() => setRenaming(null)}
         />
       )}
-      <footer className="foot">
-        <p className="viewing">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>
-        <p className="hint">{editMode ? 'Tap Done when you have finished editing.' : "Tap a person to see everyone's titles from their point of view."}</p>
-      </footer>
+      <p className="viewing" aria-live="polite">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>
     </div>
   );
 }

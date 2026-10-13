@@ -64,13 +64,11 @@ button { font: inherit; color: inherit; }
 .play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
 .zoom button { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--panel); font-size: 1.2rem; cursor: pointer; }
-.foot { border-top: 1px solid var(--rule); background: var(--panel); }
-.viewing { margin: 0; padding: 6px 16px 0; font-size: .9rem; text-align: center; }
+.viewing { position: absolute; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%); margin: 0; padding: 6px 14px; max-width: calc(100% - 140px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .9rem; background: var(--panel); border: 1.5px solid var(--rule); border-radius: 999px; box-shadow: 0 1px 6px rgba(43,36,28,.2); pointer-events: none; z-index: 2; }
 .viewing strong { color: var(--accent); }
-.hint { margin: 0; padding: 4px 16px max(6px, env(safe-area-inset-bottom)); font-size: .75rem; color: var(--muted); text-align: center; }
 .start { max-width: 28rem; margin: 0 auto; padding: 32px 16px; }
 
-.nospeech { position: absolute; left: 8px; bottom: 8px; margin: 0; max-width: 60%; font-size: .7rem; color: var(--muted); }
+.nospeech { position: absolute; left: 8px; bottom: 52px; margin: 0; max-width: 60%; font-size: .7rem; color: var(--muted); }
 .notice { margin: 0; padding: 6px 16px; background: #f6dfd2; color: #7a2a14; font-size: .85rem; }
 .notice button { border: 1px solid currentColor; background: none; color: inherit; border-radius: 6px; padding: 2px 8px; cursor: pointer; }
 
