@@ -16,11 +16,13 @@ export interface AddPersonProps {
   me: string | null;
   from?: string;
   onChange: (tree: Tree, newId: string) => void;
+  onCancel?: () => void;   // when given, the first step offers Back (used inside the edit sheet)
 }
 
 const RELATION_LABEL: Record<Relation, string> = {
   parent: 'Parent', child: 'Child', spouse: 'Spouse', sibling: 'Brother or sister',
 };
+const NEW = 'new';
 const label = (p: Person, relation: Relation) =>
   p.name || (relation === 'child' ? (p.sex === 'm' ? 'son' : 'daughter') : (p.sex === 'm' ? 'brother' : 'sister'));
 
@@ -42,10 +44,10 @@ function SexAndName(props: { initialSex: Sex | null; submitText: string; nameLab
   );
 }
 
-export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
+export function AddPerson({ tree, me, from, onChange, onCancel }: AddPersonProps) {
   const [relation, setRelation] = useState<Relation | null>(null);
   const [pending, setPending] = useState<{ sex: Sex; name: string } | null>(null);
-  const [slot, setSlot] = useState(0);
+  const [order, setOrder] = useState<string[]>([]); // sibling group while placing the new person; NEW stands for them
   const reset = () => { setRelation(null); setPending(null); };
 
   if (tree.people.length === 0) {
@@ -64,8 +66,8 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
   if (!person) return <section className="add-person">Pick someone in the tree first.</section>;
   const who = person.name || 'this person';
 
-  const finish = (sex: Sex, name: string, slot?: number) => {
-    const r = applyAdd(tree, { from: person.id, relation: relation!, sex, name, slot });
+  const finish = (sex: Sex, name: string, order?: string[]) => {
+    const r = applyAdd(tree, { from: person.id, relation: relation!, sex, name, order: order?.map(k => (k === NEW ? null : k)) });
     reset();
     onChange(r.tree, r.id);
   };
@@ -79,6 +81,7 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
             <button type="button" key={r} onClick={() => setRelation(r)}>{RELATION_LABEL[r]}</button>
           ))}
         </div>
+        {onCancel && <button type="button" className="back" onClick={onCancel}>Back</button>}
       </section>
     );
   }
@@ -90,7 +93,7 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
         <SexAndName initialSex={suggestSex(tree, person.id, relation)} submitText="Next"
           onSubmit={(sex, name) => {
             const q = slotQuestion(tree, person.id, relation);
-            if (q) { setSlot(q.members.length); setPending({ sex, name }); } // youngest unless moved
+            if (q) { setOrder([...q.members.map(p => p.id), NEW]); setPending({ sex, name }); } // youngest unless moved
             else finish(sex, name);
           }} />
         <button type="button" className="back" onClick={reset}>Back</button>
@@ -99,11 +102,12 @@ export function AddPerson({ tree, me, from, onChange }: AddPersonProps) {
   }
 
   const q = slotQuestion(tree, person.id, relation)!;
+  const rows = order.map(k => ({ key: k, label: k === NEW ? pending.name.trim() || 'New person' : label(q.members.find(p => p.id === k)!, relation) }));
   return (
     <section className="add-person">
       <h3>Where in the birth order?</h3>
-      <BirthOrder others={q.members.map(p => label(p, relation))} self={pending.name.trim() || 'New person'} slot={slot} onSlot={setSlot} />
-      <button type="button" className="add-here" onClick={() => finish(pending.sex, pending.name, slot)}>Add</button>
+      <BirthOrder rows={rows} self={NEW} onChange={setOrder} />
+      <button type="button" className="add-here" onClick={() => finish(pending.sex, pending.name, order)}>Add</button>
       <button type="button" className="back" onClick={() => setPending(null)}>Back</button>
     </section>
   );

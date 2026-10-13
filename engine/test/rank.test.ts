@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addParent, addPerson, addSibling, addSpouse, emptyTree, rankTitle, reorderChild } from '../src/index.ts';
+import { addParent, addPerson, addSibling, addSpouse, emptyTree, rankTitle, setBirthOrder } from '../src/index.ts';
 import type { Tree } from '../src/index.ts';
 
 // Me, my mother, and her siblings in birth order: sister A, sister B, mum, brother C, sister D.
@@ -39,7 +39,7 @@ test('rank: an aunt\'s husband takes her rank', () => {
 
 test('rank: follows birth order edits', () => {
   const { t, id } = family();
-  const swapped = reorderChild(t, id.B, 0);
+  const swapped = setBirthOrder(t, id.B, [id.B, id.A, id.mum, id.C, id.D]);
   assert.equal(rankTitle(swapped, id.me, id.B)!.chars, '大姨媽');
   assert.equal(rankTitle(swapped, id.me, id.A)!.chars, '二姨媽');
 });

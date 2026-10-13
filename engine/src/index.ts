@@ -5,7 +5,7 @@ export { validateTree } from './tree.ts';
 export { kinPath } from './path.ts';
 export { loadTable, matchPattern } from './table.ts';
 export { resolve } from './resolve.ts';
-export { emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, reorderChild } from './edit.ts';
+export { emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBirthOrder } from './edit.ts';
 export type { Edited } from './edit.ts';
 export { sides, visible } from './sides.ts';
 export type { Side, View, Sides } from './sides.ts';

@@ -1,5 +1,5 @@
 // Edit mode: renaming someone already on the tree.
-import { reorderChild, renamePerson } from '../../engine/src/index.ts';
+import { renamePerson, setBirthOrder } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
 
 export const MAX_NAME = 40;
@@ -27,9 +27,9 @@ export function siblingsOf(tree: Tree, id: string): string[] {
   return tree.families.find(f => f.children.includes(id))?.children ?? [id];
 }
 
-// Rename and/or move to birth-order position `slot` in one step. Null when the name is required but empty.
-export function applyEdit(tree: Tree, id: string, name: string, slot: number): Tree | null {
+// Rename `id` and/or set the birth order of their sibling group, in one step. Null when the name is required but empty.
+export function applyEdit(tree: Tree, id: string, name: string, order: string[]): Tree | null {
   const named = applyRename(tree, id, name);
   if (!named) return null;
-  return reorderChild(named, id, slot);
+  return setBirthOrder(named, id, order);
 }

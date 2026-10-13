@@ -68,22 +68,24 @@ test('edit: name and birth order change together; captions and share link follow
   const s1 = addSibling(t, me, 'm', 'Kai'); t = s1.tree;
   const s2 = addSibling(t, me, 'f'); t = s2.tree;
   assert.deepEqual(siblingsOf(t, me), [me, s1.id, s2.id]);
-  const next = applyEdit(t, s2.id, ' Ling ', 0)!;
-  assert.deepEqual(siblingsOf(next, me), [s2.id, me, s1.id]);
+  // Everyone can move, not just the person being edited: here Kai and me swap as well as Ling moving up.
+  const next = applyEdit(t, s2.id, ' Ling ', [s2.id, s1.id, me])!;
+  assert.deepEqual(siblingsOf(next, me), [s2.id, s1.id, me]);
   assert.equal(next.people.find(p => p.id === s2.id)!.name, 'Ling');
   const back = await decodeFragment(await encodeFragment({ tree: next, me }));
-  assert.deepEqual(siblingsOf(back.tree, me), [s2.id, me, s1.id]);
+  assert.deepEqual(siblingsOf(back.tree, me), [s2.id, s1.id, me]);
 });
 
 test('edit: an empty root name is refused even when the order changes', () => {
   const { t, me } = sample();
-  assert.equal(applyEdit(t, me, '', 0), null);
+  assert.equal(applyEdit(t, me, '', siblingsOf(t, me)), null);
 });
 
-test('edit: someone with no siblings only has their own slot', () => {
+test('edit: someone with no siblings is a group of one', () => {
   const { t, mum } = sample();
   assert.deepEqual(siblingsOf(t, mum), [mum]);
-  assert.throws(() => applyEdit(t, mum, 'Lai', 1));
+  assert.equal(applyEdit(t, mum, 'Lai', [mum])!.people.find(p => p.id === mum)!.name, 'Lai');
+  assert.throws(() => applyEdit(t, mum, 'Lai', [mum, 'x']));
 });
 
 test('display: an aunt shows her usual title and her rank title; audio says only the usual one', async () => {

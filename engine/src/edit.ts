@@ -66,17 +66,17 @@ export function renamePerson(tree: Tree, id: string, name: string): Tree {
   return t;
 }
 
-// Moves a child to birth-order position `slot` among their siblings (0 = eldest, children.length - 1 = youngest).
-// A person with no birth family, or no siblings, only accepts slot 0.
-export function reorderChild(tree: Tree, id: string, slot: number): Tree {
+// Sets the birth order of `id`'s sibling group (everyone in their birth family, eldest first). `order` must list
+// exactly those people. A person with no birth family is a group of one.
+export function setBirthOrder(tree: Tree, id: string, order: string[]): Tree {
   mustHave(tree, id);
   const t = structuredClone(tree);
   const fam = birthOf(t, id);
-  const list = fam ? fam.children : [id];
-  if (!Number.isInteger(slot) || slot < 0 || slot >= list.length) throw new Error(`bad slot: ${slot}`);
-  if (!fam || list[slot] === id) return tree;
-  fam.children.splice(fam.children.indexOf(id), 1);
-  fam.children.splice(slot, 0, id);
+  const group = fam ? fam.children : [id];
+  const same = order.length === group.length && new Set(order).size === order.length && order.every(x => group.includes(x));
+  if (!same) throw new Error(`order must list exactly ${group.join(', ')}`);
+  if (!fam || order.every((x, i) => x === fam.children[i])) return tree;
+  fam.children = [...order];
   validateTree(t);
   return t;
 }
