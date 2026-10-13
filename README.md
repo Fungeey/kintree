@@ -1,6 +1,6 @@
 # kintree
 
-A family tree that tells you what to call each relative in Cantonese or Mandarin. Pick yourself, add parents, siblings, spouses and children, and every card shows the title (characters and Jyutping or pinyin), with spoken and formal forms and audio. The language is the viewer's choice from the picker; a link can carry `?lang=cmn`.
+A family tree that tells you what to call each relative in Cantonese or Mandarin. Pick yourself, add parents, siblings, spouses and children, and every card shows the title (characters and Jyutping or pinyin), with spoken and formal forms and audio. The language is the viewer's choice from the picker; a link carries `?lang=yue` or `?lang=cmn`, and defaults to Cantonese without one.
 
 **Live:** https://fungeey.github.io/kintree/ (add `?demo` to load a sample family)
 
