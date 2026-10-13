@@ -12,19 +12,43 @@ test('pickVoice prefers zh-HK, accepts yue, ignores Mandarin', () => {
 });
 
 test('spokenText reads the spoken form, not the formal one', () => {
-  const s: Shown = { kind: 'title', lines: [{ chars: '阿爸', jyutping: 'aa3 baa1' }], formal: { chars: '父親', jyutping: 'fu6 can1' } };
+  const s: Shown = { kind: 'title', lines: [{ chars: '阿爸', rom: 'aa3 baa1' }], formal: { chars: '父親', rom: 'fu6 can1' } };
   assert.equal(spokenText(s), '阿爸');
 });
 
 test('spokenText joins older/younger and reads the formal term of by-name relatives', () => {
   const two: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '表哥' }, { label: 'younger', chars: '表弟' }] };
   assert.equal(spokenText(two), '表哥，表弟');
-  const half: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: '弟弟', jyutping: 'dai6 dai2', byName: true }] };
+  const half: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: '弟弟', rom: 'dai6 dai2', byName: true }] };
   assert.equal(spokenText(half), '哥哥，弟弟');
 });
 
 test('spokenText skips the bare "by name" placeholder', () => {
-  assert.equal(spokenText({ kind: 'title', lines: [{ chars: 'by name', byName: true }] }), '');
-  const mixed: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: 'by name', byName: true }] };
+  assert.equal(spokenText({ kind: 'title', lines: [{ chars: 'by name', byName: true, bare: true }] }), '');
+  const mixed: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '哥哥' }, { label: 'younger', chars: 'by name', byName: true, bare: true }] };
   assert.equal(spokenText(mixed), '哥哥');
+});
+
+test('pickVoice for Mandarin takes zh-CN, zh-Hans or cmn and skips Cantonese and Taiwan voices', () => {
+  const v = [{ lang: 'zh-HK', name: 'Sinji' }, { lang: 'zh-TW', name: 'Meijia' }, { lang: 'zh-CN', name: 'Tingting' }];
+  assert.equal(pickVoice(v, 'cmn')?.name, 'Tingting');
+  assert.equal(pickVoice([{ lang: 'cmn-Hans-CN', name: 'x' }], 'cmn')?.name, 'x');
+  assert.equal(pickVoice([{ lang: 'zh_CN', name: 'y' }, { lang: 'zh-Hans', name: 'z' }], 'cmn')?.name, 'y');
+  assert.equal(pickVoice([{ lang: 'zh-HK', name: 'a' }, { lang: 'zh-TW', name: 'b' }, { lang: 'yue-HK', name: 'c' }], 'cmn'), undefined);
+  assert.equal(pickVoice(v, 'yue')?.name, 'Sinji');
+});
+
+test('pickVoice reads Android Chrome tags like zh_CN_#Hans and yue_HK_#Hant', () => {
+  const android = [
+    { lang: 'yue_HK_#Hant', name: 'Cantonese Hong Kong' },
+    { lang: 'zh_CN_#Hans', name: 'Chinese China' },
+    { lang: 'zh_HK_#Hans', name: 'Chinese Hong Kong' },
+    { lang: 'zh_SG_#Hans', name: 'Chinese Singapore' },
+    { lang: 'zh_TW_#Hant', name: 'Chinese Taiwan' },
+  ];
+  assert.equal(pickVoice(android, 'cmn')?.name, 'Chinese China');
+  assert.equal(pickVoice(android, 'yue')?.name, 'Cantonese Hong Kong');
+  // With no mainland voice, Singapore Mandarin is fine but Hong Kong and Taiwan voices are not.
+  assert.equal(pickVoice(android.filter(v => v.lang !== 'zh_CN_#Hans'), 'cmn')?.name, 'Chinese Singapore');
+  assert.equal(pickVoice([android[2], android[4], { lang: 'zh_MO_#Hant', name: 'm' }], 'cmn'), undefined);
 });

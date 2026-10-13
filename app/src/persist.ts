@@ -28,6 +28,8 @@ export async function persist(store: KV | null, snap: Snapshot, setHash: (frag: 
 }
 
 /** The shareable URL for a tree and "me". */
-export async function shareUrl(snap: Snapshot, base: { origin: string; pathname: string }): Promise<string> {
-  return `${base.origin}${base.pathname}#${await encodeFragment(snap)}`;
+// The language rides along as ?lang= (Cantonese too), so a saved choice on the opener's side doesn't change what the link shows.
+export async function shareUrl(snap: Snapshot, base: { origin: string; pathname: string }, lang?: string): Promise<string> {
+  const q = lang ? `?lang=${lang}` : '';
+  return `${base.origin}${base.pathname}${q}#${await encodeFragment(snap)}`;
 }

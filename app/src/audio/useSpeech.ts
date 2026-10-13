@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { pickVoice } from './speech.ts';
+import type { LangId } from '../lang.ts';
 
 const synth = (): SpeechSynthesis | null =>
   typeof window !== 'undefined' && 'speechSynthesis' in window && typeof SpeechSynthesisUtterance !== 'undefined'
@@ -8,17 +9,17 @@ const synth = (): SpeechSynthesis | null =>
 
 export type SpeechState = 'unsupported' | 'no-voice' | 'ready';
 
-export function useSpeech(): { state: SpeechState; speak: (text: string) => void } {
+export function useSpeech(lang: LangId): { state: SpeechState; speak: (text: string) => void } {
   const [voice, setVoice] = useState<SpeechSynthesisVoice | undefined>();
   const s = synth();
 
   useEffect(() => {
     if (!s) return;
-    const update = () => setVoice(pickVoice(s.getVoices()));
+    const update = () => setVoice(pickVoice(s.getVoices(), lang));
     update();
     s.addEventListener?.('voiceschanged', update);
     return () => s.removeEventListener?.('voiceschanged', update);
-  }, [s]);
+  }, [s, lang]);
 
   const speak = useCallback((text: string) => {
     if (!s || !voice || !text) return;

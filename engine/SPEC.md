@@ -56,7 +56,7 @@ Rule 3 makes ties deterministic and prefers blood-first paths. Example: if my yo
 
 ## 4. Title table
 
-Stored in `data/titles.json` as an array of entries:
+Stored in `data/yue/titles.json` as an array of entries:
 
 ```ts
 interface Title { chars: string; jyutping: string }
@@ -111,7 +111,7 @@ type Resolution =
 
 ## 6. Fallback
 
-**Generic spoken title.** Generation `g` = (count of `F`/`M`) − (count of `S`/`D`) in the path. Look it up in `data/generic.json`:
+**Generic spoken title.** Generation `g` = (count of `F`/`M`) − (count of `S`/`D`) in the path. Look it up in `data/yue/generic.json`:
 
 ```ts
 interface Generic {

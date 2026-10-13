@@ -1,0 +1,40 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "ông"
+  },
+  "f": {
+   "chars": "bà"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "chú"
+  },
+  "f": {
+   "chars": "cô"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "anh"
+   },
+   "younger": {
+    "chars": "em"
+   }
+  },
+  "f": {
+   "older": {
+    "chars": "chị"
+   },
+   "younger": {
+    "chars": "em"
+   }
+  }
+ },
+ "below": {
+  "chars": "cháu"
+ }
+}

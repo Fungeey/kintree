@@ -10,6 +10,8 @@ import { browserStore, openApp, persist, shareUrl } from './persist.ts';
 import { switchTarget, viewingAs } from './switchPov.ts';
 import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
 import { rootLabel } from './display.ts';
+import { initialLang, langFor, LANG_IDS, saveLang } from './lang.ts';
+import type { LangId } from './lang.ts';
 
 const demo = typeof location !== 'undefined' && new URLSearchParams(location.search).has('demo');
 
@@ -20,6 +22,14 @@ const store = browserStore();
 export function App() {
   const [start, setStart] = useState<Start | null>(() => (demo ? { ...demoTree() } : null));
   const [epoch, setEpoch] = useState(0);
+  const [lang, setLangState] = useState<LangId>(() => initialLang(typeof location !== 'undefined' ? location.search : '', store));
+  // The language is the viewer's choice, not part of the tree: it is saved here and shown as ?lang= so a link can carry it.
+  const setLang = (id: LangId) => {
+    setLangState(id);
+    saveLang(store, id);
+    const q = new URLSearchParams(location.search);
+    if (q.has('lang')) { q.set('lang', id); history.replaceState(null, '', `${location.pathname}?${q}${location.hash}`); }
+  };
 
   // Open from the link (it wins over a saved tree); a bad link falls back to the saved tree with the error.
   useEffect(() => {
@@ -39,10 +49,10 @@ export function App() {
   }, []);
 
   if (!start) return <main className="start"><p>Loading…</p></main>;
-  return <Shell key={epoch} start={start} />;
+  return <Shell key={epoch} start={start} lang={lang} setLang={setLang} />;
 }
 
-function Shell({ start }: { start: Start }) {
+function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: (id: LangId) => void }) {
   const [tree, setTree] = useState<Tree>(start.tree);
   const [me, setMe] = useState<string | null>(start.me);
   const [error, setError] = useState<string | undefined>(start.error);
@@ -61,7 +71,7 @@ function Shell({ start }: { start: Start }) {
 
   const copyLink = async () => {
     try {
-      const url = await shareUrl({ tree, me }, location);
+      const url = await shareUrl({ tree, me }, location, lang);
       try { await navigator.clipboard.writeText(url); }
       catch { prompt('Copy this link:', url); }
       setCopied('ok');
@@ -98,11 +108,17 @@ function Shell({ start }: { start: Start }) {
     if (id === me) { setMe(t.people[0]?.id ?? null); setView('mine'); }
   };
 
+  const picker = (
+    <select className="lang" value={lang} aria-label="Language" onChange={e => setLang(e.target.value as LangId)}>
+      {LANG_IDS.map(id => <option key={id} value={id}>{langFor(id).label} · {langFor(id).english}</option>)}
+    </select>
+  );
+
   // An empty tree starts with "me" (decision 17).
   if (!me || !s) {
     return (
       <main className="start">
-        <h1>家庭稱呼 · Cantonese kinship</h1>
+        <div className="start-top"><h1>{langFor(lang).heading} · Kinship</h1>{picker}</div>
         {error && <p className="notice" role="alert">Couldn't open that link ({error}). Showing your saved tree.</p>}
         <p>Build your family tree to see what to call everyone.</p>
         <AddPerson tree={tree} me={null} onChange={changed} />
@@ -113,7 +129,7 @@ function Shell({ start }: { start: Start }) {
   return (
     <div className="app">
       <header className="bar">
-        <h1>家庭稱呼</h1>
+        <h1 lang={langFor(lang).html}>{langFor(lang).heading}</h1>
         {s.married && (
           <div className="seg" role="group" aria-label="Whose family to show">
             <button type="button" aria-pressed={view === 'mine'} onClick={() => setView('mine')}>My <span className="long">family</span></button>
@@ -121,6 +137,7 @@ function Shell({ start }: { start: Start }) {
           </div>
         )}
         <span className="spacer" />
+        {picker}
         <button type="button" className={editMode ? 'editing' : undefined} aria-pressed={editMode} onClick={toggleEdit}>{editMode ? 'Done' : 'Edit'}</button>
         <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link</span></>}</button>
       </header>
@@ -131,7 +148,7 @@ function Shell({ start }: { start: Start }) {
         </p>
       )}
       {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename, reorder, add relatives or remove them.</p>}
-      <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} />
+      <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} lang={lang} />
       {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
       {renaming && renamingWho && (
         <EditName

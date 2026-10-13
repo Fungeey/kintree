@@ -4,11 +4,11 @@
   "en": "father",
   "formal": {
    "chars": "爸爸",
-   "jyutping": "baa4 baa1"
+   "rom": "baa4 baa1"
   },
   "spoken": {
    "chars": "爸爸",
-   "jyutping": "baa4 baa1"
+   "rom": "baa4 baa1"
   },
   "status": "unverified"
  },
@@ -17,11 +17,11 @@
   "en": "mother",
   "formal": {
    "chars": "媽媽",
-   "jyutping": "maa4 maa1"
+   "rom": "maa4 maa1"
   },
   "spoken": {
    "chars": "媽媽",
-   "jyutping": "maa4 maa1"
+   "rom": "maa4 maa1"
   },
   "status": "unverified"
  },
@@ -30,7 +30,7 @@
   "en": "son",
   "formal": {
    "chars": "仔",
-   "jyutping": "zai2"
+   "rom": "zai2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -40,7 +40,7 @@
   "en": "daughter",
   "formal": {
    "chars": "女",
-   "jyutping": "neoi2"
+   "rom": "neoi2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -50,11 +50,11 @@
   "en": "husband",
   "formal": {
    "chars": "先生",
-   "jyutping": "sin1 saang1"
+   "rom": "sin1 saang1"
   },
   "spoken": {
    "chars": "老公",
-   "jyutping": "lou5 gung1"
+   "rom": "lou5 gung1"
   },
   "status": "unverified"
  },
@@ -63,11 +63,11 @@
   "en": "wife",
   "formal": {
    "chars": "太太",
-   "jyutping": "taai3 taai2"
+   "rom": "taai3 taai2"
   },
   "spoken": {
    "chars": "老婆",
-   "jyutping": "lou5 po4"
+   "rom": "lou5 po4"
   },
   "status": "unverified"
  },
@@ -76,11 +76,11 @@
   "en": "elder brother",
   "formal": {
    "chars": "哥哥",
-   "jyutping": "go4 go1"
+   "rom": "go4 go1"
   },
   "spoken": {
    "chars": "阿哥",
-   "jyutping": "aa3 go1"
+   "rom": "aa3 go1"
   },
   "status": "checked",
   "note": "spoken 阿哥 aa3 go1 not checked"
@@ -90,7 +90,7 @@
   "en": "younger brother",
   "formal": {
    "chars": "弟弟",
-   "jyutping": "dai4 dai2"
+   "rom": "dai4 dai2"
   },
   "spoken": "by-name",
   "status": "checked",
@@ -101,11 +101,11 @@
   "en": "elder sister",
   "formal": {
    "chars": "姐姐",
-   "jyutping": "ze4 ze1"
+   "rom": "ze4 ze1"
   },
   "spoken": {
    "chars": "家姐",
-   "jyutping": "gaa1 ze1"
+   "rom": "gaa1 ze1"
   },
   "status": "checked",
   "note": "spoken 家姐 gaa1 ze1 not checked"
@@ -115,7 +115,7 @@
   "en": "younger sister",
   "formal": {
    "chars": "妹妹",
-   "jyutping": "mui4 mui2"
+   "rom": "mui4 mui2"
   },
   "spoken": "by-name",
   "status": "checked",
@@ -126,11 +126,11 @@
   "en": "paternal grandfather",
   "formal": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "spoken": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "status": "checked"
  },
@@ -139,11 +139,11 @@
   "en": "paternal grandmother",
   "formal": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "spoken": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "status": "checked"
  },
@@ -152,11 +152,11 @@
   "en": "maternal grandfather",
   "formal": {
    "chars": "外公",
-   "jyutping": "ngoi6 gung1"
+   "rom": "ngoi6 gung1"
   },
   "spoken": {
    "chars": "公公",
-   "jyutping": "gung4 gung1"
+   "rom": "gung4 gung1"
   },
   "status": "checked",
   "note": "words.hk: 公公 gung4 gung1, variant gung1 gung1; also used for any old man"
@@ -166,11 +166,11 @@
   "en": "maternal grandmother",
   "formal": {
    "chars": "外婆",
-   "jyutping": "ngoi6 po4"
+   "rom": "ngoi6 po4"
   },
   "spoken": {
    "chars": "婆婆",
-   "jyutping": "po4 po1"
+   "rom": "po4 po1"
   },
   "status": "checked",
   "note": "words.hk: 外婆 ngoi6 po4; 婆婆 po4 po1 not checked as a kinship term"
@@ -180,11 +180,11 @@
   "en": "father's elder brother",
   "formal": {
    "chars": "伯父",
-   "jyutping": "baak3 fu6"
+   "rom": "baak3 fu6"
   },
   "spoken": {
    "chars": "伯伯",
-   "jyutping": "baak3 baak3"
+   "rom": "baak3 baak3"
   },
   "status": "unverified",
   "note": "words.hk lists 伯 only (大伯 = father's eldest brother); 伯父 not checked directly"
@@ -194,11 +194,11 @@
   "en": "father's younger brother",
   "formal": {
    "chars": "叔父",
-   "jyutping": "suk1 fu6"
+   "rom": "suk1 fu6"
   },
   "spoken": {
    "chars": "阿叔",
-   "jyutping": "aa3 suk1"
+   "rom": "aa3 suk1"
   },
   "status": "checked"
  },
@@ -207,11 +207,11 @@
   "en": "father's elder sister",
   "formal": {
    "chars": "姑媽",
-   "jyutping": "gu1 maa1"
+   "rom": "gu1 maa1"
   },
   "spoken": {
    "chars": "姑媽",
-   "jyutping": "gu1 maa1"
+   "rom": "gu1 maa1"
   },
   "status": "checked"
  },
@@ -220,11 +220,11 @@
   "en": "father's younger sister",
   "formal": {
    "chars": "姑姐",
-   "jyutping": "gu1 ze1"
+   "rom": "gu1 ze1"
   },
   "spoken": {
    "chars": "姑姐",
-   "jyutping": "gu1 ze1"
+   "rom": "gu1 ze1"
   },
   "status": "unverified",
   "note": "姑姐 unchecked on words.hk (page failed to load); spoken form may be 阿姑 or 姑姐 by family"
@@ -234,11 +234,11 @@
   "en": "mother's brother",
   "formal": {
    "chars": "舅父",
-   "jyutping": "kau5 fu2"
+   "rom": "kau5 fu2"
   },
   "spoken": {
    "chars": "舅父",
-   "jyutping": "kau5 fu2"
+   "rom": "kau5 fu2"
   },
   "status": "checked",
   "note": "words.hk reads 舅父 kau3 fu2, variant kau5 fu2"
@@ -248,11 +248,11 @@
   "en": "mother's elder sister",
   "formal": {
    "chars": "姨媽",
-   "jyutping": "ji4 maa1"
+   "rom": "ji4 maa1"
   },
   "spoken": {
    "chars": "姨媽",
-   "jyutping": "ji4 maa1"
+   "rom": "ji4 maa1"
   },
   "status": "checked"
  },
@@ -261,11 +261,11 @@
   "en": "mother's younger sister",
   "formal": {
    "chars": "阿姨",
-   "jyutping": "aa3 ji1"
+   "rom": "aa3 ji1"
   },
   "spoken": {
    "chars": "阿姨",
-   "jyutping": "aa3 ji1"
+   "rom": "aa3 ji1"
   },
   "status": "checked"
  },
@@ -274,11 +274,11 @@
   "en": "father's elder brother's wife",
   "formal": {
    "chars": "伯娘",
-   "jyutping": "baak3 noeng4"
+   "rom": "baak3 noeng4"
   },
   "spoken": {
    "chars": "伯娘",
-   "jyutping": "baak3 noeng4"
+   "rom": "baak3 noeng4"
   },
   "status": "checked"
  },
@@ -287,11 +287,11 @@
   "en": "father's younger brother's wife",
   "formal": {
    "chars": "阿嬸",
-   "jyutping": "aa3 sam2"
+   "rom": "aa3 sam2"
   },
   "spoken": {
    "chars": "阿嬸",
-   "jyutping": "aa3 sam2"
+   "rom": "aa3 sam2"
   },
   "status": "checked"
  },
@@ -300,11 +300,11 @@
   "en": "father's sister's husband",
   "formal": {
    "chars": "姑丈",
-   "jyutping": "gu1 zoeng2"
+   "rom": "gu1 zoeng2"
   },
   "spoken": {
    "chars": "姑丈",
-   "jyutping": "gu1 zoeng2"
+   "rom": "gu1 zoeng2"
   },
   "status": "checked",
   "note": "words.hk: gu1 zoeng2, also read gu1 zoeng6"
@@ -314,11 +314,11 @@
   "en": "mother's brother's wife",
   "formal": {
    "chars": "舅母",
-   "jyutping": "kau5 mou2"
+   "rom": "kau5 mou2"
   },
   "spoken": {
    "chars": "舅母",
-   "jyutping": "kau5 mou2"
+   "rom": "kau5 mou2"
   },
   "status": "checked"
  },
@@ -327,11 +327,11 @@
   "en": "mother's sister's husband",
   "formal": {
    "chars": "姨丈",
-   "jyutping": "ji4 zoeng2"
+   "rom": "ji4 zoeng2"
   },
   "spoken": {
    "chars": "姨丈",
-   "jyutping": "ji4 zoeng2"
+   "rom": "ji4 zoeng2"
   },
   "status": "checked"
  },
@@ -340,11 +340,11 @@
   "en": "paternal grandfather's elder brother",
   "formal": {
    "chars": "伯公",
-   "jyutping": "baak3 gung1"
+   "rom": "baak3 gung1"
   },
   "spoken": {
    "chars": "伯公",
-   "jyutping": "baak3 gung1"
+   "rom": "baak3 gung1"
   },
   "status": "checked"
  },
@@ -353,11 +353,11 @@
   "en": "paternal grandfather's younger brother",
   "formal": {
    "chars": "叔公",
-   "jyutping": "suk1 gung1"
+   "rom": "suk1 gung1"
   },
   "spoken": {
    "chars": "叔公",
-   "jyutping": "suk1 gung1"
+   "rom": "suk1 gung1"
   },
   "status": "checked"
  },
@@ -366,11 +366,11 @@
   "en": "paternal grandfather's sister",
   "formal": {
    "chars": "姑婆",
-   "jyutping": "gu1 po4"
+   "rom": "gu1 po4"
   },
   "spoken": {
    "chars": "姑婆",
-   "jyutping": "gu1 po4"
+   "rom": "gu1 po4"
   },
   "status": "checked"
  },
@@ -379,22 +379,22 @@
   "en": "paternal cousin",
   "formal": {
    "chars": "堂兄弟",
-   "jyutping": "tong4 hing1 dai6"
+   "rom": "tong4 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "堂哥",
-    "jyutping": "tong4 go1"
+    "rom": "tong4 go1"
    },
    "spoken": {
     "chars": "堂哥",
-    "jyutping": "tong4 go1"
+    "rom": "tong4 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "堂弟",
-    "jyutping": "tong4 dai2"
+    "rom": "tong4 dai2"
    },
    "spoken": "by-name"
   },
@@ -405,22 +405,22 @@
   "en": "paternal cousin",
   "formal": {
    "chars": "堂姊妹",
-   "jyutping": "tong4 zi2 mui6"
+   "rom": "tong4 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "堂姐",
-    "jyutping": "tong4 ze2"
+    "rom": "tong4 ze2"
    },
    "spoken": {
     "chars": "堂姐",
-    "jyutping": "tong4 ze2"
+    "rom": "tong4 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "堂妹",
-    "jyutping": "tong4 mui2"
+    "rom": "tong4 mui2"
    },
    "spoken": "by-name"
   },
@@ -431,22 +431,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -457,22 +457,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -483,22 +483,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -509,22 +509,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -535,22 +535,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -561,22 +561,22 @@
   "en": "cousin",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -587,11 +587,11 @@
   "en": "elder brother's wife",
   "formal": {
    "chars": "阿嫂",
-   "jyutping": "aa3 sou2"
+   "rom": "aa3 sou2"
   },
   "spoken": {
    "chars": "阿嫂",
-   "jyutping": "aa3 sou2"
+   "rom": "aa3 sou2"
   },
   "status": "checked"
  },
@@ -600,7 +600,7 @@
   "en": "younger brother's wife",
   "formal": {
    "chars": "弟婦",
-   "jyutping": "dai6 fu5"
+   "rom": "dai6 fu5"
   },
   "spoken": "by-name",
   "status": "unverified",
@@ -611,11 +611,11 @@
   "en": "elder sister's husband",
   "formal": {
    "chars": "姐夫",
-   "jyutping": "ze2 fu1"
+   "rom": "ze2 fu1"
   },
   "spoken": {
    "chars": "姐夫",
-   "jyutping": "ze2 fu1"
+   "rom": "ze2 fu1"
   },
   "status": "checked"
  },
@@ -624,7 +624,7 @@
   "en": "younger sister's husband",
   "formal": {
    "chars": "妹夫",
-   "jyutping": "mui6 fu1"
+   "rom": "mui6 fu1"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -634,7 +634,7 @@
   "en": "brother's son",
   "formal": {
    "chars": "侄",
-   "jyutping": "zat6"
+   "rom": "zat6"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -644,7 +644,7 @@
   "en": "brother's daughter",
   "formal": {
    "chars": "侄女",
-   "jyutping": "zat6 neoi2"
+   "rom": "zat6 neoi2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -654,7 +654,7 @@
   "en": "sister's son",
   "formal": {
    "chars": "外甥",
-   "jyutping": "ngoi6 saang1"
+   "rom": "ngoi6 saang1"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -664,7 +664,7 @@
   "en": "sister's daughter",
   "formal": {
    "chars": "外甥女",
-   "jyutping": "ngoi6 saang1 neoi2"
+   "rom": "ngoi6 saang1 neoi2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -674,7 +674,7 @@
   "en": "son's wife",
   "formal": {
    "chars": "新抱",
-   "jyutping": "san1 pou5"
+   "rom": "san1 pou5"
   },
   "spoken": "by-name",
   "status": "checked"
@@ -684,7 +684,7 @@
   "en": "daughter's husband",
   "formal": {
    "chars": "女婿",
-   "jyutping": "neoi5 sai3"
+   "rom": "neoi5 sai3"
   },
   "spoken": "by-name",
   "status": "checked"
@@ -694,7 +694,7 @@
   "en": "son's son",
   "formal": {
    "chars": "孫",
-   "jyutping": "syun1"
+   "rom": "syun1"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -704,7 +704,7 @@
   "en": "son's daughter",
   "formal": {
    "chars": "孫女",
-   "jyutping": "syun1 neoi2"
+   "rom": "syun1 neoi2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -714,7 +714,7 @@
   "en": "daughter's son",
   "formal": {
    "chars": "外孫",
-   "jyutping": "ngoi6 syun1"
+   "rom": "ngoi6 syun1"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -724,7 +724,7 @@
   "en": "daughter's daughter",
   "formal": {
    "chars": "外孫女",
-   "jyutping": "ngoi6 syun1 neoi2"
+   "rom": "ngoi6 syun1 neoi2"
   },
   "spoken": "by-name",
   "status": "unverified"
@@ -734,11 +734,11 @@
   "en": "husband's father",
   "formal": {
    "chars": "老爺",
-   "jyutping": "lou5 je4"
+   "rom": "lou5 je4"
   },
   "spoken": {
    "chars": "老爺",
-   "jyutping": "lou5 je4"
+   "rom": "lou5 je4"
   },
   "status": "checked"
  },
@@ -747,11 +747,11 @@
   "en": "husband's mother",
   "formal": {
    "chars": "奶奶",
-   "jyutping": "naai4 naai2"
+   "rom": "naai4 naai2"
   },
   "spoken": {
    "chars": "奶奶",
-   "jyutping": "naai4 naai2"
+   "rom": "naai4 naai2"
   },
   "status": "unverified",
   "note": "奶奶 naai4 naai2 unchecked; 家婆 gaa1 po4 is an alternative"
@@ -761,11 +761,11 @@
   "en": "wife's father",
   "formal": {
    "chars": "外父",
-   "jyutping": "ngoi6 fu2"
+   "rom": "ngoi6 fu2"
   },
   "spoken": {
    "chars": "外父",
-   "jyutping": "ngoi6 fu2"
+   "rom": "ngoi6 fu2"
   },
   "status": "unverified",
   "note": "外父 unchecked on words.hk"
@@ -775,11 +775,11 @@
   "en": "wife's mother",
   "formal": {
    "chars": "外母",
-   "jyutping": "ngoi6 mou2"
+   "rom": "ngoi6 mou2"
   },
   "spoken": {
    "chars": "外母",
-   "jyutping": "ngoi6 mou2"
+   "rom": "ngoi6 mou2"
   },
   "status": "checked"
  },
@@ -788,11 +788,11 @@
   "en": "husband's elder brother",
   "formal": {
    "chars": "大伯",
-   "jyutping": "daai6 baak3"
+   "rom": "daai6 baak3"
   },
   "spoken": {
    "chars": "大伯",
-   "jyutping": "daai6 baak3"
+   "rom": "daai6 baak3"
   },
   "status": "unverified"
  },
@@ -801,11 +801,11 @@
   "en": "husband's younger brother",
   "formal": {
    "chars": "叔仔",
-   "jyutping": "suk1 zai2"
+   "rom": "suk1 zai2"
   },
   "spoken": {
    "chars": "叔仔",
-   "jyutping": "suk1 zai2"
+   "rom": "suk1 zai2"
   },
   "status": "unverified"
  },
@@ -814,11 +814,11 @@
   "en": "husband's elder sister",
   "formal": {
    "chars": "姑奶",
-   "jyutping": "gu1 naai1"
+   "rom": "gu1 naai1"
   },
   "spoken": {
    "chars": "姑奶",
-   "jyutping": "gu1 naai1"
+   "rom": "gu1 naai1"
   },
   "status": "unverified",
   "note": "姑奶 unchecked; 大姑 is a common alternative"
@@ -828,11 +828,11 @@
   "en": "husband's younger sister",
   "formal": {
    "chars": "姑仔",
-   "jyutping": "gu1 zai2"
+   "rom": "gu1 zai2"
   },
   "spoken": {
    "chars": "姑仔",
-   "jyutping": "gu1 zai2"
+   "rom": "gu1 zai2"
   },
   "status": "unverified"
  },
@@ -841,11 +841,11 @@
   "en": "wife's elder brother",
   "formal": {
    "chars": "大舅",
-   "jyutping": "daai6 kau5"
+   "rom": "daai6 kau5"
   },
   "spoken": {
    "chars": "大舅",
-   "jyutping": "daai6 kau5"
+   "rom": "daai6 kau5"
   },
   "status": "unverified"
  },
@@ -854,11 +854,11 @@
   "en": "wife's younger brother",
   "formal": {
    "chars": "舅仔",
-   "jyutping": "kau5 zai2"
+   "rom": "kau5 zai2"
   },
   "spoken": {
    "chars": "舅仔",
-   "jyutping": "kau5 zai2"
+   "rom": "kau5 zai2"
   },
   "status": "unverified"
  },
@@ -867,11 +867,11 @@
   "en": "wife's elder sister",
   "formal": {
    "chars": "大姨",
-   "jyutping": "daai6 ji1"
+   "rom": "daai6 ji1"
   },
   "spoken": {
    "chars": "大姨",
-   "jyutping": "daai6 ji1"
+   "rom": "daai6 ji1"
   },
   "status": "unverified"
  },
@@ -880,11 +880,11 @@
   "en": "wife's younger sister",
   "formal": {
    "chars": "姨仔",
-   "jyutping": "ji1 zai2"
+   "rom": "ji1 zai2"
   },
   "spoken": {
    "chars": "姨仔",
-   "jyutping": "ji1 zai2"
+   "rom": "ji1 zai2"
   },
   "status": "unverified"
  },
@@ -893,11 +893,11 @@
   "en": "maternal grandfather's elder brother",
   "formal": {
    "chars": "伯公",
-   "jyutping": "baak3 gung1"
+   "rom": "baak3 gung1"
   },
   "spoken": {
    "chars": "伯公",
-   "jyutping": "baak3 gung1"
+   "rom": "baak3 gung1"
   },
   "status": "unverified",
   "note": "外伯公 is also used; gap filled"
@@ -907,11 +907,11 @@
   "en": "maternal grandfather's younger brother",
   "formal": {
    "chars": "叔公",
-   "jyutping": "suk1 gung1"
+   "rom": "suk1 gung1"
   },
   "spoken": {
    "chars": "叔公",
-   "jyutping": "suk1 gung1"
+   "rom": "suk1 gung1"
   },
   "status": "unverified",
   "note": "外叔公 is also used; gap filled"
@@ -921,11 +921,11 @@
   "en": "paternal grandmother's brother",
   "formal": {
    "chars": "舅公",
-   "jyutping": "kau5 gung1"
+   "rom": "kau5 gung1"
   },
   "spoken": {
    "chars": "舅公",
-   "jyutping": "kau5 gung1"
+   "rom": "kau5 gung1"
   },
   "status": "unverified",
   "note": "gap filled; tone unchecked"
@@ -935,11 +935,11 @@
   "en": "maternal grandmother's brother",
   "formal": {
    "chars": "舅公",
-   "jyutping": "kau5 gung1"
+   "rom": "kau5 gung1"
   },
   "spoken": {
    "chars": "舅公",
-   "jyutping": "kau5 gung1"
+   "rom": "kau5 gung1"
   },
   "status": "unverified",
   "note": "gap filled; tone unchecked"
@@ -949,11 +949,11 @@
   "en": "maternal grandfather's sister",
   "formal": {
    "chars": "姑婆",
-   "jyutping": "gu1 po4"
+   "rom": "gu1 po4"
   },
   "spoken": {
    "chars": "姑婆",
-   "jyutping": "gu1 po4"
+   "rom": "gu1 po4"
   },
   "status": "unverified",
   "note": "by analogy with the paternal line"
@@ -963,11 +963,11 @@
   "en": "paternal grandmother's sister",
   "formal": {
    "chars": "姨婆",
-   "jyutping": "ji4 po4"
+   "rom": "ji4 po4"
   },
   "spoken": {
    "chars": "姨婆",
-   "jyutping": "ji4 po4"
+   "rom": "ji4 po4"
   },
   "status": "unverified"
  },
@@ -976,11 +976,11 @@
   "en": "maternal grandmother's sister",
   "formal": {
    "chars": "姨婆",
-   "jyutping": "ji4 po4"
+   "rom": "ji4 po4"
   },
   "spoken": {
    "chars": "姨婆",
-   "jyutping": "ji4 po4"
+   "rom": "ji4 po4"
   },
   "status": "unverified"
  },
@@ -989,11 +989,11 @@
   "en": "husband's paternal grandfather",
   "formal": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "spoken": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "status": "unverified",
   "note": "uses the husband's own title; family usage varies"
@@ -1003,11 +1003,11 @@
   "en": "husband's paternal grandmother",
   "formal": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "spoken": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "status": "unverified",
   "note": "uses the husband's own title; family usage varies"
@@ -1017,11 +1017,11 @@
   "en": "husband's maternal grandfather",
   "formal": {
    "chars": "外公",
-   "jyutping": "ngoi6 gung1"
+   "rom": "ngoi6 gung1"
   },
   "spoken": {
    "chars": "公公",
-   "jyutping": "gung4 gung1"
+   "rom": "gung4 gung1"
   },
   "status": "unverified",
   "note": "uses the husband's own title; family usage varies"
@@ -1031,11 +1031,11 @@
   "en": "husband's maternal grandmother",
   "formal": {
    "chars": "外婆",
-   "jyutping": "ngoi6 po4"
+   "rom": "ngoi6 po4"
   },
   "spoken": {
    "chars": "婆婆",
-   "jyutping": "po4 po1"
+   "rom": "po4 po1"
   },
   "status": "unverified",
   "note": "uses the husband's own title; family usage varies"
@@ -1045,11 +1045,11 @@
   "en": "wife's paternal grandfather",
   "formal": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "spoken": {
    "chars": "爺爺",
-   "jyutping": "je4 je2"
+   "rom": "je4 je2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1059,11 +1059,11 @@
   "en": "wife's paternal grandmother",
   "formal": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "spoken": {
    "chars": "嫲嫲",
-   "jyutping": "maa4 maa4"
+   "rom": "maa4 maa4"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1073,11 +1073,11 @@
   "en": "wife's maternal grandfather",
   "formal": {
    "chars": "外公",
-   "jyutping": "ngoi6 gung1"
+   "rom": "ngoi6 gung1"
   },
   "spoken": {
    "chars": "公公",
-   "jyutping": "gung4 gung1"
+   "rom": "gung4 gung1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1087,11 +1087,11 @@
   "en": "wife's maternal grandmother",
   "formal": {
    "chars": "外婆",
-   "jyutping": "ngoi6 po4"
+   "rom": "ngoi6 po4"
   },
   "spoken": {
    "chars": "婆婆",
-   "jyutping": "po4 po1"
+   "rom": "po4 po1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1101,11 +1101,11 @@
   "en": "wife's father's elder brother",
   "formal": {
    "chars": "伯父",
-   "jyutping": "baak3 fu6"
+   "rom": "baak3 fu6"
   },
   "spoken": {
    "chars": "伯伯",
-   "jyutping": "baak3 baak3"
+   "rom": "baak3 baak3"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1115,11 +1115,11 @@
   "en": "wife's father's younger brother",
   "formal": {
    "chars": "叔父",
-   "jyutping": "suk1 fu6"
+   "rom": "suk1 fu6"
   },
   "spoken": {
    "chars": "阿叔",
-   "jyutping": "aa3 suk1"
+   "rom": "aa3 suk1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1129,11 +1129,11 @@
   "en": "wife's father's elder sister",
   "formal": {
    "chars": "姑媽",
-   "jyutping": "gu1 maa1"
+   "rom": "gu1 maa1"
   },
   "spoken": {
    "chars": "姑媽",
-   "jyutping": "gu1 maa1"
+   "rom": "gu1 maa1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1143,11 +1143,11 @@
   "en": "wife's father's younger sister",
   "formal": {
    "chars": "姑姐",
-   "jyutping": "gu1 ze1"
+   "rom": "gu1 ze1"
   },
   "spoken": {
    "chars": "姑姐",
-   "jyutping": "gu1 ze1"
+   "rom": "gu1 ze1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1157,11 +1157,11 @@
   "en": "wife's father's elder brother's wife",
   "formal": {
    "chars": "伯娘",
-   "jyutping": "baak3 noeng4"
+   "rom": "baak3 noeng4"
   },
   "spoken": {
    "chars": "伯娘",
-   "jyutping": "baak3 noeng4"
+   "rom": "baak3 noeng4"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1171,11 +1171,11 @@
   "en": "wife's father's younger brother's wife",
   "formal": {
    "chars": "阿嬸",
-   "jyutping": "aa3 sam2"
+   "rom": "aa3 sam2"
   },
   "spoken": {
    "chars": "阿嬸",
-   "jyutping": "aa3 sam2"
+   "rom": "aa3 sam2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1185,11 +1185,11 @@
   "en": "wife's father's sister's husband",
   "formal": {
    "chars": "姑丈",
-   "jyutping": "gu1 zoeng2"
+   "rom": "gu1 zoeng2"
   },
   "spoken": {
    "chars": "姑丈",
-   "jyutping": "gu1 zoeng2"
+   "rom": "gu1 zoeng2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1199,11 +1199,11 @@
   "en": "wife's mother's brother",
   "formal": {
    "chars": "舅父",
-   "jyutping": "kau5 fu2"
+   "rom": "kau5 fu2"
   },
   "spoken": {
    "chars": "舅父",
-   "jyutping": "kau5 fu2"
+   "rom": "kau5 fu2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1213,11 +1213,11 @@
   "en": "wife's mother's elder sister",
   "formal": {
    "chars": "姨媽",
-   "jyutping": "ji4 maa1"
+   "rom": "ji4 maa1"
   },
   "spoken": {
    "chars": "姨媽",
-   "jyutping": "ji4 maa1"
+   "rom": "ji4 maa1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1227,11 +1227,11 @@
   "en": "wife's mother's younger sister",
   "formal": {
    "chars": "阿姨",
-   "jyutping": "aa3 ji1"
+   "rom": "aa3 ji1"
   },
   "spoken": {
    "chars": "阿姨",
-   "jyutping": "aa3 ji1"
+   "rom": "aa3 ji1"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1241,11 +1241,11 @@
   "en": "wife's mother's brother's wife",
   "formal": {
    "chars": "舅母",
-   "jyutping": "kau5 mou2"
+   "rom": "kau5 mou2"
   },
   "spoken": {
    "chars": "舅母",
-   "jyutping": "kau5 mou2"
+   "rom": "kau5 mou2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1255,11 +1255,11 @@
   "en": "wife's mother's sister's husband",
   "formal": {
    "chars": "姨丈",
-   "jyutping": "ji4 zoeng2"
+   "rom": "ji4 zoeng2"
   },
   "spoken": {
    "chars": "姨丈",
-   "jyutping": "ji4 zoeng2"
+   "rom": "ji4 zoeng2"
   },
   "status": "unverified",
   "note": "uses the wife's own title; family usage varies"
@@ -1269,22 +1269,22 @@
   "en": "paternal male cousin's wife",
   "formal": {
    "chars": "堂嫂",
-   "jyutping": "tong4 sou2"
+   "rom": "tong4 sou2"
   },
   "older": {
    "formal": {
     "chars": "堂嫂",
-    "jyutping": "tong4 sou2"
+    "rom": "tong4 sou2"
    },
    "spoken": {
     "chars": "堂嫂",
-    "jyutping": "tong4 sou2"
+    "rom": "tong4 sou2"
    }
   },
   "younger": {
    "formal": {
     "chars": "堂弟婦",
-    "jyutping": "tong4 dai6 fu5"
+    "rom": "tong4 dai6 fu5"
    },
    "spoken": "by-name"
   },
@@ -1296,22 +1296,22 @@
   "en": "paternal female cousin's husband",
   "formal": {
    "chars": "堂姐夫",
-   "jyutping": "tong4 ze2 fu1"
+   "rom": "tong4 ze2 fu1"
   },
   "older": {
    "formal": {
     "chars": "堂姐夫",
-    "jyutping": "tong4 ze2 fu1"
+    "rom": "tong4 ze2 fu1"
    },
    "spoken": {
     "chars": "堂姐夫",
-    "jyutping": "tong4 ze2 fu1"
+    "rom": "tong4 ze2 fu1"
    }
   },
   "younger": {
    "formal": {
     "chars": "堂妹夫",
-    "jyutping": "tong4 mui6 fu1"
+    "rom": "tong4 mui6 fu1"
    },
    "spoken": "by-name"
   },
@@ -1323,22 +1323,22 @@
   "en": "father's sister's son's wife",
   "formal": {
    "chars": "表嫂",
-   "jyutping": "biu2 sou2"
+   "rom": "biu2 sou2"
   },
   "older": {
    "formal": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    },
    "spoken": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟婦",
-    "jyutping": "biu2 dai6 fu5"
+    "rom": "biu2 dai6 fu5"
    },
    "spoken": "by-name"
   },
@@ -1350,22 +1350,22 @@
   "en": "mother's brother's son's wife",
   "formal": {
    "chars": "表嫂",
-   "jyutping": "biu2 sou2"
+   "rom": "biu2 sou2"
   },
   "older": {
    "formal": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    },
    "spoken": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟婦",
-    "jyutping": "biu2 dai6 fu5"
+    "rom": "biu2 dai6 fu5"
    },
    "spoken": "by-name"
   },
@@ -1377,22 +1377,22 @@
   "en": "mother's sister's son's wife",
   "formal": {
    "chars": "表嫂",
-   "jyutping": "biu2 sou2"
+   "rom": "biu2 sou2"
   },
   "older": {
    "formal": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    },
    "spoken": {
     "chars": "表嫂",
-    "jyutping": "biu2 sou2"
+    "rom": "biu2 sou2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟婦",
-    "jyutping": "biu2 dai6 fu5"
+    "rom": "biu2 dai6 fu5"
    },
    "spoken": "by-name"
   },
@@ -1404,22 +1404,22 @@
   "en": "father's sister's daughter's husband",
   "formal": {
    "chars": "表姐夫",
-   "jyutping": "biu2 ze2 fu1"
+   "rom": "biu2 ze2 fu1"
   },
   "older": {
    "formal": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    },
    "spoken": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹夫",
-    "jyutping": "biu2 mui6 fu1"
+    "rom": "biu2 mui6 fu1"
    },
    "spoken": "by-name"
   },
@@ -1431,22 +1431,22 @@
   "en": "mother's brother's daughter's husband",
   "formal": {
    "chars": "表姐夫",
-   "jyutping": "biu2 ze2 fu1"
+   "rom": "biu2 ze2 fu1"
   },
   "older": {
    "formal": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    },
    "spoken": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹夫",
-    "jyutping": "biu2 mui6 fu1"
+    "rom": "biu2 mui6 fu1"
    },
    "spoken": "by-name"
   },
@@ -1458,22 +1458,22 @@
   "en": "mother's sister's daughter's husband",
   "formal": {
    "chars": "表姐夫",
-   "jyutping": "biu2 ze2 fu1"
+   "rom": "biu2 ze2 fu1"
   },
   "older": {
    "formal": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    },
    "spoken": {
     "chars": "表姐夫",
-    "jyutping": "biu2 ze2 fu1"
+    "rom": "biu2 ze2 fu1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹夫",
-    "jyutping": "biu2 mui6 fu1"
+    "rom": "biu2 mui6 fu1"
    },
    "spoken": "by-name"
   },
@@ -1485,11 +1485,11 @@
   "en": "mother's male cousin",
   "formal": {
    "chars": "表舅父",
-   "jyutping": "biu2 kau5 fu2"
+   "rom": "biu2 kau5 fu2"
   },
   "spoken": {
    "chars": "表舅",
-   "jyutping": "biu2 kau5"
+   "rom": "biu2 kau5"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1499,11 +1499,11 @@
   "en": "mother's male cousin's wife",
   "formal": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "spoken": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1513,22 +1513,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1540,22 +1540,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1567,11 +1567,11 @@
   "en": "mother's female cousin",
   "formal": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "spoken": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1581,11 +1581,11 @@
   "en": "mother's female cousin's husband",
   "formal": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "spoken": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1595,22 +1595,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1622,22 +1622,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1649,11 +1649,11 @@
   "en": "mother's male cousin",
   "formal": {
    "chars": "表舅父",
-   "jyutping": "biu2 kau5 fu2"
+   "rom": "biu2 kau5 fu2"
   },
   "spoken": {
    "chars": "表舅",
-   "jyutping": "biu2 kau5"
+   "rom": "biu2 kau5"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1663,11 +1663,11 @@
   "en": "mother's male cousin's wife",
   "formal": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "spoken": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1677,22 +1677,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1704,22 +1704,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1731,11 +1731,11 @@
   "en": "mother's female cousin",
   "formal": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "spoken": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1745,11 +1745,11 @@
   "en": "mother's female cousin's husband",
   "formal": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "spoken": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1759,22 +1759,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1786,22 +1786,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1813,11 +1813,11 @@
   "en": "mother's male cousin",
   "formal": {
    "chars": "表舅父",
-   "jyutping": "biu2 kau5 fu2"
+   "rom": "biu2 kau5 fu2"
   },
   "spoken": {
    "chars": "表舅",
-   "jyutping": "biu2 kau5"
+   "rom": "biu2 kau5"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1827,11 +1827,11 @@
   "en": "mother's male cousin's wife",
   "formal": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "spoken": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1841,22 +1841,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1868,22 +1868,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1895,11 +1895,11 @@
   "en": "mother's female cousin",
   "formal": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "spoken": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1909,11 +1909,11 @@
   "en": "mother's female cousin's husband",
   "formal": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "spoken": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1923,22 +1923,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -1950,22 +1950,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -1977,11 +1977,11 @@
   "en": "mother's male cousin",
   "formal": {
    "chars": "表舅父",
-   "jyutping": "biu2 kau5 fu2"
+   "rom": "biu2 kau5 fu2"
   },
   "spoken": {
    "chars": "表舅",
-   "jyutping": "biu2 kau5"
+   "rom": "biu2 kau5"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -1991,11 +1991,11 @@
   "en": "mother's male cousin's wife",
   "formal": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "spoken": {
    "chars": "表舅母",
-   "jyutping": "biu2 kau5 mou2"
+   "rom": "biu2 kau5 mou2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -2005,22 +2005,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -2032,22 +2032,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -2059,11 +2059,11 @@
   "en": "mother's female cousin",
   "formal": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "spoken": {
    "chars": "表姨",
-   "jyutping": "biu2 ji4"
+   "rom": "biu2 ji4"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -2073,11 +2073,11 @@
   "en": "mother's female cousin's husband",
   "formal": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "spoken": {
    "chars": "表姨丈",
-   "jyutping": "biu2 ji4 zoeng2"
+   "rom": "biu2 ji4 zoeng2"
   },
   "status": "unverified",
   "note": "unsourced; added from common usage"
@@ -2087,22 +2087,22 @@
   "en": "mother's cousin's son",
   "formal": {
    "chars": "表兄弟",
-   "jyutping": "biu2 hing1 dai6"
+   "rom": "biu2 hing1 dai6"
   },
   "older": {
    "formal": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    },
    "spoken": {
     "chars": "表哥",
-    "jyutping": "biu2 go1"
+    "rom": "biu2 go1"
    }
   },
   "younger": {
    "formal": {
     "chars": "表弟",
-    "jyutping": "biu2 dai2"
+    "rom": "biu2 dai2"
    },
    "spoken": "by-name"
   },
@@ -2114,22 +2114,22 @@
   "en": "mother's cousin's daughter",
   "formal": {
    "chars": "表姊妹",
-   "jyutping": "biu2 zi2 mui6"
+   "rom": "biu2 zi2 mui6"
   },
   "older": {
    "formal": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    },
    "spoken": {
     "chars": "表姐",
-    "jyutping": "biu2 ze2"
+    "rom": "biu2 ze2"
    }
   },
   "younger": {
    "formal": {
     "chars": "表妹",
-    "jyutping": "biu2 mui2"
+    "rom": "biu2 mui2"
    },
    "spoken": "by-name"
   },
@@ -2141,11 +2141,11 @@
   "en": "paternal great-grandfather",
   "formal": {
    "chars": "曾祖父",
-   "jyutping": "zang1 zou2 fu6"
+   "rom": "zang1 zou2 fu6"
   },
   "spoken": {
    "chars": "太公",
-   "jyutping": "taai3 gung1"
+   "rom": "taai3 gung1"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2155,11 +2155,11 @@
   "en": "paternal great-grandmother",
   "formal": {
    "chars": "曾祖母",
-   "jyutping": "zang1 zou2 mou5"
+   "rom": "zang1 zou2 mou5"
   },
   "spoken": {
    "chars": "太婆",
-   "jyutping": "taai3 po4"
+   "rom": "taai3 po4"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2169,11 +2169,11 @@
   "en": "father's mother's father",
   "formal": {
    "chars": "外曾祖父",
-   "jyutping": "ngoi6 zang1 zou2 fu6"
+   "rom": "ngoi6 zang1 zou2 fu6"
   },
   "spoken": {
    "chars": "外太公",
-   "jyutping": "ngoi6 taai3 gung1"
+   "rom": "ngoi6 taai3 gung1"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2183,11 +2183,11 @@
   "en": "father's mother's mother",
   "formal": {
    "chars": "外曾祖母",
-   "jyutping": "ngoi6 zang1 zou2 mou5"
+   "rom": "ngoi6 zang1 zou2 mou5"
   },
   "spoken": {
    "chars": "外太婆",
-   "jyutping": "ngoi6 taai3 po4"
+   "rom": "ngoi6 taai3 po4"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2197,11 +2197,11 @@
   "en": "mother's father's father",
   "formal": {
    "chars": "外曾祖父",
-   "jyutping": "ngoi6 zang1 zou2 fu6"
+   "rom": "ngoi6 zang1 zou2 fu6"
   },
   "spoken": {
    "chars": "外太公",
-   "jyutping": "ngoi6 taai3 gung1"
+   "rom": "ngoi6 taai3 gung1"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2211,11 +2211,11 @@
   "en": "mother's father's mother",
   "formal": {
    "chars": "外曾祖母",
-   "jyutping": "ngoi6 zang1 zou2 mou5"
+   "rom": "ngoi6 zang1 zou2 mou5"
   },
   "spoken": {
    "chars": "外太婆",
-   "jyutping": "ngoi6 taai3 po4"
+   "rom": "ngoi6 taai3 po4"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2225,11 +2225,11 @@
   "en": "mother's mother's father",
   "formal": {
    "chars": "外曾祖父",
-   "jyutping": "ngoi6 zang1 zou2 fu6"
+   "rom": "ngoi6 zang1 zou2 fu6"
   },
   "spoken": {
    "chars": "外太公",
-   "jyutping": "ngoi6 taai3 gung1"
+   "rom": "ngoi6 taai3 gung1"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
@@ -2239,11 +2239,11 @@
   "en": "mother's mother's mother",
   "formal": {
    "chars": "外曾祖母",
-   "jyutping": "ngoi6 zang1 zou2 mou5"
+   "rom": "ngoi6 zang1 zou2 mou5"
   },
   "spoken": {
    "chars": "外太婆",
-   "jyutping": "ngoi6 taai3 po4"
+   "rom": "ngoi6 taai3 po4"
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
