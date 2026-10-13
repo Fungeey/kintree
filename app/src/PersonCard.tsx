@@ -11,6 +11,7 @@ interface Props {
   shown: Shown;
   caption?: string | null;
   isMe: boolean;
+  more?: number;
   gen: number;
   x: number;
   y: number;
@@ -18,7 +19,7 @@ interface Props {
   speech?: { state: SpeechState; speak: (text: string) => void };
 }
 
-export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, speech }: Props) {
+export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech }: Props) {
   const [broken, setBroken] = useState(false);
   const text = spokenText(shown);
   const canPlay = speech?.state === 'ready' && text !== '';
@@ -31,7 +32,7 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
         type="button"
         className="face-btn"
         onClick={() => onPick(person.id)}
-        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}`}
+        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}${more ? `. ${more} more relatives are hidden; switch to them to see` : ''}`}
         aria-current={isMe ? 'true' : undefined}
       >
         <HairBack sex={person.sex} age={age} />
@@ -41,6 +42,7 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
             : <img src={faceUrl(person.id)} alt="" loading="lazy" draggable={false} onError={() => setBroken(true)} />}
         </span>
         <HairFront sex={person.sex} age={age} />
+        {more > 0 && <span className="more" aria-hidden="true">+{more}</span>}
       </button>
       <div className={`titles${two ? ' two' : ''}`}>
         {shown.lines.map((l, i) => (

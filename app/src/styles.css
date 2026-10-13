@@ -60,6 +60,7 @@ button { font: inherit; color: inherit; }
 .titles.two .jp { font-size: .62rem; }
 .titles.two .zh { font-size: .62rem; }
 .line .age { font-size: .45rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
+.more { position: absolute; right: -4px; top: -2px; min-width: 18px; height: 18px; padding: 0 4px; box-sizing: border-box; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 9px; font-size: .62rem; line-height: 1; color: var(--muted); pointer-events: none; }
 .play { position: absolute; left: 50px; top: 64px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
 .play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
