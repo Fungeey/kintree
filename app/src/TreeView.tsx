@@ -4,6 +4,8 @@ import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from './layout
 import { captionFor, showFor } from './display.ts';
 import { PersonCard } from './PersonCard.tsx';
 import { useSpeech } from './audio/useSpeech.ts';
+import { DEFAULT_LANG } from './lang.ts';
+import type { LangId } from './lang.ts';
 
 interface Props {
   tree: Tree;
@@ -11,22 +13,23 @@ interface Props {
   show: (id: string) => boolean;
   onPick: (id: string) => void;
   editing?: boolean;
+  lang?: LangId;
 }
 
 interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
-export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
+export function TreeView({ tree, me, show, onPick, editing = false, lang = DEFAULT_LANG }: Props) {
   const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
   const segs = useMemo(() => linkSegments(layout), [layout]);
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
     const m = new Map<string, ReturnType<typeof showFor>>();
-    for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id));
+    for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id, lang));
     return m;
-  }, [tree, me, layout, show]);
+  }, [tree, me, layout, show, lang]);
 
-  const speech = useSpeech();
+  const speech = useSpeech(lang);
   const box = useRef<HTMLDivElement>(null);
   const [cam, setCam] = useState<Cam>({ x: 0, y: 0, k: 1 });
   const camRef = useRef(cam);
@@ -127,7 +130,7 @@ export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} lang={lang} />;
         })}
       </div>
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>

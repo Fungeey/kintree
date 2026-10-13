@@ -11,6 +11,7 @@ export function resolve(
   generic: Generic,
   me: string,
   target: string,
+  joiner = '嘅',
 ): Resolution {
   const path = kinPath(tree, me, target);
   if (path === null) return { kind: 'unrelated' };
@@ -36,7 +37,7 @@ export function resolve(
     kind: 'fallback',
     path,
     generic: genericFor(generic, path, sex),
-    describe: describe(table, path),
+    describe: describe(table, path, joiner),
   };
 }
 
@@ -69,10 +70,11 @@ function compareSplits(a: Segment[], b: Segment[]): number {
   return 0;
 }
 
+// `joiner` links the segments in the language's own possessive (Cantonese 嘅, Mandarin 的).
 // Split the path into segments that each match a table entry. Each segment is
 // named from the view of the person where it starts, which the entry's wording
 // already does. Single tokens always match, so a split always exists.
-function describe(table: Table, path: string): { yue: string; en: string } {
+function describe(table: Table, path: string, joiner: string): { text: string; en: string } {
   const words = path.split(' ');
   const n = words.length;
   // best[i] is the best split of words[i..n).
@@ -92,7 +94,7 @@ function describe(table: Table, path: string): { yue: string; en: string } {
   const segments = best[0];
   if (segments === null) throw new Error(`no description for path "${path}"`);
   return {
-    yue: segments.map(s => s.entry.formal.chars).join('嘅'),
+    text: segments.map(s => s.entry.formal.chars).join(joiner),
     en: segments.map(s => s.entry.en).join("'s "),
   };
 }

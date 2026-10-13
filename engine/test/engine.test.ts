@@ -6,8 +6,8 @@ import type { TitleEntry, Generic, Resolution, Tree } from '../src/index.ts';
 import { tree } from './fixture.ts';
 
 const load = (f: string) => JSON.parse(readFileSync(new URL(f, import.meta.url), 'utf8'));
-const entries: TitleEntry[] = load('../data/titles.json');
-const generic: Generic = load('../data/generic.json');
+const entries: TitleEntry[] = load('../data/yue/titles.json');
+const generic: Generic = load('../data/yue/generic.json');
 const table = loadTable(entries);
 const r = (me: string, target: string): Resolution => resolve(tree, table, generic, me, target);
 const formal = (me: string, target: string): string => {
@@ -123,23 +123,23 @@ test('fallback: generic title by generation and a description', () => {
     return x.kind === 'fallback' ? x : null!;
   };
   let x = fb('me', 'dadCousin');                               // F F Be S
-  assert.deepEqual(x.generic, { chars: '叔叔', jyutping: 'suk1 suk1' });
-  assert.deepEqual(x.describe, { yue: '爸爸嘅堂兄弟', en: "father's paternal cousin" });
+  assert.deepEqual(x.generic, { chars: '叔叔', rom: 'suk1 suk1' });
+  assert.deepEqual(x.describe, { text: '爸爸嘅堂兄弟', en: "father's paternal cousin" });
 
   const gg = r('son', 'wifeGrandma');                          // M M M: now has its own title
   assert.equal(gg.kind, 'title');
   assert.equal(gg.kind === 'title' && gg.forms.formal.chars, '外曾祖母');
 
   x = fb('me', 'webWife');                                     // W Be W
-  assert.deepEqual(x.generic, { older: { chars: '姐姐', jyutping: 'ze4 ze1' }, younger: 'by-name' });
-  assert.deepEqual(x.describe, { yue: '太太嘅阿嫂', en: "wife's elder brother's wife" });
+  assert.deepEqual(x.generic, { older: { chars: '姐姐', rom: 'ze4 ze1' }, younger: 'by-name' });
+  assert.deepEqual(x.describe, { text: '太太嘅阿嫂', en: "wife's elder brother's wife" });
 
   x = fb('son', 'cousinDHusband');                             // F M Zy D H
-  assert.deepEqual(x.describe, { yue: '爸爸嘅表姐夫', en: "father's mother's sister's daughter's husband" });
+  assert.deepEqual(x.describe, { text: '爸爸嘅表姐夫', en: "father's mother's sister's daughter's husband" });
 
   x = fb('me', 'greatGrandson');                               // S S S
   assert.equal(x.generic, 'by-name');
-  assert.deepEqual(x.describe, { yue: '仔嘅孫', en: "son's son's son" });
+  assert.deepEqual(x.describe, { text: '仔嘅孫', en: "son's son's son" });
 });
 
 test('self and unrelated', () => {
@@ -148,14 +148,14 @@ test('self and unrelated', () => {
 });
 
 test('matchPattern: most specific pattern wins', () => {
-  const t = loadTable([...entries, { pattern: 'M Be', en: 'test', formal: { chars: '大舅父', jyutping: '' }, spoken: 'by-name', status: 'test' }]);
+  const t = loadTable([...entries, { pattern: 'M Be', en: 'test', formal: { chars: '大舅父', rom: '' }, spoken: 'by-name', status: 'test' }]);
   assert.equal(matchPattern(t, 'M Be')?.pattern, 'M Be');
   assert.equal(matchPattern(t, 'M By')?.pattern, 'M B*');
   assert.equal(matchPattern(t, 'M F M F'), null);
 });
 
 test('loadTable rejects bad tables', () => {
-  const e = (pattern: string): TitleEntry => ({ pattern, en: 'x', formal: { chars: 'x', jyutping: 'x' }, spoken: 'by-name', status: 'test' });
+  const e = (pattern: string): TitleEntry => ({ pattern, en: 'x', formal: { chars: 'x', rom: 'x' }, spoken: 'by-name', status: 'test' });
   assert.throws(() => loadTable([...entries, e('F X')]));                         // bad token
   assert.throws(() => loadTable([...entries, e('F B')]));                         // sibling without age
   assert.throws(() => loadTable([...entries, e('F* B*')]));                       // age on a non-sibling
@@ -191,7 +191,7 @@ test('great-grandparents have their own titles, not the generic fallback', () =>
   const top = up(names.get('F F F')!, 'm');
   const far = resolve(t.tree, table, generic, me, top);
   assert.equal(far.kind, 'fallback');
-  assert.deepEqual(far.kind === 'fallback' && far.generic, { chars: '公公', jyutping: 'gung4 gung1' });
+  assert.deepEqual(far.kind === 'fallback' && far.generic, { chars: '公公', rom: 'gung4 gung1' });
 });
 
 test("mother's cousins, their spouses and children have titles", () => {

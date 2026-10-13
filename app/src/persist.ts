@@ -1,6 +1,7 @@
 // Load/save wiring for the shell (slice 4c) over the storage library.
 import { encodeFragment, open, save } from '../../storage/src/index.ts';
 import type { KV, Opened, Snapshot } from '../../storage/src/index.ts';
+import { DEFAULT_LANG } from './lang.ts';
 
 /** localStorage, or null when the browser blocks it (private mode, disabled storage). */
 export function browserStore(): KV | null {
@@ -28,6 +29,8 @@ export async function persist(store: KV | null, snap: Snapshot, setHash: (frag: 
 }
 
 /** The shareable URL for a tree and "me". */
-export async function shareUrl(snap: Snapshot, base: { origin: string; pathname: string }): Promise<string> {
-  return `${base.origin}${base.pathname}#${await encodeFragment(snap)}`;
+// A language other than the default rides along as ?lang=, so whoever opens the link sees the titles in that language.
+export async function shareUrl(snap: Snapshot, base: { origin: string; pathname: string }, lang?: string): Promise<string> {
+  const q = lang && lang !== DEFAULT_LANG ? `?lang=${lang}` : '';
+  return `${base.origin}${base.pathname}${q}#${await encodeFragment(snap)}`;
 }

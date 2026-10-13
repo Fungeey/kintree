@@ -51,13 +51,13 @@ button { font: inherit; color: inherit; }
 .titles { display: flex; flex-direction: column; align-items: center; width: 100%; margin-top: -4px; }
 .titles.two { flex-direction: row; justify-content: center; gap: 8px; }
 .line { display: flex; flex-direction: column; align-items: center; line-height: 1.15; }
-.line .jp { font-size: .64rem; font-weight: 700; letter-spacing: .01em; }
+.line .rom { font-size: .64rem; font-weight: 700; letter-spacing: .01em; }
 .line .zh { font-size: .68rem; color: var(--muted); margin-top: 1px; }
 .line.byname .zh { font-size: .68rem; }
-.line.byname .jp { color: var(--muted); font-weight: 600; }
-.line .jp { white-space: nowrap; }
+.line.byname .rom { color: var(--muted); font-weight: 600; }
+.line .rom { white-space: nowrap; }
 .titles.two { gap: 4px; }
-.titles.two .jp { font-size: .62rem; }
+.titles.two .rom { font-size: .62rem; }
 .titles.two .zh { font-size: .62rem; }
 .line .age { font-size: .45rem; font-style: normal; color: var(--accent); letter-spacing: .04em; text-transform: uppercase; }
 .play { position: absolute; left: 50px; top: 64px; width: 18px; height: 18px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); background: var(--paper); border-radius: 50%; cursor: pointer; }
@@ -90,12 +90,12 @@ button { font: inherit; color: inherit; }
 .heart { position: absolute; width: 13px; height: 12px; fill: var(--f); stroke: var(--paper); stroke-width: 2; paint-order: stroke; pointer-events: none; }
 .root-label { flex: none; box-sizing: border-box; width: 100%; height: 20px; padding: 0 1px; display: flex; align-items: flex-end; justify-content: center; font-size: .64rem; line-height: 1.05; color: var(--muted); overflow: hidden; margin-bottom: -3px; }
 .root-label span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-/* Older/younger pairs: stacked, each a small label over a "jyutping 字" row, so the pair stays inside the card.
-   A long title wraps its characters under the jyutping rather than spilling into the next card. */
+/* Older/younger pairs: stacked, each a small label over a "reading 字" row, so the pair stays inside the card.
+   A long title wraps its characters under the reading rather than spilling into the next card. */
 .titles.two { flex-direction: column; gap: 1px; }
 .titles.two .line { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: baseline; column-gap: 3px; max-width: 100%; line-height: 1.05; }
 .titles.two .age { flex-basis: 100%; font-size: .42rem; line-height: 1; }
-.titles.two .jp { font-size: .5rem; }
+.titles.two .rom { font-size: .5rem; }
 .titles.two .zh { font-size: .6rem; margin-top: 0; }
 
 /* "View family tree as …?" confirmation. */
@@ -135,7 +135,7 @@ button { font: inherit; color: inherit; }
 .order .dragging .grip { cursor: grabbing; }
 .order .grip:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
 /* A rank title is a second row on the card, in the accent colour so it reads as an alternative to the usual title. */
-.titles.two .line.rank .jp, .titles.two .line.rank .zh { color: var(--accent); }
+.titles.two .line.rank .rom, .titles.two .line.rank .zh { color: var(--accent); }
 
 /* Remove lives in the edit sheet. */
 .confirm-actions .spacer { flex: 1; }
@@ -143,3 +143,11 @@ button { font: inherit; color: inherit; }
 .remove-confirm p { margin: 0 0 12px; color: var(--ink); font-size: .95rem; }
 .sheet-links { display: flex; justify-content: space-between; align-items: center; margin: 0 0 12px; }
 .sheet-links button { border: 0; background: none; padding: 4px; color: var(--accent); text-decoration: underline; cursor: pointer; font-size: .9rem; }
+
+/* Language picker. */
+.lang { font: inherit; font-size: .8rem; padding: .25rem .4rem; border: 1px solid var(--line, #c9b99a); border-radius: 6px; background: transparent; color: inherit; }
+.start-top { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.start-top h1 { margin: 0; }
+
+/* Simplified Chinese gets a Simplified font: the HK stack above would draw Traditional glyph shapes. */
+:lang(zh-CN) { font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", "Noto Serif CJK SC", Georgia, serif; }
