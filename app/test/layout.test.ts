@@ -222,4 +222,13 @@ test('layout: grandparents\' siblings each get a branch of their own', async () 
   // A grandparent's brothers and sisters can sit on the far side of the other side of the family, so
   // only the branches (not the row of siblings) are held to stay together here.
   checkViews(tree, 'extended', false);
+
+  // Paternal relatives on the left, maternal on the right: from "me", the grandmother's brother and
+  // sister (the paternal grandmother's own family) are left of the paternal grandparents, and the
+  // mother's parents are right of the father.
+  const s = sides(tree, 'p1');
+  const L = layoutTree(tree, id => visible(s, id, 'mine'));
+  const x = (id: string) => L.pos.get(id)!.x;
+  assert.ok(x('p39') < x('p5') && x('p43') < x('p5'), "grandma's brother and sister are left of the paternal grandparents");
+  assert.ok(x('p15') > x('p2') && x('p53') > x('p2'), "mother's parents and their siblings are right of the father");
 });
