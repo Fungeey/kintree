@@ -95,6 +95,25 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // done, so it never pushes in between a parent and that parent's own brothers and sisters.
   let deferred: string[] = [];
 
+  // Whether someone, or anyone descended from them, is a son whose wife's own family is still to be drawn.
+  const inLawMemo = new Map<string, boolean>();
+  function leadsToInLaw(k: string): boolean {
+    const hit = inLawMemo.get(k);
+    if (hit !== undefined) return hit;
+    inLawMemo.set(k, false); // a cycle (relatives who married) must not recurse forever
+    const ofid = own.get(k);
+    let found = false;
+    if (ofid && !done.has(ofid)) {
+      const sp = fams.get(ofid)!.parents.find(p => p !== k && !pos.has(p));
+      const bf = sp && birth.get(sp);
+      const bfam = bf && fams.get(bf);
+      found = (!!sp && sexRank(tree, k) < sexRank(tree, sp) && !!bf && !!bfam && !done.has(bf) && bfam.parents.length + bfam.children.length > 1)
+        || fams.get(ofid)!.children.some(leadsToInLaw);
+    }
+    inLawMemo.set(k, found);
+    return found;
+  }
+
   // Places a family group: its children (with their own families) left to right, then the parents
   // centred over them. Returns the people placed, for shifting. People placed earlier stay put.
   function placeFamily(fid: string, nested: boolean): string[] {
@@ -118,13 +137,22 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       const bfam = bf && fams.get(bf);
       if (bf && bfam && !done.has(bf) && bfam.parents.length + bfam.children.length > 1) wifeFamily.set(k, bf);
     }
-    const kids = [...fresh.filter(k => !wifeFamily.has(k)), ...fresh.filter(k => wifeFamily.has(k))];
+    // A branch that has such a link anywhere below it also goes last, so the in-law family always
+    // lands right beside the branch it joins, and the other branches sit clear of both.
+    const kids = [...fresh.filter(k => !leadsToInLaw(k)), ...fresh.filter(k => leadsToInLaw(k))];
 
     const placed: string[] = [];
     const centers: number[] = [];
     for (const k of placedKids) centers.push(pos.get(k)!.x + CARD_W / 2);
+    // Each brother's or sister's branch (them, their spouse, their descendants) gets its own stretch
+    // from side to side: the next one starts to the right of everything drawn so far, in every row,
+    // so a family's grandchildren never sit under another branch.
+    const floorBefore = floor;
+    let first = placedKids.length === 0;
     for (const k of kids) {
       if (pos.has(k)) continue; // placed as part of an earlier sibling's block
+      if (!first) floor = Math.max(floor, right + GAP_X);
+      first = false
       const ofid = own.get(k);
       if (ofid && !done.has(ofid)) {
         placed.push(...placeFamily(ofid, true));
@@ -135,11 +163,10 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
         centers.push(pos.get(k)!.x + CARD_W / 2);
       }
       const bf = wifeFamily.get(k);
-      if (bf && !done.has(bf)) {
-        if (nested) deferred.push(bf);
-        else placed.push(...placeFamily(bf, true));
-      }
+      if (bf && !done.has(bf)) deferred.push(bf);
     }
+
+    floor = floorBefore;
 
     // Male parent on the left, as is the convention.
     const ordered = [...parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b));
