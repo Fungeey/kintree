@@ -5,7 +5,7 @@ import {
   emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBirthOrder,
   validateTree, kinPath, loadTable, resolve, sides, visible,
 } from '../src/index.ts';
-import type { Tree, TitleEntry, Generic } from '../src/index.ts';
+import type { Tree, TitleEntry, Generic, View } from '../src/index.ts';
 import { tree } from './fixture.ts';
 
 const load = (f: string) => JSON.parse(readFileSync(new URL(f, import.meta.url), 'utf8'));
@@ -186,6 +186,44 @@ test('sides: married with unknown parents and a relative marriage', () => {
   assert.deepEqual(s.labels.get(aunt.id)!.slice().sort(), ['mine', 'spouse']);
   assert.deepEqual(s.labels.get(mum.id)!.slice().sort(), ['mine', 'spouse']);
   assert.deepEqual(s.labels.get(cousin.id), ['shared']);
+});
+
+// A small family: my dad's sister married a man whose own mother and brother are in the tree;
+// my sister married a man whose parents are in the tree; my wife's parents are in the tree.
+function oneHop() {
+  let t = emptyTree();
+  const id: Record<string, string> = {};
+  const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
+  add('me', addPerson(t, 'm'));
+  add('dad', addParent(t, id.me, 'm'));
+  add('aunt', addSibling(t, id.dad, 'f'));
+  add('auntH', addSpouse(t, id.aunt, 'm'));
+  add('cousin', addChild(t, id.aunt, 'f'));
+  add('auntHMum', addParent(t, id.auntH, 'f'));
+  add('auntHBro', addSibling(t, id.auntH, 'm'));
+  add('sis', addSibling(t, id.me, 'f'));
+  add('sisH', addSpouse(t, id.sis, 'm'));
+  add('sisHDad', addParent(t, id.sisH, 'm'));
+  add('wife', addSpouse(t, id.me, 'f'));
+  add('wifeMum', addParent(t, id.wife, 'f'));
+  add('wifeSis', addSibling(t, id.wife, 'f'));
+  add('son', addChild(t, id.me, 'm'));
+  return { t, id };
+}
+
+test('one hop: a relative\'s spouse shows, the spouse\'s own family does not', () => {
+  const { t, id } = oneHop();
+  const shown = (me: string, view: View) => { const s = sides(t, id[me]); return Object.keys(id).filter(k => visible(s, id[k], view)).sort(); };
+  assert.deepEqual(shown('me', 'mine'), ['aunt', 'auntH', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife']);
+  assert.deepEqual(shown('me', 'spouse'), ['me', 'son', 'wife', 'wifeMum', 'wifeSis']);
+  // Unmarried cousin: my wife shows as my spouse, her family does not; the cousin's own father's family does.
+  assert.equal(sides(t, id.cousin).married, false);
+  assert.deepEqual(shown('cousin', 'mine'), ['aunt', 'auntH', 'auntHBro', 'auntHMum', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife']);
+  // Switching to the aunt's husband: his own family is his side, and the aunt's family is the spouse's side.
+  assert.deepEqual(shown('auntH', 'mine'), ['aunt', 'auntH', 'auntHBro', 'auntHMum', 'cousin']);
+  assert.deepEqual(shown('auntH', 'spouse'), ['aunt', 'auntH', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife']);
+  // My son: both parents' families are blood, and their spouses show.
+  assert.deepEqual(shown('son', 'mine'), ['aunt', 'auntH', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife', 'wifeMum', 'wifeSis']);
 });
 
 test('the first person is the root; rename and remove keep it consistent', () => {
