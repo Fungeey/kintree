@@ -176,9 +176,9 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     }
     // A branch that has such a link anywhere below it also goes last, so the in-law family always
     // lands right beside the branch it joins, and the other branches sit clear of both.
-    // On the line above the root, the child that line runs through goes first, so the rest of the
+    // On the line above the root, a child whose own couple is lifted by two rows or more goes first, so the rest of the
     // brothers and sisters sit on its far side, with room for their families under them.
-    const lead = spine.has(fid) ? fresh.filter(k => ancestors.has(k)) : [];
+    const lead = spine.has(fid) ? fresh.filter(k => ancestors.has(k) && liftOf(own.get(k) ?? '') >= 2) : [];
     const rest = fresh.filter(k => !lead.includes(k));
     const kids = [...lead, ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k))];
 
