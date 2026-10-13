@@ -130,11 +130,6 @@ export function TreeView({ tree, me, show, onPick, editing = false }: Props) {
           return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} />;
         })}
       </div>
-      {speech.state !== 'ready' && (
-        <p className="nospeech" onPointerDown={e => e.stopPropagation()}>
-          {speech.state === 'unsupported' ? 'Audio isn’t available in this browser.' : 'No Cantonese voice found on this device, so audio is off.'}
-        </p>
-      )}
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>
         <button type="button" aria-label="Zoom in" onClick={() => btnZoom(1.25)}>+</button>
         <button type="button" aria-label="Zoom out" onClick={() => btnZoom(0.8)}>−</button>

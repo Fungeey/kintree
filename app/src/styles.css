@@ -44,6 +44,7 @@ button { font: inherit; color: inherit; }
 .sex-m .face { border-color: var(--m); }
 .sex-f .face { border-color: var(--f); }
 .me .face-btn::before { content: ''; position: absolute; left: 18.75%; top: 17.2%; width: 62.5%; height: 62.5%; border-radius: 50%; box-shadow: 0 0 0 1.5px var(--paper), 0 0 0 3.5px var(--accent); }
+.node.me { background: #fff; border-radius: 12px; box-shadow: 0 1px 6px rgba(43,36,28,.25), 0 0 0 1.5px var(--rule); }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .initials { font-size: .9rem; color: var(--muted); }
 .face-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 50%; }
@@ -63,10 +64,10 @@ button { font: inherit; color: inherit; }
 .play svg { width: 11px; height: 11px; stroke: var(--ink); stroke-width: 1.8; fill: none; stroke-linecap: round; stroke-linejoin: round; }
 .zoom { position: absolute; right: 12px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; }
 .zoom button { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--panel); font-size: 1.2rem; cursor: pointer; }
-.hint { margin: 0; padding: 4px 16px max(6px, env(safe-area-inset-bottom)); font-size: .75rem; color: var(--muted); text-align: center; }
+.viewing { position: absolute; left: 50%; bottom: max(10px, env(safe-area-inset-bottom)); transform: translateX(-50%); margin: 0; padding: 6px 14px; max-width: calc(100% - 140px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .9rem; background: var(--panel); border: 1.5px solid var(--rule); border-radius: 999px; box-shadow: 0 1px 6px rgba(43,36,28,.2); pointer-events: none; z-index: 2; }
+.viewing strong { color: var(--accent); }
 .start { max-width: 28rem; margin: 0 auto; padding: 32px 16px; }
 
-.nospeech { position: absolute; left: 8px; bottom: 8px; margin: 0; max-width: 60%; font-size: .7rem; color: var(--muted); }
 .notice { margin: 0; padding: 6px 16px; background: #f6dfd2; color: #7a2a14; font-size: .85rem; }
 .notice button { border: 1px solid currentColor; background: none; color: inherit; border-radius: 6px; padding: 2px 8px; cursor: pointer; }
 
