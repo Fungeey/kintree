@@ -90,6 +90,38 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 | F Z* D H | father's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
 | M B* D H | mother's brother's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
 | M Z* D H | mother's sister's daughter's husband | 表姐夫 biu2 ze2 fu1 / 表妹夫 biu2 mui6 fu1 | older: 表姐夫 biu2 ze2 fu1; younger: by name | unverified | unsourced |
+| M F B* S | mother's male cousin | 表舅父 biu2 kau5 fu2 | 表舅 biu2 kau5 | unverified | unsourced; common usage |
+| M F B* S W | mother's male cousin's wife | 表舅母 biu2 kau5 mou2 | 表舅母 biu2 kau5 mou2 | unverified | unsourced; common usage |
+| M F B* S S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M F B* S D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M F B* D | mother's female cousin | 表姨 biu2 ji4 | 表姨 biu2 ji4 | unverified | unsourced; common usage |
+| M F B* D H | mother's female cousin's husband | 表姨丈 biu2 ji4 zoeng2 | 表姨丈 biu2 ji4 zoeng2 | unverified | unsourced; common usage |
+| M F B* D S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M F B* D D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M F Z* S | mother's male cousin | 表舅父 biu2 kau5 fu2 | 表舅 biu2 kau5 | unverified | unsourced; common usage |
+| M F Z* S W | mother's male cousin's wife | 表舅母 biu2 kau5 mou2 | 表舅母 biu2 kau5 mou2 | unverified | unsourced; common usage |
+| M F Z* S S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M F Z* S D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M F Z* D | mother's female cousin | 表姨 biu2 ji4 | 表姨 biu2 ji4 | unverified | unsourced; common usage |
+| M F Z* D H | mother's female cousin's husband | 表姨丈 biu2 ji4 zoeng2 | 表姨丈 biu2 ji4 zoeng2 | unverified | unsourced; common usage |
+| M F Z* D S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M F Z* D D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M M B* S | mother's male cousin | 表舅父 biu2 kau5 fu2 | 表舅 biu2 kau5 | unverified | unsourced; common usage |
+| M M B* S W | mother's male cousin's wife | 表舅母 biu2 kau5 mou2 | 表舅母 biu2 kau5 mou2 | unverified | unsourced; common usage |
+| M M B* S S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M M B* S D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M M B* D | mother's female cousin | 表姨 biu2 ji4 | 表姨 biu2 ji4 | unverified | unsourced; common usage |
+| M M B* D H | mother's female cousin's husband | 表姨丈 biu2 ji4 zoeng2 | 表姨丈 biu2 ji4 zoeng2 | unverified | unsourced; common usage |
+| M M B* D S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M M B* D D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M M Z* S | mother's male cousin | 表舅父 biu2 kau5 fu2 | 表舅 biu2 kau5 | unverified | unsourced; common usage |
+| M M Z* S W | mother's male cousin's wife | 表舅母 biu2 kau5 mou2 | 表舅母 biu2 kau5 mou2 | unverified | unsourced; common usage |
+| M M Z* S S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M M Z* S D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
+| M M Z* D | mother's female cousin | 表姨 biu2 ji4 | 表姨 biu2 ji4 | unverified | unsourced; common usage |
+| M M Z* D H | mother's female cousin's husband | 表姨丈 biu2 ji4 zoeng2 | 表姨丈 biu2 ji4 zoeng2 | unverified | unsourced; common usage |
+| M M Z* D S | mother's cousin's son | 表哥 biu2 go1 / 表弟 biu2 dai2 | older: 表哥 biu2 go1; younger: by name | unverified | unsourced; common usage |
+| M M Z* D D | mother's cousin's daughter | 表姐 biu2 ze2 / 表妹 biu2 mui2 | older: 表姐 biu2 ze2; younger: by name | unverified | unsourced; common usage |
 | F F F | paternal great-grandfather | 曾祖父 zang1 zou2 fu6 | 太公 taai3 gung1 | unverified | great-grandparent terms from common usage; not checked on words.hk |
 | F F M | paternal great-grandmother | 曾祖母 zang1 zou2 mou5 | 太婆 taai3 po4 | unverified | as above |
 | F M F | father's mother's father | 外曾祖父 ngoi6 zang1 zou2 fu6 | 外太公 ngoi6 taai3 gung1 | unverified | as above |
@@ -107,4 +139,5 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 - 奶奶 vs 家婆 for husband's mother; 大姨/大舅 for wife's siblings may be family rank titles instead.
 - Spouse's grandparents reuse the spouse's own titles; real usage is unknown.
 - Cousins' spouses are mostly unsourced.
+- Mother's cousins (表舅父/表舅, 表姨 and their spouses) and their children are all from common usage; many families just say 舅父/阿姨 or 叔叔/阿姨 for a parent's cousin.
 - 公公/婆婆 as the generic far-relative title is a guess.

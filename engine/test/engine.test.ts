@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { validateTree, kinPath, loadTable, matchPattern, resolve, emptyTree, addPerson, addParent } from '../src/index.ts';
+import { validateTree, kinPath, loadTable, matchPattern, resolve, emptyTree, addPerson, addParent, addSibling, addChild, addSpouse } from '../src/index.ts';
 import type { TitleEntry, Generic, Resolution, Tree } from '../src/index.ts';
 import { tree } from './fixture.ts';
 
@@ -192,4 +192,29 @@ test('great-grandparents have their own titles, not the generic fallback', () =>
   const far = resolve(t.tree, table, generic, me, top);
   assert.equal(far.kind, 'fallback');
   assert.deepEqual(far.kind === 'fallback' && far.generic, { chars: '公公', jyutping: 'gung4 gung1' });
+});
+
+test("mother's cousins, their spouses and children have titles", () => {
+  let t = emptyTree();
+  const add = (e: { tree: Tree; id: string }) => { t = e.tree; return e.id; };
+  const me = add(addPerson(t, 'm'));
+  const mum = add(addParent(t, me, 'f'));
+  const gpa = add(addParent(t, mum, 'm'));
+  const gma = add(addParent(t, mum, 'f'));
+  const spoken = (id: string) => {
+    const x = resolve(t, table, generic, me, id);
+    assert.equal(x.kind, 'title', `${id} gave ${x.kind}`);
+    return x.kind === 'title' ? [x.forms.spoken === 'by-name' ? 'by-name' : x.forms.spoken.chars, x.forms.formal.chars] : [];
+  };
+  // Mother's father's brother's son (via 堂) and mother's mother's sister's daughter: both are 表 to me.
+  const uncle = add(addSibling(t, gpa, 'm'));
+  const cousin = add(addChild(t, uncle, 'm'));
+  assert.deepEqual(spoken(cousin), ['表舅', '表舅父']);
+  assert.deepEqual(spoken(add(addSpouse(t, cousin, 'f'))), ['表舅母', '表舅母']);
+  const son = add(addChild(t, cousin, 'm'));
+  assert.equal(resolve(t, table, generic, me, son).kind, 'byAge');
+  const aunt = add(addSibling(t, gma, 'f'));
+  const female = add(addChild(t, aunt, 'f'));
+  assert.deepEqual(spoken(female), ['表姨', '表姨']);
+  assert.deepEqual(spoken(add(addSpouse(t, female, 'm'))), ['表姨丈', '表姨丈']);
 });

@@ -1313,6 +1313,662 @@
   "note": "unsourced"
  },
  {
+  "pattern": "M F B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅父",
+   "jyutping": "biu2 kau5 fu2"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "jyutping": "biu2 kau5"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "spoken": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅父",
+   "jyutping": "biu2 kau5 fu2"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "jyutping": "biu2 kau5"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "spoken": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅父",
+   "jyutping": "biu2 kau5 fu2"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "jyutping": "biu2 kau5"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "spoken": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅父",
+   "jyutping": "biu2 kau5 fu2"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "jyutping": "biu2 kau5"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "spoken": {
+   "chars": "表舅母",
+   "jyutping": "biu2 kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "jyutping": "biu2 ji4"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "表姨丈",
+   "jyutping": "biu2 ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "jyutping": "biu2 hing1 dai6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "jyutping": "biu2 go1"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "jyutping": "biu2 dai2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姊妹",
+   "jyutping": "biu2 zi2 mui6"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "jyutping": "biu2 ze2"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "jyutping": "biu2 mui2"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
   "pattern": "F F F",
   "en": "paternal great-grandfather",
   "formal": {
