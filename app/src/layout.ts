@@ -132,6 +132,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // A married child's in-law family met inside another family's block waits until that block is
   // done, so it never pushes in between a parent and that parent's own brothers and sisters.
   let deferred: string[] = [];
+  const rightGroups: string[][] = []; // wives' brothers and sisters drawn to the right of a couple, likewise
   const leftGroups: string[][] = []; // husbands' brothers and sisters drawn to the left of a couple, for the final tightening
 
   // Whether someone, or anyone descended from them, is a son whose wife's own family is still to be drawn.
@@ -328,7 +329,8 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       queue.sort((a, b) => famGen(a) - famGen(b));
       const fid = queue.shift()!;
       if (done.has(fid)) continue;
-      placeFamily(fid);
+      const got = placeFamily(fid);
+      if (spine.has(fid) && fid !== top) rightGroups.push(got);
       queue.push(...deferred);
       deferred = [];
     }
@@ -345,6 +347,16 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
         for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
       }
       if (dx > 0 && dx < Infinity) { shift(group, dx); moved = true; }
+    }
+    // A wife's brothers and sisters slide left against her couple the same way.
+    for (const group of rightGroups) {
+      const mine = new Set(group);
+      let dx = Infinity;
+      for (const id of group) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x < c.x) dx = Math.min(dx, c.x - o.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) { shift(group, -dx); moved = true; }
     }
     if (!moved) break;
   }
