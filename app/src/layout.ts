@@ -152,6 +152,18 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     return found;
   }
 
+  // How far right a person's branch reaches: them, their spouse and everyone drawn below them.
+  function branchRight(id: string, seen = new Set<string>()): number {
+    let r = pos.get(id)!.x + CARD_W;
+    const o = own.get(id);
+    if (!o || seen.has(o)) return r;
+    seen.add(o);
+    const fam = fams.get(o)!;
+    for (const p of fam.parents) if (pos.has(p)) r = Math.max(r, pos.get(p)!.x + CARD_W);
+    for (const c of fam.children) if (pos.has(c)) r = Math.max(r, branchRight(c, seen));
+    return r;
+  }
+
   // Places a family group: its children (with their own families) left to right, then the parents
   // centred over them. Returns the people placed, for shifting. People placed earlier stay put.
   function placeFamily(fid: string, skip: Set<string> = new Set()): string[] {
@@ -193,7 +205,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     let first = placedKids.length === 0;
     for (const k of kids) {
       if (pos.has(k)) continue; // placed as part of an earlier sibling's block
-      if (!first) floor = Math.max(floor, right + GAP_X);
+      if (!first) floor = Math.max(floor, Math.max(...placed.map(id => pos.get(id)!.x + CARD_W), ...placedKids.map(k => branchRight(k))) + GAP_X);
       first = false
       const ofid = own.get(k);
       if (ofid && !done.has(ofid)) {
