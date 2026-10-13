@@ -41,34 +41,69 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // Generation of each person, relative to the first person of their connected group (BFS over
   // visible links, started from the earliest person in tree order).
   const gens = new Map<string, number>();
+  // Rows are generations with one change: a couple whose brothers and sisters have families of their own
+  // has its own children start lower, below the deepest of those branches, so the cousins' rows sit
+  // between the couple and their children instead of needing room beside them.
+  const rowsV = new Map<string, number>();
+  const branchDepth = (id: string, seen = new Set<string>()): number => {
+    const o = own.get(id);
+    if (!o || seen.has(o)) return 0;
+    seen.add(o);
+    const kids = fams.get(o)!.children;
+    return kids.length ? 1 + Math.max(...kids.map(k => branchDepth(k, seen))) : 0;
+  };
+  // Only the couples above the first person (the tree's root) are lifted: those are the ones whose own
+  // line the eye follows down the page, while their brothers and sisters hang to the sides.
+  const spine = new Set<string>();
+  for (let cur = [tree.people[0]?.id]; cur.length;) {
+    const nextUp: string[] = [];
+    for (const c of cur) {
+      const b = c && birth.get(c);
+      if (!b || spine.has(b)) continue;
+      spine.add(b);
+      nextUp.push(...fams.get(b)!.parents);
+    }
+    cur = nextUp;
+  }
+  const liftOf = (fid: string): number => {
+    if (!spine.has(fid)) return 0;
+    let k = 0;
+    for (const p of fams.get(fid)!.parents) {
+      const b = birth.get(p);
+      if (!b) continue;
+      for (const s of fams.get(b)!.children) if (s !== p) k = Math.max(k, branchDepth(s));
+    }
+    return k;
+  };
   const order = tree.people.filter(p => shown.has(p.id)).map(p => p.id);
   const anchors: string[] = [];
   for (const start of order) {
     if (gens.has(start)) continue;
     anchors.push(start);
     gens.set(start, 0);
+    rowsV.set(start, 0);
     const queue = [start];
     while (queue.length) {
       const id = queue.shift()!;
       const g = gens.get(id)!;
-      const visit = (other: string, dg: number) => {
-        if (!gens.has(other)) { gens.set(other, g + dg); queue.push(other); }
+      const visit = (other: string, dg: number, lift = 0) => {
+        if (!gens.has(other)) { gens.set(other, g + dg); rowsV.set(other, rowsV.get(id)! + dg + lift); queue.push(other); }
       };
       const b = birth.get(id);
       if (b) {
-        for (const p of fams.get(b)!.parents) visit(p, -1);
+        for (const p of fams.get(b)!.parents) visit(p, -1, -liftOf(b));
         for (const c of fams.get(b)!.children) if (c !== id) visit(c, 0);
       }
       const o = own.get(id);
       if (o) {
         for (const p of fams.get(o)!.parents) if (p !== id) visit(p, 0);
-        for (const c of fams.get(o)!.children) visit(c, 1);
+        for (const c of fams.get(o)!.children) visit(c, 1, liftOf(o));
       }
     }
   }
   let minGen = 0;
-  for (const g of gens.values()) minGen = Math.min(minGen, g);
-  const rowY = (id: string) => ((gens.get(id) ?? 0) - minGen) * (CARD_H + ROW_GAP) + PAD;
+  for (const g of rowsV.values()) minGen = Math.min(minGen, g);
+  const rowY = (id: string) => ((rowsV.get(id) ?? 0) - minGen) * (CARD_H + ROW_GAP) + PAD;
 
   const pos = new Map<string, Pos>();
   const done = new Set<string>();
@@ -78,7 +113,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
 
   // Each row fills left to right: `frontier` is where the next card in a row may go, so a family
   // placed later can still sit above its child when the row above is free there.
-  const rowOf = (id: string) => (gens.get(id) ?? 0) - minGen;
+  const rowOf = (id: string) => (rowsV.get(id) ?? 0) - minGen;
   const frontier = new Map<number, number>();
   let floor = 0; // left edge for the connected group being drawn
   const free = (row: number) => Math.max(frontier.get(row) ?? floor, floor);

@@ -222,11 +222,8 @@ test('one hop: a relative\'s spouse shows, the spouse\'s own family does not', (
   // Switching to the aunt's husband: his own family is his side, and the aunt's family is the spouse's side.
   assert.deepEqual(shown('auntH', 'mine'), ['aunt', 'auntH', 'auntHBro', 'auntHMum', 'cousin']);
   assert.deepEqual(shown('auntH', 'spouse'), ['aunt', 'auntH', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife']);
-  // My son: both parents' families are blood, and their spouses show. Dad's sister is his great-aunt:
-  // she and her husband show, but her daughter (dad's cousin) waits until he switches to the aunt or dad.
-  assert.deepEqual(shown('son', 'mine'), ['aunt', 'auntH', 'dad', 'me', 'sis', 'sisH', 'son', 'wife', 'wifeMum', 'wifeSis']);
-  assert.ok(shown('dad', 'mine').includes('cousin'));
-  assert.ok(shown('aunt', 'mine').includes('cousin'));
+  // My son: both parents' families are blood, and their spouses show.
+  assert.deepEqual(shown('son', 'mine'), ['aunt', 'auntH', 'cousin', 'dad', 'me', 'sis', 'sisH', 'son', 'wife', 'wifeMum', 'wifeSis']);
 });
 
 test('the first person is the root; rename and remove keep it consistent', () => {

@@ -232,3 +232,24 @@ test('layout: grandparents\' siblings each get a branch of their own', async () 
   assert.ok(x('p39') < x('p5') && x('p43') < x('p5'), "grandma's brother and sister are left of the paternal grandparents");
   assert.ok(x('p15') > x('p2') && x('p53') > x('p2'), "mother's parents and their siblings are right of the father");
 });
+
+test('layout: a couple whose siblings have grandchildren has its own children start lower', () => {
+  let t: Tree = emptyTree();
+  const id: Record<string, string> = {};
+  const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
+  add('me', addPerson(t, 'm', 'Me'));
+  add('dad', addParent(t, id.me, 'm', 'Dad'));
+  add('gma', addParent(t, id.dad, 'f', 'Gma'));
+  add('gpa', addParent(t, id.dad, 'm', 'Gpa'));
+  add('sis', addSibling(t, id.gma, 'f', 'GreatAunt'));
+  add('cous', addChild(t, id.sis, 'f', 'Cousin'));
+  add('cousKid', addChild(t, id.cous, 'm', 'CousinKid'));
+  const L = layoutTree(t);
+  const y = (k: string) => L.pos.get(id[k])!.y;
+  assert.equal(y('sis'), y('gma'));
+  assert.ok(y('dad') > y('cousKid'), "dad's row is below the cousin's child");
+  // With no brothers or sisters there is no lift.
+  const u = sample();
+  const U = layoutTree(u.t);
+  assert.equal(U.pos.get(u.id.dad)!.y - U.pos.get(u.id.gpa)!.y, CARD_H + 28);
+});

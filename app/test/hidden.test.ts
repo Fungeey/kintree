@@ -4,7 +4,7 @@ import { addChild, addParent, addPerson, addSibling, addSpouse, emptyTree, sides
 import type { Tree } from '../../engine/src/index.ts';
 import { hiddenRelatives } from '../src/hidden.ts';
 
-test('hidden relatives: a spouse and a great-aunt carry a count for the family left out', () => {
+test('hidden relatives: a spouse carries a count for the family left out', () => {
   let t: Tree = emptyTree();
   const id: Record<string, string> = {};
   const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
@@ -20,11 +20,8 @@ test('hidden relatives: a spouse and a great-aunt carry a count for the family l
   add('wifeGma', addParent(t, id.wifeMum, 'f'));  // further out: counted too
   const s = sides(t, id.me);
   const show = (p: string) => visible(s, p, 'mine');
-  assert.equal(hiddenRelatives(t, id.gmaSis, show), 2, 'her two children');
+  assert.equal(hiddenRelatives(t, id.gmaSis, show), 0, "a great-aunt's own family is blood, so it shows");
   assert.equal(hiddenRelatives(t, id.wife, show), 3, "the wife's mother and sister, and her mother's mother");
   assert.equal(hiddenRelatives(t, id.me, show), 0);
   assert.equal(hiddenRelatives(t, id.dad, show), 0);
-  // Switch to the great-aunt: her children show and the count goes.
-  const s2 = sides(t, id.gmaSis);
-  assert.equal(hiddenRelatives(t, id.gmaSis, p => visible(s2, p, 'mine')), 0);
 });

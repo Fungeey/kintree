@@ -73,39 +73,23 @@ export function sides(tree: Tree, me: string): Sides {
   return { married: true, labels, near: { mine: nearOf(me, own, birth), spouse: nearOf(spouse, own, birth) } };
 }
 
-// One hop (decision 20): a person's blood relatives and the spouses of those relatives. A spouse's
-// own parents, siblings and cousins are left out; the spouse's children with the relative are
-// descendants, so they stay.
-// Blood relatives are: every ancestor; everyone descended from a parent or grandparent (so
-// siblings, aunts, uncles, cousins and their children); and the brothers and sisters of the
-// grandparents themselves, without their own families. At that distance the titles are generic,
-// so only the great-aunts and great-uncles are drawn, and their families wait behind a switch.
+// One hop (decision 20): a person's blood relatives (everyone descended from them or from one of
+// their ancestors, siblings of unknown parents included) and the spouses of those relatives. A
+// spouse's own parents, siblings and cousins are left out; the spouse's children with the
+// relative are descendants, so they stay.
 function nearOf(start: string, own: Map<string, Family>, birth: Map<string, Family>): Set<string> {
-  const depth = new Map<string, number>([[start, 0]]); // generations above the start
+  const up = new Set<string>([start]);
   const climb = [start];
   while (climb.length) {
-    const cur = climb.shift()!;
-    for (const p of birth.get(cur)?.parents ?? []) if (!depth.has(p)) { depth.set(p, depth.get(cur)! + 1); climb.push(p); }
+    for (const p of birth.get(climb.pop()!)?.parents ?? []) if (!up.has(p)) { up.add(p); climb.push(p); }
   }
-  const blood = new Set<string>(depth.keys());
-  const roots = new Set<string>();
-  for (const [a, d] of depth) {
-    if (d <= 2) roots.add(a);
-    // brothers and sisters of an ancestor, even with unknown parents
-    for (const c of birth.get(a)?.children ?? []) {
-      if (c === a || d > 2) continue;
-      blood.add(c);
-      if (d <= 1) roots.add(c);
-    }
-  }
-  const expanded = new Set<string>();
-  const down = [...roots];
-  while (down.length) {
-    const x = down.pop()!;
-    if (expanded.has(x)) continue;
-    expanded.add(x);
-    for (const c of own.get(x)?.children ?? []) { blood.add(c); down.push(c); }
-  }
+  const blood = new Set<string>(up);
+  const down = [...up];
+  const reachKids = (f: Family | undefined) => {
+    for (const c of f?.children ?? []) if (!blood.has(c)) { blood.add(c); down.push(c); }
+  };
+  for (const a of up) reachKids(birth.get(a)); // brothers and sisters, even with unknown parents
+  while (down.length) reachKids(own.get(down.pop()!));
   const near = new Set(blood);
   for (const b of blood) for (const p of own.get(b)?.parents ?? []) near.add(p);
   return near;
