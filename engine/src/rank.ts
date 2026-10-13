@@ -1,4 +1,4 @@
-// Family rank titles: 大姨媽, 二姨媽, 大舅, 二伯 ... for a parent's siblings and their spouses.
+// Family rank titles: 大姨媽, 二姨媽, 大舅父, 二伯 ... for a parent's siblings and their spouses.
 // They are family usage, so they sit beside the table's title and never replace it (DESIGN.md, rank terms).
 import type { Title, Tree } from './model.ts';
 import { kinPath } from './path.ts';
@@ -16,8 +16,8 @@ const STEM = {
   'F By': [['叔', 'suk1'], ['嬸', 'sam2']],
   'F Ze': [['姑媽', 'gu1 maa1'], ['姑丈', 'gu1 zoeng2']],
   'F Zy': [['姑', 'gu1'], ['姑丈', 'gu1 zoeng2']],
-  'M Be': [['舅', 'kau5'], ['舅母', 'kau5 mou2']],
-  'M By': [['舅', 'kau5'], ['舅母', 'kau5 mou2']],
+  'M Be': [['舅父', 'kau5 fu2'], ['舅母', 'kau5 mou2']],
+  'M By': [['舅父', 'kau5 fu2'], ['舅母', 'kau5 mou2']],
   'M Ze': [['姨媽', 'ji4 maa1'], ['姨丈', 'ji4 zoeng2']],
   'M Zy': [['姨', 'ji4'], ['姨丈', 'ji4 zoeng2']],
 } as Record<string, [Stem, Stem]>;

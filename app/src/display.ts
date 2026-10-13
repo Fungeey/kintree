@@ -44,10 +44,9 @@ export function rootLabel(tree: Tree, target: string): string | null {
   }
 }
 
-// The small caption above a card: the person's own name when they have one, else their relation to the
-// tree's root ("Mei's father"). Null when there is neither.
+// The small caption above a card: the person's own name, or blank when they have none.
 export function captionFor(tree: Tree, id: string): string | null {
-  return tree.people.find(p => p.id === id)?.name?.trim() || rootLabel(tree, id);
+  return tree.people.find(p => p.id === id)?.name?.trim() || null;
 }
 
 export function showFor(tree: Tree, me: string, target: string): Shown {

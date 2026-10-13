@@ -102,18 +102,14 @@ test('display: an aunt shows her usual title and her rank title; audio says only
   assert.deepEqual(showFor(t, me.id, mum.id).lines.length, 1);
 });
 
-test('caption: a name replaces the relation caption above the card, and clearing it brings the relation back', async () => {
+test('caption: shows the person\'s own name, and is blank when they have none', async () => {
   const { captionFor } = await import('../src/display.ts');
   const { t, me, dad, mum } = sample();
   assert.equal(captionFor(t, dad), 'Wing');
-  assert.equal(captionFor(t, mum), "Mei's mother");
   assert.equal(captionFor(t, me), 'Mei');
+  assert.equal(captionFor(t, mum), null);
   const named = applyRename(t, mum, 'Lai')!;
   assert.equal(captionFor(named, mum), 'Lai');
   const cleared = applyRename(named, mum, '')!;
-  assert.equal(captionFor(cleared, mum), "Mei's mother");
-  // Renaming the root changes the root's own caption and everyone else's relation caption.
-  const renamed = applyRename(t, me, 'May')!;
-  assert.equal(captionFor(renamed, me), 'May');
-  assert.equal(captionFor(renamed, mum), "May's mother");
+  assert.equal(captionFor(cleared, mum), null);
 });
