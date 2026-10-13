@@ -3,12 +3,12 @@
 import type { Tree, Family } from '../../engine/src/index.ts';
 
 export const CARD_W = 76;
-export const CARD_H = 128;
+export const CARD_H = 120;
 // Centre of the face circle, from the node's top: couple lines run through it.
-export const FACE_CY = 53;
+export const FACE_CY = 52;
 export const GAP_X = 8;
 export const COUPLE_GAP = 24;
-export const ROW_GAP = 34;
+export const ROW_GAP = 30;
 const PAD = 24;
 
 export interface Pos { x: number; y: number }
