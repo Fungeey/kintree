@@ -17,10 +17,11 @@ test('hidden relatives: a spouse and a great-aunt carry a count for the family l
   add('wife', addSpouse(t, id.me, 'f'));
   add('wifeMum', addParent(t, id.wife, 'f'));
   add('wifeSis', addSibling(t, id.wife, 'f'));
+  add('wifeGma', addParent(t, id.wifeMum, 'f'));  // further out: counted too
   const s = sides(t, id.me);
   const show = (p: string) => visible(s, p, 'mine');
   assert.equal(hiddenRelatives(t, id.gmaSis, show), 2, 'her two children');
-  assert.equal(hiddenRelatives(t, id.wife, show), 2, "the wife's mother and sister");
+  assert.equal(hiddenRelatives(t, id.wife, show), 3, "the wife's mother and sister, and her mother's mother");
   assert.equal(hiddenRelatives(t, id.me, show), 0);
   assert.equal(hiddenRelatives(t, id.dad, show), 0);
   // Switch to the great-aunt: her children show and the count goes.
