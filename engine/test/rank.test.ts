@@ -21,10 +21,10 @@ function family() {
 
 test('rank: mother\'s sisters are ranked among her sisters, eldest first', () => {
   const { t, id } = family();
-  assert.deepEqual(rankTitle(t, id.me, id.A), { chars: '大姨媽', jyutping: 'daai6 ji4 maa1' });
-  assert.deepEqual(rankTitle(t, id.me, id.B), { chars: '二姨媽', jyutping: 'ji6 ji4 maa1' });
+  assert.deepEqual(rankTitle(t, id.me, id.A), { chars: '大姨媽', rom: 'daai6 ji4 maa1' });
+  assert.deepEqual(rankTitle(t, id.me, id.B), { chars: '二姨媽', rom: 'ji6 ji4 maa1' });
   // The younger sister is the third sister; she is younger than mum so she takes the younger stem.
-  assert.deepEqual(rankTitle(t, id.me, id.D), { chars: '三姨', jyutping: 'saam1 ji4' });
+  assert.deepEqual(rankTitle(t, id.me, id.D), { chars: '三姨', rom: 'saam1 ji4' });
 });
 
 test('rank: brothers are ranked among brothers, so a lone brother has no rank', () => {
@@ -34,7 +34,7 @@ test('rank: brothers are ranked among brothers, so a lone brother has no rank', 
 
 test('rank: an aunt\'s husband takes her rank', () => {
   const { t, id } = family();
-  assert.deepEqual(rankTitle(t, id.me, id.Ah), { chars: '大姨丈', jyutping: 'daai6 ji4 zoeng2' });
+  assert.deepEqual(rankTitle(t, id.me, id.Ah), { chars: '大姨丈', rom: 'daai6 ji4 zoeng2' });
 });
 
 test('rank: follows birth order edits', () => {
@@ -68,6 +68,6 @@ test('rank: father\'s side uses 伯 for elder brothers and 叔 for younger ones,
 test('rank: mother\'s brothers take the full 舅父', () => {
   const { t: base, id } = family();
   const e = addSibling(base, id.mum, 'm', 'E');
-  assert.deepEqual(rankTitle(e.tree, id.me, id.C), { chars: '大舅父', jyutping: 'daai6 kau5 fu2' });
-  assert.deepEqual(rankTitle(e.tree, id.me, e.id), { chars: '二舅父', jyutping: 'ji6 kau5 fu2' });
+  assert.deepEqual(rankTitle(e.tree, id.me, id.C), { chars: '大舅父', rom: 'daai6 kau5 fu2' });
+  assert.deepEqual(rankTitle(e.tree, id.me, e.id), { chars: '二舅父', rom: 'ji6 kau5 fu2' });
 });

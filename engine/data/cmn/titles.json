@@ -1,0 +1,2221 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "父亲",
+   "rom": "fùqin"
+  },
+  "spoken": {
+   "chars": "爸爸",
+   "rom": "bàba"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "母亲",
+   "rom": "mǔqin"
+  },
+  "spoken": {
+   "chars": "妈妈",
+   "rom": "māma"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "儿子",
+   "rom": "érzi"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "女儿",
+   "rom": "nǚ'ér"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "丈夫",
+   "rom": "zhàngfu"
+  },
+  "spoken": {
+   "chars": "老公",
+   "rom": "lǎogōng"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "妻子",
+   "rom": "qīzi"
+  },
+  "spoken": {
+   "chars": "老婆",
+   "rom": "lǎopo"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "哥哥",
+   "rom": "gēge"
+  },
+  "spoken": {
+   "chars": "哥哥",
+   "rom": "gēge"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "弟弟",
+   "rom": "dìdi"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "姐姐",
+   "rom": "jiějie"
+  },
+  "spoken": {
+   "chars": "姐姐",
+   "rom": "jiějie"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "妹妹",
+   "rom": "mèimei"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "祖父",
+   "rom": "zǔfù"
+  },
+  "spoken": {
+   "chars": "爷爷",
+   "rom": "yéye"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "祖母",
+   "rom": "zǔmǔ"
+  },
+  "spoken": {
+   "chars": "奶奶",
+   "rom": "nǎinai"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "外祖父",
+   "rom": "wàizǔfù"
+  },
+  "spoken": {
+   "chars": "外公",
+   "rom": "wàigōng"
+  },
+  "status": "unverified",
+  "note": "Northern usage is 姥爷 (lǎoye); 外公 is the mainland standard"
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "外祖母",
+   "rom": "wàizǔmǔ"
+  },
+  "spoken": {
+   "chars": "外婆",
+   "rom": "wàipó"
+  },
+  "status": "unverified",
+  "note": "Northern usage is 姥姥 (lǎolao); 外婆 is the mainland standard"
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "rom": "bófù"
+  },
+  "spoken": {
+   "chars": "伯伯",
+   "rom": "bóbo"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "rom": "shūfù"
+  },
+  "spoken": {
+   "chars": "叔叔",
+   "rom": "shūshu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Ze",
+  "en": "father's elder sister",
+  "formal": {
+   "chars": "姑母",
+   "rom": "gūmǔ"
+  },
+  "spoken": {
+   "chars": "姑姑",
+   "rom": "gūgu"
+  },
+  "status": "unverified",
+  "note": "Mandarin does not separate elder and younger paternal aunts; some regions say 姑妈 for the elder"
+ },
+ {
+  "pattern": "F Zy",
+  "en": "father's younger sister",
+  "formal": {
+   "chars": "姑母",
+   "rom": "gūmǔ"
+  },
+  "spoken": {
+   "chars": "姑姑",
+   "rom": "gūgu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B*",
+  "en": "mother's brother",
+  "formal": {
+   "chars": "舅父",
+   "rom": "jiùfù"
+  },
+  "spoken": {
+   "chars": "舅舅",
+   "rom": "jiùjiu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Ze",
+  "en": "mother's elder sister",
+  "formal": {
+   "chars": "姨母",
+   "rom": "yímǔ"
+  },
+  "spoken": {
+   "chars": "姨妈",
+   "rom": "yímā"
+  },
+  "status": "unverified",
+  "note": "阿姨 (āyí) is also common, especially for the younger sister"
+ },
+ {
+  "pattern": "M Zy",
+  "en": "mother's younger sister",
+  "formal": {
+   "chars": "姨母",
+   "rom": "yímǔ"
+  },
+  "spoken": {
+   "chars": "阿姨",
+   "rom": "āyí"
+  },
+  "status": "unverified",
+  "note": "姨妈 (yímā) is also common"
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "rom": "bómǔ"
+  },
+  "spoken": {
+   "chars": "伯母",
+   "rom": "bómǔ"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "婶母",
+   "rom": "shěnmǔ"
+  },
+  "spoken": {
+   "chars": "婶婶",
+   "rom": "shěnshen"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* H",
+  "en": "father's sister's husband",
+  "formal": {
+   "chars": "姑父",
+   "rom": "gūfu"
+  },
+  "spoken": {
+   "chars": "姑父",
+   "rom": "gūfu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* W",
+  "en": "mother's brother's wife",
+  "formal": {
+   "chars": "舅母",
+   "rom": "jiùmu"
+  },
+  "spoken": {
+   "chars": "舅妈",
+   "rom": "jiùma"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* H",
+  "en": "mother's sister's husband",
+  "formal": {
+   "chars": "姨父",
+   "rom": "yífu"
+  },
+  "spoken": {
+   "chars": "姨父",
+   "rom": "yífu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "伯祖父",
+   "rom": "bózǔfù"
+  },
+  "spoken": {
+   "chars": "大爷爷",
+   "rom": "dàyéye"
+  },
+  "status": "unverified",
+  "note": "By rank in a large family it is 二爷爷, 三爷爷 and so on; unchecked"
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "叔祖父",
+   "rom": "shūzǔfù"
+  },
+  "spoken": {
+   "chars": "叔爷爷",
+   "rom": "shūyéye"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F F Z*",
+  "en": "paternal grandfather's sister",
+  "formal": {
+   "chars": "姑祖母",
+   "rom": "gūzǔmǔ"
+  },
+  "spoken": {
+   "chars": "姑奶奶",
+   "rom": "gūnǎinai"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "堂兄弟",
+   "rom": "tángxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂哥",
+    "rom": "tánggē"
+   },
+   "spoken": {
+    "chars": "堂哥",
+    "rom": "tánggē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂弟",
+    "rom": "tángdì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "堂姐妹",
+   "rom": "tángjiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂姐",
+    "rom": "tángjiě"
+   },
+   "spoken": {
+    "chars": "堂姐",
+    "rom": "tángjiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂妹",
+    "rom": "tángmèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "嫂子",
+   "rom": "sǎozi"
+  },
+  "spoken": {
+   "chars": "嫂子",
+   "rom": "sǎozi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "弟媳",
+   "rom": "dìxí"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "弟妹 (dìmèi) is the usual spoken form"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "姐夫",
+   "rom": "jiěfu"
+  },
+  "spoken": {
+   "chars": "姐夫",
+   "rom": "jiěfu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "妹夫",
+   "rom": "mèifu"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "侄子",
+   "rom": "zhízi"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "侄女",
+   "rom": "zhínǚ"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "外甥",
+   "rom": "wàisheng"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "外甥女",
+   "rom": "wàishengnǚ"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "儿媳",
+   "rom": "érxí"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "儿媳妇 (érxífu) is the spoken form when talking about her"
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "女婿",
+   "rom": "nǚxu"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "孙子",
+   "rom": "sūnzi"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "孙女",
+   "rom": "sūnnǚ"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "外孙",
+   "rom": "wàisūn"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "外孙女",
+   "rom": "wàisūnnǚ"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "公公",
+   "rom": "gōnggong"
+  },
+  "spoken": {
+   "chars": "公公",
+   "rom": "gōnggong"
+  },
+  "status": "unverified",
+  "note": "Many couples say 爸 (bà) instead"
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "婆婆",
+   "rom": "pópo"
+  },
+  "spoken": {
+   "chars": "婆婆",
+   "rom": "pópo"
+  },
+  "status": "unverified",
+  "note": "Many couples say 妈 (mā) instead"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "岳父",
+   "rom": "yuèfù"
+  },
+  "spoken": {
+   "chars": "岳父",
+   "rom": "yuèfù"
+  },
+  "status": "unverified",
+  "note": "Many couples say 爸 (bà) instead"
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "岳母",
+   "rom": "yuèmǔ"
+  },
+  "spoken": {
+   "chars": "岳母",
+   "rom": "yuèmǔ"
+  },
+  "status": "unverified",
+  "note": "Many couples say 妈 (mā) instead"
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "大伯子",
+   "rom": "dàbǎizi"
+  },
+  "spoken": {
+   "chars": "大伯子",
+   "rom": "dàbǎizi"
+  },
+  "status": "unverified",
+  "note": "Spoken she would often say 哥 (gē); the reading dàbǎizi is the dictionary one"
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "小叔子",
+   "rom": "xiǎoshūzi"
+  },
+  "spoken": {
+   "chars": "小叔子",
+   "rom": "xiǎoshūzi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "大姑子",
+   "rom": "dàgūzi"
+  },
+  "spoken": {
+   "chars": "大姑子",
+   "rom": "dàgūzi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "小姑子",
+   "rom": "xiǎogūzi"
+  },
+  "spoken": {
+   "chars": "小姑子",
+   "rom": "xiǎogūzi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "大舅子",
+   "rom": "dàjiùzi"
+  },
+  "spoken": {
+   "chars": "大舅子",
+   "rom": "dàjiùzi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "小舅子",
+   "rom": "xiǎojiùzi"
+  },
+  "spoken": {
+   "chars": "小舅子",
+   "rom": "xiǎojiùzi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "大姨子",
+   "rom": "dàyízi"
+  },
+  "spoken": {
+   "chars": "大姨子",
+   "rom": "dàyízi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "小姨子",
+   "rom": "xiǎoyízi"
+  },
+  "spoken": {
+   "chars": "小姨子",
+   "rom": "xiǎoyízi"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "外伯祖父",
+   "rom": "wàibózǔfù"
+  },
+  "spoken": {
+   "chars": "伯外公",
+   "rom": "bówàigōng"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "外叔祖父",
+   "rom": "wàishūzǔfù"
+  },
+  "spoken": {
+   "chars": "叔外公",
+   "rom": "shūwàigōng"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M B*",
+  "en": "paternal grandmother's brother",
+  "formal": {
+   "chars": "舅祖父",
+   "rom": "jiùzǔfù"
+  },
+  "spoken": {
+   "chars": "舅爷爷",
+   "rom": "jiùyéye"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M B*",
+  "en": "maternal grandmother's brother",
+  "formal": {
+   "chars": "舅外祖父",
+   "rom": "jiùwàizǔfù"
+  },
+  "spoken": {
+   "chars": "舅外公",
+   "rom": "jiùwàigōng"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Z*",
+  "en": "maternal grandfather's sister",
+  "formal": {
+   "chars": "外姑祖母",
+   "rom": "wàigūzǔmǔ"
+  },
+  "spoken": {
+   "chars": "姑外婆",
+   "rom": "gūwàipó"
+  },
+  "status": "unverified",
+  "note": "by analogy with the paternal line; unchecked"
+ },
+ {
+  "pattern": "F M Z*",
+  "en": "paternal grandmother's sister",
+  "formal": {
+   "chars": "姨祖母",
+   "rom": "yízǔmǔ"
+  },
+  "spoken": {
+   "chars": "姨奶奶",
+   "rom": "yínǎinai"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M M Z*",
+  "en": "maternal grandmother's sister",
+  "formal": {
+   "chars": "姨外祖母",
+   "rom": "yíwàizǔmǔ"
+  },
+  "spoken": {
+   "chars": "姨外婆",
+   "rom": "yíwàipó"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "祖父",
+   "rom": "zǔfù"
+  },
+  "spoken": {
+   "chars": "爷爷",
+   "rom": "yéye"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "祖母",
+   "rom": "zǔmǔ"
+  },
+  "spoken": {
+   "chars": "奶奶",
+   "rom": "nǎinai"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "外祖父",
+   "rom": "wàizǔfù"
+  },
+  "spoken": {
+   "chars": "外公",
+   "rom": "wàigōng"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "外祖母",
+   "rom": "wàizǔmǔ"
+  },
+  "spoken": {
+   "chars": "外婆",
+   "rom": "wàipó"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "祖父",
+   "rom": "zǔfù"
+  },
+  "spoken": {
+   "chars": "爷爷",
+   "rom": "yéye"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "祖母",
+   "rom": "zǔmǔ"
+  },
+  "spoken": {
+   "chars": "奶奶",
+   "rom": "nǎinai"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "外祖父",
+   "rom": "wàizǔfù"
+  },
+  "spoken": {
+   "chars": "外公",
+   "rom": "wàigōng"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "外祖母",
+   "rom": "wàizǔmǔ"
+  },
+  "spoken": {
+   "chars": "外婆",
+   "rom": "wàipó"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Be",
+  "en": "wife's father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "rom": "bófù"
+  },
+  "spoken": {
+   "chars": "伯伯",
+   "rom": "bóbo"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By",
+  "en": "wife's father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "rom": "shūfù"
+  },
+  "spoken": {
+   "chars": "叔叔",
+   "rom": "shūshu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Ze",
+  "en": "wife's father's elder sister",
+  "formal": {
+   "chars": "姑母",
+   "rom": "gūmǔ"
+  },
+  "spoken": {
+   "chars": "姑姑",
+   "rom": "gūgu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Zy",
+  "en": "wife's father's younger sister",
+  "formal": {
+   "chars": "姑母",
+   "rom": "gūmǔ"
+  },
+  "spoken": {
+   "chars": "姑姑",
+   "rom": "gūgu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Be W",
+  "en": "wife's father's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "rom": "bómǔ"
+  },
+  "spoken": {
+   "chars": "伯母",
+   "rom": "bómǔ"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By W",
+  "en": "wife's father's younger brother's wife",
+  "formal": {
+   "chars": "婶母",
+   "rom": "shěnmǔ"
+  },
+  "spoken": {
+   "chars": "婶婶",
+   "rom": "shěnshen"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Z* H",
+  "en": "wife's father's sister's husband",
+  "formal": {
+   "chars": "姑父",
+   "rom": "gūfu"
+  },
+  "spoken": {
+   "chars": "姑父",
+   "rom": "gūfu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M B*",
+  "en": "wife's mother's brother",
+  "formal": {
+   "chars": "舅父",
+   "rom": "jiùfù"
+  },
+  "spoken": {
+   "chars": "舅舅",
+   "rom": "jiùjiu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Ze",
+  "en": "wife's mother's elder sister",
+  "formal": {
+   "chars": "姨母",
+   "rom": "yímǔ"
+  },
+  "spoken": {
+   "chars": "姨妈",
+   "rom": "yímā"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Zy",
+  "en": "wife's mother's younger sister",
+  "formal": {
+   "chars": "姨母",
+   "rom": "yímǔ"
+  },
+  "spoken": {
+   "chars": "阿姨",
+   "rom": "āyí"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M B* W",
+  "en": "wife's mother's brother's wife",
+  "formal": {
+   "chars": "舅母",
+   "rom": "jiùmu"
+  },
+  "spoken": {
+   "chars": "舅妈",
+   "rom": "jiùma"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Z* H",
+  "en": "wife's mother's sister's husband",
+  "formal": {
+   "chars": "姨父",
+   "rom": "yífu"
+  },
+  "spoken": {
+   "chars": "姨父",
+   "rom": "yífu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "F B* S W",
+  "en": "paternal male cousin's wife",
+  "formal": {
+   "chars": "堂嫂",
+   "rom": "tángsǎo"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂嫂",
+    "rom": "tángsǎo"
+   },
+   "spoken": {
+    "chars": "堂嫂",
+    "rom": "tángsǎo"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂弟妹",
+    "rom": "tángdìmèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D H",
+  "en": "paternal female cousin's husband",
+  "formal": {
+   "chars": "堂姐夫",
+   "rom": "tángjiěfu"
+  },
+  "older": {
+   "formal": {
+    "chars": "堂姐夫",
+    "rom": "tángjiěfu"
+   },
+   "spoken": {
+    "chars": "堂姐夫",
+    "rom": "tángjiěfu"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "堂妹夫",
+    "rom": "tángmèifu"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S W",
+  "en": "father's sister's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "rom": "biǎosǎo"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟妹",
+    "rom": "biǎodìmèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S W",
+  "en": "mother's brother's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "rom": "biǎosǎo"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟妹",
+    "rom": "biǎodìmèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S W",
+  "en": "mother's sister's son's wife",
+  "formal": {
+   "chars": "表嫂",
+   "rom": "biǎosǎo"
+  },
+  "older": {
+   "formal": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   },
+   "spoken": {
+    "chars": "表嫂",
+    "rom": "biǎosǎo"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟妹",
+    "rom": "biǎodìmèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D H",
+  "en": "father's sister's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "rom": "biǎojiěfu"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "rom": "biǎomèifu"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D H",
+  "en": "mother's brother's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "rom": "biǎojiěfu"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "rom": "biǎomèifu"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D H",
+  "en": "mother's sister's daughter's husband",
+  "formal": {
+   "chars": "表姐夫",
+   "rom": "biǎojiěfu"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   },
+   "spoken": {
+    "chars": "表姐夫",
+    "rom": "biǎojiěfu"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹夫",
+    "rom": "biǎomèifu"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "spoken": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "spoken": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "spoken": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "spoken": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "spoken": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "spoken": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "spoken": {
+   "chars": "表舅",
+   "rom": "biǎojiù"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "spoken": {
+   "chars": "表舅妈",
+   "rom": "biǎojiùma"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "spoken": {
+   "chars": "表姨",
+   "rom": "biǎoyí"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "spoken": {
+   "chars": "表姨父",
+   "rom": "biǎoyífu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "表兄弟",
+   "rom": "biǎoxiōngdì"
+  },
+  "older": {
+   "formal": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   },
+   "spoken": {
+    "chars": "表哥",
+    "rom": "biǎogē"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表弟",
+    "rom": "biǎodì"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "表姐妹",
+   "rom": "biǎojiěmèi"
+  },
+  "older": {
+   "formal": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   },
+   "spoken": {
+    "chars": "表姐",
+    "rom": "biǎojiě"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "表妹",
+    "rom": "biǎomèi"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "曾祖父",
+   "rom": "zēngzǔfù"
+  },
+  "spoken": {
+   "chars": "太爷爷",
+   "rom": "tàiyéye"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "曾祖母",
+   "rom": "zēngzǔmǔ"
+  },
+  "spoken": {
+   "chars": "太奶奶",
+   "rom": "tàinǎinai"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "rom": "wàizēngzǔfù"
+  },
+  "spoken": {
+   "chars": "太外公",
+   "rom": "tàiwàigōng"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "rom": "wàizēngzǔmǔ"
+  },
+  "spoken": {
+   "chars": "太外婆",
+   "rom": "tàiwàipó"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "rom": "wàizēngzǔfù"
+  },
+  "spoken": {
+   "chars": "太外公",
+   "rom": "tàiwàigōng"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "rom": "wàizēngzǔmǔ"
+  },
+  "spoken": {
+   "chars": "太外婆",
+   "rom": "tàiwàipó"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "外曾祖父",
+   "rom": "wàizēngzǔfù"
+  },
+  "spoken": {
+   "chars": "太外公",
+   "rom": "tàiwàigōng"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "外曾祖母",
+   "rom": "wàizēngzǔmǔ"
+  },
+  "spoken": {
+   "chars": "太外婆",
+   "rom": "tàiwàipó"
+  },
+  "status": "unverified"
+ }
+]

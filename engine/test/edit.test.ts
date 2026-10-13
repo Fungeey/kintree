@@ -9,8 +9,8 @@ import type { Tree, TitleEntry, Generic, View } from '../src/index.ts';
 import { tree } from './fixture.ts';
 
 const load = (f: string) => JSON.parse(readFileSync(new URL(f, import.meta.url), 'utf8'));
-const table = loadTable(load('../data/titles.json') as TitleEntry[]);
-const generic: Generic = load('../data/generic.json');
+const table = loadTable(load('../data/yue/titles.json') as TitleEntry[]);
+const generic: Generic = load('../data/yue/generic.json');
 
 test('empty tree starts with me', () => {
   const { tree: t, id } = addPerson(emptyTree(), 'm', 'Me');

@@ -1,0 +1,40 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "爷爷",
+   "rom": "yéye"
+  },
+  "f": {
+   "chars": "奶奶",
+   "rom": "nǎinai"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "叔叔",
+   "rom": "shūshu"
+  },
+  "f": {
+   "chars": "阿姨",
+   "rom": "āyí"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "哥哥",
+    "rom": "gēge"
+   },
+   "younger": "by-name"
+  },
+  "f": {
+   "older": {
+    "chars": "姐姐",
+    "rom": "jiějie"
+   },
+   "younger": "by-name"
+  }
+ },
+ "below": "by-name"
+}

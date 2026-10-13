@@ -5,6 +5,8 @@ import { spokenText } from './audio/speech.ts';
 import type { SpeechState } from './audio/useSpeech.ts';
 import { faceUrl, initials } from './faces.ts';
 import { ageFor, HairBack, HairFront } from './Hair.tsx';
+import { DEFAULT_LANG, langFor } from './lang.ts';
+import type { LangId } from './lang.ts';
 
 interface Props {
   person: Person;
@@ -15,12 +17,14 @@ interface Props {
   x: number;
   y: number;
   onPick: (id: string) => void;
+  lang?: LangId;
   speech?: { state: SpeechState; speak: (text: string) => void };
 }
 
-export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, speech }: Props) {
+export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, speech, lang = DEFAULT_LANG }: Props) {
   const [broken, setBroken] = useState(false);
-  const text = spokenText(shown);
+  const text = spokenText(shown, lang);
+  const html = langFor(lang).html;
   const canPlay = speech?.state === 'ready' && text !== '';
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
@@ -46,8 +50,8 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
         {shown.lines.map((l, i) => (
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
-            {l.jyutping && <b className="jp">{l.jyutping}</b>}
-            <span className="zh">{l.chars}</span>
+            {l.rom && <b className="rom">{l.rom}</b>}
+            <span className="zh" lang={l.byName && !l.rom ? undefined : html}>{l.chars}</span>
           </span>
         ))}
       </div>

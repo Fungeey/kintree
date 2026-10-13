@@ -9,4 +9,5 @@ export { emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, remov
 export type { Edited } from './edit.ts';
 export { sides, visible } from './sides.ts';
 export type { Side, View, Sides } from './sides.ts';
-export { rankTitle } from './rank.ts';
+export { rankTitle, RANK_YUE, RANK_CMN } from './rank.ts';
+export type { RankData } from './rank.ts';
