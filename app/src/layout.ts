@@ -132,6 +132,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // A married child's in-law family met inside another family's block waits until that block is
   // done, so it never pushes in between a parent and that parent's own brothers and sisters.
   let deferred: string[] = [];
+  const leftGroups: string[][] = []; // husbands' brothers and sisters drawn to the left of a couple, for the final tightening
 
   // Whether someone, or anyone descended from them, is a son whose wife's own family is still to be drawn.
   const inLawMemo = new Map<string, boolean>();
@@ -172,10 +173,11 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     const parents = fam.parents.filter(p => !pos.has(p));
     // On the line above the root, a husband's own brothers and sisters (with their families) are drawn
     // to the left of his couple, and a wife's to the right, as the rest of the tree keeps the father's side left.
+    let leftGroup: string[] = [];
     if (spine.has(fid)) {
       for (const m of parents.filter(p => sexRank(tree, p) === 0)) {
         const bf = birth.get(m);
-        if (bf && !done.has(bf) && fams.get(bf)!.children.length > 1) placeFamily(bf, new Set([m]));
+        if (bf && !done.has(bf) && fams.get(bf)!.children.length > 1) { leftGroup = placeFamily(bf, new Set([m])); leftGroups.push(leftGroup); }
       }
     }
     const placedKids = fam.children.filter(c => pos.has(c));
@@ -263,6 +265,17 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       }
       ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
     }
+    // The husband's brothers and sisters were drawn first, at the far left; slide them right until they
+    // are as close to his couple as the cards drawn since allow.
+    if (leftGroup.length) {
+      const mine = new Set(leftGroup);
+      let dx = Infinity;
+      for (const id of leftGroup) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) shift(leftGroup, dx);
+    }
     // A parent's own birth family is drawn on its own, further along.
     for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) queue.push(b); }
     return placed;
@@ -319,6 +332,21 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       queue.push(...deferred);
       deferred = [];
     }
+  }
+  // Cards drawn after a husband's brothers and sisters can move the couple further right: slide each
+  // group right again until it touches whatever is next to it in some row.
+  for (let pass = 0; pass < 6; pass++) {
+    let moved = false;
+    for (const group of leftGroups) {
+      const mine = new Set(group);
+      let dx = Infinity;
+      for (const id of group) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) { shift(group, dx); moved = true; }
+    }
+    if (!moved) break;
   }
   // Anyone left (no family, or not reached): a card of their own, in tree order.
   let x = right ? right + GAP_X * 2 : 0;
