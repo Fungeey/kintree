@@ -16,3 +16,11 @@ export function switchTarget(tree: Tree, me: string | null, target: string): str
   if (gloss && gloss !== 'me') return `your ${gloss}`;
   return p.sex === 'm' ? 'this man' : 'this woman';
 }
+
+// The footer's "Viewing as: {who}" for the current "me": their name, else their relation to the root
+// ("your father", "Mei's mother"). The root always has a name, so the last fallback is rare.
+export function viewingAs(tree: Tree, me: string): string {
+  const name = tree.people.find(x => x.id === me)?.name?.trim();
+  if (name) return name;
+  return rootLabel(tree, me)?.replace(/^Your /, 'your ') ?? 'you';
+}

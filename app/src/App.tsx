@@ -7,7 +7,7 @@ import { EditName } from './EditName.tsx';
 import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
-import { switchTarget } from './switchPov.ts';
+import { switchTarget, viewingAs } from './switchPov.ts';
 import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
 import { rootLabel } from './display.ts';
 
@@ -148,7 +148,10 @@ function Shell({ start }: { start: Start }) {
           onCancel={() => setRenaming(null)}
         />
       )}
-      <p className="hint">{editMode ? 'Tap Done when you have finished editing.' : "Tap a person to see everyone's titles from their point of view."}</p>
+      <footer className="foot">
+        <p className="viewing">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>
+        <p className="hint">{editMode ? 'Tap Done when you have finished editing.' : "Tap a person to see everyone's titles from their point of view."}</p>
+      </footer>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { addParent, addPerson, addSibling, emptyTree } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
-import { switchTarget } from '../src/switchPov.ts';
+import { switchTarget, viewingAs } from '../src/switchPov.ts';
 import { demoTree } from '../src/demo.ts';
 
 function sample() {
@@ -51,4 +51,16 @@ test('switch: with no named root, an unnamed person is named by relation to "me"
   const b = addSibling(t, a.id, 'm', undefined, 0); t = b.tree;
   const who = switchTarget(t, a.id, b.id)!;
   assert.match(who, /^your /);
+});
+
+test('viewing as: a named "me" shows their name', () => {
+  const { t, id } = sample();
+  assert.equal(viewingAs(t, id.me), 'Mei');
+  assert.equal(viewingAs(t, id.dad), 'Wing');
+});
+
+test('viewing as: an unnamed "me" shows their relation to the root', () => {
+  const { t, id } = sample();
+  assert.equal(viewingAs(t, id.mum), "Mei's mother");
+  assert.equal(viewingAs(t, id.gpa), "Mei's paternal grandfather");
 });
