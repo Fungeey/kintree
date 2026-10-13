@@ -64,3 +64,10 @@ test('rank: father\'s side uses 伯 for elder brothers and 叔 for younger ones,
   assert.equal(rankTitle(t, me.id, b2.id)!.chars, '二叔');
   assert.equal(rankTitle(t, me.id, b3.id)!.chars, '三叔');
 });
+
+test('rank: mother\'s brothers take the full 舅父', () => {
+  const { t: base, id } = family();
+  const e = addSibling(base, id.mum, 'm', 'E');
+  assert.deepEqual(rankTitle(e.tree, id.me, id.C), { chars: '大舅父', jyutping: 'daai6 kau5 fu2' });
+  assert.deepEqual(rankTitle(e.tree, id.me, e.id), { chars: '二舅父', jyutping: 'ji6 kau5 fu2' });
+});
