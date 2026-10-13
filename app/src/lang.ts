@@ -13,6 +13,7 @@ export type LangId = 'yue' | 'cmn' | 'vie';
 export interface Lang {
   id: LangId;
   label: string;          // in its own script, for the picker
+  english: string;        // the language's name in English, shown beside it
   heading: string;        // the app title
   html: string;           // BCP 47 tag for the lang attribute, which picks the right glyph shapes
   table: Table;
@@ -42,19 +43,19 @@ function isMainlandMandarin(v: { lang: string }): boolean {
 
 const LANGS: Record<LangId, Omit<Lang, 'table' | 'generic'> & { titles: unknown; generic: unknown }> = {
   yue: {
-    id: 'yue', label: '粵語', heading: '家庭稱呼', html: 'zh-HK',
+    id: 'yue', label: '粵語', english: 'Cantonese', heading: '家庭稱呼', html: 'zh-HK',
     titles: yueTitles, generic: yueGeneric, rank: RANK_YUE, joiner: '嘅', reverse: false, romanized: true, me: { chars: '我', rom: 'ngo5' },
     voice: v => tag(v) === 'zh-hk' || tag(v).startsWith('yue') || /cantonese|粵|粤|sin-?ji/i.test(v.name),
     voicePrefer: ['zh-hk'], sep: '，',
   },
   cmn: {
-    id: 'cmn', label: '普通话', heading: '家庭称呼', html: 'zh-CN',
+    id: 'cmn', label: '普通话', english: 'Mandarin', heading: '家庭称呼', html: 'zh-CN',
     titles: cmnTitles, generic: cmnGeneric, rank: RANK_CMN, joiner: '的', reverse: false, romanized: true, me: { chars: '我', rom: 'wǒ' },
     voice: isMainlandMandarin,
     voicePrefer: ['zh-cn', 'zh-cn-hans', 'cmn-cn', 'cmn-hans-cn'], sep: '，',
   },
   vie: {
-    id: 'vie', label: 'Tiếng Việt', heading: 'Xưng hô gia đình', html: 'vi-VN',
+    id: 'vie', label: 'Tiếng Việt', english: 'Vietnamese', heading: 'Xưng hô gia đình', html: 'vi-VN',
     titles: vieTitles, generic: vieGeneric, rank: null, joiner: ' của ', reverse: true, romanized: false, me: { chars: 'tôi' },
     voice: v => tag(v).split('-')[0] === 'vi',
     voicePrefer: ['vi-vn'], sep: ', ',
