@@ -205,6 +205,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     const kids = [...lead.filter(k => sexRank(tree, k) !== 0), ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k)), ...lead.filter(k => sexRank(tree, k) === 0)];
 
     const placed: string[] = [];
+    const branches: string[][] = [];
     const centers: number[] = [];
     for (const k of placedKids) centers.push(pos.get(k)!.x + CARD_W / 2);
     // Each brother's or sister's branch (them, their spouse, their descendants) gets its own stretch
@@ -218,11 +219,12 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       first = false
       const ofid = own.get(k);
       if (ofid && !done.has(ofid)) {
-        placed.push(...placeFamily(ofid));
+        const got = placeFamily(ofid);
+        placed.push(...got); branches.push(got);
         centers.push(pos.get(k)!.x + CARD_W / 2);
       } else {
         putCard(k, free(rowOf(k)));
-        placed.push(k);
+        placed.push(k); branches.push([k]);
         centers.push(pos.get(k)!.x + CARD_W / 2);
       }
       const bf = wifeFamily.get(k);
@@ -230,6 +232,22 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     }
 
     floor = floorBefore;
+
+    // Slide each brother's or sister's branch right, from the last to the first, until it is as close
+    // to the next one as the cards in every row allow: the family stays tight without overlapping.
+    for (let i = branches.length - 2; i >= 0; i--) {
+      const mine = new Set(branches[i]);
+      let dx = Infinity;
+      for (const id of branches[i]) {
+        const c = pos.get(id)!;
+        for (const [oid, o] of pos) if (!mine.has(oid) && o.y === c.y && o.x > c.x) dx = Math.min(dx, o.x - c.x - CARD_W - GAP_X);
+      }
+      if (dx > 0 && dx < Infinity) shift(branches[i], dx);
+    }
+    if (branches.length > 1) {
+      centers.length = 0;
+      for (const k of fam.children) if (pos.has(k)) centers.push(pos.get(k)!.x + CARD_W / 2);
+    }
 
     // Male parent on the left, as is the convention.
     const ordered = [...parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b));
