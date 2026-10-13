@@ -31,7 +31,7 @@ test('bad link falls back to the saved tree and reports the error', async () => 
   assert.equal(o.source, 'saved');
   assert.deepEqual(o.snapshot, s);
   assert.ok(o.error);
-  assert.equal(frag.startsWith('v1.'), true);
+  assert.equal(frag.startsWith('v2.'), true);
 });
 
 test('no storage: a link still opens', async () => {
