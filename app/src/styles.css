@@ -68,7 +68,6 @@ button { font: inherit; color: inherit; }
 .viewing strong { color: var(--accent); }
 .start { max-width: 28rem; margin: 0 auto; padding: 32px 16px; }
 
-.nospeech { position: absolute; left: 8px; bottom: 52px; margin: 0; max-width: 60%; font-size: .7rem; color: var(--muted); }
 .notice { margin: 0; padding: 6px 16px; background: #f6dfd2; color: #7a2a14; font-size: .85rem; }
 .notice button { border: 1px solid currentColor; background: none; color: inherit; border-radius: 6px; padding: 2px 8px; cursor: pointer; }
 
