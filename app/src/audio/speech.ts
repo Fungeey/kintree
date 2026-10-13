@@ -17,7 +17,7 @@ export function pickVoice<T extends VoiceLike>(voices: readonly T[], lang: LangI
 }
 
 // The spoken form of a card: titles you'd say aloud, including the formal term shown for relatives who are
-// called by name. Only the bare "by name" placeholder (no romanization) has nothing to say.
+// called by name. Only the bare "by name" placeholder has nothing to say.
 export function spokenText(shown: Shown, lang: LangId = DEFAULT_LANG): string {
-  return shown.lines.filter(l => !(l.byName && !l.rom) && !l.rank && l.chars).map(l => l.chars).join(langFor(lang).sep);
+  return shown.lines.filter(l => !l.bare && !l.rank && l.chars).map(l => l.chars).join(langFor(lang).sep);
 }

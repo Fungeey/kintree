@@ -1,0 +1,2108 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "cha"
+  },
+  "spoken": {
+   "chars": "bố"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "mẹ"
+  },
+  "spoken": {
+   "chars": "mẹ"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "con trai"
+  },
+  "spoken": {
+   "chars": "con"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "con gái"
+  },
+  "spoken": {
+   "chars": "con"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "chồng"
+  },
+  "spoken": {
+   "chars": "chồng"
+  },
+  "status": "unverified",
+  "note": "Couples often address each other as anh / em or by name"
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "vợ"
+  },
+  "spoken": {
+   "chars": "vợ"
+  },
+  "status": "unverified",
+  "note": "Couples often address each other as anh / em or by name"
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "anh trai"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "em trai"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "chị gái"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "em gái"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "ông nội"
+  },
+  "spoken": {
+   "chars": "ông nội"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "bà nội"
+  },
+  "spoken": {
+   "chars": "bà nội"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "ông ngoại"
+  },
+  "spoken": {
+   "chars": "ông ngoại"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "bà ngoại"
+  },
+  "spoken": {
+   "chars": "bà ngoại"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Ze",
+  "en": "father's elder sister",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Zy",
+  "en": "father's younger sister",
+  "formal": {
+   "chars": "cô"
+  },
+  "spoken": {
+   "chars": "cô"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Be",
+  "en": "mother's elder brother",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "Northern usage; in the south all of the mother's brothers are cậu"
+ },
+ {
+  "pattern": "M By",
+  "en": "mother's younger brother",
+  "formal": {
+   "chars": "cậu"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Ze",
+  "en": "mother's elder sister",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "Northern usage; in the south all of the mother's sisters are dì"
+ },
+ {
+  "pattern": "M Zy",
+  "en": "mother's younger sister",
+  "formal": {
+   "chars": "dì"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "bác gái"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "thím"
+  },
+  "spoken": {
+   "chars": "thím"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Ze H",
+  "en": "father's elder sister's husband",
+  "formal": {
+   "chars": "bác trai"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Zy H",
+  "en": "father's younger sister's husband",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "Some families say dượng"
+ },
+ {
+  "pattern": "M Be W",
+  "en": "mother's elder brother's wife",
+  "formal": {
+   "chars": "bác gái"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M By W",
+  "en": "mother's younger brother's wife",
+  "formal": {
+   "chars": "mợ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Ze H",
+  "en": "mother's elder sister's husband",
+  "formal": {
+   "chars": "bác trai"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Zy H",
+  "en": "mother's younger sister's husband",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "Some families say dượng"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "ông bác"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "ông chú"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F F Z*",
+  "en": "paternal grandfather's sister",
+  "formal": {
+   "chars": "bà cô"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Be S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "anh họ"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F By S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Be D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "chị họ"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F By D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Ze S",
+  "en": "cousin",
+  "formal": {
+   "chars": "anh họ"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Zy S",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Ze D",
+  "en": "cousin",
+  "formal": {
+   "chars": "chị họ"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Zy D",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Be S",
+  "en": "cousin",
+  "formal": {
+   "chars": "anh họ"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M By S",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Be D",
+  "en": "cousin",
+  "formal": {
+   "chars": "chị họ"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M By D",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Ze S",
+  "en": "cousin",
+  "formal": {
+   "chars": "anh họ"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Zy S",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Ze D",
+  "en": "cousin",
+  "formal": {
+   "chars": "chị họ"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Zy D",
+  "en": "cousin",
+  "formal": {
+   "chars": "em họ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "chị dâu"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "em dâu"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "anh rể"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "em rể"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "cháu trai"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "cháu gái"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "cháu trai"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "cháu gái"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "con dâu"
+  },
+  "spoken": {
+   "chars": "con"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "con rể"
+  },
+  "spoken": {
+   "chars": "con"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "cháu nội"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "cháu nội"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "cháu ngoại"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "cháu ngoại"
+  },
+  "spoken": {
+   "chars": "cháu"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "bố chồng"
+  },
+  "spoken": {
+   "chars": "bố"
+  },
+  "status": "unverified",
+  "note": "Spouses address their parents-in-law as bố / mẹ"
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "mẹ chồng"
+  },
+  "spoken": {
+   "chars": "mẹ"
+  },
+  "status": "unverified",
+  "note": "Spouses address their parents-in-law as bố / mẹ"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "bố vợ"
+  },
+  "spoken": {
+   "chars": "bố"
+  },
+  "status": "unverified",
+  "note": "Spouses address their parents-in-law as bố / mẹ"
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "mẹ vợ"
+  },
+  "spoken": {
+   "chars": "mẹ"
+  },
+  "status": "unverified",
+  "note": "Spouses address their parents-in-law as bố / mẹ"
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "anh chồng"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "em chồng"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "chị chồng"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "em chồng"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "anh vợ"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "em vợ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "chị vợ"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "em vợ"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "ông bác"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "ông chú"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M B*",
+  "en": "paternal grandmother's brother",
+  "formal": {
+   "chars": "ông cậu"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M B*",
+  "en": "maternal grandmother's brother",
+  "formal": {
+   "chars": "ông cậu"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Z*",
+  "en": "maternal grandfather's sister",
+  "formal": {
+   "chars": "bà cô"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "by analogy with the paternal line; unchecked"
+ },
+ {
+  "pattern": "F M Z*",
+  "en": "paternal grandmother's sister",
+  "formal": {
+   "chars": "bà dì"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M M Z*",
+  "en": "maternal grandmother's sister",
+  "formal": {
+   "chars": "bà dì"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "ông nội"
+  },
+  "spoken": {
+   "chars": "ông nội"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "bà nội"
+  },
+  "spoken": {
+   "chars": "bà nội"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "ông ngoại"
+  },
+  "spoken": {
+   "chars": "ông ngoại"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "bà ngoại"
+  },
+  "spoken": {
+   "chars": "bà ngoại"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "ông nội"
+  },
+  "spoken": {
+   "chars": "ông nội"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "bà nội"
+  },
+  "spoken": {
+   "chars": "bà nội"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "ông ngoại"
+  },
+  "spoken": {
+   "chars": "ông ngoại"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "bà ngoại"
+  },
+  "spoken": {
+   "chars": "bà ngoại"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Be",
+  "en": "wife's father's elder brother",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By",
+  "en": "wife's father's younger brother",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Ze",
+  "en": "wife's father's elder sister",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Zy",
+  "en": "wife's father's younger sister",
+  "formal": {
+   "chars": "cô"
+  },
+  "spoken": {
+   "chars": "cô"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Be W",
+  "en": "wife's father's elder brother's wife",
+  "formal": {
+   "chars": "bác gái"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F By W",
+  "en": "wife's father's younger brother's wife",
+  "formal": {
+   "chars": "thím"
+  },
+  "spoken": {
+   "chars": "thím"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Ze H",
+  "en": "wife's father's elder sister's husband",
+  "formal": {
+   "chars": "bác trai"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W F Zy H",
+  "en": "wife's father's younger sister's husband",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Be",
+  "en": "wife's mother's elder brother",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M By",
+  "en": "wife's mother's younger brother",
+  "formal": {
+   "chars": "cậu"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Ze",
+  "en": "wife's mother's elder sister",
+  "formal": {
+   "chars": "bác"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Zy",
+  "en": "wife's mother's younger sister",
+  "formal": {
+   "chars": "dì"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Be W",
+  "en": "wife's mother's elder brother's wife",
+  "formal": {
+   "chars": "bác gái"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M By W",
+  "en": "wife's mother's younger brother's wife",
+  "formal": {
+   "chars": "mợ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Ze H",
+  "en": "wife's mother's elder sister's husband",
+  "formal": {
+   "chars": "bác trai"
+  },
+  "spoken": {
+   "chars": "bác"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "W M Zy H",
+  "en": "wife's mother's younger sister's husband",
+  "formal": {
+   "chars": "chú"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "F Be S W",
+  "en": "paternal cousin's wife",
+  "formal": {
+   "chars": "chị dâu"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F By S W",
+  "en": "paternal cousin's wife",
+  "formal": {
+   "chars": "em dâu"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Be D H",
+  "en": "paternal cousin's husband",
+  "formal": {
+   "chars": "anh rể"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F By D H",
+  "en": "paternal cousin's husband",
+  "formal": {
+   "chars": "em rể"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Ze S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "chị dâu"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Zy S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "em dâu"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Be S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "chị dâu"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M By S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "em dâu"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Ze S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "chị dâu"
+  },
+  "spoken": {
+   "chars": "chị"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Zy S W",
+  "en": "cousin's wife",
+  "formal": {
+   "chars": "em dâu"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Ze D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "anh rể"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "F Zy D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "em rể"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Be D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "anh rể"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M By D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "em rể"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Ze D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "anh rể"
+  },
+  "spoken": {
+   "chars": "anh"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M Zy D H",
+  "en": "cousin's husband",
+  "formal": {
+   "chars": "em rể"
+  },
+  "spoken": {
+   "chars": "em"
+  },
+  "status": "unverified",
+  "note": "By the parents' order (vai vế): a cousin whose parent is older than yours is anh / chị whatever their ages. Many families go by age instead"
+ },
+ {
+  "pattern": "M F B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "cậu họ"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "mợ họ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "dì họ"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "chú họ"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "cậu họ"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "mợ họ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "dì họ"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "chú họ"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M F Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M F Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "cậu họ"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "mợ họ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "dì họ"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "chú họ"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "cậu họ"
+  },
+  "spoken": {
+   "chars": "cậu"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "mợ họ"
+  },
+  "spoken": {
+   "chars": "mợ"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "dì họ"
+  },
+  "spoken": {
+   "chars": "dì"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "chú họ"
+  },
+  "spoken": {
+   "chars": "chú"
+  },
+  "status": "unverified",
+  "note": "unsourced; added from common usage"
+ },
+ {
+  "pattern": "M M Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "anh em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "anh họ"
+   },
+   "spoken": {
+    "chars": "anh"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "M M Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "chị em họ"
+  },
+  "older": {
+   "formal": {
+    "chars": "chị họ"
+   },
+   "spoken": {
+    "chars": "chị"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "em họ"
+   },
+   "spoken": {
+    "chars": "em"
+   }
+  },
+  "status": "unverified",
+  "note": "by age; unsourced"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "cụ ông nội"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "cụ bà nội"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "cụ ông ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "cụ bà ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "cụ ông ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "cụ bà ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "cụ ông ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "cụ bà ngoại"
+  },
+  "spoken": {
+   "chars": "cụ"
+  },
+  "status": "unverified",
+  "note": "from common usage; unchecked"
+ }
+]

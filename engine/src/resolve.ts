@@ -12,6 +12,7 @@ export function resolve(
   me: string,
   target: string,
   joiner = '嘅',
+  reverse = false,
 ): Resolution {
   const path = kinPath(tree, me, target);
   if (path === null) return { kind: 'unrelated' };
@@ -37,7 +38,7 @@ export function resolve(
     kind: 'fallback',
     path,
     generic: genericFor(generic, path, sex),
-    describe: describe(table, path, joiner),
+    describe: describe(table, path, joiner, reverse),
   };
 }
 
@@ -70,11 +71,12 @@ function compareSplits(a: Segment[], b: Segment[]): number {
   return 0;
 }
 
-// `joiner` links the segments in the language's own possessive (Cantonese 嘅, Mandarin 的).
+// `joiner` links the segments in the language's own possessive (Cantonese 嘅, Mandarin 的, Vietnamese " của ").
+// `reverse` puts the nearest relative last, as Vietnamese does ("anh họ của cha" for "father's cousin").
 // Split the path into segments that each match a table entry. Each segment is
 // named from the view of the person where it starts, which the entry's wording
 // already does. Single tokens always match, so a split always exists.
-function describe(table: Table, path: string, joiner: string): { text: string; en: string } {
+function describe(table: Table, path: string, joiner: string, reverse: boolean): { text: string; en: string } {
   const words = path.split(' ');
   const n = words.length;
   // best[i] is the best split of words[i..n).
@@ -94,7 +96,7 @@ function describe(table: Table, path: string, joiner: string): { text: string; e
   const segments = best[0];
   if (segments === null) throw new Error(`no description for path "${path}"`);
   return {
-    text: segments.map(s => s.entry.formal.chars).join(joiner),
+    text: (reverse ? [...segments].reverse() : segments).map(s => s.entry.formal.chars).join(joiner),
     en: segments.map(s => s.entry.en).join("'s "),
   };
 }

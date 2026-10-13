@@ -46,12 +46,12 @@ export function PersonCard({ person, shown, caption, isMe, gen, x, y, onPick, sp
         </span>
         <HairFront sex={person.sex} age={age} />
       </button>
-      <div className={`titles${two ? ' two' : ''}`}>
+      <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}`}>
         {shown.lines.map((l, i) => (
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
             {l.rom && <b className="rom">{l.rom}</b>}
-            <span className="zh" lang={l.byName && !l.rom ? undefined : html}>{l.chars}</span>
+            <span className="zh" lang={l.bare ? undefined : html}>{l.chars}</span>
           </span>
         ))}
       </div>

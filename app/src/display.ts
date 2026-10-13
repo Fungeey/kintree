@@ -4,7 +4,7 @@ import type { Tree, Spoken, Forms, Title } from '../../engine/src/index.ts';
 import { DEFAULT_LANG, langFor } from './lang.ts';
 import type { LangId } from './lang.ts';
 
-export interface Line { label?: string; chars: string; rom?: string; byName?: boolean; rank?: boolean }
+export interface Line { label?: string; chars: string; rom?: string; byName?: boolean; bare?: boolean; rank?: boolean }
 export interface Shown {
   kind: 'self' | 'title' | 'byAge' | 'fallback' | 'unrelated';
   lines: Line[];          // spoken titles, large; one line, or two for older/younger
@@ -16,7 +16,7 @@ export interface Shown {
 const BY_NAME = 'by name';
 
 function line(s: Spoken, label?: string): Line {
-  return s === 'by-name' ? { label, chars: BY_NAME, byName: true } : { label, chars: s.chars, rom: s.rom };
+  return s === 'by-name' ? { label, chars: BY_NAME, byName: true, bare: true } : { label, chars: s.chars, rom: s.rom };
 }
 
 function forms(f: Forms, label: string): Line {
@@ -34,7 +34,7 @@ export function rootLabel(tree: Tree, target: string, lang: LangId = DEFAULT_LAN
   const root = tree.root && tree.people.find(p => p.id === tree.root);
   const name = root && root.name?.trim();
   if (!root || !name) return null;
-  const r = resolve(tree, L.table, L.generic, root.id, target, L.joiner);
+  const r = resolve(tree, L.table, L.generic, root.id, target, L.joiner, L.reverse);
   switch (r.kind) {
     case 'self': return name;
     case 'unrelated': return null;
@@ -50,7 +50,7 @@ export function captionFor(tree: Tree, id: string): string | null {
 
 export function showFor(tree: Tree, me: string, target: string, lang: LangId = DEFAULT_LANG): Shown {
   const L = langFor(lang);
-  const r = resolve(tree, L.table, L.generic, me, target, L.joiner);
+  const r = resolve(tree, L.table, L.generic, me, target, L.joiner, L.reverse);
   switch (r.kind) {
     case 'self': return { kind: 'self', lines: [{ chars: L.me.chars, rom: L.me.rom }], gloss: 'me' };
     case 'unrelated': return { kind: 'unrelated', lines: [] };
@@ -58,7 +58,7 @@ export function showFor(tree: Tree, me: string, target: string, lang: LangId = D
       const { spoken, formal } = r.forms;
       const first = spoken === 'by-name' ? { chars: formal.chars, rom: formal.rom, byName: true } : line(spoken);
       // Aunts and uncles can also be called by rank (大姨媽, 二姨媽): shown beside the usual title, not instead of it.
-      const rank = rankTitle(tree, me, target, L.rank);
+      const rank = L.rank ? rankTitle(tree, me, target, L.rank) : null;
       return {
         kind: 'title', gloss: r.en,
         lines: rank ? [first, { chars: rank.chars, rom: rank.rom, rank: true }] : [first],

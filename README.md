@@ -1,10 +1,10 @@
 # kintree
 
-A family tree that tells you what to call each relative in Cantonese or Mandarin. Pick yourself, add parents, siblings, spouses and children, and every card shows the title (characters and Jyutping or pinyin), with spoken and formal forms and audio. The language is the viewer's choice from the picker; a link carries `?lang=yue` or `?lang=cmn`, and defaults to Cantonese without one.
+A family tree that tells you what to call each relative in Cantonese, Mandarin or Vietnamese. Pick yourself, add parents, siblings, spouses and children, and every card shows the title (characters and Jyutping or pinyin; Vietnamese is shown as is), with spoken and formal forms and audio. The language is the viewer's choice from the picker; a link carries `?lang=yue`, `?lang=cmn` or `?lang=vie`, and defaults to Cantonese without one.
 
 **Live:** https://fungeey.github.io/kintree/ (add `?demo` to load a sample family)
 
-> **The Cantonese and Mandarin titles have not yet been checked by a native speaker.** Some were checked against words.hk; the rest are unverified. Every title and its status is listed in [`engine/data/FLAGGED.md`](engine/data/FLAGGED.md). Please treat the titles as a draft until that list is reviewed. The Mandarin table (simplified, mainland usage) is all `unverified`; its regional variants are in each entry's `note`.
+> **The Cantonese, Mandarin and Vietnamese titles have not yet been checked by a native speaker.** Some were checked against words.hk; the rest are unverified. Every title and its status is listed in [`engine/data/FLAGGED.md`](engine/data/FLAGGED.md). Please treat the titles as a draft until that list is reviewed. The Mandarin table (simplified, mainland usage) and the Vietnamese table (northern usage) are all `unverified`; its regional variants are in each entry's `note`.
 
 ## Layout
 
