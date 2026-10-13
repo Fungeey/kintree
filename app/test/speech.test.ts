@@ -37,3 +37,18 @@ test('pickVoice for Mandarin takes zh-CN, zh-Hans or cmn and skips Cantonese and
   assert.equal(pickVoice([{ lang: 'zh-HK', name: 'a' }, { lang: 'zh-TW', name: 'b' }, { lang: 'yue-HK', name: 'c' }], 'cmn'), undefined);
   assert.equal(pickVoice(v, 'yue')?.name, 'Sinji');
 });
+
+test('pickVoice reads Android Chrome tags like zh_CN_#Hans and yue_HK_#Hant', () => {
+  const android = [
+    { lang: 'yue_HK_#Hant', name: 'Cantonese Hong Kong' },
+    { lang: 'zh_CN_#Hans', name: 'Chinese China' },
+    { lang: 'zh_HK_#Hans', name: 'Chinese Hong Kong' },
+    { lang: 'zh_SG_#Hans', name: 'Chinese Singapore' },
+    { lang: 'zh_TW_#Hant', name: 'Chinese Taiwan' },
+  ];
+  assert.equal(pickVoice(android, 'cmn')?.name, 'Chinese China');
+  assert.equal(pickVoice(android, 'yue')?.name, 'Cantonese Hong Kong');
+  // With no mainland voice, Singapore Mandarin is fine but Hong Kong and Taiwan voices are not.
+  assert.equal(pickVoice(android.filter(v => v.lang !== 'zh_CN_#Hans'), 'cmn')?.name, 'Chinese Singapore');
+  assert.equal(pickVoice([android[2], android[4], { lang: 'zh_MO_#Hant', name: 'm' }], 'cmn'), undefined);
+});

@@ -1,6 +1,6 @@
 // Text-to-speech for titles using the browser's voice for the chosen language.
 import type { Shown } from '../display.ts';
-import { DEFAULT_LANG, langFor } from '../lang.ts';
+import { DEFAULT_LANG, langFor, tag as tagOf } from '../lang.ts';
 import type { LangId } from '../lang.ts';
 
 export interface VoiceLike { lang: string; name: string }
@@ -10,7 +10,7 @@ export interface VoiceLike { lang: string; name: string }
 export function pickVoice<T extends VoiceLike>(voices: readonly T[], lang: LangId = DEFAULT_LANG): T | undefined {
   const L = langFor(lang);
   for (const want of L.voicePrefer) {
-    const hit = voices.find(v => v.lang.replace('_', '-').toLowerCase() === want);
+    const hit = voices.find(v => tagOf(v) === want);
     if (hit) return hit;
   }
   return voices.find(L.voice);
