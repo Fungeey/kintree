@@ -201,7 +201,8 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     // brothers and sisters sit on its far side, with room for their families under them.
     const lead = spine.has(fid) ? fresh.filter(k => ancestors.has(k) && liftOf(own.get(k) ?? '') >= 2) : [];
     const rest = fresh.filter(k => !lead.includes(k));
-    const kids = [...lead, ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k))];
+    // A husband goes last, so his brothers and sisters are on his left; a wife first, so hers are on her right.
+    const kids = [...lead.filter(k => sexRank(tree, k) !== 0), ...rest.filter(k => !leadsToInLaw(k)), ...rest.filter(k => leadsToInLaw(k)), ...lead.filter(k => sexRank(tree, k) === 0)];
 
     const placed: string[] = [];
     const centers: number[] = [];
@@ -266,7 +267,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
         const bf = sp && birth.get(sp);
         const bfam = bf && fams.get(bf);
         if (sp && bf && bfam && sexRank(tree, k) < sexRank(tree, sp) && bfam.parents.length + bfam.children.length > 1
-          && fams.get(ofid)!.children.some(leadsToInLaw)) out.push({ fid: bf, joiner: sp });
+          && !spine.has(bf) && fams.get(ofid)!.children.some(leadsToInLaw)) out.push({ fid: bf, joiner: sp });
         walk(ofid);
       }
     };
