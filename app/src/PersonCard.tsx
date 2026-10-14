@@ -75,7 +75,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
 // Drawn over the face's own mouth (DiceBear line-face puts it around 33-73 across and 64-78 down, out of 100, with the
 // wide smiles ending in an upward flick) while the card is read aloud. A pill cut from the blank chin of the same face
 // image hides that mouth in the face's own skin colour, whatever it is, and four black outlines take turns on it:
-// a flat line, a small O, a big O and a wide flat opening.
+// a flat line, a small O, a wide flat opening and a big O.
 function TalkingMouth({ src }: { src: string }) {
   const clip = 'talk-clip' + useId().replace(/\W/g, '');
   return (
