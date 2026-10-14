@@ -72,13 +72,13 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   );
 }
 
-// Drawn over the face's own mouth (DiceBear line-face puts it around 33-71 across and 66-78 down, out of 100) while
-// the card is read aloud. A fixed beige oval hides that mouth, and four black-outlined mouths take turns on it:
-// a flat line, a small O, a big O and a wide flat opening.
+// Drawn over the face's own mouth (DiceBear line-face puts it around 33-73 across and 64-78 down, out of 100, with the
+// wide smiles ending in an upward flick) while the card is read aloud. A fixed beige pill hides that mouth, and four
+// black-outlined mouths take turns on it: a flat line, a small O, a big O and a wide flat opening.
 function TalkingMouth() {
   return (
     <svg className="talk" viewBox="0 0 100 100" aria-hidden="true">
-      <ellipse className="talk-bg" cx="52" cy="75" rx="26" ry="12" />
+      <rect className="talk-bg" x="25" y="62" width="54" height="24" rx="12" />
       <path className="talk-f talk-line" d="M38 76h28" />
       <ellipse className="talk-f talk-small" cx="52" cy="76" rx="6.5" ry="5.5" />
       <ellipse className="talk-f talk-big" cx="52" cy="76" rx="15" ry="10.5" />
