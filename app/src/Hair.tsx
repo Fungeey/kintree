@@ -3,19 +3,44 @@
 // outlined not filled: a bald-topped grandpa, a bun for grandma). Back hair sits behind the
 // face; the fringe is drawn over it.
 const INK = 'var(--ink)';
-export type Age = 'adult' | 'parent' | 'elder';
+export type Age = 'oldest' | 'elder' | 'parent' | 'adult' | 'child' | 'baby';
 
-// Generation relative to "me" -> hair style.
-export const ageFor = (gen: number): Age => (gen <= -2 ? 'elder' : gen === -1 ? 'parent' : 'adult');
+// Generation (layout row relative to the tree's first person, so it does not change with the viewpoint)
+// -> hair: sparse white, white, grey, black, brown, baby tuft.
+export const ageFor = (gen: number): Age =>
+  gen <= -3 ? 'oldest' : gen === -2 ? 'elder' : gen === -1 ? 'parent' : gen === 0 ? 'adult' : gen === 1 ? 'child' : 'baby';
+
+const HAIR_FILL: Record<Age, string> = {
+  oldest: 'var(--paper)', elder: 'var(--paper)', parent: '#9a948a', adult: INK, child: '#8a5a34', baby: '#d9b36b',
+};
 
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
-const dark = { ...stroke, fill: INK };
+const fillFor = (age: Age) => ({ ...stroke, fill: HAIR_FILL[age] });
 const white = { ...stroke, fill: 'var(--paper)' };
 
 export function HairBack({ sex, age }: { sex: string; age: Age }) {
+  const dark = fillFor(age);
+  const thin = { ...white, strokeDasharray: '4 4' };
+  if (age === 'baby') {
+    return (
+      <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
+        <path {...dark} d="M64 24 C54 14 62 4 70 8 C78 12 72 20 66 20 C70 22 68 26 64 24Z" />
+        {sex === 'f' && <path {...dark} d="M52 26 C44 20 46 12 54 14 Z M76 26 C84 20 82 12 74 14 Z" />}
+      </svg>
+    );
+  }
   return (
     <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
-      {sex === 'm' ? (
+      {age === 'oldest' ? (
+        sex === 'm' ? (
+          <>
+            <path {...thin} d="M22 64 C18 52 22 42 30 36 C30 46 32 56 35 64 Z" />
+            <path {...thin} d="M106 64 C110 52 106 42 98 36 C98 46 96 56 93 64 Z" />
+          </>
+        ) : (
+          <path {...thin} d="M18 68 C10 30 36 16 64 16 C92 16 118 30 110 68 C112 84 106 92 98 94 C96 84 92 78 88 74 L40 74 C36 78 32 84 30 94 C22 92 16 84 18 68Z" />
+        )
+      ) : sex === 'm' ? (
         age === 'elder' ? (
           <>
             <path {...white} d="M21 66 C15 48 21 36 33 30 C31 44 33 56 37 66 Z" />
@@ -41,7 +66,8 @@ export function HairBack({ sex, age }: { sex: string; age: Age }) {
 }
 
 export function HairFront({ sex, age }: { sex: string; age: Age }) {
-  const fill = age === 'elder' ? white : dark;
+  const fill = fillFor(age);
+  if (age === 'baby' || age === 'oldest') return null;
   return (
     <svg className="hair front" viewBox="0 0 128 128" aria-hidden="true">
       <defs><clipPath id="face-clip"><circle cx="64" cy="62" r="40" /></clipPath></defs>

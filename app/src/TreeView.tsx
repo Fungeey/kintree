@@ -131,7 +131,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang = DEFAU
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(me) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} lang={lang} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} lang={lang} />;
         })}
       </div>
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>
