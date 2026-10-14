@@ -1,12 +1,12 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Tree } from '../../engine/src/index.ts';
-import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
+import { CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
 import { captionFor, showFor } from './display.ts';
 import { hiddenRelatives } from './hidden.ts';
 import { PersonCard } from './PersonCard.tsx';
 import { useSpeech } from './audio/useSpeech.ts';
-import { DEFAULT_LANG } from './lang.ts';
-import type { LangId } from './lang.ts';
+import { DEFAULT_LANG, NONE } from './lang.ts';
+import type { LangChoice } from './lang.ts';
 
 interface Props {
   tree: Tree;
@@ -14,14 +14,17 @@ interface Props {
   show: (id: string) => boolean;
   onPick: (id: string) => void;
   editing?: boolean;
-  lang?: LangId;
+  lang?: LangChoice;
 }
 
 interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
-export function TreeView({ tree, me, show, onPick, editing = false, lang = DEFAULT_LANG }: Props) {
-  const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
+export function TreeView({ tree, me, show, onPick, editing = false, lang: choice = DEFAULT_LANG }: Props) {
+  // "None" shows names only: no titles and nothing to read aloud, and rows are a little shorter.
+  const bare = choice === NONE;
+  const lang = bare ? DEFAULT_LANG : choice;
+  const layout = useMemo(() => layoutTree(tree, show, bare), [tree, show, bare]);
   const segs = useMemo(() => linkSegments(layout), [layout]);
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
@@ -39,7 +42,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang = DEFAU
   const centreOn = (id: string, k = camRef.current.k) => {
     const el = box.current, p = layout.pos.get(id);
     if (!el || !p) return;
-    setCam({ k, x: el.clientWidth / 2 - (p.x + CARD_W / 2) * k, y: el.clientHeight / 2 - (p.y + CARD_H / 2) * k });
+    setCam({ k, x: el.clientWidth / 2 - (p.x + CARD_W / 2) * k, y: el.clientHeight / 2 - (p.y + layout.cardH / 2) * k });
   };
 
   // Recentre on "me" when who "me" is, or the people shown, change.
@@ -131,7 +134,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang = DEFAU
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={speech} lang={lang} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
         })}
       </div>
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>

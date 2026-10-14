@@ -90,6 +90,13 @@ export const LANG_IDS = Object.keys(LANGS) as LangId[];
 export const DEFAULT_LANG: LangId = 'yue';
 export const isLangId = (x: unknown): x is LangId => typeof x === 'string' && x in LANGS;
 
+// What the picker holds: a language, or "none" to show names only, with no titles.
+export type LangChoice = LangId | 'none';
+export const NONE = 'none';
+const isChoice = (x: unknown): x is LangChoice => x === NONE || isLangId(x);
+/** The heading for a choice: the language's own, or plain "Kinship" when titles are off. */
+export const headingFor = (c: LangChoice) => (c === NONE ? 'Kinship' : langFor(c).heading);
+
 const built = new Map<LangId, Lang>();
 export function langFor(id: LangId): Lang {
   let l = built.get(id);
@@ -103,17 +110,17 @@ export function langFor(id: LangId): Lang {
 
 const KEY = 'kinship:lang';
 
-/** The language to open in: ?lang= on the link, else the saved choice, else Cantonese. */
-export function initialLang(search: string, store: { getItem(k: string): string | null } | null): LangId {
+/** The language to open in (or none): ?lang= on the link, else the saved choice, else Cantonese. */
+export function initialLang(search: string, store: { getItem(k: string): string | null } | null): LangChoice {
   const q = new URLSearchParams(search).get('lang');
-  if (isLangId(q)) return q;
+  if (isChoice(q)) return q;
   try {
     const saved = store?.getItem(KEY);
-    if (isLangId(saved)) return saved;
+    if (isChoice(saved)) return saved;
   } catch { /* blocked storage */ }
   return DEFAULT_LANG;
 }
 
-export function saveLang(store: { setItem(k: string, v: string): void } | null, id: LangId): void {
+export function saveLang(store: { setItem(k: string, v: string): void } | null, id: LangChoice): void {
   try { store?.setItem(KEY, id); } catch { /* blocked storage */ }
 }
