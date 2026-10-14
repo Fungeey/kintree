@@ -1,22 +1,22 @@
 // Simple line-art hair drawn around the face circle (centre 64,62, radius 40 in a 128x128 box).
 // Shape comes from the generation's tier (elders: bald-topped grandpa, bun for grandma; parents:
-// tidier / bobbed; adults; a short-haired kid; babies), and colour from the generation's tone.
+// tidier / bobbed; adults; kids with a shorter cut; babies), and colour from the generation's tone.
 // Back hair sits behind the face; the fringe is drawn over it.
 const INK = 'var(--ink)';
-export type Age = 'elder' | 'parent' | 'adult' | 'short' | 'baby';
-export type Tone = 'white' | 'grey' | 'black' | 'brown' | 'honey' | 'light' | 'ink';
+export type Age = 'elder' | 'parent' | 'adult' | 'child' | 'baby';
+export type Tone = 'white' | 'grey' | 'black' | 'brown' | 'honey' | 'ink';
 
 // Generation (layout row relative to the tree's first person, so it does not change with the viewpoint).
-// Shape: great-grandparents and up get the elder shape, grandparents and parents the parent shape,
-// your own generation and the kids beside it the adult shape, then short hair, then babies.
+// Shape: great-grandparents and up get the elder shape, grandparents the parent shape, your generation
+// the adult shape, kids a shorter variant of it, then babies.
 export const ageFor = (gen: number): Age =>
-  gen <= -3 ? 'elder' : gen === -2 ? 'parent' : gen <= 1 ? 'adult' : gen === 2 ? 'short' : 'baby';
-// Colour, one step per generation: white, grey, black (parents), brown (you), honey (kids), light (short kids).
+  gen <= -3 ? 'elder' : gen === -2 ? 'parent' : gen <= 0 ? 'adult' : gen === 1 ? 'child' : 'baby';
+// Colour, one step per generation: white, grey, black (parents), brown (you), honey (kids), black (babies).
 export const toneFor = (gen: number): Tone =>
-  gen <= -3 ? 'white' : gen === -2 ? 'grey' : gen === -1 ? 'black' : gen === 0 ? 'brown' : gen === 1 ? 'honey' : gen === 2 ? 'light' : 'ink';
+  gen <= -3 ? 'white' : gen === -2 ? 'grey' : gen === -1 ? 'black' : gen === 0 ? 'brown' : gen === 1 ? 'honey' : 'ink';
 
 const FILL: Record<Tone, string> = {
-  white: 'var(--paper)', grey: '#9a948a', black: INK, brown: '#8a5a34', honey: '#b9803f', light: '#d9a46c', ink: INK,
+  white: 'var(--paper)', grey: '#9a948a', black: INK, brown: '#8a5a34', honey: '#b9803f', ink: INK,
 };
 
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -38,7 +38,6 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
       </svg>
     );
   }
-  if (age === 'short') return <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true" />;
   return (
     <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
       {sex === 'm' ? (
@@ -59,6 +58,8 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
         </>
       ) : age === 'parent' ? (
         <path {...hair} d="M17 70 C8 28 38 10 64 11 C90 10 120 28 111 70 C112 90 108 100 98 104 C90 100 88 92 86 86 L42 86 C40 92 38 100 30 104 C20 100 16 90 17 70Z" />
+      ) : age === 'child' ? (
+        <path {...hair} d="M18 66 C10 30 36 14 64 14 C92 14 118 30 110 66 C110 80 106 86 100 86 C98 78 94 72 88 70 L40 70 C34 72 30 78 28 86 C22 86 18 80 18 66Z" />
       ) : (
         <path {...hair} d="M17 70 C6 26 36 8 64 9 C92 8 122 26 111 70 C110 96 114 112 104 122 C94 124 86 116 84 104 L44 104 C42 116 34 124 24 122 C14 112 18 96 17 70Z" />
       )}
@@ -69,8 +70,8 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
 export function HairFront({ sex, age, tone }: { sex: string; age: Age; tone: Tone }) {
   const hair = fillFor(tone);
   if (age === 'baby') return null;
-  const shape = age === 'short'
-    ? <path {...hair} d="M16 10 H112 V54 C100 44 84 40 64 40 C44 40 28 44 16 54 Z" />
+  const shape = age === 'child'
+    ? <path {...hair} d="M16 10 H112 V56 C100 42 84 36 64 36 C44 36 28 42 16 56 Z" />
     : sex === 'm'
       ? age === 'elder' ? null
       : age === 'parent' ? <path {...hair} d="M16 10 H112 V46 C96 44 80 40 70 30 C58 40 36 44 20 48 Z" />
