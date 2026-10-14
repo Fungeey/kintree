@@ -26,7 +26,7 @@ export function HairBack({ sex, age }: { sex: string; age: Age }) {
     return (
       <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
         {sex === 'm'
-          ? <path {...dark} d="M64 24 C54 20 54 4 66 2 C78 0 78 12 70 13 C65 14 65 20 70 22 Z" />
+          ? <path {...stroke} strokeWidth={2.5} fill="none" d="M64 24 C60 12 64 2 72 4 C80 6 80 16 72 18 C68 19 67 14 70 13" />
           : <g {...stroke} fill="var(--f)">
               <path d="M64 18 L50 8 L50 28 Z" />
               <path d="M64 18 L78 8 L78 28 Z" />
