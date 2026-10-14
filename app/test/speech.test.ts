@@ -52,3 +52,8 @@ test('pickVoice reads Android Chrome tags like zh_CN_#Hans and yue_HK_#Hant', ()
   assert.equal(pickVoice(android.filter(v => v.lang !== 'zh_CN_#Hans'), 'cmn')?.name, 'Chinese Singapore');
   assert.equal(pickVoice([android[2], android[4], { lang: 'zh_MO_#Hant', name: 'm' }], 'cmn'), undefined);
 });
+
+test('spokenText speaks the kana reading when a title has one, else the characters', () => {
+  const s: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '伯父', kana: 'おじ' }, { label: 'younger', chars: 'おじさん' }] };
+  assert.equal(spokenText(s), 'おじ，おじさん');
+});

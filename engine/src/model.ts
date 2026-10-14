@@ -10,8 +10,10 @@ export interface Family { id: string; parents: string[]; children: string[] }
 // root: the person who created the tree; their name labels everyone's relation on the cards. Optional so older trees still load.
 export interface Tree { version: 1; people: Person[]; families: Family[]; root?: string }
 
-// rom: the reading in the language's romanization (jyutping, pinyin); absent where the script needs none.
-export interface Title { chars: string; rom?: string }
+// rom: the reading in the language's romanization (jyutping, pinyin, romaji); absent where the script needs none.
+// kana: Japanese only. The kana reading of kanji terms, shown as furigana and the text that is spoken aloud, because
+// browsers misread kanji (伯父 and 叔父 are both おじ). Omitted where chars is already kana.
+export interface Title { chars: string; rom?: string; kana?: string }
 
 export type Spoken = Title | 'by-name';
 

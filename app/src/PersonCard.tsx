@@ -53,7 +53,9 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
             {l.rom && <b className="rom">{l.rom}</b>}
-            <span className="zh" lang={l.bare ? undefined : html}>{l.chars}</span>
+            <span className="zh" lang={l.bare ? undefined : html}>
+              {l.kana && l.kana !== l.chars ? <ruby>{l.chars}<rt>{l.kana}</rt></ruby> : l.chars}
+            </span>
           </span>
         ))}
       </div>

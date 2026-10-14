@@ -167,3 +167,10 @@ button { font: inherit; color: inherit; }
 .titles.plain.two .line .zh { font-size: .66rem; }
 .titles.plain .line.rank .zh { color: var(--accent); }
 :lang(vi) { font-family: "Noto Serif", Georgia, "Iowan Old Style", "Times New Roman", serif; }
+
+/* Japanese: kanji drawn with Japanese glyph shapes (the HK stack would use Hong Kong ones), kana reading above as furigana. */
+:lang(ja) { font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "MS PMincho", "Noto Serif CJK JP", Georgia, serif; }
+.line .zh rt { font-size: .5em; font-weight: 400; color: var(--muted); }
+
+/* Korean: hangul is not in the HK stack, so name Korean serif fonts. */
+:lang(ko) { font-family: "Noto Serif KR", "Nanum Myeongjo", "AppleMyungjo", "Batang", "Noto Serif CJK KR", Georgia, serif; }
