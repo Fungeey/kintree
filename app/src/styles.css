@@ -184,7 +184,6 @@ button { font: inherit; color: inherit; }
 /* Korean: hangul is not in the HK stack, so name Korean serif fonts. */
 :lang(ko) { font-family: "Noto Serif KR", "Nanum Myeongjo", "AppleMyungjo", "Batang", "Noto Serif CJK KR", Georgia, serif; }
 
-/* Language "None": no titles, so the name sits under the face and the card is shorter (layout's BARE_CARD_H). */
-.node.bare { height: 92px; }
+/* Language "None": no titles; the name sits in the title row under the face. */
 .titles.bare-name { padding: 0 1px; font-size: .72rem; font-weight: 700; line-height: 1.1; color: var(--ink); }
 .titles.bare-name span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }

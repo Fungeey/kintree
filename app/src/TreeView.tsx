@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import type { Tree } from '../../engine/src/index.ts';
-import { CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
+import { CARD_H, CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
 import { captionFor, showFor } from './display.ts';
 import { hiddenRelatives } from './hidden.ts';
 import { PersonCard } from './PersonCard.tsx';
@@ -21,10 +21,10 @@ interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
 export function TreeView({ tree, me, show, onPick, editing = false, lang: choice = DEFAULT_LANG }: Props) {
-  // "None" shows names only: shorter cards, no titles and nothing to read aloud.
+  // "None" shows names only: no titles and nothing to read aloud.
   const bare = choice === NONE;
   const lang = bare ? DEFAULT_LANG : choice;
-  const layout = useMemo(() => layoutTree(tree, show, bare), [tree, show, bare]);
+  const layout = useMemo(() => layoutTree(tree, show), [tree, show]);
   const segs = useMemo(() => linkSegments(layout), [layout]);
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
@@ -42,7 +42,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
   const centreOn = (id: string, k = camRef.current.k) => {
     const el = box.current, p = layout.pos.get(id);
     if (!el || !p) return;
-    setCam({ k, x: el.clientWidth / 2 - (p.x + CARD_W / 2) * k, y: el.clientHeight / 2 - (p.y + layout.cardH / 2) * k });
+    setCam({ k, x: el.clientWidth / 2 - (p.x + CARD_W / 2) * k, y: el.clientHeight / 2 - (p.y + CARD_H / 2) * k });
   };
 
   // Recentre on "me" when who "me" is, or the people shown, change.

@@ -20,7 +20,7 @@ interface Props {
   onPick: (id: string) => void;
   lang?: LangId;
   speech?: Speech;
-  bare?: boolean;   // language "None": the name goes where the titles were, and there are no titles
+  bare?: boolean;   // language "None": no titles; the name goes in the title row, the caption above the face stays empty
 }
 
 export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG, bare = false }: Props) {
@@ -35,7 +35,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   const tone = toneFor(gen);
   return (
     <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}${bare ? ' bare' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
-      {!bare && <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>}
+      <div className="root-label" title={caption ?? undefined}>{!bare && caption && <span>{caption}</span>}</div>
       <button
         type="button"
         className="face-btn"

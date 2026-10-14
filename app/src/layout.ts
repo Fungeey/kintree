@@ -6,10 +6,6 @@ export const CARD_W = 76;
 export const CARD_H = 117;
 // Centre of the face circle, from the node's top: couple lines run through it.
 export const FACE_CY = 50;
-// With no titles (language "None") the name sits where the titles were and the caption row above the face goes,
-// so cards are shorter and the face is nearer the top.
-export const BARE_CARD_H = 92;
-export const BARE_FACE_CY = 33;
 export const GAP_X = 8;
 export const COUPLE_GAP = 24;
 export const ROW_GAP = 28;
@@ -23,15 +19,12 @@ export interface Layout {
   links: Link[];
   width: number;
   height: number;
-  cardH: number;
-  faceCy: number;
 }
 
 // The layout depends only on the tree and on which people are shown, never on who "me" is: anchors
 // and ordering come from the order of tree.people. People who are hidden (the other side of a
 // married view) are left out before anything is placed, so they take up no room and join nothing.
-export function layoutTree(tree: Tree, show: (id: string) => boolean = () => true, bare = false): Layout {
-  const cardH = bare ? BARE_CARD_H : CARD_H, faceCy = bare ? BARE_FACE_CY : FACE_CY;
+export function layoutTree(tree: Tree, show: (id: string) => boolean = () => true): Layout {
   const shown = new Set(tree.people.filter(p => show(p.id)).map(p => p.id));
   const fams = new Map<string, { f: Family; parents: string[]; children: string[] }>();
   const birth = new Map<string, string>();
@@ -113,7 +106,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   }
   let minGen = 0;
   for (const g of rowsV.values()) minGen = Math.min(minGen, g);
-  const rowY = (id: string) => ((rowsV.get(id) ?? 0) - minGen) * (cardH + ROW_GAP) + PAD;
+  const rowY = (id: string) => ((rowsV.get(id) ?? 0) - minGen) * (CARD_H + ROW_GAP) + PAD;
 
   const pos = new Map<string, Pos>();
   const done = new Set<string>();
@@ -373,10 +366,10 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
 
   // Normalise so the leftmost card sits at PAD.
   let minX = Infinity, maxX = 0, maxY = 0;
-  for (const p of pos.values()) { minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x + CARD_W); maxY = Math.max(maxY, p.y + cardH); }
-  if (!pos.size) return { pos, gens, links, width: 0, height: 0, cardH, faceCy };
+  for (const p of pos.values()) { minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x + CARD_W); maxY = Math.max(maxY, p.y + CARD_H); }
+  if (!pos.size) return { pos, gens, links, width: 0, height: 0 };
   for (const [id, p] of pos) pos.set(id, { x: p.x - minX + PAD, y: p.y });
-  return { pos, gens, links, width: maxX - minX + PAD * 2, height: maxY + PAD, cardH, faceCy };
+  return { pos, gens, links, width: maxX - minX + PAD * 2, height: maxY + PAD };
 }
 
 const sexRank = (t: Tree, id: string) => (t.people.find(p => p.id === id)?.sex === 'm' ? 0 : 1);
@@ -404,11 +397,11 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
     let dropX: number, dropY: number;
     const adjacent = sorted.length === 2 && sorted[0].y === sorted[1].y && sorted[1].x - sorted[0].x <= CARD_W + COUPLE_GAP + 1;
     if (adjacent) {
-      const y = sorted[0].y + layout.faceCy;
+      const y = sorted[0].y + FACE_CY;
       segs.push({ x1: sorted[0].x + CARD_W, y1: y, x2: sorted[1].x, y2: y });
       dropX = (sorted[0].x + CARD_W + sorted[1].x) / 2; dropY = y;
     } else if (sorted.length) {
-      dropX = sorted[0].x + CARD_W / 2; dropY = sorted[0].y + layout.cardH;
+      dropX = sorted[0].x + CARD_W / 2; dropY = sorted[0].y + CARD_H;
     } else { dropX = 0; dropY = 0; }
     if (!kids.length) continue;
     const y = Math.min(...kids.map(k => k.y)) - ROW_GAP / 2;
@@ -435,7 +428,7 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
     } else {
       mine.push({ x1: r.dropX, y1: r.dropY, x2: r.dropX, y2: railY });
       // A parent that is not beside the couple line (placed elsewhere) joins the rail too.
-      if (!r.adjacent) for (const p of r.sorted.slice(1)) mine.push({ x1: p.x + CARD_W / 2, y1: p.y + layout.cardH, x2: p.x + CARD_W / 2, y2: railY });
+      if (!r.adjacent) for (const p of r.sorted.slice(1)) mine.push({ x1: p.x + CARD_W / 2, y1: p.y + CARD_H, x2: p.x + CARD_W / 2, y2: railY });
     }
     mine.push({ x1: r.x1, y1: railY, x2: r.x2, y2: railY });
     r.kids.forEach((k, i) => mine.push({ x1: r.cx[i], y1: railY, x2: r.cx[i], y2: k.y }));
@@ -453,7 +446,7 @@ export function coupleHearts(layout: Layout, show: (id: string) => boolean = () 
   for (const l of layout.links) {
     const ps = l.parents.filter(show).map(p => layout.pos.get(p)).filter((p): p is Pos => !!p).sort((a, b) => a.x - b.x);
     if (ps.length === 2 && ps[0].y === ps[1].y && ps[1].x - ps[0].x <= CARD_W + COUPLE_GAP + 1) {
-      out.push({ x: (ps[0].x + CARD_W + ps[1].x) / 2, y: ps[0].y + layout.faceCy });
+      out.push({ x: (ps[0].x + CARD_W + ps[1].x) / 2, y: ps[0].y + FACE_CY });
     }
   }
   return out;
