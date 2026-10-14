@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { pickVoice } from './speech.ts';
+import { pickVoice, utteranceLang } from './speech.ts';
 import type { LangId } from '../lang.ts';
 
 const synth = (): SpeechSynthesis | null =>
@@ -26,7 +26,7 @@ export function useSpeech(lang: LangId): { state: SpeechState; speak: (text: str
     s.cancel();
     const u = new SpeechSynthesisUtterance(text);
     u.voice = voice;
-    u.lang = voice.lang;
+    u.lang = utteranceLang(voice);
     s.speak(u);
   }, [s, voice]);
 
