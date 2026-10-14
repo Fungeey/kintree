@@ -20,11 +20,11 @@ const white = { ...stroke, fill: 'var(--paper)' };
 
 export function HairBack({ sex, age }: { sex: string; age: Age }) {
   const dark = fillFor(age);
-  const thin = { ...white, strokeDasharray: '4 4' };
+  const thin = white;
   if (age === 'baby') {
     return (
       <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
-        <path {...dark} d="M64 24 C54 14 62 4 70 8 C78 12 72 20 66 20 C70 22 68 26 64 24Z" />
+        <path {...dark} d="M64 22 C56 12 60 2 68 4 C76 6 74 16 68 16 C72 18 70 22 64 22Z" />
         {sex === 'f' && <path {...dark} d="M52 26 C44 20 46 12 54 14 Z M76 26 C84 20 82 12 74 14 Z" />}
       </svg>
     );
@@ -34,8 +34,8 @@ export function HairBack({ sex, age }: { sex: string; age: Age }) {
       {age === 'oldest' ? (
         sex === 'm' ? (
           <>
-            <path {...thin} d="M22 64 C18 52 22 42 30 36 C30 46 32 56 35 64 Z" />
-            <path {...thin} d="M106 64 C110 52 106 42 98 36 C98 46 96 56 93 64 Z" />
+            <path {...thin} d="M20 66 C12 54 14 40 26 32 C28 44 30 56 36 66 Z" />
+            <path {...thin} d="M108 66 C116 54 114 40 102 32 C100 44 98 56 92 66 Z" />
           </>
         ) : (
           <path {...thin} d="M18 68 C10 30 36 16 64 16 C92 16 118 30 110 68 C112 84 106 92 98 94 C96 84 92 78 88 74 L40 74 C36 78 32 84 30 94 C22 92 16 84 18 68Z" />
