@@ -41,7 +41,7 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
   return (
     <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
       {sex === 'm' ? (
-        age === 'elder' ? (
+        age === 'child' ? null : age === 'elder' ? (
           <>
             <path {...hair} d="M21 66 C15 48 21 36 33 30 C31 44 33 56 37 66 Z" />
             <path {...hair} d="M107 66 C113 48 107 36 95 30 C97 44 95 56 91 66 Z" />
@@ -70,8 +70,11 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
 export function HairFront({ sex, age, tone }: { sex: string; age: Age; tone: Tone }) {
   const hair = fillFor(tone);
   if (age === 'baby') return null;
-  const shape = age === 'child'
-    ? <path {...hair} d="M16 10 H112 V56 C100 42 84 36 64 36 C44 36 28 42 16 56 Z" />
+  const shape = age === 'child' && sex === 'm'
+    // Spiky bangs, cut short at the sides.
+    ? <path {...hair} d="M16 10 H112 V40 L106 36 L98 52 L88 40 L78 54 L68 40 L58 52 L48 40 L38 54 L28 38 L22 46 L16 42 Z" />
+    : age === 'child'
+      ? <path {...hair} d="M16 10 H112 V56 C100 42 84 36 64 36 C44 36 28 42 16 56 Z" />
     : sex === 'm'
       ? age === 'elder' ? null
       : age === 'parent' ? <path {...hair} d="M16 10 H112 V46 C96 44 80 40 70 30 C58 40 36 44 20 48 Z" />
