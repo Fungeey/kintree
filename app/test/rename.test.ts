@@ -88,7 +88,7 @@ test('edit: someone with no siblings is a group of one', () => {
   assert.throws(() => applyEdit(t, mum, 'Lai', [mum, 'x']));
 });
 
-test('display: an aunt shows her usual title and her rank title; audio says only the usual one', async () => {
+test('display: an aunt shows her usual title and her rank title; audio says both', async () => {
   const { showFor } = await import('../src/display.ts');
   const { spokenText } = await import('../src/audio/speech.ts');
   let t: Tree = emptyTree();
@@ -98,7 +98,7 @@ test('display: an aunt shows her usual title and her rank title; audio says only
   const b = addSibling(t, mum.id, 'f', undefined, 1); t = b.tree;
   const shown = showFor(t, me.id, a.id);
   assert.deepEqual(shown.lines.map(l => l.chars), ['姨媽', '大姨媽']);
-  assert.equal(spokenText(shown), '姨媽');
+  assert.equal(spokenText(shown), '姨媽，大姨媽');
   assert.deepEqual(showFor(t, me.id, mum.id).lines.length, 1);
 });
 
