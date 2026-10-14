@@ -1,0 +1,2649 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "父",
+   "kana": "ちち",
+   "rom": "chichi"
+  },
+  "spoken": {
+   "chars": "お父さん",
+   "kana": "おとうさん",
+   "rom": "otōsan"
+  },
+  "status": "checked",
+  "note": "Humble 父 to outsiders; お父さん at home and for someone else's father (お父様 is more formal). Checked: omniglot.com lists 父 (own family) and お父さん (others' family)."
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "母",
+   "kana": "はは",
+   "rom": "haha"
+  },
+  "spoken": {
+   "chars": "お母さん",
+   "kana": "おかあさん",
+   "rom": "okāsan"
+  },
+  "status": "checked",
+  "note": "Humble 母 to outsiders; お母さん at home and for someone else's mother (お母様 is more formal)."
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "息子",
+   "kana": "むすこ",
+   "rom": "musuko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "娘",
+   "kana": "むすめ",
+   "rom": "musume"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "夫",
+   "kana": "おっと",
+   "rom": "otto"
+  },
+  "spoken": {
+   "chars": "主人",
+   "kana": "しゅじん",
+   "rom": "shujin"
+  },
+  "status": "checked",
+  "note": "Also 旦那 (だんな) casually. Someone else's husband: ご主人. Spoken form not checked online."
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "妻",
+   "kana": "つま",
+   "rom": "tsuma"
+  },
+  "spoken": {
+   "chars": "家内",
+   "kana": "かない",
+   "rom": "kanai"
+  },
+  "status": "checked",
+  "note": "Also 嫁 (よめ) casually. Someone else's wife: 奥さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "兄",
+   "kana": "あに",
+   "rom": "ani"
+  },
+  "spoken": {
+   "chars": "お兄ちゃん",
+   "kana": "おにいちゃん",
+   "rom": "onīchan"
+  },
+  "status": "checked",
+  "note": "Someone else's older brother: お兄さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "姉",
+   "kana": "あね",
+   "rom": "ane"
+  },
+  "spoken": {
+   "chars": "お姉ちゃん",
+   "kana": "おねえちゃん",
+   "rom": "onēchan"
+  },
+  "status": "checked",
+  "note": "Someone else's older sister: お姉さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "弟",
+   "kana": "おとうと",
+   "rom": "otōto"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Someone else's younger brother: 弟さん."
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "妹",
+   "kana": "いもうと",
+   "rom": "imōto"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Someone else's younger sister: 妹さん."
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "祖父",
+   "kana": "そふ",
+   "rom": "sofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "祖父",
+   "kana": "そふ",
+   "rom": "sofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "祖母",
+   "kana": "そぼ",
+   "rom": "sobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "祖母",
+   "kana": "そぼ",
+   "rom": "sobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん. Spoken form not checked online."
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked",
+  "note": "Older than the parent: 伯父. Younger: 叔父. Both are おじ."
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Ze",
+  "en": "father's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked",
+  "note": "Older than the parent: 伯母. Younger: 叔母. Both are おば."
+ },
+ {
+  "pattern": "F Zy",
+  "en": "father's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Ze H",
+  "en": "father's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Zy H",
+  "en": "father's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Be",
+  "en": "mother's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked",
+  "note": "Older than the parent: 伯父. Younger: 叔父. Both are おじ."
+ },
+ {
+  "pattern": "M By",
+  "en": "mother's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Ze",
+  "en": "mother's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked",
+  "note": "Older than the parent: 伯母. Younger: 叔母. Both are おば."
+ },
+ {
+  "pattern": "M Zy",
+  "en": "mother's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Be W",
+  "en": "mother's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M By W",
+  "en": "mother's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Ze H",
+  "en": "mother's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Zy H",
+  "en": "mother's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ. Reading and meaning (granduncle) checked on romajidesu.com; which of 大伯父 or 大叔父 is the older brother is not."
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Ze",
+  "en": "father's father's elder sister",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older sister: 大伯母. Younger: 大叔母. Both are おおおば."
+ },
+ {
+  "pattern": "F F Zy",
+  "en": "father's father's younger sister",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Be",
+  "en": "father's mother's elder brother",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ."
+ },
+ {
+  "pattern": "F M By",
+  "en": "father's mother's younger brother",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Ze",
+  "en": "father's mother's elder sister",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older sister: 大伯母. Younger: 大叔母. Both are おおおば."
+ },
+ {
+  "pattern": "F M Zy",
+  "en": "father's mother's younger sister",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ."
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Ze",
+  "en": "mother's father's elder sister",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older sister: 大伯母. Younger: 大叔母. Both are おおおば."
+ },
+ {
+  "pattern": "M F Zy",
+  "en": "mother's father's younger sister",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Be",
+  "en": "mother's mother's elder brother",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ."
+ },
+ {
+  "pattern": "M M By",
+  "en": "mother's mother's younger brother",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Ze",
+  "en": "mother's mother's elder sister",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified",
+  "note": "Grandparent's older sister: 大伯母. Younger: 大叔母. Both are おおおば."
+ },
+ {
+  "pattern": "M M Zy",
+  "en": "mother's mother's younger sister",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "従兄弟",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従兄",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お兄ちゃん",
+    "kana": "おにいちゃん",
+    "rom": "onīchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従弟",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "従姉妹",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従姉",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お姉ちゃん",
+    "kana": "おねえちゃん",
+    "rom": "onēchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従妹",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* S W",
+  "en": "paternal male cousin's wife",
+  "formal": {
+   "chars": "従兄弟の妻",
+   "kana": "いとこのつま",
+   "rom": "itokonotsuma"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D H",
+  "en": "paternal female cousin's husband",
+  "formal": {
+   "chars": "従姉妹の夫",
+   "kana": "いとこのおっと",
+   "rom": "itokonōtto"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "従兄弟",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従兄",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お兄ちゃん",
+    "kana": "おにいちゃん",
+    "rom": "onīchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従弟",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "従姉妹",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従姉",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お姉ちゃん",
+    "kana": "おねえちゃん",
+    "rom": "onēchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従妹",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S W",
+  "en": "father's sister's son's wife",
+  "formal": {
+   "chars": "従兄弟の妻",
+   "kana": "いとこのつま",
+   "rom": "itokonotsuma"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D H",
+  "en": "father's sister's daughter's husband",
+  "formal": {
+   "chars": "従姉妹の夫",
+   "kana": "いとこのおっと",
+   "rom": "itokonōtto"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "従兄弟",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従兄",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お兄ちゃん",
+    "kana": "おにいちゃん",
+    "rom": "onīchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従弟",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "従姉妹",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従姉",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お姉ちゃん",
+    "kana": "おねえちゃん",
+    "rom": "onēchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従妹",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S W",
+  "en": "mother's brother's son's wife",
+  "formal": {
+   "chars": "従兄弟の妻",
+   "kana": "いとこのつま",
+   "rom": "itokonotsuma"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D H",
+  "en": "mother's brother's daughter's husband",
+  "formal": {
+   "chars": "従姉妹の夫",
+   "kana": "いとこのおっと",
+   "rom": "itokonōtto"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "従兄弟",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従兄",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お兄ちゃん",
+    "kana": "おにいちゃん",
+    "rom": "onīchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従弟",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "従姉妹",
+   "kana": "いとこ",
+   "rom": "itoko"
+  },
+  "older": {
+   "formal": {
+    "chars": "従姉",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": {
+    "chars": "お姉ちゃん",
+    "kana": "おねえちゃん",
+    "rom": "onēchan"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "従妹",
+    "kana": "いとこ",
+    "rom": "itoko"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S W",
+  "en": "mother's sister's son's wife",
+  "formal": {
+   "chars": "従兄弟の妻",
+   "kana": "いとこのつま",
+   "rom": "itokonotsuma"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D H",
+  "en": "mother's sister's daughter's husband",
+  "formal": {
+   "chars": "従姉妹の夫",
+   "kana": "いとこのおっと",
+   "rom": "itokonōtto"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "義姉",
+   "kana": "ぎし",
+   "rom": "gishi"
+  },
+  "spoken": {
+   "chars": "お義姉さん",
+   "kana": "おねえさん",
+   "rom": "onēsan"
+  },
+  "status": "checked",
+  "note": "Written 義姉, said ねえさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "義妹",
+   "kana": "ぎまい",
+   "rom": "gimai"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "義兄",
+   "kana": "ぎけい",
+   "rom": "gikei"
+  },
+  "spoken": {
+   "chars": "お義兄さん",
+   "kana": "おにいさん",
+   "rom": "onīsan"
+  },
+  "status": "checked",
+  "note": "Written 義兄, said にいさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "義弟",
+   "kana": "ぎてい",
+   "rom": "gitei"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "甥",
+   "kana": "おい",
+   "rom": "oi"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Checked: omniglot.com."
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "甥",
+   "kana": "おい",
+   "rom": "oi"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "姪",
+   "kana": "めい",
+   "rom": "mei"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "姪",
+   "kana": "めい",
+   "rom": "mei"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "嫁",
+   "kana": "よめ",
+   "rom": "yome"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "Also 義理の娘. Called by name + さん."
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "婿",
+   "kana": "むこ",
+   "rom": "muko"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "Also 義理の息子. Called by name + さん."
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "孫",
+   "kana": "まご",
+   "rom": "mago"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Son's children: 内孫. Daughter's children: 外孫. Checked: omniglot.com."
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "孫",
+   "kana": "まご",
+   "rom": "mago"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Son's children: 内孫. Daughter's children: 外孫."
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "孫",
+   "kana": "まご",
+   "rom": "mago"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Son's children: 内孫. Daughter's children: 外孫."
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "孫",
+   "kana": "まご",
+   "rom": "mago"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Son's children: 内孫. Daughter's children: 外孫."
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "義父",
+   "kana": "ぎふ",
+   "rom": "gifu"
+  },
+  "spoken": {
+   "chars": "お義父さん",
+   "kana": "おとうさん",
+   "rom": "otōsan"
+  },
+  "status": "checked",
+  "note": "Written 義父, said とうさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "義母",
+   "kana": "ぎぼ",
+   "rom": "gibo"
+  },
+  "spoken": {
+   "chars": "お義母さん",
+   "kana": "おかあさん",
+   "rom": "okāsan"
+  },
+  "status": "checked",
+  "note": "Written 義母, said かあさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "義兄",
+   "kana": "ぎけい",
+   "rom": "gikei"
+  },
+  "spoken": {
+   "chars": "お義兄さん",
+   "kana": "おにいさん",
+   "rom": "onīsan"
+  },
+  "status": "checked",
+  "note": "Spoken form not checked online."
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "義弟",
+   "kana": "ぎてい",
+   "rom": "gitei"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "義姉",
+   "kana": "ぎし",
+   "rom": "gishi"
+  },
+  "spoken": {
+   "chars": "お義姉さん",
+   "kana": "おねえさん",
+   "rom": "onēsan"
+  },
+  "status": "checked",
+  "note": "Spoken form not checked online."
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "義妹",
+   "kana": "ぎまい",
+   "rom": "gimai"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "義理の祖父",
+   "kana": "ぎりのそふ",
+   "rom": "girinosofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "義理の祖父",
+   "kana": "ぎりのそふ",
+   "rom": "girinosofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "義理の祖母",
+   "kana": "ぎりのそぼ",
+   "rom": "girinosobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "義理の祖母",
+   "kana": "ぎりのそぼ",
+   "rom": "girinosobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F Be",
+  "en": "husband's father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F By",
+  "en": "husband's father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F Ze",
+  "en": "husband's father's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F Zy",
+  "en": "husband's father's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F Be W",
+  "en": "husband's father's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F By W",
+  "en": "husband's father's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F Ze H",
+  "en": "husband's father's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F Zy H",
+  "en": "husband's father's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Be",
+  "en": "husband's mother's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M By",
+  "en": "husband's mother's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Ze",
+  "en": "husband's mother's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Zy",
+  "en": "husband's mother's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Be W",
+  "en": "husband's mother's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M By W",
+  "en": "husband's mother's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Ze H",
+  "en": "husband's mother's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M Zy H",
+  "en": "husband's mother's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "義父",
+   "kana": "ぎふ",
+   "rom": "gifu"
+  },
+  "spoken": {
+   "chars": "お義父さん",
+   "kana": "おとうさん",
+   "rom": "otōsan"
+  },
+  "status": "checked",
+  "note": "Written 義父, said とうさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "義母",
+   "kana": "ぎぼ",
+   "rom": "gibo"
+  },
+  "spoken": {
+   "chars": "お義母さん",
+   "kana": "おかあさん",
+   "rom": "okāsan"
+  },
+  "status": "checked",
+  "note": "Written 義母, said かあさん. Spoken form not checked online."
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "義兄",
+   "kana": "ぎけい",
+   "rom": "gikei"
+  },
+  "spoken": {
+   "chars": "お義兄さん",
+   "kana": "おにいさん",
+   "rom": "onīsan"
+  },
+  "status": "checked",
+  "note": "Spoken form not checked online."
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "義弟",
+   "kana": "ぎてい",
+   "rom": "gitei"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "義姉",
+   "kana": "ぎし",
+   "rom": "gishi"
+  },
+  "spoken": {
+   "chars": "お義姉さん",
+   "kana": "おねえさん",
+   "rom": "onēsan"
+  },
+  "status": "checked",
+  "note": "Spoken form not checked online."
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "義妹",
+   "kana": "ぎまい",
+   "rom": "gimai"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "義理の祖父",
+   "kana": "ぎりのそふ",
+   "rom": "girinosofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "義理の祖父",
+   "kana": "ぎりのそふ",
+   "rom": "girinosofu"
+  },
+  "spoken": {
+   "chars": "おじいちゃん",
+   "rom": "ojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "義理の祖母",
+   "kana": "ぎりのそぼ",
+   "rom": "girinosobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "義理の祖母",
+   "kana": "ぎりのそぼ",
+   "rom": "girinosobo"
+  },
+  "spoken": {
+   "chars": "おばあちゃん",
+   "rom": "obāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F Be",
+  "en": "wife's father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F By",
+  "en": "wife's father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Ze",
+  "en": "wife's father's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Zy",
+  "en": "wife's father's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Be W",
+  "en": "wife's father's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F By W",
+  "en": "wife's father's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Ze H",
+  "en": "wife's father's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Zy H",
+  "en": "wife's father's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Be",
+  "en": "wife's mother's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M By",
+  "en": "wife's mother's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Ze",
+  "en": "wife's mother's elder sister",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Zy",
+  "en": "wife's mother's younger sister",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Be W",
+  "en": "wife's mother's elder brother's wife",
+  "formal": {
+   "chars": "伯母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M By W",
+  "en": "wife's mother's younger brother's wife",
+  "formal": {
+   "chars": "叔母",
+   "kana": "おば",
+   "rom": "oba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Ze H",
+  "en": "wife's mother's elder sister's husband",
+  "formal": {
+   "chars": "伯父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M Zy H",
+  "en": "wife's mother's younger sister's husband",
+  "formal": {
+   "chars": "叔父",
+   "kana": "おじ",
+   "rom": "oji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked",
+  "note": "いとこおじ is a parent's cousin (weblio.jp)."
+ },
+ {
+  "pattern": "M F B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "はとこ is a parent's cousin's child (weblio.jp)."
+ },
+ {
+  "pattern": "M F B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "いとこおば",
+   "rom": "itokooba"
+  },
+  "spoken": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "いとこおじ",
+   "rom": "itokooji"
+  },
+  "spoken": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "再従兄弟",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "再従姉妹",
+   "kana": "はとこ",
+   "rom": "hatoko"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "曾祖父",
+   "kana": "そうそふ",
+   "rom": "sōsofu"
+  },
+  "spoken": {
+   "chars": "ひいおじいちゃん",
+   "rom": "hīojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "曾祖父",
+   "kana": "そうそふ",
+   "rom": "sōsofu"
+  },
+  "spoken": {
+   "chars": "ひいおじいちゃん",
+   "rom": "hīojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "曾祖父",
+   "kana": "そうそふ",
+   "rom": "sōsofu"
+  },
+  "spoken": {
+   "chars": "ひいおじいちゃん",
+   "rom": "hīojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "曾祖父",
+   "kana": "そうそふ",
+   "rom": "sōsofu"
+  },
+  "spoken": {
+   "chars": "ひいおじいちゃん",
+   "rom": "hīojīchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "曾祖母",
+   "kana": "そうそぼ",
+   "rom": "sōsobo"
+  },
+  "spoken": {
+   "chars": "ひいおばあちゃん",
+   "rom": "hīobāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "曾祖母",
+   "kana": "そうそぼ",
+   "rom": "sōsobo"
+  },
+  "spoken": {
+   "chars": "ひいおばあちゃん",
+   "rom": "hīobāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "曾祖母",
+   "kana": "そうそぼ",
+   "rom": "sōsobo"
+  },
+  "spoken": {
+   "chars": "ひいおばあちゃん",
+   "rom": "hīobāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "曾祖母",
+   "kana": "そうそぼ",
+   "rom": "sōsobo"
+  },
+  "spoken": {
+   "chars": "ひいおばあちゃん",
+   "rom": "hīobāchan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Ze H",
+  "en": "father's father's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Zy H",
+  "en": "father's father's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Be W",
+  "en": "father's mother's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M By W",
+  "en": "father's mother's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Ze H",
+  "en": "father's mother's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Zy H",
+  "en": "father's mother's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Ze H",
+  "en": "mother's father's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Zy H",
+  "en": "mother's father's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Be W",
+  "en": "mother's mother's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M By W",
+  "en": "mother's mother's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Ze H",
+  "en": "mother's mother's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Zy H",
+  "en": "mother's mother's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ }
+]

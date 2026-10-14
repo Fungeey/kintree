@@ -1,0 +1,1359 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "아버지",
+   "rom": "abeoji"
+  },
+  "spoken": {
+   "chars": "아빠",
+   "rom": "appa"
+  },
+  "status": "checked",
+  "note": "아빠 as a child or casually; 아버지 formally and as an adult. Checked: Indiana University Korean kinship page (아빠 affectionate, 아버지 plain, 아버님 honorific)."
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "어머니",
+   "rom": "eomeoni"
+  },
+  "spoken": {
+   "chars": "엄마",
+   "rom": "eomma"
+  },
+  "status": "checked",
+  "note": "엄마 as a child or casually; 어머니 formally and as an adult."
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "아들",
+   "rom": "adeul"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "딸",
+   "rom": "ttal"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "남편",
+   "rom": "nampyeon"
+  },
+  "spoken": {
+   "chars": "남편",
+   "rom": "nampyeon"
+  },
+  "status": "unverified",
+  "note": "Called 여보 or by name."
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "아내",
+   "rom": "anae"
+  },
+  "spoken": {
+   "chars": "아내",
+   "rom": "anae"
+  },
+  "status": "unverified",
+  "note": "Called 여보 or by name."
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "형",
+   "rom": "hyeong"
+  },
+  "spoken": {
+   "chars": "형",
+   "rom": "hyeong"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "오빠",
+     "rom": "oppa"
+    },
+    "spoken": {
+     "chars": "오빠",
+     "rom": "oppa"
+    }
+   }
+  },
+  "status": "checked",
+  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override. Checked: a man says 형, a woman 오빠 (Indiana University; transparent.com)."
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "누나",
+   "rom": "nuna"
+  },
+  "spoken": {
+   "chars": "누나",
+   "rom": "nuna"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "언니",
+     "rom": "eonni"
+    },
+    "spoken": {
+     "chars": "언니",
+     "rom": "eonni"
+    }
+   }
+  },
+  "status": "checked",
+  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override. Checked: a man says 누나, a woman 언니 (Indiana University; transparent.com)."
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "남동생",
+   "rom": "namdongsaeng"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "여동생",
+   "rom": "yeodongsaeng"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "친할아버지",
+   "rom": "chinharabeoji"
+  },
+  "spoken": {
+   "chars": "할아버지",
+   "rom": "harabeoji"
+  },
+  "status": "unverified",
+  "note": "친할아버지 not checked online; 할아버지 is the plain form (Indiana University)."
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "친할머니",
+   "rom": "chinhalmeoni"
+  },
+  "spoken": {
+   "chars": "할머니",
+   "rom": "halmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "외할아버지",
+   "rom": "oeharabeoji"
+  },
+  "spoken": {
+   "chars": "외할아버지",
+   "rom": "oeharabeoji"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "외할머니",
+   "rom": "oehalmeoni"
+  },
+  "spoken": {
+   "chars": "외할머니",
+   "rom": "oehalmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "큰아버지",
+   "rom": "keunabeoji"
+  },
+  "spoken": {
+   "chars": "큰아버지",
+   "rom": "keunabeoji"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "작은아버지",
+   "rom": "jageunabeoji"
+  },
+  "spoken": {
+   "chars": "작은아버지",
+   "rom": "jageunabeoji"
+  },
+  "status": "checked",
+  "note": "삼촌 for an unmarried one; 작은아빠 casually."
+ },
+ {
+  "pattern": "F Z*",
+  "en": "father's sister",
+  "formal": {
+   "chars": "고모",
+   "rom": "gomo"
+  },
+  "spoken": {
+   "chars": "고모",
+   "rom": "gomo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M B*",
+  "en": "mother's brother",
+  "formal": {
+   "chars": "외삼촌",
+   "rom": "oesamchon"
+  },
+  "spoken": {
+   "chars": "외삼촌",
+   "rom": "oesamchon"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Z*",
+  "en": "mother's sister",
+  "formal": {
+   "chars": "이모",
+   "rom": "imo"
+  },
+  "spoken": {
+   "chars": "이모",
+   "rom": "imo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "큰어머니",
+   "rom": "keuneomeoni"
+  },
+  "spoken": {
+   "chars": "큰어머니",
+   "rom": "keuneomeoni"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "작은어머니",
+   "rom": "jageuneomeoni"
+  },
+  "spoken": {
+   "chars": "작은어머니",
+   "rom": "jageuneomeoni"
+  },
+  "status": "checked",
+  "note": "숙모 is the formal or general word."
+ },
+ {
+  "pattern": "F Z* H",
+  "en": "father's sister's husband",
+  "formal": {
+   "chars": "고모부",
+   "rom": "gomobu"
+  },
+  "spoken": {
+   "chars": "고모부",
+   "rom": "gomobu"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M B* W",
+  "en": "mother's brother's wife",
+  "formal": {
+   "chars": "외숙모",
+   "rom": "oesungmo"
+  },
+  "spoken": {
+   "chars": "외숙모",
+   "rom": "oesungmo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Z* H",
+  "en": "mother's sister's husband",
+  "formal": {
+   "chars": "이모부",
+   "rom": "imobu"
+  },
+  "spoken": {
+   "chars": "이모부",
+   "rom": "imobu"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "종조부",
+   "rom": "jongjobu"
+  },
+  "spoken": {
+   "chars": "큰할아버지",
+   "rom": "keunharabeoji"
+  },
+  "status": "checked",
+  "note": "Checked: 큰할아버지, 작은할아버지 and 종조부 (thewiki.kr, a kinship chart)."
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "종조부",
+   "rom": "jongjobu"
+  },
+  "spoken": {
+   "chars": "작은할아버지",
+   "rom": "jageunharabeoji"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F Z*",
+  "en": "paternal grandfather's sister",
+  "formal": {
+   "chars": "대고모",
+   "rom": "daegomo"
+  },
+  "spoken": {
+   "chars": "고모할머니",
+   "rom": "gomohalmeoni"
+  },
+  "status": "checked",
+  "note": "Checked: 고모할머니, also 대고모 or 왕고모 (thewiki.kr)."
+ },
+ {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "종조모",
+   "rom": "jongjomo"
+  },
+  "spoken": {
+   "chars": "큰할머니",
+   "rom": "keunhalmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "종조모",
+   "rom": "jongjomo"
+  },
+  "spoken": {
+   "chars": "작은할머니",
+   "rom": "jageunhalmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "대고모부",
+   "rom": "daegomobu"
+  },
+  "spoken": {
+   "chars": "고모할아버지",
+   "rom": "gomoharabeoji"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "외종조부",
+   "rom": "oejongjobu"
+  },
+  "spoken": {
+   "chars": "큰외할아버지",
+   "rom": "keunoeharabeoji"
+  },
+  "status": "checked",
+  "note": "Checked: 외종조부 sits beside 외할아버지 in thewiki.kr's chart."
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "외종조부",
+   "rom": "oejongjobu"
+  },
+  "spoken": {
+   "chars": "작은외할아버지",
+   "rom": "jageunoeharabeoji"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F M B*",
+  "en": "paternal grandmother's brother",
+  "formal": {
+   "chars": "진외종조부",
+   "rom": "jinoejongjobu"
+  },
+  "spoken": {
+   "chars": "진외종조부",
+   "rom": "jinoejongjobu"
+  },
+  "status": "unverified",
+  "note": "Not checked online: 진외종조부 follows the 친할머니 pattern (thewiki.kr lists 진외재종조부 for her cousin)."
+ },
+ {
+  "pattern": "F B* S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "친사촌",
+   "rom": "chinsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "친사촌 형",
+    "rom": "chinsachon hyeong"
+   },
+   "spoken": {
+    "chars": "사촌 형",
+    "rom": "sachon hyeong"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "친사촌 오빠",
+      "rom": "chinsachon oppa"
+     },
+     "spoken": {
+      "chars": "사촌 오빠",
+      "rom": "sachon oppa"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "친사촌: Father's brother's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "F B* D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "친사촌",
+   "rom": "chinsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "친사촌 누나",
+    "rom": "chinsachon nuna"
+   },
+   "spoken": {
+    "chars": "사촌 누나",
+    "rom": "sachon nuna"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "친사촌 언니",
+      "rom": "chinsachon eonni"
+     },
+     "spoken": {
+      "chars": "사촌 언니",
+      "rom": "sachon eonni"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "친사촌: Father's brother's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "F Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "고종사촌",
+   "rom": "gojongsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "고종사촌 형",
+    "rom": "gojongsachon hyeong"
+   },
+   "spoken": {
+    "chars": "사촌 형",
+    "rom": "sachon hyeong"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "고종사촌 오빠",
+      "rom": "gojongsachon oppa"
+     },
+     "spoken": {
+      "chars": "사촌 오빠",
+      "rom": "sachon oppa"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "고종사촌: Father's sister's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "F Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "고종사촌",
+   "rom": "gojongsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "고종사촌 누나",
+    "rom": "gojongsachon nuna"
+   },
+   "spoken": {
+    "chars": "사촌 누나",
+    "rom": "sachon nuna"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "고종사촌 언니",
+      "rom": "gojongsachon eonni"
+     },
+     "spoken": {
+      "chars": "사촌 언니",
+      "rom": "sachon eonni"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "고종사촌: Father's sister's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "M B* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "외사촌",
+   "rom": "oesachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "외사촌 형",
+    "rom": "oesachon hyeong"
+   },
+   "spoken": {
+    "chars": "사촌 형",
+    "rom": "sachon hyeong"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "외사촌 오빠",
+      "rom": "oesachon oppa"
+     },
+     "spoken": {
+      "chars": "사촌 오빠",
+      "rom": "sachon oppa"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "외사촌: Mother's brother's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "M B* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "외사촌",
+   "rom": "oesachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "외사촌 누나",
+    "rom": "oesachon nuna"
+   },
+   "spoken": {
+    "chars": "사촌 누나",
+    "rom": "sachon nuna"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "외사촌 언니",
+      "rom": "oesachon eonni"
+     },
+     "spoken": {
+      "chars": "사촌 언니",
+      "rom": "sachon eonni"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "외사촌: Mother's brother's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "M Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "이종사촌",
+   "rom": "ijongsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "이종사촌 형",
+    "rom": "ijongsachon hyeong"
+   },
+   "spoken": {
+    "chars": "사촌 형",
+    "rom": "sachon hyeong"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "이종사촌 오빠",
+      "rom": "ijongsachon oppa"
+     },
+     "spoken": {
+      "chars": "사촌 오빠",
+      "rom": "sachon oppa"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "이종사촌: Mother's sister's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "M Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "이종사촌",
+   "rom": "ijongsachon"
+  },
+  "older": {
+   "formal": {
+    "chars": "이종사촌 누나",
+    "rom": "ijongsachon nuna"
+   },
+   "spoken": {
+    "chars": "사촌 누나",
+    "rom": "sachon nuna"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "사촌 동생",
+    "rom": "sachon dongsaeng"
+   },
+   "spoken": "by-name"
+  },
+  "speaker": {
+   "f": {
+    "older": {
+     "formal": {
+      "chars": "이종사촌 언니",
+      "rom": "ijongsachon eonni"
+     },
+     "spoken": {
+      "chars": "사촌 언니",
+      "rom": "sachon eonni"
+     }
+    }
+   }
+  },
+  "status": "unverified",
+  "note": "이종사촌: Mother's sister's child. Older cousins take the speaker's sex; younger ones are 사촌 동생."
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "형수",
+   "rom": "hyeongsu"
+  },
+  "spoken": {
+   "chars": "형수님",
+   "rom": "hyeongsunim"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "올케",
+     "rom": "olke"
+    },
+    "spoken": {
+     "chars": "새언니",
+     "rom": "saeeonni"
+    }
+   }
+  },
+  "status": "checked",
+  "note": "A man's older brother's wife is 형수; a woman's is 새언니 (her brother's wife is 올케)."
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "제수",
+   "rom": "jesu"
+  },
+  "spoken": {
+   "chars": "제수씨",
+   "rom": "jesussi"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "올케",
+     "rom": "olke"
+    },
+    "spoken": {
+     "chars": "올케",
+     "rom": "olke"
+    }
+   }
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "매형",
+   "rom": "maehyeong"
+  },
+  "spoken": {
+   "chars": "매형",
+   "rom": "maehyeong"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "형부",
+     "rom": "hyeongbu"
+    },
+    "spoken": {
+     "chars": "형부",
+     "rom": "hyeongbu"
+    }
+   }
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "매제",
+   "rom": "maeje"
+  },
+  "spoken": {
+   "chars": "매제",
+   "rom": "maeje"
+  },
+  "speaker": {
+   "f": {
+    "formal": {
+     "chars": "제부",
+     "rom": "jebu"
+    },
+    "spoken": {
+     "chars": "제부",
+     "rom": "jebu"
+    }
+   }
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "조카",
+   "rom": "joka"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "조카",
+   "rom": "joka"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "조카딸",
+   "rom": "jokattal"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "조카딸",
+   "rom": "jokattal"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "며느리",
+   "rom": "myeoneuri"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "사위",
+   "rom": "sawi"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "친손자",
+   "rom": "chinsonja"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "친손녀",
+   "rom": "chinsonnyeo"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "외손자",
+   "rom": "oesonja"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "외손녀",
+   "rom": "oesonnyeo"
+  },
+  "spoken": "by-name",
+  "status": "unverified"
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "시아버지",
+   "rom": "siabeoji"
+  },
+  "spoken": {
+   "chars": "아버님",
+   "rom": "abeonim"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "시어머니",
+   "rom": "sieomeoni"
+  },
+  "spoken": {
+   "chars": "어머님",
+   "rom": "eomeonim"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "장인",
+   "rom": "jangin"
+  },
+  "spoken": {
+   "chars": "아버님",
+   "rom": "abeonim"
+  },
+  "status": "checked",
+  "note": "장인어른 when talking about him respectfully."
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "장모",
+   "rom": "jangmo"
+  },
+  "spoken": {
+   "chars": "어머님",
+   "rom": "eomeonim"
+  },
+  "status": "checked",
+  "note": "장모님 when talking about her respectfully."
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "시숙",
+   "rom": "sisuk"
+  },
+  "spoken": {
+   "chars": "아주버님",
+   "rom": "ajubeonim"
+  },
+  "status": "checked",
+  "note": "Reference form is 시아주버니 or 시숙; address is 아주버님 (hangyo.com)."
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "시동생",
+   "rom": "sidongsaeng"
+  },
+  "spoken": {
+   "chars": "도련님",
+   "rom": "doryeonnim"
+  },
+  "status": "checked",
+  "note": "서방님 if married. Address is 도련님 if unmarried, 서방님 if married (hangyo.com)."
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "시누이",
+   "rom": "sinui"
+  },
+  "spoken": {
+   "chars": "형님",
+   "rom": "hyeongnim"
+  },
+  "status": "checked",
+  "note": "Address is 형님 for an older sister, 아가씨 for a younger one (hangyo.com)."
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "시누이",
+   "rom": "sinui"
+  },
+  "spoken": {
+   "chars": "아가씨",
+   "rom": "agassi"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "처남",
+   "rom": "cheonam"
+  },
+  "spoken": {
+   "chars": "형님",
+   "rom": "hyeongnim"
+  },
+  "status": "checked",
+  "note": "Address is 형님 if he is older than you, 처남 if younger (hangyo.com)."
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "처남",
+   "rom": "cheonam"
+  },
+  "spoken": {
+   "chars": "처남",
+   "rom": "cheonam"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "처형",
+   "rom": "cheohyeong"
+  },
+  "spoken": {
+   "chars": "처형",
+   "rom": "cheohyeong"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "처제",
+   "rom": "cheoje"
+  },
+  "spoken": {
+   "chars": "처제",
+   "rom": "cheoje"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "시할아버지",
+   "rom": "siharabeoji"
+  },
+  "spoken": {
+   "chars": "할아버님",
+   "rom": "harabeonim"
+  },
+  "status": "unverified",
+  "note": "Not checked online."
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "시할머니",
+   "rom": "sihalmeoni"
+  },
+  "spoken": {
+   "chars": "할머님",
+   "rom": "halmeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "시외할아버지",
+   "rom": "sioeharabeoji"
+  },
+  "spoken": {
+   "chars": "외할아버님",
+   "rom": "oeharabeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "시외할머니",
+   "rom": "sioehalmeoni"
+  },
+  "spoken": {
+   "chars": "외할머님",
+   "rom": "oehalmeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "처조부",
+   "rom": "cheojobu"
+  },
+  "spoken": {
+   "chars": "할아버님",
+   "rom": "harabeonim"
+  },
+  "status": "unverified",
+  "note": "Not checked online."
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "처조모",
+   "rom": "cheojomo"
+  },
+  "spoken": {
+   "chars": "할머님",
+   "rom": "halmeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "처외조부",
+   "rom": "cheooejobu"
+  },
+  "spoken": {
+   "chars": "외할아버님",
+   "rom": "oeharabeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "처외조모",
+   "rom": "cheooejomo"
+  },
+  "spoken": {
+   "chars": "외할머님",
+   "rom": "oehalmeonim"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "증조할아버지",
+   "rom": "jeungjoharabeoji"
+  },
+  "spoken": {
+   "chars": "증조할아버지",
+   "rom": "jeungjoharabeoji"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "증조할머니",
+   "rom": "jeungjohalmeoni"
+  },
+  "spoken": {
+   "chars": "증조할머니",
+   "rom": "jeungjohalmeoni"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "진외증조할아버지",
+   "rom": "jinoejeungjoharabeoji"
+  },
+  "spoken": {
+   "chars": "진외증조할아버지",
+   "rom": "jinoejeungjoharabeoji"
+  },
+  "status": "checked",
+  "note": "Checked: 진외증조 is the father's mother's parents (thewiki.kr)."
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "진외증조할머니",
+   "rom": "jinoejeungjohalmeoni"
+  },
+  "spoken": {
+   "chars": "진외증조할머니",
+   "rom": "jinoejeungjohalmeoni"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "외증조할아버지",
+   "rom": "oejeungjoharabeoji"
+  },
+  "spoken": {
+   "chars": "외증조할아버지",
+   "rom": "oejeungjoharabeoji"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "외증조할머니",
+   "rom": "oejeungjohalmeoni"
+  },
+  "spoken": {
+   "chars": "외증조할머니",
+   "rom": "oejeungjohalmeoni"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "외외증조할아버지",
+   "rom": "oeoejeungjoharabeoji"
+  },
+  "spoken": {
+   "chars": "외외증조할아버지",
+   "rom": "oeoejeungjoharabeoji"
+  },
+  "status": "checked",
+  "note": "Checked: 외외증조 is the mother's mother's parents (thewiki.kr)."
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "외외증조할머니",
+   "rom": "oeoejeungjohalmeoni"
+  },
+  "spoken": {
+   "chars": "외외증조할머니",
+   "rom": "oeoejeungjohalmeoni"
+  },
+  "status": "checked"
+ }
+]

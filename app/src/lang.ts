@@ -7,8 +7,14 @@ import cmnTitles from '../../engine/data/cmn/titles.json' with { type: 'json' };
 import cmnGeneric from '../../engine/data/cmn/generic.json' with { type: 'json' };
 import vieTitles from '../../engine/data/vie/titles.json' with { type: 'json' };
 import vieGeneric from '../../engine/data/vie/generic.json' with { type: 'json' };
+import jpnTitles from '../../engine/data/jpn/titles.json' with { type: 'json' };
+import jpnGeneric from '../../engine/data/jpn/generic.json' with { type: 'json' };
+import korTitles from '../../engine/data/kor/titles.json' with { type: 'json' };
+import korGeneric from '../../engine/data/kor/generic.json' with { type: 'json' };
+import tglTitles from '../../engine/data/tgl/titles.json' with { type: 'json' };
+import tglGeneric from '../../engine/data/tgl/generic.json' with { type: 'json' };
 
-export type LangId = 'yue' | 'cmn' | 'vie';
+export type LangId = 'yue' | 'cmn' | 'vie' | 'jpn' | 'kor' | 'tgl';
 
 export interface Lang {
   id: LangId;
@@ -21,7 +27,7 @@ export interface Lang {
   rank: RankData | null;  // null where the language has no rank titles
   joiner: string;         // links the pieces of a fallback description: 嘅 / 的 / " của "
   reverse: boolean;       // description puts the nearest relative last
-  romanized: boolean;     // titles come with a reading (jyutping, pinyin); false for Vietnamese, which is already Latin script
+  romanized: boolean;     // titles come with a reading (jyutping, pinyin, romaji); false for Vietnamese and Tagalog, which are already Latin script
   me: Title;
   voice: (v: { lang: string; name: string }) => boolean;
   voicePrefer: string[];  // normalised tags (see tag) tried first, exactly
@@ -59,6 +65,24 @@ const LANGS: Record<LangId, Omit<Lang, 'table' | 'generic'> & { titles: unknown;
     titles: vieTitles, generic: vieGeneric, rank: null, joiner: ' của ', reverse: true, romanized: false, me: { chars: 'tôi' },
     voice: v => tag(v).split('-')[0] === 'vi',
     voicePrefer: ['vi-vn'], sep: ', ',
+  },
+  jpn: {
+    id: 'jpn', label: '日本語', english: 'Japanese', heading: '家族の呼び方', html: 'ja-JP',
+    titles: jpnTitles, generic: jpnGeneric, rank: null, joiner: 'の', reverse: false, romanized: true, me: { chars: '私', kana: 'わたし', rom: 'watashi' },
+    voice: v => tag(v).split('-')[0] === 'ja',
+    voicePrefer: ['ja-jp'], sep: '、',
+  },
+  kor: {
+    id: 'kor', label: '한국어', english: 'Korean', heading: '가족 호칭', html: 'ko-KR',
+    titles: korTitles, generic: korGeneric, rank: null, joiner: '의 ', reverse: false, romanized: true, me: { chars: '나', rom: 'na' },
+    voice: v => tag(v).split('-')[0] === 'ko',
+    voicePrefer: ['ko-kr'], sep: ', ',
+  },
+  tgl: {
+    id: 'tgl', label: 'Tagalog', english: 'Filipino', heading: 'Mga tawag sa pamilya', html: 'fil-PH',
+    titles: tglTitles, generic: tglGeneric, rank: null, joiner: ' ng ', reverse: true, romanized: false, me: { chars: 'ako' },
+    voice: v => ['fil', 'tl'].includes(tag(v).split('-')[0]),
+    voicePrefer: ['fil-ph', 'tl-ph'], sep: ', ',
   },
 };
 

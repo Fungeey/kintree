@@ -155,3 +155,10 @@ export function resolve(tree: Tree, table: Table, generic: Generic, me: string, 
 - The UI.
 
 The table data is a starter set for testing the engine. Every entry is `unverified` until the words.hk and native-speaker check (decision 14).
+
+## Speaker's sex and kana (added for Korean and Japanese)
+
+- `Title` is now `{ chars, rom?, kana? }` (the interface above predates this). `kana` is Japanese only: the reading of kanji, shown as furigana and spoken instead of the kanji.
+- An entry may carry `speaker: { m?: SpeakerForms; f?: SpeakerForms }`, where `SpeakerForms` is `{ formal?, spoken?, older?, younger? }`. When the person `resolve` is called for ("me") is a man or a woman, the matching fields replace the entry's own. Entries without `speaker` are unchanged. The entry's own forms are a man's where `speaker.f` exists. `loadTable` checks the merged entry is still valid.
+- `Generic` may carry `speaker: { m?, f? }` with partial replacements, applied the same way.
+- The speaker's sex is the sex of "me" in the tree, so nothing is stored for it in the link. `describe` (the fallback description) names each piece with the entry's own forms, not the speaker's.

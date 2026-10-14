@@ -1,0 +1,1982 @@
+[
+ {
+  "pattern": "F",
+  "en": "father",
+  "formal": {
+   "chars": "ama"
+  },
+  "spoken": {
+   "chars": "tatay"
+  },
+  "status": "checked",
+  "note": "Also papa, daddy, itay. Checked: Wikipedia (Philippine kinship), tagalognow.com."
+ },
+ {
+  "pattern": "M",
+  "en": "mother",
+  "formal": {
+   "chars": "ina"
+  },
+  "spoken": {
+   "chars": "nanay"
+  },
+  "status": "checked",
+  "note": "Also mama, mommy, inay."
+ },
+ {
+  "pattern": "S",
+  "en": "son",
+  "formal": {
+   "chars": "anak na lalaki"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "Not checked online."
+ },
+ {
+  "pattern": "D",
+  "en": "daughter",
+  "formal": {
+   "chars": "anak na babae"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "Not checked online."
+ },
+ {
+  "pattern": "H",
+  "en": "husband",
+  "formal": {
+   "chars": "asawang lalaki"
+  },
+  "spoken": {
+   "chars": "asawa"
+  },
+  "status": "checked",
+  "note": "Also mister, hubby, bana."
+ },
+ {
+  "pattern": "W",
+  "en": "wife",
+  "formal": {
+   "chars": "asawang babae"
+  },
+  "spoken": {
+   "chars": "asawa"
+  },
+  "status": "checked",
+  "note": "Also misis, wifey."
+ },
+ {
+  "pattern": "Be",
+  "en": "elder brother",
+  "formal": {
+   "chars": "kuya"
+  },
+  "spoken": {
+   "chars": "kuya"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "Ze",
+  "en": "elder sister",
+  "formal": {
+   "chars": "ate"
+  },
+  "spoken": {
+   "chars": "ate"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "By",
+  "en": "younger brother",
+  "formal": {
+   "chars": "kapatid na lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Bunso is the youngest child."
+ },
+ {
+  "pattern": "Zy",
+  "en": "younger sister",
+  "formal": {
+   "chars": "kapatid na babae"
+  },
+  "spoken": "by-name",
+  "status": "checked",
+  "note": "Bunso is the youngest child."
+ },
+ {
+  "pattern": "F F",
+  "en": "paternal grandfather",
+  "formal": {
+   "chars": "lolo sa ama"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Also tatang, lelong. Not checked online."
+ },
+ {
+  "pattern": "F M",
+  "en": "paternal grandmother",
+  "formal": {
+   "chars": "lola sa ama"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Also nanang, lelang."
+ },
+ {
+  "pattern": "M F",
+  "en": "maternal grandfather",
+  "formal": {
+   "chars": "lolo sa ina"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M",
+  "en": "maternal grandmother",
+  "formal": {
+   "chars": "lola sa ina"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Be",
+  "en": "father's elder brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "checked",
+  "note": "Tito is the usual word; tiyo is the older Tagalog form. Checked: tiyo/tiya for blood relatives, tito/tita everyday (tagalognow.com, Wikipedia)."
+ },
+ {
+  "pattern": "F By",
+  "en": "father's younger brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "checked",
+  "note": "Tito is the usual word; tiyo is the older Tagalog form."
+ },
+ {
+  "pattern": "M B*",
+  "en": "mother's brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "checked",
+  "note": "Tito is the usual word; tiyo is the older Tagalog form."
+ },
+ {
+  "pattern": "F Ze",
+  "en": "father's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "checked",
+  "note": "Tita is the usual word; tiya is the older Tagalog form."
+ },
+ {
+  "pattern": "F Zy",
+  "en": "father's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "checked",
+  "note": "Tita is the usual word; tiya is the older Tagalog form."
+ },
+ {
+  "pattern": "M Ze",
+  "en": "mother's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "checked",
+  "note": "Tita is the usual word; tiya is the older Tagalog form."
+ },
+ {
+  "pattern": "M Zy",
+  "en": "mother's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "checked",
+  "note": "Tita is the usual word; tiya is the older Tagalog form."
+ },
+ {
+  "pattern": "F Be W",
+  "en": "father's elder brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F By W",
+  "en": "father's younger brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* W",
+  "en": "mother's brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* H",
+  "en": "father's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* H",
+  "en": "mother's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Be",
+  "en": "paternal grandfather's elder brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita. Not checked online: no source says how a grandparent's sibling is called."
+ },
+ {
+  "pattern": "F F By",
+  "en": "paternal grandfather's younger brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Be",
+  "en": "maternal grandfather's elder brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F By",
+  "en": "maternal grandfather's younger brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M B*",
+  "en": "paternal grandmother's brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M B*",
+  "en": "maternal grandmother's brother",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F F Z*",
+  "en": "paternal grandfather's sister",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Z*",
+  "en": "maternal grandfather's sister",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M Z*",
+  "en": "paternal grandmother's sister",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M Z*",
+  "en": "maternal grandmother's sister",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F B* S",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked",
+  "note": "First cousin is pinsang buo (tagalognow.com). Older cousins are called kuya or ate (Wikipedia)."
+ },
+ {
+  "pattern": "F B* D",
+  "en": "paternal cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F B* S W",
+  "en": "paternal male cousin's wife",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F B* D H",
+  "en": "paternal female cousin's husband",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F Z* S W",
+  "en": "father's sister's son's wife",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F Z* D H",
+  "en": "father's sister's daughter's husband",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M B* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M B* S W",
+  "en": "mother's brother's son's wife",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M B* D H",
+  "en": "mother's brother's daughter's husband",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* S",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Z* D",
+  "en": "cousin",
+  "formal": {
+   "chars": "pinsang buo"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang buo"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M Z* S W",
+  "en": "mother's sister's son's wife",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M Z* D H",
+  "en": "mother's sister's daughter's husband",
+  "formal": {
+   "chars": "asawa ng pinsan"
+  },
+  "older": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "asawa ng pinsan"
+   },
+   "spoken": "by-name"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "Be W",
+  "en": "elder brother's wife",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": {
+   "chars": "ate"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "By W",
+  "en": "younger brother's wife",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Ze H",
+  "en": "elder sister's husband",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": {
+   "chars": "kuya"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "Zy H",
+  "en": "younger sister's husband",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "B* S",
+  "en": "brother's son",
+  "formal": {
+   "chars": "pamangkíng lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Z* S",
+  "en": "sister's son",
+  "formal": {
+   "chars": "pamangkíng lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "B* D",
+  "en": "brother's daughter",
+  "formal": {
+   "chars": "pamangkíng babae"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "Z* D",
+  "en": "sister's daughter",
+  "formal": {
+   "chars": "pamangkíng babae"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "S W",
+  "en": "son's wife",
+  "formal": {
+   "chars": "manugang na babae"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D H",
+  "en": "daughter's husband",
+  "formal": {
+   "chars": "manugang na lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "S S",
+  "en": "son's son",
+  "formal": {
+   "chars": "apong lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D S",
+  "en": "daughter's son",
+  "formal": {
+   "chars": "apong lalaki"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "S D",
+  "en": "son's daughter",
+  "formal": {
+   "chars": "apong babae"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "D D",
+  "en": "daughter's daughter",
+  "formal": {
+   "chars": "apong babae"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H F",
+  "en": "husband's father",
+  "formal": {
+   "chars": "biyenang lalaki"
+  },
+  "spoken": {
+   "chars": "tatay"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M",
+  "en": "husband's mother",
+  "formal": {
+   "chars": "biyenang babae"
+  },
+  "spoken": {
+   "chars": "nanay"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H Be",
+  "en": "husband's elder brother",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": {
+   "chars": "kuya"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H By",
+  "en": "husband's younger brother",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H Ze",
+  "en": "husband's elder sister",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": {
+   "chars": "ate"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H Zy",
+  "en": "husband's younger sister",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "H F F",
+  "en": "husband's paternal grandfather",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H F M",
+  "en": "husband's paternal grandmother",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M F",
+  "en": "husband's maternal grandfather",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "H M M",
+  "en": "husband's maternal grandmother",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F",
+  "en": "wife's father",
+  "formal": {
+   "chars": "biyenang lalaki"
+  },
+  "spoken": {
+   "chars": "tatay"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M",
+  "en": "wife's mother",
+  "formal": {
+   "chars": "biyenang babae"
+  },
+  "spoken": {
+   "chars": "nanay"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W Be",
+  "en": "wife's elder brother",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": {
+   "chars": "kuya"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W By",
+  "en": "wife's younger brother",
+  "formal": {
+   "chars": "bayaw"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "W Ze",
+  "en": "wife's elder sister",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": {
+   "chars": "ate"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W Zy",
+  "en": "wife's younger sister",
+  "formal": {
+   "chars": "hipag"
+  },
+  "spoken": "by-name",
+  "status": "checked"
+ },
+ {
+  "pattern": "W F F",
+  "en": "wife's paternal grandfather",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F M",
+  "en": "wife's paternal grandmother",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M F",
+  "en": "wife's maternal grandfather",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W M M",
+  "en": "wife's maternal grandmother",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "W F Be",
+  "en": "wife's father's elder brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F By",
+  "en": "wife's father's younger brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F Ze",
+  "en": "wife's father's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F Zy",
+  "en": "wife's father's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M Ze",
+  "en": "wife's mother's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M Zy",
+  "en": "wife's mother's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F Be W",
+  "en": "wife's father's elder brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F By W",
+  "en": "wife's father's younger brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W F Z* H",
+  "en": "wife's father's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M B*",
+  "en": "wife's mother's brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M B* W",
+  "en": "wife's mother's brother's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "W M Z* H",
+  "en": "wife's mother's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked",
+  "note": "Second cousin is pinsang makalawa (tagalognow.com); also pangalawang pinsan."
+ },
+ {
+  "pattern": "M F B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M B* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M B* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S",
+  "en": "mother's male cousin",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* S W",
+  "en": "mother's male cousin's wife",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* D",
+  "en": "mother's female cousin",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* D H",
+  "en": "mother's female cousin's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Z* S S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* S D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D S",
+  "en": "mother's cousin's son",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "kuya"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M Z* D D",
+  "en": "mother's cousin's daughter",
+  "formal": {
+   "chars": "pinsang makalawa"
+  },
+  "older": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": {
+    "chars": "ate"
+   }
+  },
+  "younger": {
+   "formal": {
+    "chars": "pinsang makalawa"
+   },
+   "spoken": "by-name"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F F",
+  "en": "paternal great-grandfather",
+  "formal": {
+   "chars": "lolo sa tuhod"
+  },
+  "spoken": {
+   "chars": "lolo sa tuhod"
+  },
+  "status": "checked",
+  "note": "Great-grandfather lolo sa tuhod checked (tagalog.com); lola sa tuhod follows it but is not listed there."
+ },
+ {
+  "pattern": "F M F",
+  "en": "father's mother's father",
+  "formal": {
+   "chars": "lolo sa tuhod"
+  },
+  "spoken": {
+   "chars": "lolo sa tuhod"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M F F",
+  "en": "mother's father's father",
+  "formal": {
+   "chars": "lolo sa tuhod"
+  },
+  "spoken": {
+   "chars": "lolo sa tuhod"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "M M F",
+  "en": "mother's mother's father",
+  "formal": {
+   "chars": "lolo sa tuhod"
+  },
+  "spoken": {
+   "chars": "lolo sa tuhod"
+  },
+  "status": "checked"
+ },
+ {
+  "pattern": "F F M",
+  "en": "paternal great-grandmother",
+  "formal": {
+   "chars": "lola sa tuhod"
+  },
+  "spoken": {
+   "chars": "lola sa tuhod"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M M",
+  "en": "father's mother's mother",
+  "formal": {
+   "chars": "lola sa tuhod"
+  },
+  "spoken": {
+   "chars": "lola sa tuhod"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F M",
+  "en": "mother's father's mother",
+  "formal": {
+   "chars": "lola sa tuhod"
+  },
+  "spoken": {
+   "chars": "lola sa tuhod"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M M",
+  "en": "mother's mother's mother",
+  "formal": {
+   "chars": "lola sa tuhod"
+  },
+  "spoken": {
+   "chars": "lola sa tuhod"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M B* W",
+  "en": "paternal grandmother's brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M B* W",
+  "en": "maternal grandmother's brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M Z* H",
+  "en": "paternal grandmother's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Z* H",
+  "en": "maternal grandfather's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M Z* H",
+  "en": "maternal grandmother's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ }
+]

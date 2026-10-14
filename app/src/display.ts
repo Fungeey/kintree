@@ -4,7 +4,7 @@ import type { Tree, Spoken, Forms, Title } from '../../engine/src/index.ts';
 import { DEFAULT_LANG, langFor } from './lang.ts';
 import type { LangId } from './lang.ts';
 
-export interface Line { label?: string; chars: string; rom?: string; byName?: boolean; bare?: boolean; rank?: boolean }
+export interface Line { label?: string; chars: string; rom?: string; kana?: string; byName?: boolean; bare?: boolean; rank?: boolean }
 export interface Shown {
   kind: 'self' | 'title' | 'byAge' | 'fallback' | 'unrelated';
   lines: Line[];          // spoken titles, large; one line, or two for older/younger
@@ -16,12 +16,12 @@ export interface Shown {
 const BY_NAME = 'by name';
 
 function line(s: Spoken, label?: string): Line {
-  return s === 'by-name' ? { label, chars: BY_NAME, byName: true, bare: true } : { label, chars: s.chars, rom: s.rom };
+  return s === 'by-name' ? { label, chars: BY_NAME, byName: true, bare: true } : { label, chars: s.chars, rom: s.rom, kana: s.kana };
 }
 
 function forms(f: Forms, label: string): Line {
   // Younger relatives are called by name; the formal term is still worth showing.
-  return f.spoken === 'by-name' ? { label, chars: f.formal.chars, rom: f.formal.rom, byName: true } : line(f.spoken, label);
+  return f.spoken === 'by-name' ? { label, chars: f.formal.chars, rom: f.formal.rom, kana: f.formal.kana, byName: true } : line(f.spoken, label);
 }
 
 // "Mei's", or "Your" for a root named "You" (the ?demo family), so captions read "Your father".
@@ -52,16 +52,16 @@ export function showFor(tree: Tree, me: string, target: string, lang: LangId = D
   const L = langFor(lang);
   const r = resolve(tree, L.table, L.generic, me, target, L.joiner, L.reverse);
   switch (r.kind) {
-    case 'self': return { kind: 'self', lines: [{ chars: L.me.chars, rom: L.me.rom }], gloss: 'me' };
+    case 'self': return { kind: 'self', lines: [{ chars: L.me.chars, rom: L.me.rom, kana: L.me.kana }], gloss: 'me' };
     case 'unrelated': return { kind: 'unrelated', lines: [] };
     case 'title': {
       const { spoken, formal } = r.forms;
-      const first = spoken === 'by-name' ? { chars: formal.chars, rom: formal.rom, byName: true } : line(spoken);
+      const first = spoken === 'by-name' ? { chars: formal.chars, rom: formal.rom, kana: formal.kana, byName: true } : line(spoken);
       // Aunts, uncles and grand-uncles and aunts can also be called by rank (大姨媽, 二叔公): shown beside the usual title, not instead of it.
       const rank = L.rank ? rankTitle(tree, me, target, L.rank) : null;
       return {
         kind: 'title', gloss: r.en,
-        lines: rank ? [first, { chars: rank.chars, rom: rank.rom, rank: true }] : [first],
+        lines: rank ? [first, { chars: rank.chars, rom: rank.rom, kana: rank.kana, rank: true }] : [first],
         formal: rank || spoken === 'by-name' || spoken.chars === formal.chars ? undefined : formal,
       };
     }

@@ -30,6 +30,10 @@ function compatible(a: Token[], b: Token[]): boolean {
 
 // Entry must have a title (spoken) or both older and younger forms.
 function checkEntry(entry: TitleEntry): void {
+  for (const sex of ['m', 'f'] as const) {
+    const own = entry.speaker?.[sex];
+    if (own) checkEntry({ ...entry, ...own, speaker: undefined });
+  }
   const hasOlder = entry.older !== undefined;
   const hasYounger = entry.younger !== undefined;
   if (hasOlder !== hasYounger) throw new Error(`"${entry.pattern}": older and younger must be given together`);
