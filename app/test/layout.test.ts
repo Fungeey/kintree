@@ -271,3 +271,36 @@ test('layout: names only (no titles) packs the rows a little closer, with couple
   for (const h of coupleHearts(bare)) assert.ok(ys.has(h.y - BARE_FACE_CY));
   for (const p of bare.pos.values()) assert.ok(p.y + BARE_CARD_H <= bare.height);
 });
+
+// The wife's side follows the same rules as the husband's: her grandfathers' brothers and sisters on
+// the left of their couples, her grandmothers' on the right, and her parents under their own parents.
+test('layout: the wife\'s grandparents\' siblings follow the same sides', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  let { tree } = demoTree();
+  const add = (e: { tree: Tree; id: string }) => { tree = e.tree; return e.id; };
+  // p27/p28: wife's father's parents; p29/p30: wife's mother's parents.
+  const wpgpaSis = add(addSibling(tree, 'p27', 'f', undefined, 0)); add(addSpouse(tree, wpgpaSis, 'm')); add(addChild(tree, wpgpaSis, 'm'));
+  const wpgmaBro = add(addSibling(tree, 'p28', 'm')); add(addSpouse(tree, wpgmaBro, 'f')); add(addChild(tree, wpgmaBro, 'f'));
+  const wmgpaBro = add(addSibling(tree, 'p29', 'm', undefined, 0)); add(addSpouse(tree, wmgpaBro, 'f')); add(addChild(tree, wmgpaBro, 'm'));
+  const wmgmaSis = add(addSibling(tree, 'p30', 'f')); add(addSpouse(tree, wmgmaSis, 'm')); add(addChild(tree, wmgmaSis, 'f'));
+  checkViews(tree, 'wife extended', false);
+  const s = sides(tree, 'p1');
+  const L = layoutTree(tree, id => visible(s, id, 'spouse'));
+  const x = (id: string) => L.pos.get(id)!.x;
+  assert.ok(x(wpgpaSis) < x('p27'), "her father's father's sister is left of him");
+  assert.ok(x(wpgmaBro) > x('p28'), "her father's mother's brother is right of her");
+  assert.ok(x(wmgpaBro) < x('p29'), "her mother's father's brother is left of him");
+  assert.ok(x(wmgmaSis) > x('p30'), "her mother's mother's sister is right of her");
+  assert.ok(x('p27') < x('p29'), "her father's parents are left of her mother's");
+  // Grandparents' siblings sit in the grandparents' row, not on a row of their own.
+  for (const id of [wpgpaSis, wpgmaBro, wmgpaBro, wmgmaSis]) assert.equal(L.pos.get(id)!.y, L.pos.get('p27')!.y);
+});
+
+test('layout: a grandmother\'s siblings go right of the couple even when the grandfather has none', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  const { tree } = demoTree();
+  const s = sides(tree, 'p1');
+  const L = layoutTree(tree, id => visible(s, id, 'mine'));
+  const x = (id: string) => L.pos.get(id)!.x;
+  assert.ok(x('p39') > x('p6') && x('p43') > x('p6'), "dad's mother's sister and brother are right of her");
+});

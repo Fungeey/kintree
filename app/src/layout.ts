@@ -60,9 +60,20 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   };
   // Only the couples above the first person (the tree's root) are lifted: those are the ones whose own
   // line the eye follows down the page, while their brothers and sisters hang to the sides.
+  // When the root's own parents are hidden (the wife's side of a married view), the line followed is
+  // the root's wife's (or husband's) instead, so her grandparents' brothers and sisters get the same rules.
+  const lineOf = (id: string | undefined): string | undefined => {
+    if (!id) return id;
+    const b = birth.get(id);
+    if (b && fams.get(b)!.parents.length) return id;
+    const o = own.get(id);
+    const sp = o && fams.get(o)!.parents.find(p => p !== id);
+    const sb = sp && birth.get(sp);
+    return sb && fams.get(sb)!.parents.length ? sp : id;
+  };
   const spine = new Set<string>();
   const ancestors = new Set<string>();
-  for (let cur = [tree.people[0]?.id]; cur.length;) {
+  for (let cur = [lineOf(tree.people[0]?.id)]; cur.length;) {
     const nextUp: string[] = [];
     for (const c of cur) {
       const b = c && birth.get(c);
@@ -315,12 +326,16 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
 
   for (const anchor of anchors) {
     if (pos.has(anchor)) continue;
-    let top: string | undefined = birth.get(anchor) ?? own.get(anchor);
+    const line = lineOf(anchor)!;
+    let top: string | undefined = birth.get(line) ?? own.get(line);
     if (!top) continue;
     const seen = new Set<string>([top]);
     for (;;) {
-      const next: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b)).map(p => birth.get(p)).find(b => b !== undefined && !seen.has(b));
-      if (next === undefined) break;
+      // Up the husband's line only: when he has no parents drawn, his couple is the top, and his
+      // wife's own family is drawn to the right of it rather than above him.
+      const up: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b))[0];
+      const next: string | undefined = up === undefined ? undefined : birth.get(up);
+      if (next === undefined || seen.has(next)) break;
       seen.add(next); top = next;
     }
     floor = right ? right + GAP_X * 2 : 0; // each connected group starts clear of the last
