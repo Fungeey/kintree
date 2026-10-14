@@ -1,5 +1,5 @@
 // A sample family, loaded with ?demo in the address bar. For trying the drawing.
-import { addChild, addParent, addPerson, addSibling, addSpouse, emptyTree } from '../../engine/src/index.ts';
+import { addChild, addParent, addPerson, addPet, addSibling, addSpouse, emptyTree } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
 
 export function demoTree(): { tree: Tree; me: string } {
@@ -59,5 +59,10 @@ export function demoTree(): { tree: Tree; me: string } {
   add('gmaBro', addSibling(t, id.gma, 'm'));
   add('gmaBroW', addSpouse(t, id.gmaBro, 'f'));
   add('gmaBroS', addChild(t, id.gmaBro, 'm'));
+
+  // Pets: a dog for you, a cat for your sister and a guinea pig for a cousin.
+  add('dog', addPet(t, id.me, 'dog', 'Biscuit'));
+  add('cat', addPet(t, id.sis, 'cat', 'Me-Me-Me'));
+  add('gp', addPet(t, id.mAunt1s, 'guinea-pig'));
   return { tree: t, me: id.me };
 }

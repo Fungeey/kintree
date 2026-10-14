@@ -1,6 +1,6 @@
 // Tree editing (slice 1). Every function returns a new tree and leaves the input alone.
 // New people and families get ids p1, p2, ... and f1, f2, ...; the result is validated.
-import type { Family, Sex, Tree } from './model.ts';
+import type { Family, PetKind, Sex, Tree } from './model.ts';
 import { validateTree } from './tree.ts';
 
 export interface Edited { tree: Tree; id: string }
@@ -137,6 +137,7 @@ export function removePerson(tree: Tree, id: string): Tree {
   const t = structuredClone(tree);
   t.people = t.people.filter(p => p.id !== id);
   if (t.root === id) delete t.root;
+  if (t.pets) { t.pets = t.pets.filter(a => a.owner !== id); if (!t.pets.length) delete t.pets; } // their pets go with them
   for (const f of t.families) {
     f.parents = f.parents.filter(x => x !== id);
     f.children = f.children.filter(x => x !== id);
@@ -147,5 +148,34 @@ export function removePerson(tree: Tree, id: string): Tree {
     return true;
   });
   validateTree(t);
+  return t;
+}
+
+// Pets (ids a1, a2, ...) hang off their owner and take no part in titles.
+export function addPet(tree: Tree, owner: string, kind: PetKind, name?: string): Edited {
+  mustHave(tree, owner);
+  const t = structuredClone(tree);
+  const pets = (t.pets ??= []);
+  const id = nextId('a', pets.map(a => a.id));
+  const n = name?.trim();
+  pets.push(n ? { id, kind, owner, name: n } : { id, kind, owner });
+  return finish(t, id);
+}
+
+// Sets (or, with an empty name, clears) a pet's name.
+export function renamePet(tree: Tree, id: string, name: string): Tree {
+  const t = structuredClone(tree);
+  const a = t.pets?.find(x => x.id === id);
+  if (!a) throw new Error(`unknown pet id: ${id}`);
+  const n = name.trim();
+  if (n) a.name = n; else delete a.name;
+  return t;
+}
+
+export function removePet(tree: Tree, id: string): Tree {
+  if (!tree.pets?.some(a => a.id === id)) throw new Error(`unknown pet id: ${id}`);
+  const t = structuredClone(tree);
+  t.pets = t.pets!.filter(a => a.id !== id);
+  if (!t.pets.length) delete t.pets;
   return t;
 }

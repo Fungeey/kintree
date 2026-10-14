@@ -1,4 +1,5 @@
 // Tree validation and the four moves from a person (spec section 1 and 2).
+import { PET_KINDS } from './model.ts';
 import type { Family, Person, Tree } from './model.ts';
 import type { Token } from './tokens.ts';
 
@@ -33,6 +34,14 @@ export function validateTree(tree: Tree): void {
       if (isChild.has(id)) throw new Error(`${id} is a child in two families`);
       isChild.add(id);
     }
+  }
+
+  const pets = new Set<string>();
+  for (const a of tree.pets ?? []) {
+    if (pets.has(a.id) || people.has(a.id)) throw new Error(`duplicate pet id: ${a.id}`);
+    if (!PET_KINDS.includes(a.kind)) throw new Error(`bad kind for pet ${a.id}`);
+    if (!people.has(a.owner)) throw new Error(`unknown owner of pet ${a.id}: ${a.owner}`);
+    pets.add(a.id);
   }
 }
 

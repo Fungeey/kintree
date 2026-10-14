@@ -2,8 +2,8 @@
 // v2 (written now): a compact binary payload, see encodeV2. v1 (still read): JSON
 // {v:1, me, r?, p:[[id,sex,name?]], f:[[id,[parents],[children]]]}.
 // The version prefix lets later formats be added without breaking old links.
-import { validateTree } from '../../engine/src/index.ts';
-import type { Person, Tree, Sex } from '../../engine/src/index.ts';
+import { PET_KINDS, validateTree } from '../../engine/src/index.ts';
+import type { Person, Pet, Tree, Sex } from '../../engine/src/index.ts';
 
 export const FORMAT_VERSION = 2;
 
@@ -60,7 +60,8 @@ export function fromWire(w: Wire): Snapshot {
   return finish(tree, w.me ?? null, w.r);
 }
 
-function finish(tree: Tree, me: string | null, root: string | undefined): Snapshot {
+function finish(tree: Tree, me: string | null, root: string | undefined, pets?: Pet[]): Snapshot {
+  if (pets?.length) tree.pets = pets;
   if (me !== null && !tree.people.some((p) => p.id === me)) throw new Error(`me "${me}" is not in the tree`);
   // Links and saved trees from before the root existed: whoever was "me" when it was saved made the tree.
   const r = [root, me].find((id) => id != null && tree.people.some((p) => p.id === id));
@@ -77,6 +78,8 @@ function finish(tree: Tree, me: string | null, root: string | undefined): Snapsh
 //   names: (byte length + 1) + UTF-8, or 0 for no name
 //   me index, root index (only when flagged)
 //   per family: parents count, children count, then those people's indexes in order
+//   pets (only when flagged 4): pet count, then per pet its id (as above, "a<n>"), kind (index in PET_KINDS),
+//     owner's index and name (as for people). Links without pets are byte for byte what they were before pets.
 // Person and family order, ids, parent order and birth order all round-trip exactly.
 
 class Writer {
@@ -145,7 +148,8 @@ function encodeV2(snap: Snapshot): Uint8Array {
   const at = (id: string) => ix.get(id)!;
   const root = tree.root && ix.has(tree.root) ? tree.root : undefined;
   const w = new Writer();
-  w.uint((me !== null ? 1 : 0) | (root !== undefined ? 2 : 0));
+  const pets = tree.pets ?? [];
+  w.uint((me !== null ? 1 : 0) | (root !== undefined ? 2 : 0) | (pets.length ? 4 : 0));
   w.uint(tree.people.length);
   w.uint(tree.families.length);
   for (const p of tree.people) w.id(p.id, 'p');
@@ -156,12 +160,13 @@ function encodeV2(snap: Snapshot): Uint8Array {
     for (let j = 0; j < 8 && i + j < tree.people.length; j++) if (tree.people[i + j].sex === 'f') byte |= 1 << j;
     w.bytes.push(byte);
   }
-  for (const p of tree.people) {
-    if (!p.name) { w.uint(0); continue; }
-    const b = new TextEncoder().encode(p.name);
+  const name = (n: string | undefined) => {
+    if (!n) { w.uint(0); return; }
+    const b = new TextEncoder().encode(n);
     w.uint(b.length + 1);
     w.raw(b);
-  }
+  };
+  for (const p of tree.people) name(p.name);
   if (me !== null) w.uint(at(me));
   if (root !== undefined) w.uint(at(root));
   for (const f of tree.families) {
@@ -169,13 +174,23 @@ function encodeV2(snap: Snapshot): Uint8Array {
     w.uint(f.children.length);
     for (const id of [...f.parents, ...f.children]) w.uint(at(id));
   }
+  if (pets.length) {
+    w.uint(pets.length);
+    w.last = 0;
+    for (const a of pets) {
+      w.id(a.id, 'a');
+      w.uint(PET_KINDS.indexOf(a.kind));
+      w.uint(at(a.owner));
+      name(a.name);
+    }
+  }
   return Uint8Array.from(w.bytes);
 }
 
 function decodeV2(b: Uint8Array): Snapshot {
   const r = new Reader(b);
   const flags = r.uint();
-  if (flags > 3) throw new Error('unknown flags');
+  if (flags > 7) throw new Error('unknown flags');
   const nPeople = r.uint(), nFamilies = r.uint();
   // Every person and family takes at least one byte, so larger counts can only be junk.
   if (nPeople + nFamilies > b.length) throw new Error('bad counts');
@@ -196,8 +211,21 @@ function decodeV2(b: Uint8Array): Snapshot {
     const ids = Array.from({ length: np + nc }, () => pids[r.index(nPeople)]);
     return { id, parents: ids.slice(0, np), children: ids.slice(np) };
   });
+  let pets: Pet[] | undefined;
+  if (flags & 4) {
+    const n = r.uint();
+    if (n > b.length) throw new Error('bad counts');
+    r.last = 0;
+    pets = Array.from({ length: n }, () => {
+      const id = r.id('a');
+      const kind = PET_KINDS[r.index(PET_KINDS.length)];
+      const owner = pids[r.index(nPeople)];
+      const len = r.uint();
+      return len > 0 ? { id, kind, owner, name: r.text(len - 1) } : { id, kind, owner };
+    });
+  }
   if (r.at !== b.length) throw new Error('trailing bytes');
-  return finish({ version: 1, people, families }, me, root);
+  return finish({ version: 1, people, families }, me, root, pets);
 }
 
 /** Encode a tree and "me" as a link fragment (without the leading #). */

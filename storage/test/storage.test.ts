@@ -176,3 +176,20 @@ test('cut-short or padded v2 links are rejected', async () => {
   for (let cut = 0; cut < bytes.length; cut++) await assert.rejects(decodeFragment(await pack(bytes.subarray(0, cut))), /corrupt/);
   await assert.rejects(decodeFragment(await pack(Uint8Array.from([...bytes, 0]))), /corrupt/);
 });
+
+test('pets round-trip in the link, named or not, and cut-short pet links are rejected', async () => {
+  const s = tree();
+  s.tree.pets = [
+    { id: 'a1', kind: 'dog', owner: 'a', name: 'Rex' },
+    { id: 'a2', kind: 'guinea-pig', owner: 'b' },
+    { id: 'pip', kind: 'cat', owner: 'a', name: '咪咪' },
+  ];
+  const f = await encodeFragment(s);
+  assert.deepEqual(await decodeFragment(f), s);
+  // A tree without pets is encoded exactly as before pets existed.
+  assert.equal(await encodeFragment(tree()), await encodeFragment({ ...tree(), tree: { ...tree().tree, pets: [] } }));
+  const raw = await new Response(new Blob([Buffer.from(f.slice(3), 'base64url')]).stream().pipeThrough(new DecompressionStream('deflate-raw'))).arrayBuffer();
+  const pack = async (b: Uint8Array) => 'v2.' + Buffer.from(await new Response(new Blob([b as BlobPart]).stream().pipeThrough(new CompressionStream('deflate-raw'))).arrayBuffer()).toString('base64url');
+  const bytes = new Uint8Array(raw);
+  for (let cut = 0; cut < bytes.length; cut++) await assert.rejects(decodeFragment(await pack(bytes.subarray(0, cut))), /corrupt/);
+});

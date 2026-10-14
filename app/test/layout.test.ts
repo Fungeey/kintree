@@ -1,8 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addChild, addParent, addPerson, addSibling, addSpouse, emptyTree, sides, visible } from '../../engine/src/index.ts';
+import { addChild, addParent, addPerson, addPet, addSibling, addSpouse, emptyTree, sides, visible } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
-import { CARD_H, CARD_W, COUPLE_GAP, FACE_CY, coupleHearts, layoutTree, linkSegments } from '../src/layout.ts';
+import { CARD_H, CARD_W, COUPLE_GAP, FACE_CY, coupleHearts, layoutTree, linkSegments, withPets } from '../src/layout.ts';
 import { rootLabel, showFor } from '../src/display.ts';
 
 function sample() {
@@ -141,11 +141,15 @@ function branch(tree: Tree, id: string, show: (id: string) => boolean): string[]
 
 // The demo family drawn in every view of every "me": whoever is hidden is left out of the layout,
 // and what is left must read right.
-function checkViews(tree: Tree, name: string, rows: boolean) {
+// Pets are checked as the layout sees them: their owner's youngest children, drawn when the owner is.
+function checkViews(withPetsTree: Tree, name: string, rows: boolean) {
+  const tree = withPets(withPetsTree, () => true).tree;
+  const petOwner = new Map((withPetsTree.pets ?? []).map(a => [a.id, a.owner]));
   const partners = (id: string) => new Set(tree.families.filter(f => f.parents.includes(id)).flatMap(f => f.parents));
 
-  const check = (show: (id: string) => boolean, label: string) => {
-    const L = layoutTree(tree, show);
+  const check = (showPerson: (id: string) => boolean, label: string) => {
+    const L = layoutTree(withPetsTree, showPerson);
+    const show = (id: string) => showPerson(petOwner.get(id) ?? id);
     assert.equal(L.pos.size, tree.people.filter(p => show(p.id)).length, `${name} ${label}: hidden people are drawn`);
     for (const f of tree.families) {
       const parents = f.parents.filter(show), kids = f.children.filter(show);
@@ -195,8 +199,8 @@ function checkViews(tree: Tree, name: string, rows: boolean) {
 
   // Not drawn all at once: the app only ever shows one hop from "me" (decision 20), and when both a son's
   // and his wife's families are drawn no order can keep each of them in one piece.
-  for (const p of tree.people) {
-    const s = sides(tree, p.id);
+  for (const p of withPetsTree.people) {
+    const s = sides(withPetsTree, p.id);
     if (!s.married) { check(id => visible(s, id, 'mine'), `me = ${p.id}`); continue; }
     for (const view of ['mine', 'spouse'] as const) check(id => visible(s, id, view), `me = ${p.id}, ${view}`);
   }
@@ -270,4 +274,24 @@ test('layout: names only (no titles) packs the rows a little closer, with couple
   const ys = new Set([...bare.pos.values()].map(p => p.y));
   for (const h of coupleHearts(bare)) assert.ok(ys.has(h.y - BARE_FACE_CY));
   for (const p of bare.pos.values()) assert.ok(p.y + BARE_CARD_H <= bare.height);
+});
+
+test('layout: a pet sits in the row under its owner, joined by a dashed line, and is hidden with its owner', () => {
+  let t = addPerson(emptyTree(), 'm', 'Me').tree;
+  const sis = addSibling(t, 'p1', 'f'); t = sis.tree;
+  t = addPet(t, 'p1', 'cat', 'Mo').tree;
+  const L = layoutTree(t);
+  const me = L.pos.get('p1')!, cat = L.pos.get('a1')!;
+  assert.ok(L.pets.has('a1'));
+  assert.equal(cat.y, me.y + CARD_H + 28);
+  const stem = linkSegments(L).find(s => s.x1 === s.x2 && s.y2 === cat.y)!;
+  assert.equal(stem.x1, cat.x + CARD_W / 2);
+  assert.ok(linkSegments(L).filter(s => s.y2 === cat.y || s.y1 === me.y + CARD_H).every(s => s.dashed));
+  assert.equal(layoutTree(t, id => id !== 'p1').pos.has('a1'), false);
+  // With a child too, the line to the child stays solid.
+  t = addChild(t, 'p1', 'f').tree;
+  const L2 = layoutTree(t);
+  const kid = L2.pos.get('p3')!;
+  assert.ok(linkSegments(L2).some(s => s.x1 === s.x2 && s.y2 === kid.y && !s.dashed));
+  assert.ok(linkSegments(L2).some(s => s.x1 === s.x2 && s.y2 === L2.pos.get('a1')!.y && s.dashed));
 });
