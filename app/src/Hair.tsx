@@ -11,7 +11,7 @@ export const ageFor = (gen: number): Age =>
   gen <= -3 ? 'oldest' : gen === -2 ? 'elder' : gen === -1 ? 'parent' : gen === 0 ? 'adult' : gen === 1 ? 'child' : 'baby';
 
 const HAIR_FILL: Record<Age, string> = {
-  oldest: 'var(--paper)', elder: 'var(--paper)', parent: '#9a948a', adult: INK, child: '#8a5a34', baby: '#d9b36b',
+  oldest: 'var(--paper)', elder: 'var(--paper)', parent: '#9a948a', adult: INK, child: '#8a5a34', baby: INK,
 };
 
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
@@ -22,10 +22,16 @@ export function HairBack({ sex, age }: { sex: string; age: Age }) {
   const dark = fillFor(age);
   const thin = white;
   if (age === 'baby') {
+    // A single curl for boys; a small bow for girls.
     return (
       <svg className="hair back" viewBox="0 0 128 128" aria-hidden="true">
-        <path {...dark} d="M64 22 C56 12 60 2 68 4 C76 6 74 16 68 16 C72 18 70 22 64 22Z" />
-        {sex === 'f' && <path {...dark} d="M52 26 C44 20 46 12 54 14 Z M76 26 C84 20 82 12 74 14 Z" />}
+        {sex === 'm'
+          ? <path {...dark} d="M64 24 C54 20 54 4 66 2 C78 0 78 12 70 13 C65 14 65 20 70 22 Z" />
+          : <g {...stroke} fill="var(--f)">
+              <path d="M64 18 L50 8 L50 28 Z" />
+              <path d="M64 18 L78 8 L78 28 Z" />
+              <circle cx="64" cy="18" r="3.5" fill="var(--ink)" />
+            </g>}
       </svg>
     );
   }
