@@ -55,12 +55,11 @@ button { font: inherit; color: inherit; }
 .node.me.more { background: none; box-shadow: none; }
 .node.me.more::after { background: #fffdf5; border-color: var(--rule); box-shadow: 0 0 0 1.5px var(--rule), 0 4px 12px rgba(60, 40, 10, .2); }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
-/* The talking mouth over the face while its title is read aloud: a beige pill that hides the drawn mouth, with four
+/* The talking mouth over the face while its title is read aloud: a patch of the face's own skin that hides the drawn mouth, with four
    outlined mouths showing one after another. The cycle stays on under reduced motion, since it is the only sign of
    who is speaking, but slows down. */
 .talk { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.talk-bg { fill: #eadfcf; }
-.talk-f { fill: #eadfcf; stroke: #000; stroke-width: 3; stroke-linecap: round; opacity: 0; animation: talk-frame .8s steps(1, end) infinite; }
+.talk-f { fill: none; stroke: #000; stroke-width: 3; stroke-linecap: round; opacity: 0; animation: talk-frame .8s steps(1, end) infinite; }
 .talk-line { fill: none; stroke-width: 3.5; }
 .talk-small { animation-delay: -.6s; }
 .talk-big { animation-delay: -.4s; }
