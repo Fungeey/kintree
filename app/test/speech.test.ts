@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { pickVoice, spokenText } from '../src/audio/speech.ts';
+import { pickVoice, spokenText, utteranceLang } from '../src/audio/speech.ts';
 import type { Shown } from '../src/display.ts';
 
 test('pickVoice prefers zh-HK, accepts yue, ignores Mandarin', () => {
@@ -61,4 +61,12 @@ test('spokenText speaks the kana reading when a title has one, else the characte
 test('spokenText also reads the rank title shown beside the usual one', () => {
   const rank: Shown = { kind: 'title', lines: [{ chars: '大姨媽' }, { chars: '二姨媽', rank: true }] };
   assert.equal(spokenText(rank), '大姨媽，二姨媽');
+});
+
+test('utteranceLang writes plain Android tags with a hyphen and leaves scripted tags alone', () => {
+  assert.equal(utteranceLang({ lang: 'fil_PH', name: 'f' }), 'fil-PH');
+  assert.equal(utteranceLang({ lang: 'ja_JP', name: 'j' }), 'ja-JP');
+  assert.equal(utteranceLang({ lang: 'ko-KR', name: 'k' }), 'ko-KR');
+  assert.equal(utteranceLang({ lang: 'yue_HK_#Hant', name: 'y' }), 'yue_HK_#Hant');
+  assert.equal(utteranceLang({ lang: 'zh_CN_#Hans', name: 'z' }), 'zh_CN_#Hans');
 });
