@@ -73,19 +73,13 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   );
 }
 
-// Drawn over the face's own mouth (DiceBear line-face puts it around 33-71 across and 63-80 down, out of 100) while
-// the card is read aloud. It flips between an open O and a flat open mouth; both shapes cover the drawn mouth.
+// Drawn over the face's own mouth (DiceBear line-face puts it around 33-71 across and 72-75 down, out of 100) while
+// the card is read aloud. Two beige outlined mouths swap, an open O and a flat open one; each is big enough to cover it.
 function TalkingMouth() {
   return (
     <svg className="talk" viewBox="0 0 100 100" aria-hidden="true">
-      <g className="talk-o">
-        <ellipse cx="52" cy="79" rx="18" ry="13" className="lips" />
-        <ellipse cx="52" cy="79" rx="16.5" ry="11.5" className="inside" />
-      </g>
-      <g className="talk-flat">
-        <ellipse cx="52" cy="79" rx="21" ry="9.5" className="lips" />
-        <ellipse cx="52" cy="79" rx="19.5" ry="8" className="inside" />
-      </g>
+      <ellipse className="talk-o" cx="52" cy="77" rx="21" ry="15" />
+      <ellipse className="talk-flat" cx="52" cy="77" rx="25" ry="11" />
     </svg>
   );
 }
