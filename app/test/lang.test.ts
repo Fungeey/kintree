@@ -98,3 +98,14 @@ test('Korean, Japanese and Tagalog voices are found by language tag, in the Andr
   assert.equal(pickVoice([{ lang: 'tl-PH', name: 't' }], 'tgl')?.name, 't');
   assert.equal(pickVoice([{ lang: 'zh-CN', name: 'c' }], 'kor'), undefined);
 });
+
+test('"none" (names only) opens from ?lang=none and is remembered like a language', async () => {
+  const { headingFor } = await import('../src/lang.ts');
+  const store = mem();
+  assert.equal(initialLang('?lang=none', store), 'none');
+  saveLang(store, 'none');
+  assert.equal(initialLang('', store), 'none');
+  assert.equal(headingFor('none'), 'Kinship');
+  const a = addPerson(emptyTree(), 'm', 'Me');
+  assert.match(await shareUrl({ tree: a.tree, me: a.id }, { origin: 'https://x.test', pathname: '/' }, 'none'), /\?lang=none#v/);
+});

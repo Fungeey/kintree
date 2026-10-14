@@ -20,9 +20,10 @@ interface Props {
   onPick: (id: string) => void;
   lang?: LangId;
   speech?: Speech;
+  bare?: boolean;   // language "None": the name goes where the titles were, and there are no titles
 }
 
-export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG }: Props) {
+export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG, bare = false }: Props) {
   const [broken, setBroken] = useState(false);
   const text = spokenText(shown, lang);
   const html = langFor(lang).html;
@@ -33,13 +34,13 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   const age = ageFor(gen);
   const tone = toneFor(gen);
   return (
-    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
-      <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>
+    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}${bare ? ' bare' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
+      {!bare && <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>}
       <button
         type="button"
         className="face-btn"
         onClick={() => onPick(person.id)}
-        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}${more ? `. ${more} more relatives are hidden; switch to them to see` : ''}`}
+        aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}${bare ? '' : `: ${shown.lines.map(l => l.chars).join(' / ')}`}${more ? `. ${more} more relatives are hidden; switch to them to see` : ''}`}
         aria-current={isMe ? 'true' : undefined}
       >
         <HairBack sex={person.sex} age={age} tone={tone} />
@@ -51,8 +52,8 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
         </span>
         <HairFront sex={person.sex} age={age} tone={tone} />
       </button>
-      {/* Tapping the name plays it too; the play button stays as the keyboard and screen-reader control. */}
-      <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={play}>
+      {/* With no titles the name takes their place. Tapping a title plays it too; the play button stays as the keyboard and screen-reader control. */}
+      {bare ? <div className="titles bare-name" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div> : <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={play}>
         {shown.lines.map((l, i) => (
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
@@ -62,7 +63,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
             </span>
           </span>
         ))}
-      </div>
+      </div>}
       {canPlay && (
         <button type="button" className="play" onClick={play} aria-label={`Play ${text}`} title="Play">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" /><path d="M16 8.5c1.6 1.6 1.6 5.4 0 7M18.5 6c3 3 3 9 0 12" fill="none" /></svg>

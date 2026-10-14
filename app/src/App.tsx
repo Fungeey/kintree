@@ -10,8 +10,8 @@ import { browserStore, openApp, persist, shareUrl } from './persist.ts';
 import { switchTarget, viewingAs } from './switchPov.ts';
 import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
 import { rootLabel } from './display.ts';
-import { initialLang, langFor, LANG_IDS, saveLang } from './lang.ts';
-import type { LangId } from './lang.ts';
+import { headingFor, initialLang, langFor, LANG_IDS, NONE, saveLang } from './lang.ts';
+import type { LangChoice } from './lang.ts';
 
 const demo = typeof location !== 'undefined' && new URLSearchParams(location.search).has('demo');
 
@@ -22,9 +22,9 @@ const store = browserStore();
 export function App() {
   const [start, setStart] = useState<Start | null>(() => (demo ? { ...demoTree() } : null));
   const [epoch, setEpoch] = useState(0);
-  const [lang, setLangState] = useState<LangId>(() => initialLang(typeof location !== 'undefined' ? location.search : '', store));
+  const [lang, setLangState] = useState<LangChoice>(() => initialLang(typeof location !== 'undefined' ? location.search : '', store));
   // The language is the viewer's choice, not part of the tree: it is saved here and shown as ?lang= so a link can carry it.
-  const setLang = (id: LangId) => {
+  const setLang = (id: LangChoice) => {
     setLangState(id);
     saveLang(store, id);
     const q = new URLSearchParams(location.search);
@@ -52,7 +52,7 @@ export function App() {
   return <Shell key={epoch} start={start} lang={lang} setLang={setLang} />;
 }
 
-function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: (id: LangId) => void }) {
+function Shell({ start, lang, setLang }: { start: Start; lang: LangChoice; setLang: (id: LangChoice) => void }) {
   const [tree, setTree] = useState<Tree>(start.tree);
   const [me, setMe] = useState<string | null>(start.me);
   const [error, setError] = useState<string | undefined>(start.error);
@@ -109,8 +109,9 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: 
   };
 
   const picker = (
-    <select className="lang" value={lang} aria-label="Language" onChange={e => setLang(e.target.value as LangId)}>
+    <select className="lang" value={lang} aria-label="Language" onChange={e => setLang(e.target.value as LangChoice)}>
       {LANG_IDS.map(id => <option key={id} value={id}>{langFor(id).label} · {langFor(id).english}</option>)}
+      <option value={NONE}>None · names only</option>
     </select>
   );
 
@@ -118,7 +119,7 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: 
   if (!me || !s) {
     return (
       <main className="start">
-        <div className="start-top"><h1>{langFor(lang).heading} · Kinship</h1>{picker}</div>
+        <div className="start-top"><h1>{lang === NONE ? 'Kinship' : `${headingFor(lang)} · Kinship`}</h1>{picker}</div>
         {error && <p className="notice" role="alert">Couldn't open that link ({error}). Showing your saved tree.</p>}
         <p>Build your family tree to see what to call everyone.</p>
         <AddPerson tree={tree} me={null} onChange={changed} />
@@ -129,7 +130,7 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangId; setLang: 
   return (
     <div className="app">
       <header className="bar">
-        <h1 lang={langFor(lang).html}>{langFor(lang).heading}</h1>
+        <h1 lang={lang === NONE ? undefined : langFor(lang).html}>{headingFor(lang)}</h1>
         {s.married && (
           <div className="seg" role="group" aria-label="Whose family to show">
             <button type="button" aria-pressed={view === 'mine'} onClick={() => setView('mine')}>My <span className="long">family</span></button>

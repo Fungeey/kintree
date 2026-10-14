@@ -257,3 +257,16 @@ test('layout: a couple whose siblings have grandchildren has its own children st
   const U = layoutTree(u.t);
   assert.equal(U.pos.get(u.id.dad)!.y - U.pos.get(u.id.gpa)!.y, CARD_H + 28);
 });
+
+test('layout: names only (no titles) packs the rows closer, with couple lines still through the faces', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  const { BARE_CARD_H, BARE_FACE_CY } = await import('../src/layout.ts');
+  const { tree } = demoTree();
+  const full = layoutTree(tree), bare = layoutTree(tree, undefined, true);
+  assert.ok(bare.height < full.height);
+  assert.equal(bare.cardH, BARE_CARD_H);
+  for (const [id, p] of bare.pos) assert.equal(p.x, full.pos.get(id)!.x);
+  const ys = new Set([...bare.pos.values()].map(p => p.y));
+  for (const h of coupleHearts(bare)) assert.ok(ys.has(h.y - BARE_FACE_CY));
+  for (const p of bare.pos.values()) assert.ok(p.y + BARE_CARD_H <= bare.height);
+});
