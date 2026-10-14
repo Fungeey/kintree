@@ -8,8 +8,8 @@
   "spoken": {
    "chars": "tatay"
   },
-  "status": "unverified",
-  "note": "Also papa, daddy, itay."
+  "status": "checked",
+  "note": "Also papa, daddy, itay. Checked: Wikipedia (Philippine kinship), tagalognow.com."
  },
  {
   "pattern": "M",
@@ -20,7 +20,7 @@
   "spoken": {
    "chars": "nanay"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Also mama, mommy, inay."
  },
  {
@@ -30,7 +30,8 @@
    "chars": "anak na lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "unverified",
+  "note": "Not checked online."
  },
  {
   "pattern": "D",
@@ -39,7 +40,8 @@
    "chars": "anak na babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "unverified",
+  "note": "Not checked online."
  },
  {
   "pattern": "H",
@@ -50,7 +52,7 @@
   "spoken": {
    "chars": "asawa"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Also mister, hubby, bana."
  },
  {
@@ -62,7 +64,7 @@
   "spoken": {
    "chars": "asawa"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Also misis, wifey."
  },
  {
@@ -74,7 +76,7 @@
   "spoken": {
    "chars": "kuya"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Ze",
@@ -85,7 +87,7 @@
   "spoken": {
    "chars": "ate"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "By",
@@ -94,7 +96,7 @@
    "chars": "kapatid na lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Bunso is the youngest child."
  },
  {
@@ -104,7 +106,7 @@
    "chars": "kapatid na babae"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Bunso is the youngest child."
  },
  {
@@ -117,7 +119,7 @@
    "chars": "lolo"
   },
   "status": "unverified",
-  "note": "Also tatang, lelong."
+  "note": "Also tatang, lelong. Not checked online."
  },
  {
   "pattern": "F M",
@@ -162,8 +164,8 @@
   "spoken": {
    "chars": "tito"
   },
-  "status": "unverified",
-  "note": "Tito is the usual word; tiyo is the older Tagalog form."
+  "status": "checked",
+  "note": "Tito is the usual word; tiyo is the older Tagalog form. Checked: tiyo/tiya for blood relatives, tito/tita everyday (tagalognow.com, Wikipedia)."
  },
  {
   "pattern": "F By",
@@ -174,7 +176,7 @@
   "spoken": {
    "chars": "tito"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tito is the usual word; tiyo is the older Tagalog form."
  },
  {
@@ -186,7 +188,7 @@
   "spoken": {
    "chars": "tito"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tito is the usual word; tiyo is the older Tagalog form."
  },
  {
@@ -198,7 +200,7 @@
   "spoken": {
    "chars": "tita"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tita is the usual word; tiya is the older Tagalog form."
  },
  {
@@ -210,7 +212,7 @@
   "spoken": {
    "chars": "tita"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tita is the usual word; tiya is the older Tagalog form."
  },
  {
@@ -222,7 +224,7 @@
   "spoken": {
    "chars": "tita"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tita is the usual word; tiya is the older Tagalog form."
  },
  {
@@ -234,7 +236,7 @@
   "spoken": {
    "chars": "tita"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Tita is the usual word; tiya is the older Tagalog form."
  },
  {
@@ -302,7 +304,7 @@
    "chars": "lolo"
   },
   "status": "unverified",
-  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita. Not checked online: no source says how a grandparent's sibling is called."
  },
  {
   "pattern": "F F By",
@@ -416,11 +418,11 @@
   "pattern": "F B* S",
   "en": "paternal cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "kuya"
@@ -428,21 +430,22 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "First cousin is pinsang buo (tagalognow.com). Older cousins are called kuya or ate (Wikipedia)."
  },
  {
   "pattern": "F B* D",
   "en": "paternal cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "ate"
@@ -450,11 +453,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F B* S W",
@@ -504,11 +507,11 @@
   "pattern": "F Z* S",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "kuya"
@@ -516,21 +519,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Z* D",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "ate"
@@ -538,11 +541,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Z* S W",
@@ -592,11 +595,11 @@
   "pattern": "M B* S",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "kuya"
@@ -604,21 +607,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M B* D",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "ate"
@@ -626,11 +629,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M B* S W",
@@ -680,11 +683,11 @@
   "pattern": "M Z* S",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "kuya"
@@ -692,21 +695,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Z* D",
   "en": "cousin",
   "formal": {
-   "chars": "pinsan"
+   "chars": "pinsang buo"
   },
   "older": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": {
     "chars": "ate"
@@ -714,11 +717,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pinsan"
+    "chars": "pinsang buo"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Z* S W",
@@ -773,7 +776,7 @@
   "spoken": {
    "chars": "ate"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "By W",
@@ -782,7 +785,7 @@
    "chars": "hipag"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Ze H",
@@ -793,7 +796,7 @@
   "spoken": {
    "chars": "kuya"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Zy H",
@@ -802,43 +805,43 @@
    "chars": "bayaw"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* S",
   "en": "brother's son",
   "formal": {
-   "chars": "pamangkin na lalaki"
+   "chars": "pamangkíng lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Z* S",
   "en": "sister's son",
   "formal": {
-   "chars": "pamangkin na lalaki"
+   "chars": "pamangkíng lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* D",
   "en": "brother's daughter",
   "formal": {
-   "chars": "pamangkin na babae"
+   "chars": "pamangkíng babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Z* D",
   "en": "sister's daughter",
   "formal": {
-   "chars": "pamangkin na babae"
+   "chars": "pamangkíng babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "S W",
@@ -847,7 +850,7 @@
    "chars": "manugang na babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "D H",
@@ -856,43 +859,43 @@
    "chars": "manugang na lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "S S",
   "en": "son's son",
   "formal": {
-   "chars": "apo na lalaki"
+   "chars": "apong lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "D S",
   "en": "daughter's son",
   "formal": {
-   "chars": "apo na lalaki"
+   "chars": "apong lalaki"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "S D",
   "en": "son's daughter",
   "formal": {
-   "chars": "apo na babae"
+   "chars": "apong babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "D D",
   "en": "daughter's daughter",
   "formal": {
-   "chars": "apo na babae"
+   "chars": "apong babae"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F",
@@ -903,7 +906,7 @@
   "spoken": {
    "chars": "tatay"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M",
@@ -914,7 +917,7 @@
   "spoken": {
    "chars": "nanay"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H Be",
@@ -925,7 +928,7 @@
   "spoken": {
    "chars": "kuya"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H By",
@@ -934,7 +937,7 @@
    "chars": "bayaw"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H Ze",
@@ -945,7 +948,7 @@
   "spoken": {
    "chars": "ate"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H Zy",
@@ -954,7 +957,7 @@
    "chars": "hipag"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F F",
@@ -965,7 +968,7 @@
   "spoken": {
    "chars": "lolo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F M",
@@ -976,7 +979,7 @@
   "spoken": {
    "chars": "lola"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M F",
@@ -987,7 +990,7 @@
   "spoken": {
    "chars": "lolo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M M",
@@ -998,7 +1001,7 @@
   "spoken": {
    "chars": "lola"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F",
@@ -1009,7 +1012,7 @@
   "spoken": {
    "chars": "tatay"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M",
@@ -1020,7 +1023,7 @@
   "spoken": {
    "chars": "nanay"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Be",
@@ -1031,7 +1034,7 @@
   "spoken": {
    "chars": "kuya"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W By",
@@ -1040,7 +1043,7 @@
    "chars": "bayaw"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Ze",
@@ -1051,7 +1054,7 @@
   "spoken": {
    "chars": "ate"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Zy",
@@ -1060,7 +1063,7 @@
    "chars": "hipag"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F F",
@@ -1071,7 +1074,7 @@
   "spoken": {
    "chars": "lolo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F M",
@@ -1082,7 +1085,7 @@
   "spoken": {
    "chars": "lola"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M F",
@@ -1093,7 +1096,7 @@
   "spoken": {
    "chars": "lolo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M M",
@@ -1104,7 +1107,7 @@
   "spoken": {
    "chars": "lola"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Be",
@@ -1286,11 +1289,11 @@
   "pattern": "M F B* S S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1298,21 +1301,22 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Second cousin is pinsang makalawa (tagalognow.com); also pangalawang pinsan."
  },
  {
   "pattern": "M F B* S D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1320,21 +1324,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1342,21 +1346,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1364,11 +1368,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S",
@@ -1418,11 +1422,11 @@
   "pattern": "M F Z* S S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1430,21 +1434,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1452,21 +1456,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1474,21 +1478,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1496,11 +1500,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S",
@@ -1550,11 +1554,11 @@
   "pattern": "M M B* S S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1562,21 +1566,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1584,21 +1588,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1606,21 +1610,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1628,11 +1632,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S",
@@ -1682,11 +1686,11 @@
   "pattern": "M M Z* S S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1694,21 +1698,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1716,21 +1720,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D S",
   "en": "mother's cousin's son",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "kuya"
@@ -1738,21 +1742,21 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D D",
   "en": "mother's cousin's daughter",
   "formal": {
-   "chars": "pangalawang pinsan"
+   "chars": "pinsang makalawa"
   },
   "older": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": {
     "chars": "ate"
@@ -1760,11 +1764,11 @@
   },
   "younger": {
    "formal": {
-    "chars": "pangalawang pinsan"
+    "chars": "pinsang makalawa"
    },
    "spoken": "by-name"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F F",
@@ -1775,7 +1779,8 @@
   "spoken": {
    "chars": "lolo sa tuhod"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Great-grandfather lolo sa tuhod checked (tagalog.com); lola sa tuhod follows it but is not listed there."
  },
  {
   "pattern": "F M F",
@@ -1786,7 +1791,7 @@
   "spoken": {
    "chars": "lolo sa tuhod"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F F",
@@ -1797,7 +1802,7 @@
   "spoken": {
    "chars": "lolo sa tuhod"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M F",
@@ -1808,7 +1813,7 @@
   "spoken": {
    "chars": "lolo sa tuhod"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F M",

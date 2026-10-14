@@ -10,8 +10,8 @@
    "chars": "아빠",
    "rom": "appa"
   },
-  "status": "unverified",
-  "note": "아빠 as a child or casually; 아버지 formally and as an adult."
+  "status": "checked",
+  "note": "아빠 as a child or casually; 아버지 formally and as an adult. Checked: Indiana University Korean kinship page (아빠 affectionate, 아버지 plain, 아버님 honorific)."
  },
  {
   "pattern": "M",
@@ -24,7 +24,7 @@
    "chars": "엄마",
    "rom": "eomma"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "엄마 as a child or casually; 어머니 formally and as an adult."
  },
  {
@@ -35,7 +35,7 @@
    "rom": "adeul"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "D",
@@ -98,8 +98,8 @@
     }
    }
   },
-  "status": "unverified",
-  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override."
+  "status": "checked",
+  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override. Checked: a man says 형, a woman 오빠 (Indiana University; transparent.com)."
  },
  {
   "pattern": "Ze",
@@ -124,8 +124,8 @@
     }
    }
   },
-  "status": "unverified",
-  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override."
+  "status": "checked",
+  "note": "A man says one word and a woman another. This entry is a man's; the woman's is given as the speaker override. Checked: a man says 누나, a woman 언니 (Indiana University; transparent.com)."
  },
  {
   "pattern": "By",
@@ -135,7 +135,7 @@
    "rom": "namdongsaeng"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Zy",
@@ -145,7 +145,7 @@
    "rom": "yeodongsaeng"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F",
@@ -158,7 +158,8 @@
    "chars": "할아버지",
    "rom": "harabeoji"
   },
-  "status": "unverified"
+  "status": "unverified",
+  "note": "친할아버지 not checked online; 할아버지 is the plain form (Indiana University)."
  },
  {
   "pattern": "F M",
@@ -210,7 +211,7 @@
    "chars": "큰아버지",
    "rom": "keunabeoji"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F By",
@@ -223,7 +224,7 @@
    "chars": "작은아버지",
    "rom": "jageunabeoji"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "삼촌 for an unmarried one; 작은아빠 casually."
  },
  {
@@ -237,7 +238,7 @@
    "chars": "고모",
    "rom": "gomo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M B*",
@@ -250,7 +251,7 @@
    "chars": "외삼촌",
    "rom": "oesamchon"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Z*",
@@ -263,7 +264,7 @@
    "chars": "이모",
    "rom": "imo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Be W",
@@ -276,7 +277,7 @@
    "chars": "큰어머니",
    "rom": "keuneomeoni"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F By W",
@@ -289,7 +290,7 @@
    "chars": "작은어머니",
    "rom": "jageuneomeoni"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "숙모 is the formal or general word."
  },
  {
@@ -303,7 +304,7 @@
    "chars": "고모부",
    "rom": "gomobu"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M B* W",
@@ -316,7 +317,7 @@
    "chars": "외숙모",
    "rom": "oesungmo"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Z* H",
@@ -329,7 +330,7 @@
    "chars": "이모부",
    "rom": "imobu"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F Be",
@@ -342,7 +343,8 @@
    "chars": "큰할아버지",
    "rom": "keunharabeoji"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: 큰할아버지, 작은할아버지 and 종조부 (thewiki.kr, a kinship chart)."
  },
  {
   "pattern": "F F By",
@@ -355,7 +357,7 @@
    "chars": "작은할아버지",
    "rom": "jageunharabeoji"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F Z*",
@@ -368,7 +370,8 @@
    "chars": "고모할머니",
    "rom": "gomohalmeoni"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: 고모할머니, also 대고모 or 왕고모 (thewiki.kr)."
  },
  {
   "pattern": "M F Be",
@@ -381,7 +384,8 @@
    "chars": "큰외할아버지",
    "rom": "keunoeharabeoji"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: 외종조부 sits beside 외할아버지 in thewiki.kr's chart."
  },
  {
   "pattern": "M F By",
@@ -394,7 +398,7 @@
    "chars": "작은외할아버지",
    "rom": "jageunoeharabeoji"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F M B*",
@@ -407,7 +411,8 @@
    "chars": "진외종조부",
    "rom": "jinoejongjobu"
   },
-  "status": "unverified"
+  "status": "unverified",
+  "note": "Not checked online: 진외종조부 follows the 친할머니 pattern (thewiki.kr lists 진외재종조부 for her cousin)."
  },
  {
   "pattern": "F B* S",
@@ -760,7 +765,7 @@
     }
    }
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "A man's older brother's wife is 형수; a woman's is 새언니 (her brother's wife is 올케)."
  },
  {
@@ -786,7 +791,7 @@
     }
    }
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Ze H",
@@ -811,7 +816,7 @@
     }
    }
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Zy H",
@@ -836,7 +841,7 @@
     }
    }
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* S",
@@ -846,7 +851,7 @@
    "rom": "joka"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Z* S",
@@ -856,7 +861,7 @@
    "rom": "joka"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* D",
@@ -949,7 +954,7 @@
    "chars": "아버님",
    "rom": "abeonim"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M",
@@ -962,7 +967,7 @@
    "chars": "어머님",
    "rom": "eomeonim"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F",
@@ -975,7 +980,7 @@
    "chars": "아버님",
    "rom": "abeonim"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "장인어른 when talking about him respectfully."
  },
  {
@@ -989,7 +994,7 @@
    "chars": "어머님",
    "rom": "eomeonim"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "장모님 when talking about her respectfully."
  },
  {
@@ -1003,7 +1008,8 @@
    "chars": "아주버님",
    "rom": "ajubeonim"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Reference form is 시아주버니 or 시숙; address is 아주버님 (hangyo.com)."
  },
  {
   "pattern": "H By",
@@ -1016,8 +1022,8 @@
    "chars": "도련님",
    "rom": "doryeonnim"
   },
-  "status": "unverified",
-  "note": "서방님 if married."
+  "status": "checked",
+  "note": "서방님 if married. Address is 도련님 if unmarried, 서방님 if married (hangyo.com)."
  },
  {
   "pattern": "H Ze",
@@ -1030,7 +1036,8 @@
    "chars": "형님",
    "rom": "hyeongnim"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Address is 형님 for an older sister, 아가씨 for a younger one (hangyo.com)."
  },
  {
   "pattern": "H Zy",
@@ -1043,7 +1050,7 @@
    "chars": "아가씨",
    "rom": "agassi"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Be",
@@ -1056,7 +1063,8 @@
    "chars": "형님",
    "rom": "hyeongnim"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Address is 형님 if he is older than you, 처남 if younger (hangyo.com)."
  },
  {
   "pattern": "W By",
@@ -1069,7 +1077,7 @@
    "chars": "처남",
    "rom": "cheonam"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Ze",
@@ -1082,7 +1090,7 @@
    "chars": "처형",
    "rom": "cheohyeong"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Zy",
@@ -1095,7 +1103,7 @@
    "chars": "처제",
    "rom": "cheoje"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F F",
@@ -1108,7 +1116,8 @@
    "chars": "할아버님",
    "rom": "harabeonim"
   },
-  "status": "unverified"
+  "status": "unverified",
+  "note": "Not checked online."
  },
  {
   "pattern": "H F M",
@@ -1160,7 +1169,8 @@
    "chars": "할아버님",
    "rom": "harabeonim"
   },
-  "status": "unverified"
+  "status": "unverified",
+  "note": "Not checked online."
  },
  {
   "pattern": "W F M",
@@ -1212,7 +1222,7 @@
    "chars": "증조할아버지",
    "rom": "jeungjoharabeoji"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F M",
@@ -1225,7 +1235,7 @@
    "chars": "증조할머니",
    "rom": "jeungjohalmeoni"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F M F",
@@ -1238,7 +1248,8 @@
    "chars": "진외증조할아버지",
    "rom": "jinoejeungjoharabeoji"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: 진외증조 is the father's mother's parents (thewiki.kr)."
  },
  {
   "pattern": "F M M",
@@ -1251,7 +1262,7 @@
    "chars": "진외증조할머니",
    "rom": "jinoejeungjohalmeoni"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F F",
@@ -1264,7 +1275,7 @@
    "chars": "외증조할아버지",
    "rom": "oejeungjoharabeoji"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F M",
@@ -1277,7 +1288,7 @@
    "chars": "외증조할머니",
    "rom": "oejeungjohalmeoni"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M F",
@@ -1290,7 +1301,8 @@
    "chars": "외외증조할아버지",
    "rom": "oeoejeungjoharabeoji"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: 외외증조 is the mother's mother's parents (thewiki.kr)."
  },
  {
   "pattern": "M M M",
@@ -1303,6 +1315,6 @@
    "chars": "외외증조할머니",
    "rom": "oeoejeungjohalmeoni"
   },
-  "status": "unverified"
+  "status": "checked"
  }
 ]

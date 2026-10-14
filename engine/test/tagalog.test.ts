@@ -32,11 +32,11 @@ test('Tagalog: elder siblings are kuya and ate, younger ones are called by name'
   assert.equal(spoken('me', 'youngerBro'), 'by-name');
 });
 
-test('Tagalog: cousins are pinsan, older ones kuya or ate', () => {
+test('Tagalog: first cousins are pinsang buo, older ones kuya or ate', () => {
   const x = r('me', 'cousinA');
   assert.ok(x.kind === 'byAge');
   assert.equal(x.kind === 'byAge' && x.older.spoken !== 'by-name' ? x.older.spoken.chars : '', 'kuya');
-  assert.equal(x.kind === 'byAge' ? x.older.formal.chars : '', 'pinsan');
+  assert.equal(x.kind === 'byAge' ? x.older.formal.chars : '', 'pinsang buo');
 });
 
 test('Tagalog: a fallback description puts the nearest relative last, joined with "ng"', () => {

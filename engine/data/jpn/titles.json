@@ -12,8 +12,8 @@
    "kana": "おとうさん",
    "rom": "otōsan"
   },
-  "status": "unverified",
-  "note": "Humble 父 to outsiders; お父さん at home and for someone else's father (お父様 is more formal)."
+  "status": "checked",
+  "note": "Humble 父 to outsiders; お父さん at home and for someone else's father (お父様 is more formal). Checked: omniglot.com lists 父 (own family) and お父さん (others' family)."
  },
  {
   "pattern": "M",
@@ -28,7 +28,7 @@
    "kana": "おかあさん",
    "rom": "okāsan"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Humble 母 to outsiders; お母さん at home and for someone else's mother (お母様 is more formal)."
  },
  {
@@ -40,7 +40,7 @@
    "rom": "musuko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "D",
@@ -51,7 +51,7 @@
    "rom": "musume"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H",
@@ -66,8 +66,8 @@
    "kana": "しゅじん",
    "rom": "shujin"
   },
-  "status": "unverified",
-  "note": "Also 旦那 (だんな) casually. Someone else's husband: ご主人."
+  "status": "checked",
+  "note": "Also 旦那 (だんな) casually. Someone else's husband: ご主人. Spoken form not checked online."
  },
  {
   "pattern": "W",
@@ -82,8 +82,8 @@
    "kana": "かない",
    "rom": "kanai"
   },
-  "status": "unverified",
-  "note": "Also 嫁 (よめ) casually. Someone else's wife: 奥さん."
+  "status": "checked",
+  "note": "Also 嫁 (よめ) casually. Someone else's wife: 奥さん. Spoken form not checked online."
  },
  {
   "pattern": "Be",
@@ -98,8 +98,8 @@
    "kana": "おにいちゃん",
    "rom": "onīchan"
   },
-  "status": "unverified",
-  "note": "Someone else's older brother: お兄さん."
+  "status": "checked",
+  "note": "Someone else's older brother: お兄さん. Spoken form not checked online."
  },
  {
   "pattern": "Ze",
@@ -114,8 +114,8 @@
    "kana": "おねえちゃん",
    "rom": "onēchan"
   },
-  "status": "unverified",
-  "note": "Someone else's older sister: お姉さん."
+  "status": "checked",
+  "note": "Someone else's older sister: お姉さん. Spoken form not checked online."
  },
  {
   "pattern": "By",
@@ -126,7 +126,7 @@
    "rom": "otōto"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Someone else's younger brother: 弟さん."
  },
  {
@@ -138,7 +138,7 @@
    "rom": "imōto"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Someone else's younger sister: 妹さん."
  },
  {
@@ -153,8 +153,8 @@
    "chars": "おじいちゃん",
    "rom": "ojīchan"
   },
-  "status": "unverified",
-  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん."
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん. Spoken form not checked online."
  },
  {
   "pattern": "M F",
@@ -168,8 +168,8 @@
    "chars": "おじいちゃん",
    "rom": "ojīchan"
   },
-  "status": "unverified",
-  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん."
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandfather: お祖父さん. Spoken form not checked online."
  },
  {
   "pattern": "F M",
@@ -183,8 +183,8 @@
    "chars": "おばあちゃん",
    "rom": "obāchan"
   },
-  "status": "unverified",
-  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん."
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん. Spoken form not checked online."
  },
  {
   "pattern": "M M",
@@ -198,8 +198,8 @@
    "chars": "おばあちゃん",
    "rom": "obāchan"
   },
-  "status": "unverified",
-  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん."
+  "status": "checked",
+  "note": "Add 父方 (paternal) or 母方 (maternal) to say which. Someone else's grandmother: お祖母さん. Spoken form not checked online."
  },
  {
   "pattern": "F Be",
@@ -213,7 +213,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Older than the parent: 伯父. Younger: 叔父. Both are おじ."
  },
  {
@@ -228,7 +228,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Ze",
@@ -242,7 +242,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Older than the parent: 伯母. Younger: 叔母. Both are おば."
  },
  {
@@ -257,7 +257,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Be W",
@@ -271,7 +271,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F By W",
@@ -285,7 +285,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Ze H",
@@ -299,7 +299,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F Zy H",
@@ -313,7 +313,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Be",
@@ -327,7 +327,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Older than the parent: 伯父. Younger: 叔父. Both are おじ."
  },
  {
@@ -342,7 +342,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Ze",
@@ -356,7 +356,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified",
+  "status": "checked",
   "note": "Older than the parent: 伯母. Younger: 叔母. Both are おば."
  },
  {
@@ -371,7 +371,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Be W",
@@ -385,7 +385,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M By W",
@@ -399,7 +399,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Ze H",
@@ -413,7 +413,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M Zy H",
@@ -427,7 +427,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F Be",
@@ -443,7 +443,7 @@
    "rom": "ōojisan"
   },
   "status": "unverified",
-  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ."
+  "note": "Grandparent's older brother: 大伯父. Younger: 大叔父. Both are おおおじ. Reading and meaning (granduncle) checked on romajidesu.com; which of 大伯父 or 大叔父 is the older brother is not."
  },
  {
   "pattern": "F F By",
@@ -1018,8 +1018,8 @@
    "kana": "おねえさん",
    "rom": "onēsan"
   },
-  "status": "unverified",
-  "note": "Written 義姉, said ねえさん."
+  "status": "checked",
+  "note": "Written 義姉, said ねえさん. Spoken form not checked online."
  },
  {
   "pattern": "By W",
@@ -1030,7 +1030,7 @@
    "rom": "gimai"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Ze H",
@@ -1045,8 +1045,8 @@
    "kana": "おにいさん",
    "rom": "onīsan"
   },
-  "status": "unverified",
-  "note": "Written 義兄, said にいさん."
+  "status": "checked",
+  "note": "Written 義兄, said にいさん. Spoken form not checked online."
  },
  {
   "pattern": "Zy H",
@@ -1057,7 +1057,7 @@
    "rom": "gitei"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* S",
@@ -1068,7 +1068,8 @@
    "rom": "oi"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked",
+  "note": "Checked: omniglot.com."
  },
  {
   "pattern": "Z* S",
@@ -1079,7 +1080,7 @@
    "rom": "oi"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "B* D",
@@ -1090,7 +1091,7 @@
    "rom": "mei"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "Z* D",
@@ -1101,7 +1102,7 @@
    "rom": "mei"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "S W",
@@ -1136,8 +1137,8 @@
    "rom": "mago"
   },
   "spoken": "by-name",
-  "status": "unverified",
-  "note": "Son's children: 内孫. Daughter's children: 外孫."
+  "status": "checked",
+  "note": "Son's children: 内孫. Daughter's children: 外孫. Checked: omniglot.com."
  },
  {
   "pattern": "S D",
@@ -1148,7 +1149,7 @@
    "rom": "mago"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Son's children: 内孫. Daughter's children: 外孫."
  },
  {
@@ -1160,7 +1161,7 @@
    "rom": "mago"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Son's children: 内孫. Daughter's children: 外孫."
  },
  {
@@ -1172,7 +1173,7 @@
    "rom": "mago"
   },
   "spoken": "by-name",
-  "status": "unverified",
+  "status": "checked",
   "note": "Son's children: 内孫. Daughter's children: 外孫."
  },
  {
@@ -1188,8 +1189,8 @@
    "kana": "おとうさん",
    "rom": "otōsan"
   },
-  "status": "unverified",
-  "note": "Written 義父, said とうさん."
+  "status": "checked",
+  "note": "Written 義父, said とうさん. Spoken form not checked online."
  },
  {
   "pattern": "H M",
@@ -1204,8 +1205,8 @@
    "kana": "おかあさん",
    "rom": "okāsan"
   },
-  "status": "unverified",
-  "note": "Written 義母, said かあさん."
+  "status": "checked",
+  "note": "Written 義母, said かあさん. Spoken form not checked online."
  },
  {
   "pattern": "H Be",
@@ -1220,7 +1221,8 @@
    "kana": "おにいさん",
    "rom": "onīsan"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Spoken form not checked online."
  },
  {
   "pattern": "H By",
@@ -1231,7 +1233,7 @@
    "rom": "gitei"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H Ze",
@@ -1246,7 +1248,8 @@
    "kana": "おねえさん",
    "rom": "onēsan"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Spoken form not checked online."
  },
  {
   "pattern": "H Zy",
@@ -1257,7 +1260,7 @@
    "rom": "gimai"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F F",
@@ -1327,7 +1330,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F By",
@@ -1341,7 +1344,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F Ze",
@@ -1355,7 +1358,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F Zy",
@@ -1369,7 +1372,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F Be W",
@@ -1383,7 +1386,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F By W",
@@ -1397,7 +1400,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F Ze H",
@@ -1411,7 +1414,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H F Zy H",
@@ -1425,7 +1428,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Be",
@@ -1439,7 +1442,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M By",
@@ -1453,7 +1456,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Ze",
@@ -1467,7 +1470,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Zy",
@@ -1481,7 +1484,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Be W",
@@ -1495,7 +1498,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M By W",
@@ -1509,7 +1512,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Ze H",
@@ -1523,7 +1526,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "H M Zy H",
@@ -1537,7 +1540,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F",
@@ -1552,8 +1555,8 @@
    "kana": "おとうさん",
    "rom": "otōsan"
   },
-  "status": "unverified",
-  "note": "Written 義父, said とうさん."
+  "status": "checked",
+  "note": "Written 義父, said とうさん. Spoken form not checked online."
  },
  {
   "pattern": "W M",
@@ -1568,8 +1571,8 @@
    "kana": "おかあさん",
    "rom": "okāsan"
   },
-  "status": "unverified",
-  "note": "Written 義母, said かあさん."
+  "status": "checked",
+  "note": "Written 義母, said かあさん. Spoken form not checked online."
  },
  {
   "pattern": "W Be",
@@ -1584,7 +1587,8 @@
    "kana": "おにいさん",
    "rom": "onīsan"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Spoken form not checked online."
  },
  {
   "pattern": "W By",
@@ -1595,7 +1599,7 @@
    "rom": "gitei"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W Ze",
@@ -1610,7 +1614,8 @@
    "kana": "おねえさん",
    "rom": "onēsan"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "Spoken form not checked online."
  },
  {
   "pattern": "W Zy",
@@ -1621,7 +1626,7 @@
    "rom": "gimai"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F F",
@@ -1691,7 +1696,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F By",
@@ -1705,7 +1710,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Ze",
@@ -1719,7 +1724,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Zy",
@@ -1733,7 +1738,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Be W",
@@ -1747,7 +1752,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F By W",
@@ -1761,7 +1766,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Ze H",
@@ -1775,7 +1780,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W F Zy H",
@@ -1789,7 +1794,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Be",
@@ -1803,7 +1808,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M By",
@@ -1817,7 +1822,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Ze",
@@ -1831,7 +1836,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Zy",
@@ -1845,7 +1850,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Be W",
@@ -1859,7 +1864,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M By W",
@@ -1873,7 +1878,7 @@
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Ze H",
@@ -1887,7 +1892,7 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "W M Zy H",
@@ -1901,63 +1906,60 @@
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* S",
   "en": "mother's male cousin",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked",
+  "note": "いとこおじ is a parent's cousin (weblio.jp)."
  },
  {
   "pattern": "M F B* S W",
   "en": "mother's male cousin's wife",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D",
   "en": "mother's female cousin",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D H",
   "en": "mother's female cousin's husband",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* S S",
@@ -1968,7 +1970,8 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked",
+  "note": "はとこ is a parent's cousin's child (weblio.jp)."
  },
  {
   "pattern": "M F B* S D",
@@ -1979,7 +1982,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D S",
@@ -1990,7 +1993,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F B* D D",
@@ -2001,63 +2004,59 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S",
   "en": "mother's male cousin",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S W",
   "en": "mother's male cousin's wife",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D",
   "en": "mother's female cousin",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D H",
   "en": "mother's female cousin's husband",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S S",
@@ -2068,7 +2067,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* S D",
@@ -2079,7 +2078,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D S",
@@ -2090,7 +2089,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M F Z* D D",
@@ -2101,63 +2100,59 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S",
   "en": "mother's male cousin",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S W",
   "en": "mother's male cousin's wife",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D",
   "en": "mother's female cousin",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D H",
   "en": "mother's female cousin's husband",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S S",
@@ -2168,7 +2163,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* S D",
@@ -2179,7 +2174,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D S",
@@ -2190,7 +2185,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M B* D D",
@@ -2201,63 +2196,59 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S",
   "en": "mother's male cousin",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S W",
   "en": "mother's male cousin's wife",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D",
   "en": "mother's female cousin",
   "formal": {
-   "chars": "従伯叔母",
-   "kana": "いとこおば",
-   "rom": "itokōba"
+   "chars": "いとこおば",
+   "rom": "itokooba"
   },
   "spoken": {
    "chars": "おばさん",
    "rom": "obasan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D H",
   "en": "mother's female cousin's husband",
   "formal": {
-   "chars": "従伯叔父",
-   "kana": "いとこおじ",
-   "rom": "itokōji"
+   "chars": "いとこおじ",
+   "rom": "itokooji"
   },
   "spoken": {
    "chars": "おじさん",
    "rom": "ojisan"
   },
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S S",
@@ -2268,7 +2259,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* S D",
@@ -2279,7 +2270,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D S",
@@ -2290,7 +2281,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "M M Z* D D",
@@ -2301,7 +2292,7 @@
    "rom": "hatoko"
   },
   "spoken": "by-name",
-  "status": "unverified"
+  "status": "checked"
  },
  {
   "pattern": "F F F",
