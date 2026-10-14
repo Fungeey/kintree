@@ -78,12 +78,12 @@ function TalkingMouth() {
   return (
     <svg className="talk" viewBox="0 0 100 100" aria-hidden="true">
       <g className="talk-o">
-        <ellipse cx="52" cy="71" rx="21" ry="15" className="lips" />
-        <ellipse cx="52" cy="71" rx="11" ry="8.5" className="inside" />
+        <ellipse cx="52" cy="74" rx="21" ry="15" className="lips" />
+        <ellipse cx="52" cy="74" rx="19.5" ry="13.5" className="inside" />
       </g>
       <g className="talk-flat">
-        <ellipse cx="52" cy="71" rx="25" ry="11" className="lips" />
-        <ellipse cx="52" cy="71" rx="16" ry="2.6" className="inside" />
+        <ellipse cx="52" cy="74" rx="25" ry="11" className="lips" />
+        <ellipse cx="52" cy="74" rx="23.5" ry="9.5" className="inside" />
       </g>
     </svg>
   );

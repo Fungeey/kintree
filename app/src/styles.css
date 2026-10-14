@@ -57,8 +57,8 @@ button { font: inherit; color: inherit; }
 .face img { width: 100%; height: 100%; object-fit: cover; display: block; }
 /* The talking mouth over the face while its title is read aloud: two frames that swap in turn. */
 .talk { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.talk .lips { fill: #eadfcf; stroke: #5b4f43; stroke-width: 3; }
-.talk .inside { fill: #4a3f37; }
+.talk .lips { fill: #eadfcf; stroke: #000; stroke-width: 3; }
+.talk .inside { fill: #000; }
 .talk-o { animation: talk-a .36s steps(1, end) infinite; }
 .talk-flat { animation: talk-b .36s steps(1, end) infinite; }
 @keyframes talk-a { 0% { opacity: 1; } 50% { opacity: 0; } }
