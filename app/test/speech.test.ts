@@ -57,3 +57,8 @@ test('spokenText speaks the kana reading when a title has one, else the characte
   const s: Shown = { kind: 'byAge', lines: [{ label: 'older', chars: '伯父', kana: 'おじ' }, { label: 'younger', chars: 'おじさん' }] };
   assert.equal(spokenText(s), 'おじ，おじさん');
 });
+
+test('spokenText also reads the rank title shown beside the usual one', () => {
+  const rank: Shown = { kind: 'title', lines: [{ chars: '大姨媽' }, { chars: '二姨媽', rank: true }] };
+  assert.equal(spokenText(rank), '大姨媽，二姨媽');
+});
