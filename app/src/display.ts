@@ -57,7 +57,7 @@ export function showFor(tree: Tree, me: string, target: string, lang: LangId = D
     case 'title': {
       const { spoken, formal } = r.forms;
       const first = spoken === 'by-name' ? { chars: formal.chars, rom: formal.rom, byName: true } : line(spoken);
-      // Aunts and uncles can also be called by rank (大姨媽, 二姨媽): shown beside the usual title, not instead of it.
+      // Aunts, uncles and grand-uncles and aunts can also be called by rank (大姨媽, 二叔公): shown beside the usual title, not instead of it.
       const rank = L.rank ? rankTitle(tree, me, target, L.rank) : null;
       return {
         kind: 'title', gloss: r.en,
