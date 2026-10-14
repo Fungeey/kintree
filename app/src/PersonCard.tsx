@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Person } from '../../engine/src/index.ts';
 import type { Shown } from './display.ts';
 import { spokenText } from './audio/speech.ts';
-import type { SpeechState } from './audio/useSpeech.ts';
+import type { Speech } from './audio/useSpeech.ts';
 import { faceUrl, initials } from './faces.ts';
 import { ageFor, HairBack, HairFront, toneFor } from './Hair.tsx';
 import { DEFAULT_LANG, langFor } from './lang.ts';
@@ -19,7 +19,7 @@ interface Props {
   y: number;
   onPick: (id: string) => void;
   lang?: LangId;
-  speech?: { state: SpeechState; speak: (text: string) => void };
+  speech?: Speech;
 }
 
 export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG }: Props) {
@@ -27,6 +27,8 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   const text = spokenText(shown, lang);
   const html = langFor(lang).html;
   const canPlay = speech?.state === 'ready' && text !== '';
+  const play = canPlay ? () => speech.speak(text, person.id) : undefined;
+  const talking = speech?.speaking === person.id && !broken;
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
   const tone = toneFor(gen);
@@ -45,11 +47,12 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
           {broken
             ? <span className="initials">{initials(person.name, isMe, person.sex)}</span>
             : <img src={faceUrl(person.id)} alt="" loading="lazy" draggable={false} onError={() => setBroken(true)} />}
+          {talking && <TalkingMouth />}
         </span>
         <HairFront sex={person.sex} age={age} tone={tone} />
       </button>
       {/* Tapping the name plays it too; the play button stays as the keyboard and screen-reader control. */}
-      <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={canPlay ? () => speech.speak(text) : undefined}>
+      <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={play}>
         {shown.lines.map((l, i) => (
           <span key={i} className={`line${l.byName ? ' byname' : ''}${l.rank ? ' rank' : ''}`}>
             {l.label && <i className="age">{l.label}</i>}
@@ -61,10 +64,27 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
         ))}
       </div>
       {canPlay && (
-        <button type="button" className="play" onClick={() => speech.speak(text)} aria-label={`Play ${text}`} title="Play">
+        <button type="button" className="play" onClick={play} aria-label={`Play ${text}`} title="Play">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z" /><path d="M16 8.5c1.6 1.6 1.6 5.4 0 7M18.5 6c3 3 3 9 0 12" fill="none" /></svg>
         </button>
       )}
     </div>
+  );
+}
+
+// Drawn over the face's own mouth (DiceBear line-face puts it around 33-71 across and 63-80 down, out of 100) while
+// the card is read aloud. It flips between an open O and a flat open mouth; both shapes cover the drawn mouth.
+function TalkingMouth() {
+  return (
+    <svg className="talk" viewBox="0 0 100 100" aria-hidden="true">
+      <g className="talk-o">
+        <ellipse cx="52" cy="71" rx="21" ry="15" className="lips" />
+        <ellipse cx="52" cy="71" rx="11" ry="8.5" className="inside" />
+      </g>
+      <g className="talk-flat">
+        <ellipse cx="52" cy="71" rx="25" ry="11" className="lips" />
+        <ellipse cx="52" cy="71" rx="16" ry="2.6" className="inside" />
+      </g>
+    </svg>
   );
 }
