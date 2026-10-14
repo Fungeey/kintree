@@ -16,7 +16,7 @@ export const toneFor = (gen: number): Tone =>
   gen <= -3 ? 'white' : gen === -2 ? 'grey' : gen === -1 ? 'black' : gen === 0 ? 'brown' : gen === 1 ? 'honey' : 'ink';
 
 const FILL: Record<Tone, string> = {
-  white: 'var(--paper)', grey: '#9a948a', black: INK, brown: '#8a5a34', honey: '#b9803f', ink: INK,
+  white: 'var(--paper)', grey: '#9a948a', black: INK, brown: '#5c3a1e', honey: '#b9803f', ink: INK,
 };
 
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
