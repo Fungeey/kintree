@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import type { Person } from '../../engine/src/index.ts';
 import type { Shown } from './display.ts';
 import { spokenText } from './audio/speech.ts';
@@ -48,7 +48,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
           {broken
             ? <span className="initials">{initials(person.name, isMe, person.sex)}</span>
             : <img src={faceUrl(person.id)} alt="" loading="lazy" draggable={false} onError={() => setBroken(true)} />}
-          {talking && <TalkingMouth />}
+          {talking && <TalkingMouth src={faceUrl(person.id)} />}
         </span>
         <HairFront sex={person.sex} age={age} tone={tone} />
       </button>
@@ -73,13 +73,23 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   );
 }
 
-// Drawn over the face's own mouth (DiceBear line-face puts it around 33-71 across and 72-75 down, out of 100) while
-// the card is read aloud. Two beige outlined mouths swap, an open O and a flat open one; each is big enough to cover it.
-function TalkingMouth() {
+// Drawn over the face's own mouth (DiceBear line-face puts it around 33-73 across and 64-78 down, out of 100, with the
+// wide smiles ending in an upward flick) while the card is read aloud. A pill cut from the blank chin of the same face
+// image hides that mouth in the face's own skin colour, whatever it is, and four black outlines take turns on it:
+// a flat line, a small O, a wide flat opening and a big O.
+function TalkingMouth({ src }: { src: string }) {
+  const clip = 'talk-clip' + useId().replace(/\W/g, '');
   return (
     <svg className="talk" viewBox="0 0 100 100" aria-hidden="true">
-      <ellipse className="talk-o" cx="52" cy="77" rx="21" ry="15" />
-      <ellipse className="talk-flat" cx="52" cy="77" rx="25" ry="11" />
+      <clipPath id={clip}><rect x="25" y="62" width="54" height="24" rx="12" /></clipPath>
+      {/* The blank chin at x 40-60, y 86-98 of the face image, stretched over the pill. */}
+      <g clipPath={`url(#${clip})`}>
+        <image href={src} width="100" height="100" transform="matrix(2.7 0 0 2 -83 -110)" />
+      </g>
+      <path className="talk-f talk-line" d="M38 76h28" />
+      <ellipse className="talk-f talk-small" cx="52" cy="76" rx="6.5" ry="5.5" />
+      <ellipse className="talk-f talk-big" cx="52" cy="76" rx="15" ry="10.5" />
+      <ellipse className="talk-f talk-wide" cx="52" cy="76" rx="19" ry="5" />
     </svg>
   );
 }
