@@ -1,5 +1,5 @@
 // Public API (spec section 7).
-export type { Sex, Person, Family, Tree, Title, Spoken, Forms, TitleEntry, Generic, Resolution } from './model.ts';
+export type { Sex, Person, Family, Tree, Title, Spoken, Forms, TitleEntry, SpeakerForms, Generic, GenericForms, Resolution } from './model.ts';
 export type { Table } from './table.ts';
 export { validateTree } from './tree.ts';
 export { kinPath } from './path.ts';

@@ -1,0 +1,34 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "lolo"
+  },
+  "f": {
+   "chars": "lola"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "tito"
+  },
+  "f": {
+   "chars": "tita"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "kuya"
+   },
+   "younger": "by-name"
+  },
+  "f": {
+   "older": {
+    "chars": "ate"
+   },
+   "younger": "by-name"
+  }
+ },
+ "below": "by-name"
+}

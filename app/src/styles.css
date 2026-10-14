@@ -166,7 +166,7 @@ button { font: inherit; color: inherit; }
 .titles.plain .line .zh { font-size: .8rem; font-weight: 700; color: var(--ink); margin-top: 0; }
 .titles.plain.two .line .zh { font-size: .66rem; }
 .titles.plain .line.rank .zh { color: var(--accent); }
-:lang(vi) { font-family: "Noto Serif", Georgia, "Iowan Old Style", "Times New Roman", serif; }
+:lang(vi), :lang(fil) { font-family: "Noto Serif", Georgia, "Iowan Old Style", "Times New Roman", serif; }
 
 /* Japanese: kanji drawn with Japanese glyph shapes (the HK stack would use Hong Kong ones), kana reading above as furigana. */
 :lang(ja) { font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "MS PMincho", "Noto Serif CJK JP", Georgia, serif; }

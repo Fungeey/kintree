@@ -19,6 +19,10 @@ export type Spoken = Title | 'by-name';
 
 export interface Forms { formal: Title; spoken: Spoken }
 
+// What changes when the speaker ("me") is a man or a woman. Korean: a man calls his older brother 형, a woman 오빠.
+// Only the fields given replace the entry's own; the speaker's sex is the sex of "me" in the tree.
+export interface SpeakerForms { formal?: Title; spoken?: Spoken; older?: Forms; younger?: Forms }
+
 export interface TitleEntry {
   pattern: string;
   en: string;
@@ -26,16 +30,20 @@ export interface TitleEntry {
   spoken?: Spoken;
   older?: Forms;
   younger?: Forms;
+  speaker?: { m?: SpeakerForms; f?: SpeakerForms };
   status: string;
   note?: string;
 }
 
-export interface Generic {
+export interface GenericForms {
   above2: { m: Spoken; f: Spoken };
   above1: { m: Spoken; f: Spoken };
   same: { m: { older: Spoken; younger: Spoken }; f: { older: Spoken; younger: Spoken } };
   below: Spoken;
 }
+
+// speaker: replacements for a man or woman speaker, as for entries (Korean: the generic older brother is 형 or 오빠).
+export interface Generic extends GenericForms { speaker?: { m?: Partial<GenericForms>; f?: Partial<GenericForms> } }
 
 export type Resolution =
   | { kind: 'self' }

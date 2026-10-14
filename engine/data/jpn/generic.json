@@ -1,0 +1,42 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "おじいさん",
+   "rom": "ojīsan"
+  },
+  "f": {
+   "chars": "おばあさん",
+   "rom": "obāsan"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "おじさん",
+   "rom": "ojisan"
+  },
+  "f": {
+   "chars": "おばさん",
+   "rom": "obasan"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "お兄さん",
+    "kana": "おにいさん",
+    "rom": "onīsan"
+   },
+   "younger": "by-name"
+  },
+  "f": {
+   "older": {
+    "chars": "お姉さん",
+    "kana": "おねえさん",
+    "rom": "onēsan"
+   },
+   "younger": "by-name"
+  }
+ },
+ "below": "by-name"
+}

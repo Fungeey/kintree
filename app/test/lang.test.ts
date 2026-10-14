@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { initialLang, langFor, saveLang } from '../src/lang.ts';
 import { showFor } from '../src/display.ts';
 import { shareUrl } from '../src/persist.ts';
-import { addChild, addPerson, emptyTree } from '../../engine/src/index.ts';
+import { addChild, addPerson, addSibling, emptyTree } from '../../engine/src/index.ts';
 
 const mem = () => { const m = new Map<string, string>(); return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => { m.set(k, v); } }; };
 
@@ -56,4 +56,45 @@ test('Vietnamese: no reading, title alone, vi-VN voice, own heading', async () =
   assert.equal(langFor('vie').romanized, false);
   assert.equal(pickVoice([{ lang: 'zh_CN_#Hans', name: 'c' }, { lang: 'vi_VN', name: 'Vietnamese Vietnam' }], 'vie')?.name, 'Vietnamese Vietnam');
   assert.equal(pickVoice([{ lang: 'zh_CN_#Hans', name: 'c' }], 'vie'), undefined);
+});
+
+test('Japanese, Korean and Tagalog are in the picker list and load', async () => {
+  const { LANG_IDS } = await import('../src/lang.ts');
+  for (const id of ['jpn', 'kor', 'tgl'] as const) assert.ok(LANG_IDS.includes(id), id);
+  assert.equal(langFor('jpn').joiner, 'の');
+  assert.equal(langFor('kor').joiner, '의 ');
+  assert.equal(langFor('tgl').reverse, true);
+  assert.equal(initialLang('?lang=jpn', null), 'jpn');
+  assert.equal(initialLang('?lang=kor', null), 'kor');
+  assert.equal(initialLang('?lang=tgl', null), 'tgl');
+});
+
+test('Japanese: a card shows the humble term with its kana and rōmaji, and speaks the kana', async () => {
+  const { spokenText } = await import('../src/audio/speech.ts');
+  const a = addPerson(emptyTree(), 'm', 'Me');
+  const dad = addChild(a.tree, a.id, 'm');
+  const up = showFor(dad.tree, dad.id, a.id, 'jpn');
+  assert.deepEqual([up.lines[0].chars, up.lines[0].kana, up.lines[0].rom], ['お父さん', 'おとうさん', 'otōsan']);
+  assert.equal(up.formal?.chars, '父');
+  assert.equal(spokenText(up, 'jpn'), 'おとうさん');
+  assert.deepEqual(showFor(dad.tree, a.id, a.id, 'jpn').lines[0], { chars: '私', rom: 'watashi', kana: 'わたし' });
+});
+
+test('Korean: the same older brother is 형 to a man and 오빠 to a woman', () => {
+  const bro = addPerson(emptyTree(), 'm', 'Bro');
+  const man = addSibling(bro.tree, bro.id, 'm', 'Younger');          // youngest by default
+  const woman = addSibling(man.tree, bro.id, 'f', 'Younger sister');
+  assert.equal(showFor(woman.tree, man.id, bro.id, 'kor').lines[0].chars, '형');
+  assert.equal(showFor(woman.tree, woman.id, bro.id, 'kor').lines[0].chars, '오빠');
+  assert.equal(showFor(woman.tree, woman.id, bro.id, 'kor').lines[0].rom, 'oppa');
+  assert.equal(showFor(woman.tree, man.id, bro.id, 'kor').formal, undefined);   // same word, nothing underneath
+});
+
+test('Korean, Japanese and Tagalog voices are found by language tag, in the Android and desktop spellings', async () => {
+  const { pickVoice } = await import('../src/audio/speech.ts');
+  assert.equal(pickVoice([{ lang: 'ja_JP', name: 'a' }, { lang: 'zh_CN', name: 'b' }], 'jpn')?.name, 'a');
+  assert.equal(pickVoice([{ lang: 'ko-KR', name: 'Yuna' }], 'kor')?.name, 'Yuna');
+  assert.equal(pickVoice([{ lang: 'fil_PH', name: 'f' }], 'tgl')?.name, 'f');
+  assert.equal(pickVoice([{ lang: 'tl-PH', name: 't' }], 'tgl')?.name, 't');
+  assert.equal(pickVoice([{ lang: 'zh-CN', name: 'c' }], 'kor'), undefined);
 });

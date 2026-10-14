@@ -18,7 +18,8 @@ export function resolve(
   if (path === null) return { kind: 'unrelated' };
   if (path === '') return { kind: 'self' };
 
-  const entry = matchPattern(table, path);
+  const speakerSex = tree.people.find(p => p.id === me)!.sex;
+  const entry = withSpeaker(matchPattern(table, path), speakerSex);
   // Entries with older and younger always show both (decision 9).
   if (entry && entry.older && entry.younger) {
     return { kind: 'byAge', path, pattern: entry.pattern, en: entry.en, older: entry.older, younger: entry.younger };
@@ -37,9 +38,15 @@ export function resolve(
   return {
     kind: 'fallback',
     path,
-    generic: genericFor(generic, path, sex),
+    generic: genericFor(generic.speaker?.[speakerSex] ? { ...generic, ...generic.speaker[speakerSex] } : generic, path, sex),
     describe: describe(table, path, joiner, reverse),
   };
+}
+
+// The entry as the speaker says it: the speaker's own forms replace the entry's. Entries without them are unchanged.
+function withSpeaker(entry: TitleEntry | null, sex: Sex): TitleEntry | null {
+  const own = entry?.speaker?.[sex];
+  return entry && own ? { ...entry, ...own } : entry;
 }
 
 // Generation g = (count of F/M) - (count of S/D). Marriage and sibling moves do not count.

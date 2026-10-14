@@ -1,0 +1,60 @@
+{
+ "_status": "unverified",
+ "above2": {
+  "m": {
+   "chars": "할아버지",
+   "rom": "harabeoji"
+  },
+  "f": {
+   "chars": "할머니",
+   "rom": "halmeoni"
+  }
+ },
+ "above1": {
+  "m": {
+   "chars": "아저씨",
+   "rom": "ajeossi"
+  },
+  "f": {
+   "chars": "아주머니",
+   "rom": "ajumeoni"
+  }
+ },
+ "same": {
+  "m": {
+   "older": {
+    "chars": "형",
+    "rom": "hyeong"
+   },
+   "younger": "by-name"
+  },
+  "f": {
+   "older": {
+    "chars": "누나",
+    "rom": "nuna"
+   },
+   "younger": "by-name"
+  }
+ },
+ "below": "by-name",
+ "speaker": {
+  "f": {
+   "same": {
+    "m": {
+     "older": {
+      "chars": "오빠",
+      "rom": "oppa"
+     },
+     "younger": "by-name"
+    },
+    "f": {
+     "older": {
+      "chars": "언니",
+      "rom": "eonni"
+     },
+     "younger": "by-name"
+    }
+   }
+  }
+ }
+}
