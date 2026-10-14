@@ -1858,5 +1858,125 @@
    "chars": "lola sa tuhod"
   },
   "status": "unverified"
+ },
+ {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M B* W",
+  "en": "paternal grandmother's brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M B* W",
+  "en": "maternal grandmother's brother's wife",
+  "formal": {
+   "chars": "lola"
+  },
+  "spoken": {
+   "chars": "lola"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "F M Z* H",
+  "en": "paternal grandmother's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M F Z* H",
+  "en": "maternal grandfather's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "M M Z* H",
+  "en": "maternal grandmother's sister's husband",
+  "formal": {
+   "chars": "lolo"
+  },
+  "spoken": {
+   "chars": "lolo"
+  },
+  "status": "unverified",
+  "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
  }
 ]

@@ -938,6 +938,126 @@
   "note": "unchecked"
  },
  {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "bà bác"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "bà thím"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "ông dượng"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M B* W",
+  "en": "paternal grandmother's brother's wife",
+  "formal": {
+   "chars": "bà mợ"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M Z* H",
+  "en": "paternal grandmother's sister's husband",
+  "formal": {
+   "chars": "ông dượng"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "bà bác"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "bà thím"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Z* H",
+  "en": "maternal grandfather's sister's husband",
+  "formal": {
+   "chars": "ông dượng"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M B* W",
+  "en": "maternal grandmother's brother's wife",
+  "formal": {
+   "chars": "bà mợ"
+  },
+  "spoken": {
+   "chars": "bà"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M Z* H",
+  "en": "maternal grandmother's sister's husband",
+  "formal": {
+   "chars": "ông dượng"
+  },
+  "spoken": {
+   "chars": "ông"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
   "pattern": "H F F",
   "en": "husband's paternal grandfather",
   "formal": {

@@ -987,6 +987,146 @@
   "note": "unchecked"
  },
  {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "伯祖母",
+   "rom": "bózǔmǔ"
+  },
+  "spoken": {
+   "chars": "大奶奶",
+   "rom": "dànǎinai"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "叔祖母",
+   "rom": "shūzǔmǔ"
+  },
+  "spoken": {
+   "chars": "叔奶奶",
+   "rom": "shūnǎinai"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "姑祖父",
+   "rom": "gūzǔfù"
+  },
+  "spoken": {
+   "chars": "姑爷爷",
+   "rom": "gūyéye"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M B* W",
+  "en": "paternal grandmother's brother's wife",
+  "formal": {
+   "chars": "舅祖母",
+   "rom": "jiùzǔmǔ"
+  },
+  "spoken": {
+   "chars": "舅奶奶",
+   "rom": "jiùnǎinai"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "F M Z* H",
+  "en": "paternal grandmother's sister's husband",
+  "formal": {
+   "chars": "姨祖父",
+   "rom": "yízǔfù"
+  },
+  "spoken": {
+   "chars": "姨爷爷",
+   "rom": "yíyéye"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "外伯祖母",
+   "rom": "wàibózǔmǔ"
+  },
+  "spoken": {
+   "chars": "伯外婆",
+   "rom": "bówàipó"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "外叔祖母",
+   "rom": "wàishūzǔmǔ"
+  },
+  "spoken": {
+   "chars": "叔外婆",
+   "rom": "shūwàipó"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M F Z* H",
+  "en": "maternal grandfather's sister's husband",
+  "formal": {
+   "chars": "外姑祖父",
+   "rom": "wàigūzǔfù"
+  },
+  "spoken": {
+   "chars": "姑外公",
+   "rom": "gūwàigōng"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M B* W",
+  "en": "maternal grandmother's brother's wife",
+  "formal": {
+   "chars": "舅外祖母",
+   "rom": "jiùwàizǔmǔ"
+  },
+  "spoken": {
+   "chars": "舅外婆",
+   "rom": "jiùwàipó"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
+  "pattern": "M M Z* H",
+  "en": "maternal grandmother's sister's husband",
+  "formal": {
+   "chars": "姨外祖父",
+   "rom": "yíwàizǔfù"
+  },
+  "spoken": {
+   "chars": "姨外公",
+   "rom": "yíwàigōng"
+  },
+  "status": "unverified",
+  "note": "gap filled; unchecked"
+ },
+ {
   "pattern": "H F F",
   "en": "husband's paternal grandfather",
   "formal": {

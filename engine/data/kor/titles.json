@@ -374,6 +374,45 @@
   "note": "Checked: 고모할머니, also 대고모 or 왕고모 (thewiki.kr)."
  },
  {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "종조모",
+   "rom": "jongjomo"
+  },
+  "spoken": {
+   "chars": "큰할머니",
+   "rom": "keunhalmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "종조모",
+   "rom": "jongjomo"
+  },
+  "spoken": {
+   "chars": "작은할머니",
+   "rom": "jageunhalmeoni"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "대고모부",
+   "rom": "daegomobu"
+  },
+  "spoken": {
+   "chars": "고모할아버지",
+   "rom": "gomoharabeoji"
+  },
+  "status": "unverified"
+ },
+ {
   "pattern": "M F Be",
   "en": "maternal grandfather's elder brother",
   "formal": {

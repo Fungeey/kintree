@@ -44,6 +44,9 @@ What is still unchecked: Korean 친사촌/외사촌 and cousin compounds, 친할
 | F F Be | paternal grandfather's elder brother | 종조부 jongjobu | 큰할아버지 keunharabeoji | checked | Checked: 큰할아버지, 작은할아버지 and 종조부 (thewiki.kr, a kinship chart). |
 | F F By | paternal grandfather's younger brother | 종조부 jongjobu | 작은할아버지 jageunharabeoji | checked |  |
 | F F Z* | paternal grandfather's sister | 대고모 daegomo | 고모할머니 gomohalmeoni | checked | Checked: 고모할머니, also 대고모 or 왕고모 (thewiki.kr). |
+| F F Be W | paternal grandfather's elder brother's wife | 종조모 jongjomo | 큰할머니 keunhalmeoni | unverified |  |
+| F F By W | paternal grandfather's younger brother's wife | 종조모 jongjomo | 작은할머니 jageunhalmeoni | unverified |  |
+| F F Z* H | paternal grandfather's sister's husband | 대고모부 daegomobu | 고모할아버지 gomoharabeoji | unverified |  |
 | M F Be | maternal grandfather's elder brother | 외종조부 oejongjobu | 큰외할아버지 keunoeharabeoji | checked | Checked: 외종조부 sits beside 외할아버지 in thewiki.kr's chart. |
 | M F By | maternal grandfather's younger brother | 외종조부 oejongjobu | 작은외할아버지 jageunoeharabeoji | checked |  |
 | F M B* | paternal grandmother's brother | 진외종조부 jinoejongjobu | 진외종조부 jinoejongjobu | unverified | Not checked online: 진외종조부 follows the 친할머니 pattern (thewiki.kr lists 진외재종조부 for her cousin). |
@@ -270,6 +273,22 @@ What is still unchecked: Korean 친사촌/외사촌 and cousin compounds, 친할
 | F M M | father's mother's mother | 曾祖母 (そうそぼ) sōsobo | ひいおばあちゃん hīobāchan | unverified |  |
 | M F M | mother's father's mother | 曾祖母 (そうそぼ) sōsobo | ひいおばあちゃん hīobāchan | unverified |  |
 | M M M | mother's mother's mother | 曾祖母 (そうそぼ) sōsobo | ひいおばあちゃん hīobāchan | unverified |  |
+| F F Be W | paternal grandfather's elder brother's wife | 大伯母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| F F By W | paternal grandfather's younger brother's wife | 大叔母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| F F Ze H | father's father's elder sister's husband | 大伯父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| F F Zy H | father's father's younger sister's husband | 大叔父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| F M Be W | father's mother's elder brother's wife | 大伯母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| F M By W | father's mother's younger brother's wife | 大叔母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| F M Ze H | father's mother's elder sister's husband | 大伯父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| F M Zy H | father's mother's younger sister's husband | 大叔父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| M F Be W | maternal grandfather's elder brother's wife | 大伯母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| M F By W | maternal grandfather's younger brother's wife | 大叔母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| M F Ze H | mother's father's elder sister's husband | 大伯父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| M F Zy H | mother's father's younger sister's husband | 大叔父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| M M Be W | mother's mother's elder brother's wife | 大伯母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| M M By W | mother's mother's younger brother's wife | 大叔母 (おおおば) ōoba | 大おばさん (おおおばさん) ōobasan | unverified |  |
+| M M Ze H | mother's mother's elder sister's husband | 大伯父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
+| M M Zy H | mother's mother's younger sister's husband | 大叔父 (おおおじ) ōoji | 大おじさん (おおおじさん) ōojisan | unverified |  |
 
 ## Tagalog
 
@@ -413,3 +432,13 @@ What is still unchecked: Korean 친사촌/외사촌 and cousin compounds, 친할
 | F M M | father's mother's mother | lola sa tuhod | lola sa tuhod | unverified |  |
 | M F M | mother's father's mother | lola sa tuhod | lola sa tuhod | unverified |  |
 | M M M | mother's mother's mother | lola sa tuhod | lola sa tuhod | unverified |  |
+| F F Be W | paternal grandfather's elder brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| F F By W | paternal grandfather's younger brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| F M B* W | paternal grandmother's brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| M F Be W | maternal grandfather's elder brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| M F By W | maternal grandfather's younger brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| M M B* W | maternal grandmother's brother's wife | lola | lola | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| F F Z* H | paternal grandfather's sister's husband | lolo | lolo | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| F M Z* H | paternal grandmother's sister's husband | lolo | lolo | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| M F Z* H | maternal grandfather's sister's husband | lolo | lolo | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |
+| M M Z* H | maternal grandmother's sister's husband | lolo | lolo | unverified | Usage varies by family: lolo or lola with the name, or tito/tita. |

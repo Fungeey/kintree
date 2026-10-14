@@ -74,6 +74,17 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 | M F Z* | maternal grandfather's sister | 姑婆 gu1 po4 | 姑婆 gu1 po4 | unverified | by analogy with the paternal line |
 | F M Z* | paternal grandmother's sister | 姨婆 ji4 po4 | 姨婆 ji4 po4 | unverified |  |
 | M M Z* | maternal grandmother's sister | 姨婆 ji4 po4 | 姨婆 ji4 po4 | unverified |  |
+| F F Be W | paternal grandfather's elder brother's wife | 伯婆 baak3 po4 | 伯婆 baak3 po4 | unverified | gap filled; rank form (大伯婆, 二伯婆…) unchecked |
+| F F By W | paternal grandfather's younger brother's wife | 叔婆 suk1 po4 | 叔婆 suk1 po4 | unverified | gap filled; rank form (大叔婆, 二叔婆…) unchecked |
+| F F Z* H | paternal grandfather's sister's husband | 姑丈公 gu1 zoeng2 gung1 | 姑丈公 gu1 zoeng2 gung1 | unverified | gap filled; some families say 姑公; rank form (大姑丈公, 二姑丈公…) unchecked |
+| F M B* W | paternal grandmother's brother's wife | 舅婆 kau5 po4 | 舅婆 kau5 po4 | unverified | gap filled; some families say 妗婆 kam5 po4; rank form (大舅婆, 二舅婆…) unchecked |
+| F M Z* H | paternal grandmother's sister's husband | 姨丈公 ji4 zoeng2 gung1 | 姨丈公 ji4 zoeng2 gung1 | unverified | gap filled; some families say 姨公; rank form (大姨丈公, 二姨丈公…) unchecked |
+| M F Be W | maternal grandfather's elder brother's wife | 伯婆 baak3 po4 | 伯婆 baak3 po4 | unverified | gap filled; rank form (大伯婆, 二伯婆…) unchecked |
+| M F By W | maternal grandfather's younger brother's wife | 叔婆 suk1 po4 | 叔婆 suk1 po4 | unverified | gap filled; rank form (大叔婆, 二叔婆…) unchecked |
+| M F Z* H | maternal grandfather's sister's husband | 姑丈公 gu1 zoeng2 gung1 | 姑丈公 gu1 zoeng2 gung1 | unverified | gap filled; some families say 姑公; rank form (大姑丈公, 二姑丈公…) unchecked |
+| M M B* W | maternal grandmother's brother's wife | 舅婆 kau5 po4 | 舅婆 kau5 po4 | unverified | gap filled; some families say 妗婆 kam5 po4; rank form (大舅婆, 二舅婆…) unchecked |
+| M M Z* H | maternal grandmother's sister's husband | 姨丈公 ji4 zoeng2 gung1 | 姨丈公 ji4 zoeng2 gung1 | unverified | gap filled; some families say 姨公; rank form (大姨丈公, 二姨丈公…) unchecked |
+| F F B*, F F Z*, F M B*, F M Z* (and M side) | grandparent's siblings, by rank | 大伯公, 二叔公, 大姑婆, 大舅公, 大姨婆… | same | unverified | rank counted among the grandparent's same-sex siblings, the grandparent not counted; unchecked |
 | H F F | husband's paternal grandfather | 爺爺 je4 je2 | 爺爺 je4 je2 | unverified | uses the husband's own title; family usage varies |
 | H F M | husband's paternal grandmother | 嫲嫲 maa4 maa4 | 嫲嫲 maa4 maa4 | unverified | uses the husband's own title; family usage varies |
 | H M F | husband's maternal grandfather | 外公 ngoi6 gung1 | 公公 gung4 gung1 | unverified | uses the husband's own title; family usage varies |

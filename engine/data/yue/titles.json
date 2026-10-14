@@ -985,6 +985,146 @@
   "status": "unverified"
  },
  {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "伯婆",
+   "rom": "baak3 po4"
+  },
+  "spoken": {
+   "chars": "伯婆",
+   "rom": "baak3 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "叔婆",
+   "rom": "suk1 po4"
+  },
+  "spoken": {
+   "chars": "叔婆",
+   "rom": "suk1 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled"
+ },
+ {
+  "pattern": "F F Z* H",
+  "en": "paternal grandfather's sister's husband",
+  "formal": {
+   "chars": "姑丈公",
+   "rom": "gu1 zoeng2 gung1"
+  },
+  "spoken": {
+   "chars": "姑丈公",
+   "rom": "gu1 zoeng2 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 姑公"
+ },
+ {
+  "pattern": "F M B* W",
+  "en": "paternal grandmother's brother's wife",
+  "formal": {
+   "chars": "舅婆",
+   "rom": "kau5 po4"
+  },
+  "spoken": {
+   "chars": "舅婆",
+   "rom": "kau5 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 妗婆 kam5 po4"
+ },
+ {
+  "pattern": "F M Z* H",
+  "en": "paternal grandmother's sister's husband",
+  "formal": {
+   "chars": "姨丈公",
+   "rom": "ji4 zoeng2 gung1"
+  },
+  "spoken": {
+   "chars": "姨丈公",
+   "rom": "ji4 zoeng2 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 姨公"
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "伯婆",
+   "rom": "baak3 po4"
+  },
+  "spoken": {
+   "chars": "伯婆",
+   "rom": "baak3 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled"
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "叔婆",
+   "rom": "suk1 po4"
+  },
+  "spoken": {
+   "chars": "叔婆",
+   "rom": "suk1 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled"
+ },
+ {
+  "pattern": "M F Z* H",
+  "en": "maternal grandfather's sister's husband",
+  "formal": {
+   "chars": "姑丈公",
+   "rom": "gu1 zoeng2 gung1"
+  },
+  "spoken": {
+   "chars": "姑丈公",
+   "rom": "gu1 zoeng2 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 姑公"
+ },
+ {
+  "pattern": "M M B* W",
+  "en": "maternal grandmother's brother's wife",
+  "formal": {
+   "chars": "舅婆",
+   "rom": "kau5 po4"
+  },
+  "spoken": {
+   "chars": "舅婆",
+   "rom": "kau5 po4"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 妗婆 kam5 po4"
+ },
+ {
+  "pattern": "M M Z* H",
+  "en": "maternal grandmother's sister's husband",
+  "formal": {
+   "chars": "姨丈公",
+   "rom": "ji4 zoeng2 gung1"
+  },
+  "spoken": {
+   "chars": "姨丈公",
+   "rom": "ji4 zoeng2 gung1"
+  },
+  "status": "unverified",
+  "note": "gap filled; some families say 姨公"
+ },
+ {
   "pattern": "H F F",
   "en": "husband's paternal grandfather",
   "formal": {

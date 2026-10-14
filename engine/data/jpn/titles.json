@@ -2405,5 +2405,245 @@
    "rom": "hīobāchan"
   },
   "status": "unverified"
+ },
+ {
+  "pattern": "F F Be W",
+  "en": "paternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F By W",
+  "en": "paternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Ze H",
+  "en": "father's father's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F F Zy H",
+  "en": "father's father's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Be W",
+  "en": "father's mother's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M By W",
+  "en": "father's mother's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Ze H",
+  "en": "father's mother's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "F M Zy H",
+  "en": "father's mother's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Be W",
+  "en": "maternal grandfather's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F By W",
+  "en": "maternal grandfather's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Ze H",
+  "en": "mother's father's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M F Zy H",
+  "en": "mother's father's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Be W",
+  "en": "mother's mother's elder brother's wife",
+  "formal": {
+   "chars": "大伯母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M By W",
+  "en": "mother's mother's younger brother's wife",
+  "formal": {
+   "chars": "大叔母",
+   "kana": "おおおば",
+   "rom": "ōoba"
+  },
+  "spoken": {
+   "chars": "大おばさん",
+   "kana": "おおおばさん",
+   "rom": "ōobasan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Ze H",
+  "en": "mother's mother's elder sister's husband",
+  "formal": {
+   "chars": "大伯父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
+ },
+ {
+  "pattern": "M M Zy H",
+  "en": "mother's mother's younger sister's husband",
+  "formal": {
+   "chars": "大叔父",
+   "kana": "おおおじ",
+   "rom": "ōoji"
+  },
+  "spoken": {
+   "chars": "大おじさん",
+   "kana": "おおおじさん",
+   "rom": "ōojisan"
+  },
+  "status": "unverified"
  }
 ]

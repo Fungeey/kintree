@@ -1,4 +1,5 @@
-// Family rank titles: 大姨媽, 二姨媽, 大舅父, 二伯 ... for a parent's siblings and their spouses.
+// Family rank titles: 大姨媽, 二姨媽, 大舅父, 二伯 ... for a parent's siblings and their spouses, and 大伯公, 三叔婆 ...
+// for a grandparent's siblings and their spouses.
 // They are family usage, so they sit beside the table's title and never replace it (DESIGN.md, rank terms).
 // The numerals and stems are per language (RankData); a language without rank titles simply passes none.
 import type { Title, Tree } from './model.ts';
@@ -9,7 +10,8 @@ type Stem = [string, string];
 
 export interface RankData {
   numerals: Stem[];                     // [chars, reading] for 1st, 2nd, ... in order
-  // key: parent letter, sibling letter and age ("F Be"); value: [the sibling's stem, the sibling's spouse's stem]
+  // key: parent (or grandparent) letters, sibling letter and age ("F Be", "F F Be");
+  // value: [the sibling's stem, the sibling's spouse's stem]
   stems: Record<string, [Stem, Stem]>;
   sep: string;                          // what joins the numeral's reading to the stem's: ' ' for jyutping, '' for pinyin
 }
@@ -28,9 +30,24 @@ export const RANK_YUE: RankData = {
     'M By': [['舅父', 'kau5 fu2'], ['舅母', 'kau5 mou2']],
     'M Ze': [['姨媽', 'ji4 maa1'], ['姨丈', 'ji4 zoeng2']],
     'M Zy': [['姨', 'ji4'], ['姨丈', 'ji4 zoeng2']],
+    ...grandStems('F'),
+    ...grandStems('M'),
   },
   sep: ' ',
 };
+
+// A grandparent's siblings take the same titles on the father's and the mother's side (外 is left off).
+function grandStems(side: 'F' | 'M'): Record<string, [Stem, Stem]> {
+  const baakGung: [Stem, Stem] = [['伯公', 'baak3 gung1'], ['伯婆', 'baak3 po4']];
+  const sukGung: [Stem, Stem] = [['叔公', 'suk1 gung1'], ['叔婆', 'suk1 po4']];
+  const guPo: [Stem, Stem] = [['姑婆', 'gu1 po4'], ['姑丈公', 'gu1 zoeng2 gung1']];
+  const kauGung: [Stem, Stem] = [['舅公', 'kau5 gung1'], ['舅婆', 'kau5 po4']];
+  const jiPo: [Stem, Stem] = [['姨婆', 'ji4 po4'], ['姨丈公', 'ji4 zoeng2 gung1']];
+  return {
+    [`${side} F Be`]: baakGung, [`${side} F By`]: sukGung, [`${side} F Ze`]: guPo, [`${side} F Zy`]: guPo,
+    [`${side} M Be`]: kauGung, [`${side} M By`]: kauGung, [`${side} M Ze`]: jiPo, [`${side} M Zy`]: jiPo,
+  };
+}
 
 // Mainland Mandarin: 大伯, 二叔, 大姑, 大舅, 大姨. The aunts and the mother's brothers use one stem whatever their age.
 export const RANK_CMN: RankData = {
@@ -62,26 +79,28 @@ function rankAmongSiblings(tree: Tree, of: string, target: string): { rank: numb
   return i < 0 ? null : { rank: i + 1, total: same.length };
 }
 
-// The rank title of `target` as seen from `me`, or null when the path is not a parent's sibling (or that sibling's
-// spouse), there is only one such sibling (nothing to rank), or the rank is past 十.
+// The rank title of `target` as seen from `me`, or null when the path is not a parent's or grandparent's sibling (or
+// that sibling's spouse), there is only one such sibling (nothing to rank), or the rank is past 十.
 export function rankTitle(tree: Tree, me: string, target: string, data: RankData = RANK_YUE): Title | null {
   const path = kinPath(tree, me, target);
   if (!path) return null;
   const tokens = parseTokens(path, false);
-  if (tokens.length < 2 || tokens.length > 3) return null;
-  const [up, sib, spouse] = tokens;
-  if (up.letter !== 'F' && up.letter !== 'M') return null;
+  const ups = tokens.findIndex(t => t.letter !== 'F' && t.letter !== 'M');
+  if (ups < 1 || ups > 2) return null;
+  const [sib, spouse, ...rest] = tokens.slice(ups);
+  if (rest.length) return null;
   if (sib.letter !== 'B' && sib.letter !== 'Z') return null;
   if (spouse && spouse.letter !== 'H' && spouse.letter !== 'W') return null;
-  const key = `${up.letter} ${sib.letter}${sib.age}`;
+  const key = [...tokens.slice(0, ups).map(t => t.letter), `${sib.letter}${sib.age}`].join(' ');
   const stems = data.stems[key];
   if (!stems) return null;
 
-  // Walk to the parent and the sibling, so the spouse's rank is their husband's or wife's.
-  const parent = parentOf(tree, me, up.letter);
+  // Walk up to the parent or grandparent and across to the sibling, so the spouse's rank is their husband's or wife's.
+  let elder: string | null = me;
+  for (const t of tokens.slice(0, ups)) elder = elder && parentOf(tree, elder, t.letter as 'F' | 'M');
   const sibling = spouse ? siblingSpouseOf(tree, target) : target;
-  if (!parent || !sibling) return null;
-  const r = rankAmongSiblings(tree, parent, sibling);
+  if (!elder || !sibling) return null;
+  const r = rankAmongSiblings(tree, elder, sibling);
   if (!r || r.total < 2 || r.rank > data.numerals.length) return null;
   const [num, numRom] = data.numerals[r.rank - 1];
   const [chars, rom] = stems[spouse ? 1 : 0];
