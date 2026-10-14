@@ -2645,5 +2645,245 @@
    "rom": "ōojisan"
   },
   "status": "unverified"
+ },
+ {
+  "pattern": "S W F",
+  "en": "son's wife's father",
+  "formal": {
+   "chars": "嫁の父",
+   "kana": "よめのちち",
+   "rom": "yomenochichi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "descriptive; unchecked"
+ },
+ {
+  "pattern": "S W M",
+  "en": "son's wife's mother",
+  "formal": {
+   "chars": "嫁の母",
+   "kana": "よめのはは",
+   "rom": "yomenohaha"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "descriptive; unchecked"
+ },
+ {
+  "pattern": "D H F",
+  "en": "daughter's husband's father",
+  "formal": {
+   "chars": "婿の父",
+   "kana": "むこのちち",
+   "rom": "mukonochichi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "descriptive; unchecked"
+ },
+ {
+  "pattern": "D H M",
+  "en": "daughter's husband's mother",
+  "formal": {
+   "chars": "婿の母",
+   "kana": "むこのはは",
+   "rom": "mukonohaha"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "descriptive; unchecked"
+ },
+ {
+  "pattern": "F B* S S",
+  "en": "father's brother's son's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* S D",
+  "en": "father's brother's son's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* D S",
+  "en": "father's brother's daughter's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* D D",
+  "en": "father's brother's daughter's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* S S",
+  "en": "father's sister's son's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* S D",
+  "en": "father's sister's son's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* D S",
+  "en": "father's sister's daughter's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* D D",
+  "en": "father's sister's daughter's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* S S",
+  "en": "mother's brother's son's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* S D",
+  "en": "mother's brother's son's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* D S",
+  "en": "mother's brother's daughter's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* D D",
+  "en": "mother's brother's daughter's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* S S",
+  "en": "mother's sister's son's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* S D",
+  "en": "mother's sister's son's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* D S",
+  "en": "mother's sister's daughter's son",
+  "formal": {
+   "chars": "従甥",
+   "kana": "いとこおい",
+   "rom": "itokooi"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* D D",
+  "en": "mother's sister's daughter's daughter",
+  "formal": {
+   "chars": "従姪",
+   "kana": "いとこめい",
+   "rom": "itokomei"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
  }
 ]
