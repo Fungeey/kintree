@@ -184,5 +184,6 @@ button { font: inherit; color: inherit; }
 :lang(ko) { font-family: "Noto Serif KR", "Nanum Myeongjo", "AppleMyungjo", "Batang", "Noto Serif CJK KR", Georgia, serif; }
 
 /* Language "None": no titles; the name sits in the title row under the face. */
-.titles.bare-name { padding: 0 1px; font-size: .72rem; font-weight: 700; line-height: 1.1; color: var(--ink); }
+.node.bare .root-label { height: 8px; margin-bottom: 0; }
+.titles.bare-name { margin-top: 4px; padding: 0 1px; font-size: .72rem; font-weight: 700; line-height: 1.1; color: var(--ink); }
 .titles.bare-name span { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; overflow-wrap: anywhere; }
