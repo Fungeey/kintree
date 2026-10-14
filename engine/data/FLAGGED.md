@@ -165,3 +165,35 @@ words.hk was checked on 2026-10-12 for entries marked checked. Everything else i
 - Cousins' spouses are mostly unsourced.
 - Mother's cousins (表舅父/表舅, 表姨 and their spouses) and their children are all from common usage; many families just say 舅父/阿姨 or 叔叔/阿姨 for a parent's cousin.
 - 公公/婆婆 as the generic far-relative title is a guess.
+| H F Be | husband's father's elder brother | 伯父 baak3 fu6 | 伯伯 baak3 baak3 | unverified | uses the husband's own title; family usage varies |
+| H F By | husband's father's younger brother | 叔父 suk1 fu6 | 阿叔 aa3 suk1 | unverified | uses the husband's own title; family usage varies |
+| H F Ze | husband's father's elder sister | 姑媽 gu1 maa1 | 姑媽 gu1 maa1 | unverified | uses the husband's own title; family usage varies |
+| H F Zy | husband's father's younger sister | 姑姐 gu1 ze1 | 姑姐 gu1 ze1 | unverified | uses the husband's own title; family usage varies |
+| H F Be W | husband's father's elder brother's husband | 伯娘 baak3 noeng4 | 伯娘 baak3 noeng4 | unverified | uses the husband's own title; family usage varies |
+| H F By W | husband's father's younger brother's husband | 阿嬸 aa3 sam2 | 阿嬸 aa3 sam2 | unverified | uses the husband's own title; family usage varies |
+| H F Z* H | husband's father's sister's husband | 姑丈 gu1 zoeng2 | 姑丈 gu1 zoeng2 | unverified | uses the husband's own title; family usage varies |
+| H M B* | husband's mother's brother | 舅父 kau5 fu2 | 舅父 kau5 fu2 | unverified | uses the husband's own title; family usage varies |
+| H M Ze | husband's mother's elder sister | 姨媽 ji4 maa1 | 姨媽 ji4 maa1 | unverified | uses the husband's own title; family usage varies |
+| H M Zy | husband's mother's younger sister | 阿姨 aa3 ji1 | 阿姨 aa3 ji1 | unverified | uses the husband's own title; family usage varies |
+| H M B* W | husband's mother's brother's husband | 舅母 kau5 mou2 | 舅母 kau5 mou2 | unverified | uses the husband's own title; family usage varies |
+| H M Z* H | husband's mother's sister's husband | 姨丈 ji4 zoeng2 | 姨丈 ji4 zoeng2 | unverified | uses the husband's own title; family usage varies |
+| S W F | son's wife's father | 親家老爺 can3 gaa1 lou5 je4 | 親家 can3 gaa1 | unverified | 親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked |
+| S W M | son's wife's mother | 親家奶奶 can3 gaa1 naai4 naai2 | 親家 can3 gaa1 | unverified | 親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked |
+| D H F | daughter's husband's father | 親家老爺 can3 gaa1 lou5 je4 | 親家 can3 gaa1 | unverified | 親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked |
+| D H M | daughter's husband's mother | 親家奶奶 can3 gaa1 naai4 naai2 | 親家 can3 gaa1 | unverified | 親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked |
+| F B* S S | father's brother's son's son | 堂侄 tong4 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F B* S D | father's brother's son's daughter | 堂侄女 tong4 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F B* D S | father's brother's daughter's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F B* D D | father's brother's daughter's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F Z* S S | father's sister's son's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F Z* S D | father's sister's son's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F Z* D S | father's sister's daughter's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| F Z* D D | father's sister's daughter's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M B* S S | mother's brother's son's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M B* S D | mother's brother's son's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M B* D S | mother's brother's daughter's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M B* D D | mother's brother's daughter's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M Z* S S | mother's sister's son's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M Z* S D | mother's sister's son's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M Z* D S | mother's sister's daughter's son | 表侄 biu2 zat6 | by name | unverified | derived from 堂/表 + 侄; unchecked |
+| M Z* D D | mother's sister's daughter's daughter | 表侄女 biu2 zat6 neoi2 | by name | unverified | derived from 堂/表 + 侄; unchecked |

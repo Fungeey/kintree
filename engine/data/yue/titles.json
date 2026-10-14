@@ -1405,6 +1405,174 @@
   "note": "uses the wife's own title; family usage varies"
  },
  {
+  "pattern": "H F Be",
+  "en": "husband's father's elder brother",
+  "formal": {
+   "chars": "伯父",
+   "rom": "baak3 fu6"
+  },
+  "spoken": {
+   "chars": "伯伯",
+   "rom": "baak3 baak3"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F By",
+  "en": "husband's father's younger brother",
+  "formal": {
+   "chars": "叔父",
+   "rom": "suk1 fu6"
+  },
+  "spoken": {
+   "chars": "阿叔",
+   "rom": "aa3 suk1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Ze",
+  "en": "husband's father's elder sister",
+  "formal": {
+   "chars": "姑媽",
+   "rom": "gu1 maa1"
+  },
+  "spoken": {
+   "chars": "姑媽",
+   "rom": "gu1 maa1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Zy",
+  "en": "husband's father's younger sister",
+  "formal": {
+   "chars": "姑姐",
+   "rom": "gu1 ze1"
+  },
+  "spoken": {
+   "chars": "姑姐",
+   "rom": "gu1 ze1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Be W",
+  "en": "husband's father's elder brother's husband",
+  "formal": {
+   "chars": "伯娘",
+   "rom": "baak3 noeng4"
+  },
+  "spoken": {
+   "chars": "伯娘",
+   "rom": "baak3 noeng4"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F By W",
+  "en": "husband's father's younger brother's husband",
+  "formal": {
+   "chars": "阿嬸",
+   "rom": "aa3 sam2"
+  },
+  "spoken": {
+   "chars": "阿嬸",
+   "rom": "aa3 sam2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Z* H",
+  "en": "husband's father's sister's husband",
+  "formal": {
+   "chars": "姑丈",
+   "rom": "gu1 zoeng2"
+  },
+  "spoken": {
+   "chars": "姑丈",
+   "rom": "gu1 zoeng2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M B*",
+  "en": "husband's mother's brother",
+  "formal": {
+   "chars": "舅父",
+   "rom": "kau5 fu2"
+  },
+  "spoken": {
+   "chars": "舅父",
+   "rom": "kau5 fu2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Ze",
+  "en": "husband's mother's elder sister",
+  "formal": {
+   "chars": "姨媽",
+   "rom": "ji4 maa1"
+  },
+  "spoken": {
+   "chars": "姨媽",
+   "rom": "ji4 maa1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Zy",
+  "en": "husband's mother's younger sister",
+  "formal": {
+   "chars": "阿姨",
+   "rom": "aa3 ji1"
+  },
+  "spoken": {
+   "chars": "阿姨",
+   "rom": "aa3 ji1"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M B* W",
+  "en": "husband's mother's brother's husband",
+  "formal": {
+   "chars": "舅母",
+   "rom": "kau5 mou2"
+  },
+  "spoken": {
+   "chars": "舅母",
+   "rom": "kau5 mou2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Z* H",
+  "en": "husband's mother's sister's husband",
+  "formal": {
+   "chars": "姨丈",
+   "rom": "ji4 zoeng2"
+  },
+  "spoken": {
+   "chars": "姨丈",
+   "rom": "ji4 zoeng2"
+  },
+  "status": "unverified",
+  "note": "uses the husband's own title; family usage varies"
+ },
+ {
   "pattern": "F B* S W",
   "en": "paternal male cousin's wife",
   "formal": {
@@ -2387,5 +2555,237 @@
   },
   "status": "unverified",
   "note": "great-grandparent; forms from common usage, not yet checked on words.hk"
+ },
+ {
+  "pattern": "S W F",
+  "en": "son's wife's father",
+  "formal": {
+   "chars": "親家老爺",
+   "rom": "can3 gaa1 lou5 je4"
+  },
+  "spoken": {
+   "chars": "親家",
+   "rom": "can3 gaa1"
+  },
+  "status": "unverified",
+  "note": "親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked"
+ },
+ {
+  "pattern": "S W M",
+  "en": "son's wife's mother",
+  "formal": {
+   "chars": "親家奶奶",
+   "rom": "can3 gaa1 naai4 naai2"
+  },
+  "spoken": {
+   "chars": "親家",
+   "rom": "can3 gaa1"
+  },
+  "status": "unverified",
+  "note": "親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked"
+ },
+ {
+  "pattern": "D H F",
+  "en": "daughter's husband's father",
+  "formal": {
+   "chars": "親家老爺",
+   "rom": "can3 gaa1 lou5 je4"
+  },
+  "spoken": {
+   "chars": "親家",
+   "rom": "can3 gaa1"
+  },
+  "status": "unverified",
+  "note": "親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked"
+ },
+ {
+  "pattern": "D H M",
+  "en": "daughter's husband's mother",
+  "formal": {
+   "chars": "親家奶奶",
+   "rom": "can3 gaa1 naai4 naai2"
+  },
+  "spoken": {
+   "chars": "親家",
+   "rom": "can3 gaa1"
+  },
+  "status": "unverified",
+  "note": "親家 and the 親家老爺/親家奶奶 forms are in the Jyut Dictionary 親家 entry; spoken use not checked"
+ },
+ {
+  "pattern": "F B* S S",
+  "en": "father's brother's son's son",
+  "formal": {
+   "chars": "堂侄",
+   "rom": "tong4 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F B* S D",
+  "en": "father's brother's son's daughter",
+  "formal": {
+   "chars": "堂侄女",
+   "rom": "tong4 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F B* D S",
+  "en": "father's brother's daughter's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F B* D D",
+  "en": "father's brother's daughter's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F Z* S S",
+  "en": "father's sister's son's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F Z* S D",
+  "en": "father's sister's son's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F Z* D S",
+  "en": "father's sister's daughter's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "F Z* D D",
+  "en": "father's sister's daughter's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M B* S S",
+  "en": "mother's brother's son's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M B* S D",
+  "en": "mother's brother's son's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M B* D S",
+  "en": "mother's brother's daughter's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M B* D D",
+  "en": "mother's brother's daughter's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M Z* S S",
+  "en": "mother's sister's son's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M Z* S D",
+  "en": "mother's sister's son's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M Z* D S",
+  "en": "mother's sister's daughter's son",
+  "formal": {
+   "chars": "表侄",
+   "rom": "biu2 zat6"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
+ },
+ {
+  "pattern": "M Z* D D",
+  "en": "mother's sister's daughter's daughter",
+  "formal": {
+   "chars": "表侄女",
+   "rom": "biu2 zat6 neoi2"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "derived from 堂/表 + 侄; unchecked"
  }
 ]

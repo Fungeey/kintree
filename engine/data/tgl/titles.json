@@ -1978,5 +1978,357 @@
   },
   "status": "unverified",
   "note": "Usage varies by family: lolo or lola with the name, or tito/tita."
+ },
+ {
+  "pattern": "H F Be",
+  "en": "husband's father's elder brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F By",
+  "en": "husband's father's younger brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Ze",
+  "en": "husband's father's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Zy",
+  "en": "husband's father's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Ze",
+  "en": "husband's mother's elder sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Zy",
+  "en": "husband's mother's younger sister",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Be W",
+  "en": "husband's father's elder brother's husband",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F By W",
+  "en": "husband's father's younger brother's husband",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H F Z* H",
+  "en": "husband's father's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M B*",
+  "en": "husband's mother's brother",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M B* W",
+  "en": "husband's mother's brother's husband",
+  "formal": {
+   "chars": "tiya"
+  },
+  "spoken": {
+   "chars": "tita"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "H M Z* H",
+  "en": "husband's mother's sister's husband",
+  "formal": {
+   "chars": "tiyo"
+  },
+  "spoken": {
+   "chars": "tito"
+  },
+  "status": "unverified",
+  "note": "uses the spouse's own title; family usage varies"
+ },
+ {
+  "pattern": "S W F",
+  "en": "son's wife's father",
+  "formal": {
+   "chars": "balae"
+  },
+  "spoken": {
+   "chars": "balae"
+  },
+  "status": "unverified",
+  "note": "balae is the parent of one's child's spouse; unchecked"
+ },
+ {
+  "pattern": "S W M",
+  "en": "son's wife's mother",
+  "formal": {
+   "chars": "balae"
+  },
+  "spoken": {
+   "chars": "balae"
+  },
+  "status": "unverified",
+  "note": "balae is the parent of one's child's spouse; unchecked"
+ },
+ {
+  "pattern": "D H F",
+  "en": "daughter's husband's father",
+  "formal": {
+   "chars": "balae"
+  },
+  "spoken": {
+   "chars": "balae"
+  },
+  "status": "unverified",
+  "note": "balae is the parent of one's child's spouse; unchecked"
+ },
+ {
+  "pattern": "D H M",
+  "en": "daughter's husband's mother",
+  "formal": {
+   "chars": "balae"
+  },
+  "spoken": {
+   "chars": "balae"
+  },
+  "status": "unverified",
+  "note": "balae is the parent of one's child's spouse; unchecked"
+ },
+ {
+  "pattern": "F B* S S",
+  "en": "father's brother's son's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* S D",
+  "en": "father's brother's son's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* D S",
+  "en": "father's brother's daughter's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F B* D D",
+  "en": "father's brother's daughter's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* S S",
+  "en": "father's sister's son's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* S D",
+  "en": "father's sister's son's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* D S",
+  "en": "father's sister's daughter's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "F Z* D D",
+  "en": "father's sister's daughter's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* S S",
+  "en": "mother's brother's son's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* S D",
+  "en": "mother's brother's son's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* D S",
+  "en": "mother's brother's daughter's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M B* D D",
+  "en": "mother's brother's daughter's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* S S",
+  "en": "mother's sister's son's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* S D",
+  "en": "mother's sister's son's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* D S",
+  "en": "mother's sister's daughter's son",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
+ },
+ {
+  "pattern": "M Z* D D",
+  "en": "mother's sister's daughter's daughter",
+  "formal": {
+   "chars": "pamangkin sa pinsan"
+  },
+  "spoken": "by-name",
+  "status": "unverified",
+  "note": "unchecked"
  }
 ]
