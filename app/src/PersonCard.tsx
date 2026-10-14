@@ -4,7 +4,7 @@ import type { Shown } from './display.ts';
 import { spokenText } from './audio/speech.ts';
 import type { SpeechState } from './audio/useSpeech.ts';
 import { faceUrl, initials } from './faces.ts';
-import { ageFor, HairBack, HairFront } from './Hair.tsx';
+import { ageFor, HairBack, HairFront, toneFor } from './Hair.tsx';
 import { DEFAULT_LANG, langFor } from './lang.ts';
 import type { LangId } from './lang.ts';
 
@@ -29,6 +29,7 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
   const canPlay = speech?.state === 'ready' && text !== '';
   const two = shown.lines.length > 1;
   const age = ageFor(gen);
+  const tone = toneFor(gen);
   return (
     <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
       <div className="root-label" title={caption ?? undefined}>{caption && <span>{caption}</span>}</div>
@@ -39,13 +40,13 @@ export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, 
         aria-label={`${caption ?? (person.sex === 'm' ? 'man' : 'woman')}: ${shown.lines.map(l => l.chars).join(' / ')}${more ? `. ${more} more relatives are hidden; switch to them to see` : ''}`}
         aria-current={isMe ? 'true' : undefined}
       >
-        <HairBack sex={person.sex} age={age} />
+        <HairBack sex={person.sex} age={age} tone={tone} />
         <span className="face">
           {broken
             ? <span className="initials">{initials(person.name, isMe, person.sex)}</span>
             : <img src={faceUrl(person.id)} alt="" loading="lazy" draggable={false} onError={() => setBroken(true)} />}
         </span>
-        <HairFront sex={person.sex} age={age} />
+        <HairFront sex={person.sex} age={age} tone={tone} />
       </button>
       {/* Tapping the name plays it too; the play button stays as the keyboard and screen-reader control. */}
       <div className={`titles${two ? ' two' : ''}${langFor(lang).romanized ? '' : ' plain'}${canPlay ? ' playable' : ''}`} onClick={canPlay ? () => speech.speak(text) : undefined}>
