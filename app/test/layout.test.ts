@@ -312,6 +312,13 @@ test('layout: a grandmother whose own parents are drawn keeps her siblings right
   const add = (e: { tree: Tree; id: string }) => { tree = e.tree; return e.id; };
   // Paternal grandmother (p6) and the wife's father's mother (p28) each get parents and a younger brother.
   const bro = [add(addSibling(tree, 'p6', 'm')), add(addSibling(tree, 'p28', 'm'))];
+  // And more brothers and sisters: an older sister, and a younger sister with a husband and a child.
+  const more: string[] = [];
+  for (const g of ['p6', 'p28']) {
+    more.push(add(addSibling(tree, g, 'f', undefined, 0)));
+    const sis = add(addSibling(tree, g, 'f')); more.push(sis);
+    more.push(add(addSpouse(tree, sis, 'm'))); more.push(add(addChild(tree, sis, 'f')));
+  }
   add(addParent(tree, 'p6', 'm')); add(addParent(tree, 'p6', 'f'));
   add(addParent(tree, 'p28', 'm')); add(addParent(tree, 'p28', 'f'));
   checkViews(tree, 'grandmothers with parents', false);
@@ -321,4 +328,10 @@ test('layout: a grandmother whose own parents are drawn keeps her siblings right
   assert.ok(mine.pos.get(bro[0])!.x < mine.pos.get('p15')!.x, "and before the mother's parents");
   assert.ok(spouse.pos.get(bro[1])!.x > spouse.pos.get('p28')!.x, "her father's mother's brother is right of her");
   assert.ok(spouse.pos.get(bro[1])!.x < spouse.pos.get('p29')!.x, "and before her mother's parents");
+  // Everyone in their sibling blocks (the brothers, sisters, husband and child) sits on her right, clear of the next couple.
+  for (const [L, g, next, ids] of [[mine, 'p6', 'p15', more.slice(0, 4)], [spouse, 'p28', 'p29', more.slice(4)]] as const) {
+    for (const id of [...ids, ...(g === 'p6' ? [bro[0]] : [bro[1]])]) {
+      if (L.pos.get(id)!.y === L.pos.get(g)!.y) assert.ok(L.pos.get(id)!.x > L.pos.get(g)!.x && L.pos.get(id)!.x < L.pos.get(next)!.x, `${id} is beside ${g}`);
+    }
+  }
 });
