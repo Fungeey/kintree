@@ -138,12 +138,14 @@ export function PersonPopup({ tree, me, id, lang: choice, gen, requested, note, 
           <div className="popup-head">
             <div className="popup-face">
               <Face person={person} isMe={isMe} gen={gen} />
-              <button type="button" className="pencil" aria-label="Edit profile" title="Edit profile" onClick={() => setView('profile')}>
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z" /><path d="M14 7l3 3" /></svg>
-              </button>
             </div>
             <div className="popup-who">
-              <h2 className="popup-name">{name}</h2>
+              <div className="popup-namerow">
+                <h2 className="popup-name">{name}</h2>
+                <button type="button" className="name-pencil" aria-label="Edit profile" title="Edit profile" onClick={() => setView('profile')}>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z" /><path d="M14 7l3 3" /></svg>
+                  </button>
+              </div>
               {!bare && shown.lines.length > 0 && (
                 <p className="popup-title" lang={langFor(lang).html}>
                   {shown.lines.map((l, i) => (
