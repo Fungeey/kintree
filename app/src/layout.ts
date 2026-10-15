@@ -71,6 +71,17 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     const sb = sp && birth.get(sp);
     return sb && fams.get(sb)!.parents.length ? sp : id;
   };
+  // Everyone on the root's own line of ancestry (up through birth families only, no spouses).
+  const rootLine = new Set<string>();
+  for (let cur = [tree.people[0]?.id].filter((x): x is string => !!x); cur.length;) {
+    const nextUp: string[] = [];
+    for (const c of cur) {
+      const b = birth.get(c);
+      if (!b) continue;
+      for (const p of fams.get(b)!.parents) if (!rootLine.has(p)) { rootLine.add(p); nextUp.push(p); }
+    }
+    cur = nextUp;
+  }
   const spine = new Set<string>();
   const ancestors = new Set<string>();
   for (let cur = [lineOf(tree.people[0]?.id)]; cur.length;) {
@@ -279,7 +290,13 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
         const want = (Math.min(...centers) + Math.max(...centers)) / 2 - pairW / 2;
         if (want >= lim) pairLeft = want;
         else if (!placedKids.length && placed.length) shift(placed, lim - want); // move the new children along
-        // else a child is already drawn to the left: keep clear of the row and reach back with the rail
+        else if (placed.length) {
+          // A child is already drawn to the left: keep clear of the row and reach back with the rail, and
+          // slide the other children right until the couple is at least over the last of them.
+          const mine = kids.filter(k => placed.includes(k)).map(k => pos.get(k)!.x);
+          const dx = mine.length ? lim + CARD_W / 2 - (Math.max(...mine) + CARD_W) : 0;
+          if (dx > 0) shift(placed, dx);
+        }
       }
       ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
     }
@@ -295,7 +312,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       if (dx > 0 && dx < Infinity) shift(leftGroup, dx);
     }
     // A parent's own birth family is drawn on its own, further along.
-    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) queue.push(b); }
+    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) (sexRank(tree, p) === 1 && !rootLine.has(p) && fams.get(b)!.parents.length === 0 ? queue.unshift(b) : queue.push(b)); }
     return placed;
   }
 

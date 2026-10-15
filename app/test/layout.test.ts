@@ -292,6 +292,7 @@ test('layout: the wife\'s grandparents\' siblings follow the same sides', async 
   assert.ok(x(wmgpaBro) < x('p29'), "her mother's father's brother is left of him");
   assert.ok(x(wmgmaSis) > x('p30'), "her mother's mother's sister is right of her");
   assert.ok(x('p27') < x('p29'), "her father's parents are left of her mother's");
+  assert.ok(x(wpgmaBro) < x(wmgpaBro) && x(wpgmaBro) < x('p29'), "her father's mother's brother sits beside her, not past her mother's parents");
   // Grandparents' siblings sit in the grandparents' row, not on a row of their own.
   for (const id of [wpgpaSis, wpgmaBro, wmgpaBro, wmgmaSis]) assert.equal(L.pos.get(id)!.y, L.pos.get('p27')!.y);
 });
