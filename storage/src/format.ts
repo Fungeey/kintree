@@ -1,13 +1,24 @@
 // Link format. Fragment = "v<version>." + base64url(deflate-raw(payload)).
-// v2 (written now): a compact binary payload, see encodeV2. v1 (still read): JSON
+// v2/v3 (written now): a compact binary payload, see encodeV2. v3 is v2 plus a tree id (flag 8), and is
+// only written when the tree has one, so links without an id stay byte for byte v2. v1 (still read): JSON
 // {v:1, me, r?, p:[[id,sex,name?]], f:[[id,[parents],[children]]]}.
 // The version prefix lets later formats be added without breaking old links.
 import { PET_KINDS, validateTree } from '../../engine/src/index.ts';
 import type { Person, Pet, Tree, Sex } from '../../engine/src/index.ts';
 
-export const FORMAT_VERSION = 2;
+export const FORMAT_VERSION = 3;
 
-export interface Snapshot { tree: Tree; me: string | null }
+// treeId: random id for a tree, shared by its links and files; the app keys per-browser data on it. Absent on older links.
+export interface Snapshot { tree: Tree; me: string | null; treeId?: string }
+
+const TREE_ID = /^[a-z0-9]{1,32}$/;
+export const isTreeId = (s: unknown): s is string => typeof s === 'string' && TREE_ID.test(s);
+
+/** A fresh tree id: "t" plus 8 base36 characters. */
+export function newTreeId(): string {
+  const b = crypto.getRandomValues(new Uint8Array(8));
+  return 't' + Array.from(b, (x) => (x % 36).toString(36)).join('');
+}
 
 interface Wire {
   v: number;
@@ -34,8 +45,9 @@ function fromB64url(s: string): Uint8Array {
   return Uint8Array.from(bin, (c) => c.charCodeAt(0));
 }
 
-function check({ tree, me }: Snapshot): void {
+function check({ tree, me, treeId }: Snapshot): void {
   validateTree(tree);
+  if (treeId !== undefined && !isTreeId(treeId)) throw new Error('bad tree id');
   if (me !== null && !tree.people.some((p) => p.id === me)) throw new Error(`me "${me}" is not in the tree`);
 }
 
@@ -60,18 +72,18 @@ export function fromWire(w: Wire): Snapshot {
   return finish(tree, w.me ?? null, w.r);
 }
 
-function finish(tree: Tree, me: string | null, root: string | undefined, pets?: Pet[]): Snapshot {
+export function finish(tree: Tree, me: string | null, root: string | undefined, pets?: Pet[], treeId?: string): Snapshot {
   if (pets?.length) tree.pets = pets;
   if (me !== null && !tree.people.some((p) => p.id === me)) throw new Error(`me "${me}" is not in the tree`);
   // Links and saved trees from before the root existed: whoever was "me" when it was saved made the tree.
   const r = [root, me].find((id) => id != null && tree.people.some((p) => p.id === id));
   if (r) tree.root = r;
   validateTree(tree);
-  return { tree, me };
+  return treeId ? { tree, me, treeId } : { tree, me };
 }
 
 // v2 payload, all integers unsigned LEB128 varints:
-//   flags (1 = me present, 2 = root present), person count, family count
+//   flags (1 = me present, 2 = root present, 4 = pets, 8 = tree id (v3 only)), person count, family count
 //   person ids, then family ids: (zigzag gap from the previous number << 1) for the usual "p<n>" / "f<n>",
 //     else (byte length << 1 | 1) + UTF-8
 //   sexes: one bit per person (1 = f), packed 8 to a byte
@@ -80,6 +92,7 @@ function finish(tree: Tree, me: string | null, root: string | undefined, pets?: 
 //   per family: parents count, children count, then those people's indexes in order
 //   pets (only when flagged 4): pet count, then per pet its id (as above, "a<n>"), kind (index in PET_KINDS),
 //     owner's index and name (as for people). Links without pets are byte for byte what they were before pets.
+//   tree id (only when flagged 8): byte length, then UTF-8
 // Person and family order, ids, parent order and birth order all round-trip exactly.
 
 class Writer {
@@ -142,14 +155,14 @@ class Reader {
 }
 
 function encodeV2(snap: Snapshot): Uint8Array {
-  const { tree, me } = snap;
+  const { tree, me, treeId } = snap;
   check(snap);
   const ix = new Map(tree.people.map((p, i) => [p.id, i]));
   const at = (id: string) => ix.get(id)!;
   const root = tree.root && ix.has(tree.root) ? tree.root : undefined;
   const w = new Writer();
   const pets = tree.pets ?? [];
-  w.uint((me !== null ? 1 : 0) | (root !== undefined ? 2 : 0) | (pets.length ? 4 : 0));
+  w.uint((me !== null ? 1 : 0) | (root !== undefined ? 2 : 0) | (pets.length ? 4 : 0) | (treeId ? 8 : 0));
   w.uint(tree.people.length);
   w.uint(tree.families.length);
   for (const p of tree.people) w.id(p.id, 'p');
@@ -184,13 +197,18 @@ function encodeV2(snap: Snapshot): Uint8Array {
       name(a.name);
     }
   }
+  if (treeId) {
+    const b = new TextEncoder().encode(treeId);
+    w.uint(b.length);
+    w.raw(b);
+  }
   return Uint8Array.from(w.bytes);
 }
 
-function decodeV2(b: Uint8Array): Snapshot {
+function decodeV2(b: Uint8Array, version: number): Snapshot {
   const r = new Reader(b);
   const flags = r.uint();
-  if (flags > 7) throw new Error('unknown flags');
+  if (flags > (version >= 3 ? 15 : 7)) throw new Error('unknown flags');
   const nPeople = r.uint(), nFamilies = r.uint();
   // Every person and family takes at least one byte, so larger counts can only be junk.
   if (nPeople + nFamilies > b.length) throw new Error('bad counts');
@@ -224,31 +242,38 @@ function decodeV2(b: Uint8Array): Snapshot {
       return len > 0 ? { id, kind, owner, name: r.text(len - 1) } : { id, kind, owner };
     });
   }
+  let treeId: string | undefined;
+  if (flags & 8) {
+    const n = r.uint();
+    treeId = r.text(n);
+    if (!isTreeId(treeId)) throw new Error('bad tree id');
+  }
   if (r.at !== b.length) throw new Error('trailing bytes');
-  return finish({ version: 1, people, families }, me, root, pets);
+  return finish({ version: 1, people, families }, me, root, pets, treeId);
 }
 
 /** Encode a tree and "me" as a link fragment (without the leading #). */
 export async function encodeFragment(snap: Snapshot): Promise<string> {
-  return `v${FORMAT_VERSION}.` + toB64url(await pipe(encodeV2(snap), new CompressionStream('deflate-raw')));
+  const version = snap.treeId ? 3 : 2;
+  return `v${version}.` + toB64url(await pipe(encodeV2(snap), new CompressionStream('deflate-raw')));
 }
 
-/** Decode a fragment (with or without a leading #). Reads v1 and v2. Throws on anything malformed or from a newer version. */
+/** Decode a fragment (with or without a leading #). Reads v1, v2 and v3. Throws on anything malformed or from a newer version. */
 export async function decodeFragment(fragment: string): Promise<Snapshot> {
   const f = fragment.startsWith('#') ? fragment.slice(1) : fragment;
   const m = /^v(\d+)\./.exec(f);
   if (!m) throw new Error('link has no version prefix');
   const version = Number(m[1]);
-  if (version !== 1 && version !== 2) throw new Error(`unsupported link version ${m[1]}`);
+  if (version < 1 || version > FORMAT_VERSION) throw new Error(`unsupported link version ${m[1]}`);
   let raw: Uint8Array;
   try {
     raw = await pipe(fromB64url(f.slice(m[0].length)), new DecompressionStream('deflate-raw'));
   } catch (e) {
     throw new Error(`link is corrupt: ${(e as Error).message}`);
   }
-  if (version === 2) {
+  if (version >= 2) {
     let snap: Snapshot;
-    try { snap = decodeV2(raw); } catch (e) { throw new Error(`link is corrupt: ${(e as Error).message}`); }
+    try { snap = decodeV2(raw, version); } catch (e) { throw new Error(`link is corrupt: ${(e as Error).message}`); }
     return snap;
   }
   let w: Wire;
