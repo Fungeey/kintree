@@ -164,6 +164,7 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
   const [focus, setFocus] = useState<string | null>(null);          // whose popup is open
   const [requested, setRequested] = useState<string | null>(null);   // tapped while the popup has unsaved changes
   const [dirty, setDirty] = useState(false);
+  const [genOf, setGenOf] = useState<(id: string) => number>(() => () => 0);
   const [box, setBox] = useState<{ height: number; width: number; panel: boolean } | null>(null);
   const [petEditing, setPetEditing] = useState<string | null>(null);
 
@@ -221,6 +222,8 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
     if (focus && dirty) setRequested(id);
     else setFocus(id);
   };
+  // A tap on the empty tree closes the popup, asking first when it has unsaved changes.
+  const blank = () => { if (!focus) return; if (dirty) setRequested(''); else setFocus(null); };
   const editingPet = petEditing ? tree.pets?.find(a => a.id === petEditing) : undefined;
   const viewAs = (id: string) => { setMe(id); setView('mine'); setFocus(null); };
   const changed = (t: Tree, id: string) => {
@@ -286,7 +289,7 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
         </p>
       )}
       <div className="stage" style={{ '--inset-b': box && !box.panel ? `${box.height}px` : '0px', '--inset-r': box?.panel ? `${box.width}px` : '0px' } as React.CSSProperties}>
-        <TreeView tree={tree} me={me} show={show} onPick={pick} focusId={focus} insets={box ? { bottom: box.panel ? 0 : box.height, right: box.panel ? box.width : 0 } : undefined} lang={lang} />
+        <TreeView tree={tree} me={me} show={show} onPick={pick} onBlank={blank} onGen={g => setGenOf(() => g)} focusId={focus} insets={box ? { bottom: box.panel ? 0 : box.height, right: box.panel ? box.width : 0 } : undefined} lang={lang} />
         {focus && tree.people.some(p => p.id === focus) && (
           <PersonPopup
             key={focus}
@@ -294,13 +297,14 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
             me={me}
             id={focus}
             lang={lang}
+            gen={genOf(focus)}
             requested={requested}
             note={note}
             onTree={(t, newId) => changed(t, newId ?? me)}
             onViewAs={() => viewAs(focus)}
             onRemove={() => removeAt(focus)}
             onClose={() => setFocus(null)}
-            onSwitch={id => { setRequested(null); setDirty(false); setFocus(id); }}
+            onSwitch={id => { setRequested(null); setDirty(false); setFocus(id || null); }}
             onKeep={() => setRequested(null)}
             onDirty={setDirty}
             onSize={setBox}

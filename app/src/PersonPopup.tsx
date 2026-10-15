@@ -10,6 +10,7 @@ import { captionFor, showFor } from './display.ts';
 import { spokenText } from './audio/speech.ts';
 import { useSpeech } from './audio/useSpeech.ts';
 import { faceUrl, initials } from './faces.ts';
+import { ageFor, HairBack, HairFront, toneFor } from './Hair.tsx';
 import { DEFAULT_LANG, langFor, NONE } from './lang.ts';
 import type { LangChoice } from './lang.ts';
 import { applyRename, cleanName, MAX_NAME, nameRequired, siblingsOf } from './rename.ts';
@@ -28,13 +29,14 @@ interface Props {
   me: string;
   id: string;
   lang: LangChoice;
-  requested: string | null;                 // someone else was tapped while this view has unsaved changes
+  gen: number;                              // generation row relative to the tree's first person, for the hair
+  requested: string | null;                 // someone else was tapped (or '' for the tree background) while this view has unsaved changes
   note: NoteApi;
   onTree: (tree: Tree, newId?: string) => void;
   onViewAs: () => void;
   onRemove: () => void;
   onClose: () => void;
-  onSwitch: (id: string) => void;           // go to the requested person
+  onSwitch: (id: string) => void;           // go to the requested person ('' closes the popup)
   onKeep: () => void;                       // stay on this person
   onDirty: (dirty: boolean) => void;
   onSize: (box: { height: number; width: number; panel: boolean } | null) => void;
@@ -49,7 +51,7 @@ export function displayName(tree: Tree, me: string, p: Person): string {
   return p.name?.trim() || captionFor(tree, p.id) || (p.id === me ? 'You' : p.sex === 'm' ? 'Man' : 'Woman');
 }
 
-export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTree, onViewAs, onRemove, onClose, onSwitch, onKeep, onDirty, onSize }: Props) {
+export function PersonPopup({ tree, me, id, lang: choice, gen, requested, note, onTree, onViewAs, onRemove, onClose, onSwitch, onKeep, onDirty, onSize }: Props) {
   const person = tree.people.find(p => p.id === id)!;
   const [view, setView] = useState<View>('main');
   const [dirty, setDirty] = useState(false);
@@ -86,7 +88,7 @@ export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTre
   useEffect(() => {
     const key = (e: KeyboardEvent) => {
       if (e.key !== 'Escape') return;
-      if (prompt || requested) { setPrompt(null); if (requested) onKeep(); return; }
+      if (prompt || requested !== null) { setPrompt(null); if (requested !== null) onKeep(); return; }
       if (view === 'main') onClose(); else leave(toMain);
     };
     document.addEventListener('keydown', key);
@@ -95,8 +97,8 @@ export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTre
 
   const asking = prompt !== null || requested !== null;
   const answer = (what: 'keep' | 'discard' | 'save') => {
-    const go = () => { if (prompt) { setPrompt(null); prompt.run(); } else if (requested) onSwitch(requested); };
-    if (what === 'keep') { setPrompt(null); if (requested) onKeep(); return; }
+    const go = () => { if (prompt) { setPrompt(null); prompt.run(); } else if (requested !== null) onSwitch(requested); };
+    if (what === 'keep') { setPrompt(null); if (requested !== null) onKeep(); return; }
     if (what === 'save' && !(form.current?.save() ?? true)) return;
     if (what === 'discard') setDirty(false);
     go();
@@ -135,7 +137,7 @@ export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTre
         <>
           <div className="popup-head">
             <div className="popup-face">
-              <Face person={person} isMe={isMe} />
+              <Face person={person} isMe={isMe} gen={gen} />
               <button type="button" className="pencil" aria-label="Edit profile" title="Edit profile" onClick={() => setView('profile')}>
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l4-1 11-11-3-3L5 16z" /><path d="M14 7l3 3" /></svg>
               </button>
@@ -170,8 +172,6 @@ export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTre
           <div className="popup-actions main">
             {!isMe && <button type="button" className="dark" onClick={onViewAs}>View tree as {firstName || 'them'}</button>}
             <button type="button" onClick={() => setView('relatives')}>Relatives</button>
-            <span className="spacer" />
-            <button type="button" className="link" onClick={onClose}>Close</button>
           </div>
         </>
       ) : view === 'profile' ? (
@@ -206,13 +206,19 @@ export function PersonPopup({ tree, me, id, lang: choice, requested, note, onTre
   );
 }
 
-function Face({ person, isMe }: { person: Person; isMe: boolean }) {
+// The same drawn face as the card (hair from their generation), larger.
+function Face({ person, isMe, gen }: { person: Person; isMe: boolean; gen: number }) {
   const [broken, setBroken] = useState(false);
+  const age = ageFor(gen), tone = toneFor(gen);
   return (
     <span className={`popup-photo sex-${person.sex}`}>
-      {broken
-        ? <span className="initials">{initials(person.name, isMe, person.sex)}</span>
-        : <img src={faceUrl(person.id)} alt="" draggable={false} onError={() => setBroken(true)} />}
+      <HairBack sex={person.sex} age={age} tone={tone} />
+      <span className="face">
+        {broken
+          ? <span className="initials">{initials(person.name, isMe, person.sex)}</span>
+          : <img src={faceUrl(person.id)} alt="" draggable={false} onError={() => setBroken(true)} />}
+      </span>
+      <HairFront sex={person.sex} age={age} tone={tone} />
     </span>
   );
 }

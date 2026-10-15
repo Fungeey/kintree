@@ -13,7 +13,6 @@ interface Props {
   shown: Shown;
   caption?: string | null;
   isMe: boolean;
-  focused?: boolean;   // their popup is open
   more?: number;
   gen: number;
   x: number;
@@ -24,7 +23,7 @@ interface Props {
   bare?: boolean;   // language "None": no titles; the name goes in the title row, the caption above the face stays empty
 }
 
-export function PersonCard({ person, shown, caption, isMe, focused = false, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG, bare = false }: Props) {
+export function PersonCard({ person, shown, caption, isMe, more = 0, gen, x, y, onPick, speech, lang = DEFAULT_LANG, bare = false }: Props) {
   const [broken, setBroken] = useState(false);
   const text = spokenText(shown, lang);
   const html = langFor(lang).html;
@@ -35,7 +34,7 @@ export function PersonCard({ person, shown, caption, isMe, focused = false, more
   const age = ageFor(gen);
   const tone = toneFor(gen);
   return (
-    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${focused ? ' focused' : ''}${more > 0 ? ' more' : ''}${bare ? ' bare' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
+    <div data-id={person.id} className={`node sex-${person.sex}${isMe ? ' me' : ''}${more > 0 ? ' more' : ''}${bare ? ' bare' : ''}`} style={{ left: x, top: y }} title={more > 0 ? `${more} more relatives hidden` : undefined}>
       <div className="root-label" title={caption ?? undefined}>{!bare && caption && <span>{caption}</span>}</div>
       <button
         type="button"
