@@ -80,9 +80,20 @@ export function layoutTree(original: Tree, showPerson: (id: string) => boolean =
   };
   // Only the couples above the first person (the tree's root) are lifted: those are the ones whose own
   // line the eye follows down the page, while their brothers and sisters hang to the sides.
+  // When the root's own parents are hidden (the wife's side of a married view), the line followed is
+  // the root's wife's (or husband's) instead, so her grandparents' brothers and sisters get the same rules.
+  const lineOf = (id: string | undefined): string | undefined => {
+    if (!id) return id;
+    const b = birth.get(id);
+    if (b && fams.get(b)!.parents.length) return id;
+    const o = own.get(id);
+    const sp = o && fams.get(o)!.parents.find(p => p !== id);
+    const sb = sp && birth.get(sp);
+    return sb && fams.get(sb)!.parents.length ? sp : id;
+  };
   const spine = new Set<string>();
   const ancestors = new Set<string>();
-  for (let cur = [tree.people[0]?.id]; cur.length;) {
+  for (let cur = [lineOf(tree.people[0]?.id)]; cur.length;) {
     const nextUp: string[] = [];
     for (const c of cur) {
       const b = c && birth.get(c);
@@ -288,7 +299,13 @@ export function layoutTree(original: Tree, showPerson: (id: string) => boolean =
         const want = (Math.min(...centers) + Math.max(...centers)) / 2 - pairW / 2;
         if (want >= lim) pairLeft = want;
         else if (!placedKids.length && placed.length) shift(placed, lim - want); // move the new children along
-        // else a child is already drawn to the left: keep clear of the row and reach back with the rail
+        else if (placed.length) {
+          // A child is already drawn to the left: keep clear of the row and reach back with the rail, and
+          // slide the other children right until the couple is at least over the last of them.
+          const mine = kids.filter(k => placed.includes(k)).map(k => pos.get(k)!.x);
+          const dx = mine.length ? lim + CARD_W / 2 - (Math.max(...mine) + CARD_W) : 0;
+          if (dx > 0) shift(placed, dx);
+        }
       }
       ordered.forEach((p, i) => { putCard(p, pairLeft + i * (CARD_W + COUPLE_GAP)); placed.push(p); });
     }
@@ -304,7 +321,7 @@ export function layoutTree(original: Tree, showPerson: (id: string) => boolean =
       if (dx > 0 && dx < Infinity) shift(leftGroup, dx);
     }
     // A parent's own birth family is drawn on its own, further along.
-    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) queue.push(b); }
+    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) (sexRank(tree, p) === 1 && fams.get(b)!.parents.length === 0 ? queue.unshift(b) : queue.push(b)); }
     return placed;
   }
 
@@ -335,12 +352,16 @@ export function layoutTree(original: Tree, showPerson: (id: string) => boolean =
 
   for (const anchor of anchors) {
     if (pos.has(anchor)) continue;
-    let top: string | undefined = birth.get(anchor) ?? own.get(anchor);
+    const line = lineOf(anchor)!;
+    let top: string | undefined = birth.get(line) ?? own.get(line);
     if (!top) continue;
     const seen = new Set<string>([top]);
     for (;;) {
-      const next: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b)).map(p => birth.get(p)).find(b => b !== undefined && !seen.has(b));
-      if (next === undefined) break;
+      // Up the husband's line only: when he has no parents drawn, his couple is the top, and his
+      // wife's own family is drawn to the right of it rather than above him.
+      const up: string | undefined = [...fams.get(top)!.parents].sort((a, b) => sexRank(tree, a) - sexRank(tree, b))[0];
+      const next: string | undefined = up === undefined ? undefined : birth.get(up);
+      if (next === undefined || seen.has(next)) break;
       seen.add(next); top = next;
     }
     floor = right ? right + GAP_X * 2 : 0; // each connected group starts clear of the last
