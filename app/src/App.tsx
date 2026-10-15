@@ -125,7 +125,7 @@ function usePicker(onFile: (f: File) => void): [JSX.Element, () => void] {
       ref={ref}
       type="file"
       hidden
-      accept=".kintree,application/json"
+      accept=".kintree,application/json,application/octet-stream"
       onChange={e => { const f = e.target.files?.[0]; e.target.value = ''; if (f) onFile(f); }}
     />
   );
@@ -172,13 +172,12 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
     setTimeout(() => setCopied(null), 2000);
   };
 
-  const saveToFile = async () => {
+  const saveToFile = () => {
     let note: string;
     try {
-      const r = await saveFile(encodeFile({ tree, me, treeId: start.treeId }), fileNameFor(tree));
-      note = r === 'cancelled' ? '' : 'Saved';
+      saveFile(encodeFile({ tree, me, treeId: start.treeId }), fileNameFor(tree));
+      note = 'Saved';
     } catch { note = 'Failed'; }
-    if (!note) return;
     setSaved(note);
     setTimeout(() => setSaved(null), 2000);
   };
