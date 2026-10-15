@@ -35,6 +35,20 @@ export async function save(store: KV, snap: Snapshot): Promise<string> {
   return frag;
 }
 
+/** Adopt a tree that arrived another way (an opened file): it becomes the saved tree and the one it replaces is kept as "recent". */
+export async function adopt(store: KV, snap: Snapshot): Promise<{ fragment: string; recent: string[] }> {
+  const fragment = await encodeFragment(snap);
+  const old = store.getItem(CURRENT_KEY);
+  let recent = readList(store);
+  if (old && old !== fragment) {
+    let ok = true;
+    try { await decodeFragment(old); } catch { ok = false; }
+    if (ok) recent = pushRecent(store, old);
+  }
+  store.setItem(CURRENT_KEY, fragment);
+  return { fragment, recent };
+}
+
 /** Open: `hash` is location.hash ('' or '#v1....'). */
 export async function open(store: KV, hash: string): Promise<Opened> {
   const saved = store.getItem(CURRENT_KEY);

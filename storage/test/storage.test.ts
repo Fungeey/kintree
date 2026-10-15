@@ -36,7 +36,7 @@ test('empty tree with no me round trips', async () => {
 });
 
 test('unknown version, junk and invalid trees are rejected', async () => {
-  await assert.rejects(decodeFragment('v3.abc'), /unsupported link version 3/);
+  await assert.rejects(decodeFragment('v4.abc'), /unsupported link version 4/);
   await assert.rejects(decodeFragment('hello'), /version/);
   await assert.rejects(decodeFragment('v1.!!!'), /corrupt|base64/);
   await assert.rejects(decodeFragment('v1.AAAA'), /corrupt/);
