@@ -162,6 +162,10 @@ export function PersonPopup({ tree, me, id, lang: choice, gen, requested, note, 
               </button>
             )}
           </div>
+          <div className="popup-actions main">
+            {!isMe && <button type="button" className="dark" onClick={onViewAs}>View tree as {firstName || 'them'}</button>}
+            <button type="button" onClick={() => setView('relatives')}>Relatives</button>
+          </div>
           {lines.length > 0 && (
             <section className="popup-field" aria-label="About">
               <h3 className="label">About</h3>
@@ -169,10 +173,6 @@ export function PersonPopup({ tree, me, id, lang: choice, gen, requested, note, 
             </section>
           )}
           <Notes key={id} id={id} note={note} />
-          <div className="popup-actions main">
-            {!isMe && <button type="button" className="dark" onClick={onViewAs}>View tree as {firstName || 'them'}</button>}
-            <button type="button" onClick={() => setView('relatives')}>Relatives</button>
-          </div>
         </>
       ) : view === 'profile' ? (
         <ProfileForm

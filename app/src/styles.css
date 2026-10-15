@@ -245,7 +245,7 @@ button { font: inherit; color: inherit; }
 .notes textarea { width: 100%; resize: vertical; font: inherit; font-size: 1rem; color: var(--ink); padding: 8px 12px; border: 1.5px solid var(--rule); border-radius: 10px; background: #fffdf7; }
 .notes textarea:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 .popup-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex-wrap: wrap; }
-.popup-actions.main { justify-content: flex-start; flex-wrap: nowrap; }
+.popup-actions.main { justify-content: flex-start; flex-wrap: nowrap; margin: 0 0 16px; }
 .popup-actions.main button { padding: 8px 13px; white-space: nowrap; }
 .popup-actions .spacer { flex: 1; }
 .popup-actions button { border: 1.5px solid var(--line); background: var(--paper); border-radius: 999px; padding: 8px 16px; cursor: pointer; }
