@@ -212,3 +212,4 @@ button { font: inherit; color: inherit; }
 .bar .file-pop button:hover, .bar .file-pop button:focus-visible { background: var(--paper-2); }
 .drop-hint { position: fixed; inset: 0; z-index: 20; display: flex; align-items: center; justify-content: center; background: rgba(247,241,227,.88); border: 3px dashed var(--accent); font-size: 1.2rem; pointer-events: none; }
 .start-file { margin-top: 1rem; }
+.start-file button { border: 1.5px solid var(--line); background: var(--panel); padding: 6px 12px; border-radius: 999px; cursor: pointer; font-size: .9rem; }
