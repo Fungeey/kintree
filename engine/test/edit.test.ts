@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBirthOrder,
+  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBirthOrder, addPet, renamePet, removePet,
   validateTree, kinPath, loadTable, resolve, sides, visible,
 } from '../src/index.ts';
 import type { Tree, TitleEntry, Generic, View } from '../src/index.ts';
@@ -261,4 +261,22 @@ test('setBirthOrder rejects a list that is not exactly the sibling group; an onl
   assert.throws(() => setBirthOrder(t, a, [a]));
   assert.throws(() => setBirthOrder(t, a, [a, 'nobody']));
   assert.throws(() => setBirthOrder(t, 'nobody', [a, b.id]));
+});
+
+test('pets: add, rename, remove, and they leave with their owner', () => {
+  let { tree: t, id: me } = addPerson(emptyTree(), 'm', 'A');
+  const sis = addSibling(t, me, 'f'); t = sis.tree;
+  const dog = addPet(t, me, 'dog', ' Rex '); t = dog.tree;
+  const cat = addPet(t, sis.id, 'cat'); t = cat.tree;
+  assert.deepEqual(t.pets, [{ id: 'a1', kind: 'dog', owner: me, name: 'Rex' }, { id: 'a2', kind: 'cat', owner: sis.id }]);
+  assert.equal(renamePet(t, 'a2', 'Mo').pets![1].name, 'Mo');
+  assert.equal(renamePet(t, 'a1', '').pets![0].name, undefined);
+  assert.deepEqual(removePet(t, 'a1').pets!.map(a => a.id), ['a2']);
+  assert.equal(removePet(removePet(t, 'a1'), 'a2').pets, undefined);
+  assert.deepEqual(removePerson(t, sis.id).pets!.map(a => a.id), ['a1']);
+  assert.throws(() => addPet(t, 'nobody', 'cat'));
+  assert.throws(() => validateTree({ ...t, pets: [{ id: 'a9', kind: 'cow' as 'cat', owner: me }] }));
+  assert.throws(() => validateTree({ ...t, pets: [{ id: me, kind: 'cat', owner: me }] }));
+  // The engine never sees pets: titles are the same with or without them.
+  assert.deepEqual(sides(t, me), sides(removePet(removePet(t, 'a1'), 'a2'), me));
 });

@@ -6,7 +6,9 @@
 // On an empty tree it asks for "me" first; onChange then gets the one-person tree and its id.
 // The component never mutates `tree`; it only calls onChange with the edited copy.
 import { useState } from 'react';
-import type { Sex, Tree, Person } from '../../../engine/src/index.ts';
+import { addPet, PET_KINDS } from '../../../engine/src/index.ts';
+import type { PetKind, Sex, Tree, Person } from '../../../engine/src/index.ts';
+import { PET_LABEL, PetArt } from '../PetArt.tsx';
 import { BirthOrder } from '../BirthOrder.tsx';
 import { availableRelations, slotQuestion, applyAdd, startTree, suggestSex } from './flow.ts';
 import type { Relation } from './flow.ts';
@@ -44,8 +46,28 @@ function SexAndName(props: { initialSex: Sex | null; submitText: string; nameLab
   );
 }
 
+// Adding a pet: pick a dog, cat or guinea pig by its drawing, and give it a name if you like.
+function PetPicker(props: { onSubmit: (kind: PetKind, name: string) => void }) {
+  const [kind, setKind] = useState<PetKind | null>(null);
+  const [name, setName] = useState('');
+  return (
+    <form onSubmit={e => { e.preventDefault(); if (kind) props.onSubmit(kind, name); }}>
+      <div className="pet-kinds" role="radiogroup" aria-label="Kind of pet">
+        {PET_KINDS.map(k => (
+          <button type="button" key={k} role="radio" aria-checked={kind === k} onClick={() => setKind(k)}>
+            <PetArt kind={k} />{PET_LABEL[k]}
+          </button>
+        ))}
+      </div>
+      <label>Name (optional) <input value={name} onChange={e => setName(e.target.value)} placeholder="what you call them" /></label>
+      <button type="submit" disabled={!kind}>Add</button>
+    </form>
+  );
+}
+
 export function AddPerson({ tree, me, from, onChange, onCancel }: AddPersonProps) {
   const [relation, setRelation] = useState<Relation | null>(null);
+  const [pet, setPet] = useState(false);
   const [pending, setPending] = useState<{ sex: Sex; name: string } | null>(null);
   const [order, setOrder] = useState<string[]>([]); // sibling group while placing the new person; NEW stands for them
   const reset = () => { setRelation(null); setPending(null); };
@@ -72,6 +94,16 @@ export function AddPerson({ tree, me, from, onChange, onCancel }: AddPersonProps
     onChange(r.tree, r.id);
   };
 
+  if (pet) {
+    return (
+      <section className="add-person">
+        <h3>Pet of {who}</h3>
+        <PetPicker onSubmit={(kind, name) => { const r = addPet(tree, person.id, kind, name); setPet(false); onChange(r.tree, r.id); }} />
+        <button type="button" className="back" onClick={() => setPet(false)}>Back</button>
+      </section>
+    );
+  }
+
   if (!relation) {
     return (
       <section className="add-person">
@@ -80,6 +112,7 @@ export function AddPerson({ tree, me, from, onChange, onCancel }: AddPersonProps
           {availableRelations(tree, person.id).map(r => (
             <button type="button" key={r} onClick={() => setRelation(r)}>{RELATION_LABEL[r]}</button>
           ))}
+          <button type="button" onClick={() => setPet(true)}>Pet</button>
         </div>
         {onCancel && <button type="button" className="back" onClick={onCancel}>Back</button>}
       </section>

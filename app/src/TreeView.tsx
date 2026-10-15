@@ -4,6 +4,7 @@ import { CARD_W, coupleHearts, layoutTree, linkSegments } from './layout.ts';
 import { captionFor, showFor } from './display.ts';
 import { hiddenRelatives } from './hidden.ts';
 import { PersonCard } from './PersonCard.tsx';
+import { PetCard } from './PetCard.tsx';
 import { useSpeech } from './audio/useSpeech.ts';
 import { DEFAULT_LANG, NONE } from './lang.ts';
 import type { LangChoice } from './lang.ts';
@@ -29,7 +30,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
   const hearts = useMemo(() => coupleHearts(layout), [layout]);
   const shown = useMemo(() => {
     const m = new Map<string, ReturnType<typeof showFor>>();
-    for (const id of layout.pos.keys()) if (show(id)) m.set(id, showFor(tree, me, id, lang));
+    for (const id of layout.pos.keys()) if (!layout.pets.has(id) && show(id)) m.set(id, showFor(tree, me, id, lang));
     return m;
   }, [tree, me, layout, show, lang]);
 
@@ -135,6 +136,10 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
           return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
+        })}
+        {(tree.pets ?? []).filter(a => layout.pos.has(a.id) && show(a.owner)).map(a => {
+          const pos = layout.pos.get(a.id)!;
+          return <PetCard key={a.id} pet={a} owner={captionFor(tree, a.owner)} x={pos.x} y={pos.y} onPick={pick} bare={bare} />;
         })}
       </div>
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>

@@ -1,9 +1,11 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { emptyTree, removePerson, sides, visible } from '../../engine/src/index.ts';
+import { emptyTree, removePerson, removePet, renamePet, sides, visible } from '../../engine/src/index.ts';
 import type { Tree, View } from '../../engine/src/index.ts';
 import { AddPerson } from './add/AddPerson.tsx';
 import { ConfirmSwitch } from './ConfirmSwitch.tsx';
 import { EditName } from './EditName.tsx';
+import { EditPet } from './EditPet.tsx';
+import { cleanName } from './rename.ts';
 import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
@@ -61,6 +63,7 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangChoice; setLa
   const [asking, setAsking] = useState<string | null>(null);
   const [editMode, setEditMode] = useState(false);
   const [renaming, setRenaming] = useState<string | null>(null);
+  const [petEditing, setPetEditing] = useState<string | null>(null);
 
   // Autosave on every change, and keep the address bar in step so a reload reopens this tree.
   useEffect(() => {
@@ -83,11 +86,14 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangChoice; setLa
   const show = useCallback((id: string) => (s ? visible(s, id, view) : true), [s, view]);
 
   // Tapping someone asks before switching "me"; tapping "me" again does nothing. In edit mode it renames them.
+  // A pet can't be "me"; in edit mode it opens its own sheet.
   const pick = (id: string) => {
+    if (tree.pets?.some(a => a.id === id)) { if (editMode) setPetEditing(id); return; }
     if (editMode) setRenaming(id);
     else if (switchTarget(tree, me, id)) setAsking(id);
   };
-  const toggleEdit = () => { setEditMode(e => !e); setRenaming(null); };
+  const toggleEdit = () => { setEditMode(e => !e); setRenaming(null); setPetEditing(null); };
+  const editingPet = petEditing ? tree.pets?.find(a => a.id === petEditing) : undefined;
   const rename = (id: string, name: string, order: string[]) => {
     const t = applyEdit(tree, id, name, order);
     if (t && t !== tree) setTree(t);
@@ -148,7 +154,7 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangChoice; setLa
           <button type="button" onClick={() => setError(undefined)}>Dismiss</button>
         </p>
       )}
-      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename, reorder, add relatives or remove them.</p>}
+      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename, reorder, add relatives or pets, or remove them.</p>}
       <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} lang={lang} />
       {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
       {renaming && renamingWho && (
@@ -164,6 +170,16 @@ function Shell({ start, lang, setLang }: { start: Start; lang: LangChoice; setLa
           onAdded={(t, id) => { changed(t, id); setRenaming(null); }}
           onRemove={() => removeAt(renaming)}
           onCancel={() => setRenaming(null)}
+        />
+      )}
+      {editingPet && (
+        <EditPet
+          key={editingPet.id}
+          pet={editingPet}
+          owner={tree.people.find(p => p.id === editingPet.owner)?.name ?? rootLabel(tree, editingPet.owner) ?? 'someone'}
+          onSave={name => { setTree(renamePet(tree, editingPet.id, cleanName(name))); setPetEditing(null); }}
+          onRemove={() => { setTree(removePet(tree, editingPet.id)); setPetEditing(null); }}
+          onCancel={() => setPetEditing(null)}
         />
       )}
       <p className="viewing" aria-live="polite">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>

@@ -7,8 +7,14 @@ export interface Person { id: string; sex: Sex; name?: string }
 // parents: 0-2 ids; children: birth order, eldest first.
 export interface Family { id: string; parents: string[]; children: string[] }
 
+// A pet belongs to one person. Pets are not kin: they have no titles and the relationship engine never sees them.
+export type PetKind = 'dog' | 'cat' | 'guinea-pig';
+export const PET_KINDS: PetKind[] = ['dog', 'cat', 'guinea-pig'];
+export interface Pet { id: string; kind: PetKind; owner: string; name?: string }
+
 // root: the person who created the tree; their name labels everyone's relation on the cards. Optional so older trees still load.
-export interface Tree { version: 1; people: Person[]; families: Family[]; root?: string }
+// pets: absent (not empty) on trees without any, so older trees and links stay as they were.
+export interface Tree { version: 1; people: Person[]; families: Family[]; root?: string; pets?: Pet[] }
 
 // rom: the reading in the language's romanization (jyutping, pinyin, romaji); absent where the script needs none.
 // kana: Japanese only. The kana reading of kanji terms, shown as furigana and the text that is spoken aloud, because

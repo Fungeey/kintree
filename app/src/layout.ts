@@ -24,12 +24,32 @@ export interface Layout {
   height: number;
   cardH: number;
   faceCy: number;
+  pets: Set<string>;
+}
+
+// Pets are laid out as if they were their owner's youngest children, so they sit in the row below and
+// take up room like anyone else; their lines are dashed. A pet is drawn when its owner is.
+export function withPets(tree: Tree, show: (id: string) => boolean): { tree: Tree; show: (id: string) => boolean } {
+  if (!tree.pets?.length) return { tree, show };
+  const owner = new Map(tree.pets.map(a => [a.id, a.owner]));
+  const families = tree.families.map(f => ({ ...f, children: [...f.children] }));
+  for (const a of tree.pets) {
+    let own = families.find(f => f.parents.includes(a.owner));
+    if (!own) families.push(own = { id: `pets:${a.owner}`, parents: [a.owner], children: [] });
+    own.children.push(a.id);
+  }
+  return {
+    tree: { ...tree, people: [...tree.people, ...tree.pets.map(a => ({ id: a.id, sex: 'f' as const }))], families, pets: undefined },
+    show: id => show(owner.get(id) ?? id),
+  };
 }
 
 // The layout depends only on the tree and on which people are shown, never on who "me" is: anchors
 // and ordering come from the order of tree.people. People who are hidden (the other side of a
 // married view) are left out before anything is placed, so they take up no room and join nothing.
-export function layoutTree(tree: Tree, show: (id: string) => boolean = () => true, bare = false): Layout {
+export function layoutTree(original: Tree, showPerson: (id: string) => boolean = () => true, bare = false): Layout {
+  const pets = new Set((original.pets ?? []).map(a => a.id));
+  const { tree, show } = withPets(original, showPerson);
   const cardH = bare ? BARE_CARD_H : CARD_H, faceCy = bare ? BARE_FACE_CY : FACE_CY;
   const shown = new Set(tree.people.filter(p => show(p.id)).map(p => p.id));
   const fams = new Map<string, { f: Family; parents: string[]; children: string[] }>();
@@ -394,9 +414,9 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
   // Normalise so the leftmost card sits at PAD.
   let minX = Infinity, maxX = 0, maxY = 0;
   for (const p of pos.values()) { minX = Math.min(minX, p.x); maxX = Math.max(maxX, p.x + CARD_W); maxY = Math.max(maxY, p.y + cardH); }
-  if (!pos.size) return { pos, gens, links, width: 0, height: 0, cardH, faceCy };
+  if (!pos.size) return { pos, gens, links, width: 0, height: 0, cardH, faceCy, pets };
   for (const [id, p] of pos) pos.set(id, { x: p.x - minX + PAD, y: p.y });
-  return { pos, gens, links, width: maxX - minX + PAD * 2, height: maxY + PAD, cardH, faceCy };
+  return { pos, gens, links, width: maxX - minX + PAD * 2, height: maxY + PAD, cardH, faceCy, pets };
 }
 
 const sexRank = (t: Tree, id: string) => (t.people.find(p => p.id === id)?.sex === 'm' ? 0 : 1);
@@ -413,11 +433,13 @@ const LANES = [0, -8, 8];
 export function linkSegments(layout: Layout, show: (id: string) => boolean = () => true): Segment[] {
   const segs: Segment[] = [];
   const at = (ids: string[]) => ids.filter(show).map(i => layout.pos.get(i)).filter((p): p is Pos => !!p);
-  interface Rail { sorted: Pos[]; adjacent: boolean; dropX: number; dropY: number; kids: Pos[]; cx: number[]; y: number; x1: number; x2: number }
+  interface Rail { sorted: Pos[]; adjacent: boolean; dropX: number; dropY: number; kids: Pos[]; cx: number[]; y: number; x1: number; x2: number; pet: boolean[] }
   const rails: Rail[] = [];
   for (const l of layout.links) {
     const parents = at(l.parents);
-    const kids = at(l.children);
+    const kidIds = l.children.filter(show).filter(i => layout.pos.has(i));
+    const kids = at(kidIds);
+    const pet = kidIds.map(i => layout.pets.has(i));
     if (!parents.length && !kids.length) continue;
     if (!parents.length && kids.length < 2) continue; // nothing to join
     const sorted = [...parents].sort((a, b) => a.x - b.x);
@@ -435,7 +457,7 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
     const cx = kids.map(k => k.x + CARD_W / 2);
     if (!sorted.length) dropX = (Math.min(...cx) + Math.max(...cx)) / 2;
     const xs = [...cx, dropX, ...(adjacent ? [] : sorted.map(p => p.x + CARD_W / 2))];
-    rails.push({ sorted, adjacent, dropX, dropY, kids, cx, y, x1: Math.min(...xs), x2: Math.max(...xs) });
+    rails.push({ sorted, adjacent, dropX, dropY, kids, cx, y, x1: Math.min(...xs), x2: Math.max(...xs), pet });
   }
 
   // Lanes: rails between the same two rows that overlap take different heights. Shorter rails
@@ -450,15 +472,24 @@ export function linkSegments(layout: Layout, show: (id: string) => boolean = () 
     used[lane].push([r.x1, r.x2]);
     const railY = r.y + LANES[lane];
     const mine: Segment[] = [];
+    const onlyPets = r.pet.every(Boolean); // a line that leads only to pets is dashed all the way
     if (!r.sorted.length) {
       mine.push({ x1: r.dropX, y1: railY - 22, x2: r.dropX, y2: railY, dashed: true });
     } else {
-      mine.push({ x1: r.dropX, y1: r.dropY, x2: r.dropX, y2: railY });
+      mine.push({ x1: r.dropX, y1: r.dropY, x2: r.dropX, y2: railY, dashed: onlyPets || undefined });
       // A parent that is not beside the couple line (placed elsewhere) joins the rail too.
-      if (!r.adjacent) for (const p of r.sorted.slice(1)) mine.push({ x1: p.x + CARD_W / 2, y1: p.y + layout.cardH, x2: p.x + CARD_W / 2, y2: railY });
+      if (!r.adjacent) for (const p of r.sorted.slice(1)) mine.push({ x1: p.x + CARD_W / 2, y1: p.y + layout.cardH, x2: p.x + CARD_W / 2, y2: railY, dashed: onlyPets || undefined });
     }
-    mine.push({ x1: r.x1, y1: railY, x2: r.x2, y2: railY });
-    r.kids.forEach((k, i) => mine.push({ x1: r.cx[i], y1: railY, x2: r.cx[i], y2: k.y }));
+    if (onlyPets || !r.pet.some(Boolean)) mine.push({ x1: r.x1, y1: railY, x2: r.x2, y2: railY, dashed: onlyPets || undefined });
+    else {
+      // Children and pets share the rail: the solid part reaches the children, the rest out to the pets is dashed.
+      const kidX = r.cx.filter((_, i) => !r.pet[i]);
+      const a = Math.min(r.dropX, ...kidX), b = Math.max(r.dropX, ...kidX);
+      mine.push({ x1: a, y1: railY, x2: b, y2: railY });
+      if (r.x1 < a) mine.push({ x1: r.x1, y1: railY, x2: a, y2: railY, dashed: true });
+      if (r.x2 > b) mine.push({ x1: b, y1: railY, x2: r.x2, y2: railY, dashed: true });
+    }
+    r.kids.forEach((k, i) => mine.push({ x1: r.cx[i], y1: railY, x2: r.cx[i], y2: k.y, dashed: r.pet[i] || undefined }));
     if (lane) for (const m of mine) m.bridge = true;
     out.push(...mine);
   }
