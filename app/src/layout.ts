@@ -71,17 +71,6 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
     const sb = sp && birth.get(sp);
     return sb && fams.get(sb)!.parents.length ? sp : id;
   };
-  // Everyone on the root's own line of ancestry (up through birth families only, no spouses).
-  const rootLine = new Set<string>();
-  for (let cur = [tree.people[0]?.id].filter((x): x is string => !!x); cur.length;) {
-    const nextUp: string[] = [];
-    for (const c of cur) {
-      const b = birth.get(c);
-      if (!b) continue;
-      for (const p of fams.get(b)!.parents) if (!rootLine.has(p)) { rootLine.add(p); nextUp.push(p); }
-    }
-    cur = nextUp;
-  }
   const spine = new Set<string>();
   const ancestors = new Set<string>();
   for (let cur = [lineOf(tree.people[0]?.id)]; cur.length;) {
@@ -312,7 +301,7 @@ export function layoutTree(tree: Tree, show: (id: string) => boolean = () => tru
       if (dx > 0 && dx < Infinity) shift(leftGroup, dx);
     }
     // A parent's own birth family is drawn on its own, further along.
-    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) (sexRank(tree, p) === 1 && !rootLine.has(p) && fams.get(b)!.parents.length === 0 ? queue.unshift(b) : queue.push(b)); }
+    for (const p of fam.parents) { const b = birth.get(p); if (b && !done.has(b)) (sexRank(tree, p) === 1 && fams.get(b)!.parents.length === 0 ? queue.unshift(b) : queue.push(b)); }
     return placed;
   }
 
