@@ -4,7 +4,8 @@ import type { PetKind } from '../../engine/src/index.ts';
 
 export const PET_LABEL: Record<PetKind, string> = { dog: 'Dog', cat: 'Cat', 'guinea-pig': 'Guinea pig' };
 
-const ART: Record<PetKind, { lines: string[]; dots: [number, number, number, number][] }> = {
+// dy: how far each drawing is moved down so it sits in the middle of the face circle (ears included).
+const ART: Record<PetKind, { lines: string[]; dots: [number, number, number, number][]; dy: number }> = {
   // Pointed ears, round head, whiskers out to both sides and a small "w" mouth.
   cat: {
     lines: [
@@ -14,6 +15,7 @@ const ART: Record<PetKind, { lines: string[]; dots: [number, number, number, num
       'M44 55 C45 59 49 59 50 55 C51 59 55 59 56 55',
     ],
     dots: [[41, 41, 4.5, 4.5], [59, 41, 4.5, 4.5]],
+    dy: 12,
   },
   // Long floppy ears hanging beside a round head, a big nose and a smile under it.
   dog: {
@@ -24,6 +26,7 @@ const ART: Record<PetKind, { lines: string[]; dots: [number, number, number, num
       'M50 57 L50 62 M41 61 C45 66 55 66 59 61',
     ],
     dots: [[41, 40, 4.5, 4.5], [59, 40, 4.5, 4.5], [50, 53, 6.5, 4.5]],
+    dy: 3,
   },
   // A wide, low face with round petal ears drooping at the sides, a little nose and short whiskers.
   'guinea-pig': {
@@ -35,6 +38,7 @@ const ART: Record<PetKind, { lines: string[]; dots: [number, number, number, num
       'M6 56 C14 55 22 56 30 58', 'M94 56 C86 55 78 56 70 58',
     ],
     dots: [[38, 46, 4.5, 4.5], [62, 46, 4.5, 4.5], [50, 54, 3.5, 2.5]],
+    dy: 4,
   },
 };
 
@@ -42,11 +46,13 @@ export function PetArt({ kind, className }: { kind: PetKind; className?: string 
   const a = ART[kind];
   return (
     <svg className={className ?? 'pet-art'} viewBox="0 0 100 100" aria-hidden="true">
+      <g transform={`translate(0 ${a.dy})`}>
       <g fill="none" stroke="currentColor" strokeWidth={6} strokeLinecap="round" strokeLinejoin="round">
         {a.lines.map((d, i) => <path key={i} d={d} />)}
       </g>
       <g fill="currentColor">
         {a.dots.map(([cx, cy, rx, ry], i) => <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} />)}
+      </g>
       </g>
     </svg>
   );
