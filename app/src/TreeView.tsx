@@ -14,6 +14,8 @@ interface Props {
   me: string;
   show: (id: string) => boolean;
   onPick: (id: string) => void;
+  onBlank?: () => void;                                  // a tap on the empty tree
+  onGen?: (gen: (id: string) => number) => void;         // generation of each person (for hair), reported when the layout changes
   focusId?: string | null;                               // whose popup is open: kept centred in the free area
   insets?: { bottom: number; right: number };            // what the popup covers
   lang?: LangChoice;
@@ -22,7 +24,7 @@ interface Props {
 interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
-export function TreeView({ tree, me, show, onPick, focusId = null, insets, lang: choice = DEFAULT_LANG }: Props) {
+export function TreeView({ tree, me, show, onPick, onBlank, onGen, focusId = null, insets, lang: choice = DEFAULT_LANG }: Props) {
   // "None" shows names only: no titles and nothing to read aloud, and rows are a little shorter.
   const bare = choice === NONE;
   const lang = bare ? DEFAULT_LANG : choice;
@@ -34,6 +36,12 @@ export function TreeView({ tree, me, show, onPick, focusId = null, insets, lang:
     for (const id of layout.pos.keys()) if (!layout.pets.has(id) && show(id)) m.set(id, showFor(tree, me, id, lang));
     return m;
   }, [tree, me, layout, show, lang]);
+
+  useEffect(() => {
+    const root = layout.gens.get(tree.people[0].id) ?? 0;
+    onGen?.(id => (layout.gens.get(id) ?? 0) - root);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [layout, tree]);
 
   const speech = useSpeech(lang);
   const box = useRef<HTMLDivElement>(null);
@@ -119,8 +127,10 @@ export function TreeView({ tree, me, show, onPick, focusId = null, insets, lang:
     ps.set(e.pointerId, { x: e.clientX, y: e.clientY });
   };
   const up = (e: React.PointerEvent) => {
+    const tap = pointers.current.has(e.pointerId) && pointers.current.size === 1 && !gesture.current.moved && e.type === 'pointerup';
     pointers.current.delete(e.pointerId);
     gesture.current.dist = 0;
+    if (tap && !(e.target as Element).closest('.node, .zoom')) onBlank?.();
   };
 
   const pick = (id: string) => { if (!gesture.current.moved) onPick(id); };
@@ -147,7 +157,7 @@ export function TreeView({ tree, me, show, onPick, focusId = null, insets, lang:
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} focused={p.id === focusId} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
         })}
         {(tree.pets ?? []).filter(a => layout.pos.has(a.id) && show(a.owner)).map(a => {
           const pos = layout.pos.get(a.id)!;
