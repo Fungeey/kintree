@@ -255,7 +255,7 @@ test('layout: a couple whose siblings have grandchildren has its own children st
   const L = layoutTree(t);
   const y = (k: string) => L.pos.get(id[k])!.y;
   assert.equal(y('sis'), y('gma'));
-  assert.ok(y('dad') > y('cousKid'), "dad's row is below the cousin's child");
+  assert.equal(y('dad') - y('cousKid'), CARD_H + 28, "dad's row is the one right below the cousin's child, with no empty row between");
   // With no brothers or sisters there is no lift.
   const u = sample();
   const U = layoutTree(u.t);
@@ -358,4 +358,28 @@ test('layout: a grandmother whose own parents are drawn keeps her siblings right
       if (L.pos.get(id)!.y === L.pos.get(g)!.y) assert.ok(L.pos.get(id)!.x > L.pos.get(g)!.x && L.pos.get(id)!.x < L.pos.get(next)!.x, `${id} is beside ${g}`);
     }
   }
+});
+
+test('layout: lifting a couple for deeper branches leaves no empty row, in-laws included', () => {
+  let t: Tree = emptyTree();
+  const id: Record<string, string> = {};
+  const add = (k: string, e: { tree: Tree; id: string }) => { t = e.tree; id[k] = e.id; };
+  add('me', addPerson(t, 'm', 'Me'));
+  add('dad', addParent(t, id.me, 'm', 'Dad'));
+  add('gma', addParent(t, id.dad, 'f', 'Gma'));
+  add('gpa', addParent(t, id.dad, 'm', 'Gpa'));
+  add('sis', addSibling(t, id.gma, 'f', 'GreatAunt'));
+  add('cous', addChild(t, id.sis, 'f', 'Cousin'));
+  add('cw', addSpouse(t, id.cous, 'm', 'CousinHusband'));
+  add('cwm', addParent(t, id.cw, 'f', 'CHMum'));
+  add('cousKid', addChild(t, id.cous, 'm', 'CousinKid'));
+  add('ckw', addSpouse(t, id.cousKid, 'f', 'CKWife'));
+  add('ckwm', addParent(t, id.ckw, 'f', 'CKWifeMum'));
+  add('ckwd', addParent(t, id.ckw, 'm', 'CKWifeDad'));
+  add('gk', addChild(t, id.cousKid, 'f', 'GreatGrandKid'));
+  checkViews(t, 'deep branch', false);
+  const L = layoutTree(t);
+  const rows = [...new Set([...L.pos.values()].map(p => p.y))].sort((a, b) => a - b);
+  for (let i = 1; i < rows.length; i++) assert.equal(rows[i] - rows[i - 1], CARD_H + 28, 'no empty row between two used rows');
+  assert.equal(L.pos.get(id.dad)!.y - L.pos.get(id.gk)!.y, CARD_H + 28, "dad's row is right below the deepest cousin's child");
 });
