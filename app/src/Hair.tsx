@@ -22,8 +22,8 @@ const FILL: Record<Tone, string> = {
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 const fillFor = (tone: Tone) => ({ ...stroke, fill: FILL[tone] });
 
-// Girls in your and your parents' generations wear the shorter kid bob.
-const shapeFor = (sex: string, age: Age): Age => (age === 'adult' && sex === 'f' ? 'child' : age);
+// Girls in your and your parents' generations wear the grandparents' bob.
+const shapeFor = (sex: string, age: Age): Age => (age === 'adult' && sex === 'f' ? 'parent' : age);
 
 export function HairBack({ sex, age: tier, tone }: { sex: string; age: Age; tone: Tone }) {
   const age = shapeFor(sex, tier);
