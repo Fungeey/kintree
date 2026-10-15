@@ -1,4 +1,4 @@
-// Edit mode: renaming someone already on the tree.
+// The popup (PersonPopup) replaced edit mode; this is the rename/validation logic it uses.
 import { renamePerson, setBirthOrder } from '../../engine/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
 

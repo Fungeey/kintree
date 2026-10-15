@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import {
-  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBirthOrder, addPet, renamePet, removePet,
+  emptyTree, addPerson, addParent, addChild, addSpouse, addSibling, removePerson, renamePerson, setBorn, setBirthOrder, addPet, renamePet, removePet,
   validateTree, kinPath, loadTable, resolve, sides, visible,
 } from '../src/index.ts';
 import type { Tree, TitleEntry, Generic, View } from '../src/index.ts';
@@ -279,4 +279,17 @@ test('pets: add, rename, remove, and they leave with their owner', () => {
   assert.throws(() => validateTree({ ...t, pets: [{ id: me, kind: 'cat', owner: me }] }));
   // The engine never sees pets: titles are the same with or without them.
   assert.deepEqual(sides(t, me), sides(removePet(removePet(t, 'a1'), 'a2'), me));
+});
+
+test('birth year: set, clear, validated, and kept through other edits', () => {
+  const a = addPerson(emptyTree(), 'f', 'Mei');
+  const b = setBorn(a.tree, a.id, 1952);
+  assert.equal(b.people[0].born, 1952);
+  assert.equal(a.tree.people[0].born, undefined);          // the input is left alone
+  const kid = addChild(b, a.id, 'm', 'Kid');
+  assert.equal(kid.tree.people.find(p => p.id === a.id)!.born, 1952);
+  assert.equal(renamePerson(b, a.id, 'Mei Ling').people[0].born, 1952);
+  assert.equal('born' in setBorn(b, a.id, undefined).people[0], false);
+  for (const bad of [999, 10000, 1952.5, NaN]) assert.throws(() => setBorn(a.tree, a.id, bad), /birth year/);
+  assert.throws(() => setBorn(a.tree, 'nobody', 1950), /unknown person/);
 });

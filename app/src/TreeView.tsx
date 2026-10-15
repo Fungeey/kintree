@@ -14,14 +14,15 @@ interface Props {
   me: string;
   show: (id: string) => boolean;
   onPick: (id: string) => void;
-  editing?: boolean;
+  focusId?: string | null;                               // whose popup is open: kept centred in the free area
+  insets?: { bottom: number; right: number };            // what the popup covers
   lang?: LangChoice;
 }
 
 interface Cam { x: number; y: number; k: number }
 const MIN_K = 0.25, MAX_K = 2;
 
-export function TreeView({ tree, me, show, onPick, editing = false, lang: choice = DEFAULT_LANG }: Props) {
+export function TreeView({ tree, me, show, onPick, focusId = null, insets, lang: choice = DEFAULT_LANG }: Props) {
   // "None" shows names only: no titles and nothing to read aloud, and rows are a little shorter.
   const bare = choice === NONE;
   const lang = bare ? DEFAULT_LANG : choice;
@@ -40,10 +41,15 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
   const camRef = useRef(cam);
   camRef.current = cam;
 
-  const centreOn = (id: string, k = camRef.current.k) => {
+  const free = focusId && insets ? insets : { bottom: 0, right: 0 };
+  const centreOn = (id: string, k = camRef.current.k, ins = { bottom: 0, right: 0 }) => {
     const el = box.current, p = layout.pos.get(id);
     if (!el || !p) return;
-    setCam({ k, x: el.clientWidth / 2 - (p.x + CARD_W / 2) * k, y: el.clientHeight / 2 - (p.y + layout.cardH / 2) * k });
+    setCam({
+      k,
+      x: (el.clientWidth - ins.right) / 2 - (p.x + CARD_W / 2) * k,
+      y: (el.clientHeight - ins.bottom) / 2 - (p.y + layout.cardH / 2) * k,
+    });
   };
 
   // Recentre on "me" when who "me" is, or the people shown, change.
@@ -52,9 +58,15 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
     const el = box.current;
     if (!el) return;
     const k = Math.min(1, Math.max(0.6, el.clientWidth / 520));
-    centreOn(me, k);
+    centreOn(focusId ?? me, k, free);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
+
+  // Opening or moving the popup, or it changing size, keeps its person in the part of the screen it leaves free.
+  useLayoutEffect(() => {
+    if (focusId) centreOn(focusId, camRef.current.k, free);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusId, insets?.bottom, insets?.right]);
 
   // Pan (one pointer), pinch (two) and wheel zoom.
   const pointers = useRef(new Map<number, { x: number; y: number }>());
@@ -118,7 +130,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
   };
 
   return (
-    <div className={`viewport${editing ? ' editing' : ''}`} ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}>
+    <div className="viewport" ref={box} onPointerDown={down} onPointerMove={move} onPointerUp={up} onPointerCancel={up} onPointerLeave={up}>
       <div className="world" style={{ transform: `translate(${cam.x}px, ${cam.y}px) scale(${cam.k})`, width: layout.width, height: layout.height }}>
         <svg className="links" width={layout.width} height={layout.height} aria-hidden="true">
           {segs.map((s, i) => (
@@ -135,7 +147,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
         ))}
         {tree.people.filter(p => layout.pos.has(p.id) && show(p.id)).map(p => {
           const pos = layout.pos.get(p.id)!;
-          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
+          return <PersonCard key={p.id} person={p} shown={shown.get(p.id)!} caption={captionFor(tree, p.id)} isMe={p.id === me} focused={p.id === focusId} more={hiddenRelatives(tree, p.id, show)} gen={(layout.gens.get(p.id) ?? 0) - (layout.gens.get(tree.people[0].id) ?? 0)} x={pos.x} y={pos.y} onPick={pick} speech={bare ? undefined : speech} lang={lang} bare={bare} />;
         })}
         {(tree.pets ?? []).filter(a => layout.pos.has(a.id) && show(a.owner)).map(a => {
           const pos = layout.pos.get(a.id)!;
@@ -145,7 +157,7 @@ export function TreeView({ tree, me, show, onPick, editing = false, lang: choice
       <div className="zoom" onPointerDown={e => e.stopPropagation()}>
         <button type="button" aria-label="Zoom in" onClick={() => btnZoom(1.25)}>+</button>
         <button type="button" aria-label="Zoom out" onClick={() => btnZoom(0.8)}>−</button>
-        <button type="button" aria-label="Centre on me" onClick={() => centreOn(me)}>◎</button>
+        <button type="button" aria-label="Centre on me" onClick={() => centreOn(me, camRef.current.k, free)}>◎</button>
       </div>
     </div>
   );

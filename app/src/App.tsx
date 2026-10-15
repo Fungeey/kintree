@@ -2,18 +2,16 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { emptyTree, removePerson, removePet, renamePet, sides, visible } from '../../engine/src/index.ts';
 import type { Tree, View } from '../../engine/src/index.ts';
 import { AddPerson } from './add/AddPerson.tsx';
-import { ConfirmSwitch } from './ConfirmSwitch.tsx';
-import { EditName } from './EditName.tsx';
+import { PersonPopup } from './PersonPopup.tsx';
 import { EditPet } from './EditPet.tsx';
 import { FileMenu } from './FileMenu.tsx';
 import { fileNameFor, readFile, saveFile } from './fileIO.ts';
-import { adopt, decodeFile, encodeFile, newTreeId } from '../../storage/src/index.ts';
+import { adopt, applyDetails, clearAll, decodeFile, encodeFile, newTreeId, pruneNotes, readDetails, readNotes, saveDetails, setNote } from '../../storage/src/index.ts';
 import { cleanName } from './rename.ts';
 import { TreeView } from './TreeView.tsx';
 import { demoTree } from './demo.ts';
 import { browserStore, openApp, persist, shareUrl } from './persist.ts';
-import { switchTarget, viewingAs } from './switchPov.ts';
-import { applyEdit, nameRequired, siblingsOf } from './rename.ts';
+import { viewingAs } from './switchPov.ts';
 import { rootLabel } from './display.ts';
 import { headingFor, initialLang, langFor, LANG_IDS, NONE, saveLang } from './lang.ts';
 import type { LangChoice } from './lang.ts';
@@ -23,6 +21,8 @@ const demo = typeof location !== 'undefined' && new URLSearchParams(location.sea
 interface Start { tree: Tree; me: string | null; treeId: string; error?: string }
 
 const store = browserStore();
+// Notes and birth years need a store that can list and remove keys. Without usable browser storage they last until the page closes.
+const kv = store ?? memoryKV();
 
 export function App() {
   const [start, setStart] = useState<Start | null>(() => (demo ? { ...demoTree(), treeId: newTreeId() } : null));
@@ -42,7 +42,11 @@ export function App() {
     if (demo) return;
     let live = true;
     openApp(store, location.hash).then(o => {
-      if (live) setStart({ tree: o.snapshot?.tree ?? emptyTree(), me: o.snapshot?.me ?? null, treeId: o.snapshot?.treeId ?? newTreeId(), error: o.error });
+      if (!live) return;
+      // Links and the saved tree carry no birth years; they come back from this browser's details for the same tree id.
+      const treeId = o.snapshot?.treeId ?? newTreeId();
+      const tree = o.snapshot ? applyDetails(o.snapshot.tree, readDetails(kv, treeId)) : emptyTree();
+      setStart({ tree, me: o.snapshot?.me ?? null, treeId, error: o.error });
     });
     return () => { live = false; };
   }, [epoch]);
@@ -65,6 +69,7 @@ export function App() {
       const treeId = snap.treeId ?? newTreeId();
       const next = { ...snap, treeId };
       if (!demo) {
+        saveDetails(kv, treeId, next.tree);   // the file's birth years win over any kept here for this tree
         const { fragment } = await adopt(store ?? memoryStore(), next);
         history.replaceState(null, '', `${location.pathname}${location.search}#${fragment}`);
       }
@@ -132,10 +137,16 @@ function usePicker(onFile: (f: File) => void): [JSX.Element, () => void] {
   return [input, () => ref.current?.click()];
 }
 
-const memoryStore = () => {
+function memoryKV() {
   const m = new Map<string, string>();
-  return { getItem: (k: string) => m.get(k) ?? null, setItem: (k: string, v: string) => { m.set(k, v); } };
-};
+  return {
+    getItem: (k: string) => m.get(k) ?? null,
+    setItem: (k: string, v: string) => { m.set(k, v); },
+    removeItem: (k: string) => { m.delete(k); },
+    keys: () => [...m.keys()],
+  };
+}
+const memoryStore = memoryKV;
 
 interface ShellProps {
   start: Start; lang: LangChoice; setLang: (id: LangChoice) => void;
@@ -150,9 +161,10 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
   const [error, setError] = useState<string | undefined>(start.error);
   const [copied, setCopied] = useState<'ok' | 'fail' | null>(null);
   const [view, setView] = useState<View>('mine');
-  const [asking, setAsking] = useState<string | null>(null);
-  const [editMode, setEditMode] = useState(false);
-  const [renaming, setRenaming] = useState<string | null>(null);
+  const [focus, setFocus] = useState<string | null>(null);          // whose popup is open
+  const [requested, setRequested] = useState<string | null>(null);   // tapped while the popup has unsaved changes
+  const [dirty, setDirty] = useState(false);
+  const [box, setBox] = useState<{ height: number; width: number; panel: boolean } | null>(null);
   const [petEditing, setPetEditing] = useState<string | null>(null);
 
   // Autosave on every change, and keep the address bar in step so a reload reopens this tree.
@@ -161,6 +173,23 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
     persist(store, { tree, me, treeId: start.treeId }, frag => history.replaceState(null, '', `${location.pathname}${location.search}#${frag}`))
       .catch(() => { /* full or blocked storage must not break editing */ });
   }, [tree, me, start.treeId]);
+
+  // Birth years stay in this browser for this tree id (links don't carry them); notes of removed people go.
+  useEffect(() => {
+    if (demo || !tree.people.length) return;
+    try { saveDetails(kv, start.treeId, tree); pruneNotes(kv, start.treeId, tree); } catch { /* storage full or blocked */ }
+  }, [tree, start.treeId]);
+  const note = useMemo(() => ({
+    get: (id: string) => readNotes(kv, start.treeId)[id] ?? '',
+    set: (id: string, text: string) => setNote(kv, start.treeId, id, text),
+  }), [start.treeId]);
+  const hasYears = tree.people.some(p => p.born !== undefined);
+
+  const clearDevice = () => {
+    if (!confirm('Remove everything Kintree keeps in this browser: the saved tree, recent copies, notes and settings? Files you saved are not affected.')) return;
+    try { clearAll(kv); } catch { /* nothing more to do */ }
+    location.replace(location.pathname);
+  };
 
   const copyLink = async () => {
     try {
@@ -185,32 +214,24 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
   const s = useMemo(() => (me && tree.people.some(p => p.id === me) ? sides(tree, me) : null), [tree, me]);
   const show = useCallback((id: string) => (s ? visible(s, id, view) : true), [s, view]);
 
-  // Tapping someone asks before switching "me"; tapping "me" again does nothing. In edit mode it renames them.
-  // A pet can't be "me"; in edit mode it opens its own sheet.
+  // Tapping a person opens their popup. With unsaved changes in the open popup it asks first. A pet opens its own sheet.
   const pick = (id: string) => {
-    if (tree.pets?.some(a => a.id === id)) { if (editMode) setPetEditing(id); return; }
-    if (editMode) setRenaming(id);
-    else if (switchTarget(tree, me, id)) setAsking(id);
+    if (tree.pets?.some(a => a.id === id)) { setPetEditing(id); return; }
+    if (id === focus) return;
+    if (focus && dirty) setRequested(id);
+    else setFocus(id);
   };
-  const toggleEdit = () => { setEditMode(e => !e); setRenaming(null); setPetEditing(null); };
   const editingPet = petEditing ? tree.pets?.find(a => a.id === petEditing) : undefined;
-  const rename = (id: string, name: string, order: string[]) => {
-    const t = applyEdit(tree, id, name, order);
-    if (t && t !== tree) setTree(t);
-    setRenaming(null);
-  };
-  const renamingWho = renaming ? tree.people.find(p => p.id === renaming) : undefined;
-  const switchTo = (id: string) => { setMe(id); setView('mine'); setAsking(null); };
-  const askingWho = asking ? switchTarget(tree, me, asking) : null;
+  const viewAs = (id: string) => { setMe(id); setView('mine'); setFocus(null); };
   const changed = (t: Tree, id: string) => {
     setTree(t);
     if (!me) setMe(id);
   };
-  // Edit mode's Remove: take someone off the tree. If it was "me", the view moves to someone who is left.
+  // Remove (in Relatives): take someone off the tree. If it was "me", the view moves to someone who is left.
   const removeAt = (id: string) => {
     const t = removePerson(tree, id);
     setTree(t);
-    setRenaming(null);
+    setFocus(null);
     if (id === me) { setMe(t.people[0]?.id ?? null); setView('mine'); }
   };
 
@@ -248,10 +269,9 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
         )}
         <span className="spacer" />
         {picker}
-        <button type="button" className={editMode ? 'editing' : undefined} aria-pressed={editMode} onClick={toggleEdit}>{editMode ? 'Done' : 'Edit'}</button>
-        <FileMenu onSave={saveToFile} onOpen={openPicker} note={saved} />
+        <FileMenu onSave={saveToFile} onOpen={openPicker} onClear={clearDevice} note={saved} />
         {fileInput}
-        <button type="button" onClick={copyLink}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link</span></>}</button>
+        <button type="button" onClick={copyLink} title={hasYears ? 'A link carries the tree and names. Birth years go in a saved file.' : undefined}>{copied === 'ok' ? 'Copied' : copied === 'fail' ? 'Failed' : <>Copy<span className="long"> link{hasYears ? ' (names only)' : ''}</span></>}</button>
       </header>
       {error && (
         <p className="notice" role="alert">
@@ -265,24 +285,29 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
           <button type="button" onClick={dismissFileError}>Dismiss</button>
         </p>
       )}
-      {editMode && <p className="edit-banner" role="status">Editing. Tap a person to rename, reorder, add relatives or pets, or remove them.</p>}
-      <TreeView tree={tree} me={me} show={show} onPick={pick} editing={editMode} lang={lang} />
-      {asking && askingWho && <ConfirmSwitch who={askingWho} onConfirm={() => switchTo(asking)} onCancel={() => setAsking(null)} />}
-      {renaming && renamingWho && (
-        <EditName
-          key={renaming}
-          tree={tree}
-          who={rootLabel(tree, renaming)?.replace(/^Your /, 'your ') ?? switchTarget(tree, me, renaming) ?? 'this person'}
-          name={renamingWho.name ?? ''}
-          required={nameRequired(tree, renaming)}
-          self={renaming}
-          siblings={siblingsOf(tree, renaming).map(id => tree.people.find(p => p.id === id)!)}
-          onSave={(name, order) => rename(renaming, name, order)}
-          onAdded={(t, id) => { changed(t, id); setRenaming(null); }}
-          onRemove={() => removeAt(renaming)}
-          onCancel={() => setRenaming(null)}
-        />
-      )}
+      <div className="stage" style={{ '--inset-b': box && !box.panel ? `${box.height}px` : '0px', '--inset-r': box?.panel ? `${box.width}px` : '0px' } as React.CSSProperties}>
+        <TreeView tree={tree} me={me} show={show} onPick={pick} focusId={focus} insets={box ? { bottom: box.panel ? 0 : box.height, right: box.panel ? box.width : 0 } : undefined} lang={lang} />
+        {focus && tree.people.some(p => p.id === focus) && (
+          <PersonPopup
+            key={focus}
+            tree={tree}
+            me={me}
+            id={focus}
+            lang={lang}
+            requested={requested}
+            note={note}
+            onTree={(t, newId) => changed(t, newId ?? me)}
+            onViewAs={() => viewAs(focus)}
+            onRemove={() => removeAt(focus)}
+            onClose={() => setFocus(null)}
+            onSwitch={id => { setRequested(null); setDirty(false); setFocus(id); }}
+            onKeep={() => setRequested(null)}
+            onDirty={setDirty}
+            onSize={setBox}
+          />
+        )}
+        {!focus && <p className="viewing" aria-live="polite">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>}
+      </div>
       {editingPet && (
         <EditPet
           key={editingPet.id}
@@ -293,7 +318,6 @@ function Shell({ start, lang, setLang, onOpenFile, fileError, dismissFileError }
           onCancel={() => setPetEditing(null)}
         />
       )}
-      <p className="viewing" aria-live="polite">Viewing as: <strong>{viewingAs(tree, me)}</strong></p>
     </div>
   );
 }

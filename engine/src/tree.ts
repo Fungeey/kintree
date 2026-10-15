@@ -3,11 +3,15 @@ import { PET_KINDS } from './model.ts';
 import type { Family, Person, Tree } from './model.ts';
 import type { Token } from './tokens.ts';
 
+export const MIN_BORN = 1000;
+export const MAX_BORN = 9999;
+
 export function validateTree(tree: Tree): void {
   const people = new Set<string>();
   for (const p of tree.people) {
     if (people.has(p.id)) throw new Error(`duplicate person id: ${p.id}`);
     if (p.sex !== 'm' && p.sex !== 'f') throw new Error(`bad sex for ${p.id}`);
+    if (p.born !== undefined && !(Number.isInteger(p.born) && p.born >= MIN_BORN && p.born <= MAX_BORN)) throw new Error(`bad birth year for ${p.id}`);
     people.add(p.id);
   }
 

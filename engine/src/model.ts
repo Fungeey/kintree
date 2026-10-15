@@ -2,7 +2,8 @@
 
 export type Sex = 'm' | 'f';
 
-export interface Person { id: string; sex: Sex; name?: string }
+// born: a birth year. Not part of the link (links carry the tree and names only); it travels in the .kintree file and is kept per tree in the browser.
+export interface Person { id: string; sex: Sex; name?: string; born?: number }
 
 // parents: 0-2 ids; children: birth order, eldest first.
 export interface Family { id: string; parents: string[]; children: string[] }

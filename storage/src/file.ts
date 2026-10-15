@@ -1,10 +1,12 @@
 // The .kintree file: the whole tree as readable JSON, for Save file / Open file.
 //   { kintree: 1, saved, me, treeId?, tree: {version, root?, people, families, pets?}, photos: {} }
-// Unlike the link it does not depend on the link's binary encoding. `photos` is empty for now; photo ids will map to
-// data: URLs there, so later steps add to this format without changing what is written today. Unknown fields are ignored on open.
+// Unlike the link it does not depend on the link's binary encoding. People carry `born` (birth year) here, which the
+// link does not. `photos` is empty for now; photo ids will map to data: URLs there, so a later step adds to this format
+// without changing what is written today. Notes are not in the file: they stay in the browser. Unknown fields are ignored on open.
 import { finish, isTreeId } from './format.ts';
 import type { Snapshot } from './format.ts';
 import { validateTree } from '../../engine/src/index.ts';
+import { MAX_BORN, MIN_BORN } from '../../engine/src/index.ts';
 import type { Person, Family, Pet, Tree } from '../../engine/src/index.ts';
 
 export const FILE_VERSION = 1;
@@ -63,7 +65,12 @@ export function decodeFile(text: string): Snapshot {
     version: 1,
     people: t.people.map((v): Person => {
       const p = rec(v, 'person');
-      return { id: str(p.id, 'person id'), sex: p.sex as Person['sex'], ...optName(p.name) };
+      const out: Person = { id: str(p.id, 'person id'), sex: p.sex as Person['sex'], ...optName(p.name) };
+      if (p.born !== undefined) {
+        if (typeof p.born !== 'number' || !Number.isInteger(p.born) || p.born < MIN_BORN || p.born > MAX_BORN) throw new Error('file is corrupt: bad birth year');
+        out.born = p.born;
+      }
+      return out;
     }),
     families: t.families.map((v): Family => {
       const f = rec(v, 'family');
