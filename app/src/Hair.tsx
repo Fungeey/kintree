@@ -22,7 +22,11 @@ const FILL: Record<Tone, string> = {
 const stroke = { stroke: INK, strokeWidth: 2, strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const };
 const fillFor = (tone: Tone) => ({ ...stroke, fill: FILL[tone] });
 
-export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone }) {
+// Girls in your and your parents' generations wear the shorter kid bob.
+const shapeFor = (sex: string, age: Age): Age => (age === 'adult' && sex === 'f' ? 'child' : age);
+
+export function HairBack({ sex, age: tier, tone }: { sex: string; age: Age; tone: Tone }) {
+  const age = shapeFor(sex, tier);
   const hair = fillFor(tone);
   if (age === 'baby') {
     // A single curl for boys; a small bow for girls.
@@ -67,7 +71,8 @@ export function HairBack({ sex, age, tone }: { sex: string; age: Age; tone: Tone
   );
 }
 
-export function HairFront({ sex, age, tone }: { sex: string; age: Age; tone: Tone }) {
+export function HairFront({ sex, age: tier, tone }: { sex: string; age: Age; tone: Tone }) {
+  const age = shapeFor(sex, tier);
   const hair = fillFor(tone);
   if (age === 'baby') return null;
   const shape = age === 'child' && sex === 'm'
