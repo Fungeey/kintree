@@ -112,8 +112,7 @@ export function layoutTree(original: Tree, showPerson: (id: string) => boolean =
       if (!b) continue;
       for (const s of fams.get(b)!.children) if (s !== p) k = Math.max(k, branchDepth(s));
     }
-    // Branches two generations deep get one row more, for the parents of the children's spouses.
-    return k >= 2 ? k + 1 : k;
+    return k;
   };
   const order = tree.people.filter(p => shown.has(p.id)).map(p => p.id);
   const anchors: string[] = [];
