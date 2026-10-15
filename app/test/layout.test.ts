@@ -305,3 +305,20 @@ test('layout: a grandmother\'s siblings go right of the couple even when the gra
   const x = (id: string) => L.pos.get(id)!.x;
   assert.ok(x('p39') > x('p6') && x('p43') > x('p6'), "dad's mother's sister and brother are right of her");
 });
+
+test('layout: a grandmother whose own parents are drawn keeps her siblings right beside her', async () => {
+  const { demoTree } = await import('../src/demo.ts');
+  let { tree } = demoTree();
+  const add = (e: { tree: Tree; id: string }) => { tree = e.tree; return e.id; };
+  // Paternal grandmother (p6) and the wife's father's mother (p28) each get parents and a younger brother.
+  const bro = [add(addSibling(tree, 'p6', 'm')), add(addSibling(tree, 'p28', 'm'))];
+  add(addParent(tree, 'p6', 'm')); add(addParent(tree, 'p6', 'f'));
+  add(addParent(tree, 'p28', 'm')); add(addParent(tree, 'p28', 'f'));
+  checkViews(tree, 'grandmothers with parents', false);
+  const s = sides(tree, 'p1');
+  const mine = layoutTree(tree, id => visible(s, id, 'mine')), spouse = layoutTree(tree, id => visible(s, id, 'spouse'));
+  assert.ok(mine.pos.get(bro[0])!.x > mine.pos.get('p6')!.x, "grandma's brother is right of her");
+  assert.ok(mine.pos.get(bro[0])!.x < mine.pos.get('p15')!.x, "and before the mother's parents");
+  assert.ok(spouse.pos.get(bro[1])!.x > spouse.pos.get('p28')!.x, "her father's mother's brother is right of her");
+  assert.ok(spouse.pos.get(bro[1])!.x < spouse.pos.get('p29')!.x, "and before her mother's parents");
+});
