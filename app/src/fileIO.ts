@@ -1,5 +1,5 @@
 // Save file / Open file in the browser (PR 1). The format is in ../storage/src/file.ts.
-import { FILE_EXTENSION, FILE_MIME } from '../../storage/src/index.ts';
+import { FILE_EXTENSION } from '../../storage/src/index.ts';
 import type { Tree } from '../../engine/src/index.ts';
 
 /** Files bigger than this aren't opened: a tree with photos is a few MB, so this is far past any real file. */
@@ -12,29 +12,21 @@ export function fileNameFor(tree: Tree): string {
   return `${clean ? `${clean} family` : 'Family tree'}${FILE_EXTENSION}`;
 }
 
-export type Saved = 'shared' | 'downloaded' | 'cancelled';
-
-/** Hand the file to the person: the share sheet on phones (so it can go straight to Messages or Files), a download elsewhere. */
-export async function saveFile(text: string, name: string): Promise<Saved> {
-  const file = new File([text], name, { type: FILE_MIME });
-  const nav = typeof navigator !== 'undefined' ? navigator : undefined;
-  const phone = typeof matchMedia === 'function' && matchMedia('(pointer: coarse)').matches;
-  if (phone && nav?.canShare?.({ files: [file] })) {
-    try { await nav.share({ files: [file] }); return 'shared'; }
-    catch (e) {
-      if ((e as DOMException).name === 'AbortError') return 'cancelled';
-      // Any other failure falls through to a plain download.
-    }
-  }
-  const url = URL.createObjectURL(file);
+/**
+ * Download the file, on phones and desktop alike. (A share sheet was tried for phones, but it isn't a download:
+ * it opens a menu instead, and where it isn't offered nothing happened.) The type is generic so no browser
+ * tries to show the JSON in a tab instead of saving it.
+ */
+export function saveFile(text: string, name: string): void {
+  const url = URL.createObjectURL(new Blob([text], { type: 'application/octet-stream' }));
   const a = document.createElement('a');
   a.href = url;
   a.download = name;
+  a.style.display = 'none';
   document.body.append(a);
   a.click();
   a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 10_000);
-  return 'downloaded';
+  setTimeout(() => URL.revokeObjectURL(url), 60_000);
 }
 
 /** The text of a file the person picked or dropped. */
