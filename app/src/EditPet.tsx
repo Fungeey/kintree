@@ -11,7 +11,7 @@ interface Props {
   onCancel: () => void;
 }
 
-// Edit mode's sheet for a pet: rename it or take it off the tree. The same native <dialog> as the person sheet.
+// The sheet for a pet (tap it): rename it or take it off the tree. The same native <dialog> as the person sheet.
 export function EditPet({ pet, owner, onSave, onRemove, onCancel }: Props) {
   const ref = useRef<HTMLDialogElement>(null);
   const [value, setValue] = useState(pet.name ?? '');

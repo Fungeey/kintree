@@ -45,7 +45,7 @@ test('the file is readable JSON with the documented shape and an empty photos ma
 test('unknown fields are ignored, and a name that is not a string is refused', () => {
   const j = JSON.parse(encodeFile(snap()));
   j.future = { x: 1 };
-  j.tree.people[0].born = 1952;
+  j.tree.people[0].nickname = 'Ah Ming';
   j.tree.people[0].extra = '<img onerror=alert(1)>';
   assert.deepEqual(decodeFile(JSON.stringify(j)), snap());
   j.tree.people[1].name = 7;

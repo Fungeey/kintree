@@ -66,6 +66,16 @@ export function renamePerson(tree: Tree, id: string, name: string): Tree {
   return t;
 }
 
+// Sets (or, with undefined, clears) a person's birth year.
+export function setBorn(tree: Tree, id: string, born: number | undefined): Tree {
+  mustHave(tree, id);
+  const t = structuredClone(tree);
+  const p = t.people.find(x => x.id === id)!;
+  if (born === undefined) delete p.born; else p.born = born;
+  validateTree(t);
+  return t;
+}
+
 // Sets the birth order of `id`'s sibling group (everyone in their birth family, eldest first). `order` must list
 // exactly those people. A person with no birth family is a group of one.
 export function setBirthOrder(tree: Tree, id: string, order: string[]): Tree {

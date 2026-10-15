@@ -1,13 +1,18 @@
 // Load/save wiring for the shell (slice 4c) over the storage library.
 import { encodeFragment, open, save } from '../../storage/src/index.ts';
-import type { KV, Opened, Snapshot } from '../../storage/src/index.ts';
+import type { KV, KVAll, Opened, Snapshot } from '../../storage/src/index.ts';
 
 /** localStorage, or null when the browser blocks it (private mode, disabled storage). */
-export function browserStore(): KV | null {
+export function browserStore(): KVAll | null {
   try {
     const s = window.localStorage;
     s.getItem('kinship:probe');
-    return s;
+    return {
+      getItem: k => s.getItem(k),
+      setItem: (k, v) => s.setItem(k, v),
+      removeItem: k => s.removeItem(k),
+      keys: () => Array.from({ length: s.length }, (_, i) => s.key(i)).filter((k): k is string => k !== null),
+    };
   } catch { return null; }
 }
 
